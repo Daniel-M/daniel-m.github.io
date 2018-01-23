@@ -14,8 +14,26 @@
     
     <url>
     
+      <loc>https://daniel-m.github.io/course/workshop-opencv-python/</loc>
+      <lastmod>2017-12-14T14:00:28-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://daniel-m.github.io/project/intracellular-dyes/</loc>
       <lastmod>2017-11-17T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://daniel-m.github.io/talk/adventures-ml/</loc>
+      <lastmod>2017-11-13T10:00:24-05:00</lastmod>
     </url>
     
   
@@ -41,6 +59,15 @@
     
     <url>
     
+      <loc>https://daniel-m.github.io/course/</loc>
+      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://daniel-m.github.io/publication/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
@@ -52,6 +79,24 @@
     
       <loc>https://daniel-m.github.io/talk/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://daniel-m.github.io/course/intro-python-biologos/</loc>
+      <lastmod>2016-05-04T10:31:01-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://daniel-m.github.io/course/gnu-linux-2016/</loc>
+      <lastmod>2016-02-20T10:30:46-05:00</lastmod>
     </url>
     
   
@@ -208,6 +253,26 @@
     
       <loc>https://daniel-m.github.io/publication_types/</loc>
       <lastmod>2013-01-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://daniel-m.github.io/tags/python3/</loc>
+      <lastmod>2016-05-04T10:31:01-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://daniel-m.github.io/tags/short-course/</loc>
+      <lastmod>2016-05-04T10:31:01-05:00</lastmod>
       <priority>0</priority>
     </url>
     

@@ -6,7 +6,7 @@
     <description>Recent content in Daniel Mejía Raigosa on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2017 Daniel Mejía R.</copyright>
+    <copyright>&amp;copy; 2018 Daniel Mejía R.</copyright>
     <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0500</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
@@ -26,6 +26,16 @@ since forever. Nevertheless I have lots of drafts soon to be published so stay t
     </item>
     
     <item>
+      <title>Workshop of OpenCV 3.3.0 with Python3</title>
+      <link>https://daniel-m.github.io/course/workshop-opencv-python/</link>
+      <pubDate>Thu, 14 Dec 2017 14:00:28 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/course/workshop-opencv-python/</guid>
+      <description>&lt;p&gt;A short course to introduce computer vision with the python bindings for OpenCV. The course materials are available at &lt;a href=&#34;https://github.com/Daniel-M/Workshop_OpenCV&#34; target=&#34;_blank&#34;&gt;https://github.com/Daniel-M/Workshop_OpenCV&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Intracellular fluorescent dyes</title>
       <link>https://daniel-m.github.io/project/intracellular-dyes/</link>
       <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
@@ -40,6 +50,44 @@ since forever. Nevertheless I have lots of drafts soon to be published so stay t
 &lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
 
 &lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Adventures with Machine Learning</title>
+      <link>https://daniel-m.github.io/talk/adventures-ml/</link>
+      <pubDate>Mon, 13 Nov 2017 10:00:24 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/talk/adventures-ml/</guid>
+      <description>&lt;p&gt;Slides for the study group on Deep Learning. The presentation was part of the motivation of the group.
+The slides and materials can be found at &lt;a href=&#34;https://bitbucket.org/Daniel-M/ml_adventures_slides&#34; target=&#34;_blank&#34;&gt;https://bitbucket.org/Daniel-M/ml_adventures_slides&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Python for Biologists</title>
+      <link>https://daniel-m.github.io/course/intro-python-biologos/</link>
+      <pubDate>Wed, 04 May 2016 10:31:01 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/course/intro-python-biologos/</guid>
+      <description>&lt;p&gt;Course materials for the short course &amp;ldquo;Introducción a Python para Biologos&amp;rdquo; held at the University of Antioquia, east headquarters at Rionegro.
+The materials are available at &lt;a href=&#34;https://github.com/Daniel-M/IntroPythonBiologos&#34; target=&#34;_blank&#34;&gt;https://github.com/Daniel-M/IntroPythonBiologos&lt;/a&gt;.
+&lt;a href=&#34;http://nbviewer.jupyter.org/github/Daniel-M/IntroPythonBiologos/blob/master/doc/notes/IntroPythonBiologos.ipynb&#34; target=&#34;_blank&#34;&gt;An online version can be seen here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GNU Linux 2016</title>
+      <link>https://daniel-m.github.io/course/gnu-linux-2016/</link>
+      <pubDate>Sat, 20 Feb 2016 10:30:46 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/course/gnu-linux-2016/</guid>
+      <description>&lt;p&gt;Materials for the course on GNU/Linux console and fundamentals of version control with git. The course consisted of two sessions of 4 hours each,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://daniel-m.github.io/files/courses/2016/C.I._Linux_Febrero_2016_Sesion_1.pdf&#34;&gt;First session&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://daniel-m.github.io/files/courses/2016/C.I._Linux_Febrero_2016_Sesion_2.pdf&#34;&gt;Second session&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
