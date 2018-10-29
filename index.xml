@@ -203,7 +203,21 @@ cable and run,&lt;/p&gt;
 
 &lt;p&gt;You should see something like this,&lt;/p&gt;
 
-&lt;p&gt;![The hello-wolrd]()&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./hello-world-esp32.png&#34; alt=&#34;The hello-world&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The messages shown will be different, according to your particular hardware.&lt;/p&gt;
+
+&lt;p&gt;You can use &lt;code&gt;picocom /dev/ttyUSB0&lt;/code&gt; and see the messages similarly, but I rather
+use &lt;code&gt;make monitor&lt;/code&gt; since it is faster to type.&lt;/p&gt;
+
+&lt;p&gt;Well, that&amp;rsquo;s about it, you got the official espressif-idf development
+environment ready to use in your system.&lt;/p&gt;
+
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/stable/get-started/&#34; target=&#34;_blank&#34;&gt;Espressif esp-idf getting started&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -274,8 +288,11 @@ applications.&lt;/p&gt;
 
 &lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
 
+&lt;p&gt;Some useful resources are available at,&lt;/p&gt;
+
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.lucadentella.it/en/category/esp32&#34; target=&#34;_blank&#34;&gt;http://www.lucadentella.it/en/category/esp32&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://esp32.net/&#34; target=&#34;_blank&#34;&gt;http://esp32.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.lucadentella.it/en/category/esp32&#34; target=&#34;_blank&#34;&gt;http://www.lucadentella.it/en/category/esp32&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
