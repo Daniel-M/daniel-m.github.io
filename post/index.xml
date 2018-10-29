@@ -11,11 +11,84 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Getting started with the ESP32</title>
+      <link>https://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/</link>
+      <pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/</guid>
+      <description>
+
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;One of my hobbies during my school days was electronics after learning about
+&lt;a href=&#34;https://en.wikipedia.org/wiki/BEAM_robotics&#34; target=&#34;_blank&#34;&gt;B.E.A.M&lt;/a&gt; robots during a &lt;em&gt;Popular
+Mechanics for Kids&lt;/em&gt; episode. &lt;a href=&#34;http://solarbotics.net/&#34; target=&#34;_blank&#34;&gt;You can learn more about B.E.A.M. here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;During my University years I had the opportunity to refine my knowledge on basic
+electronics, and exploit my programming skills programming Arduino and Microchip
+microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still
+wanted to be able to send data to remote locations, which could be possible by
+means of a RaspberryPI, or a GSM module or Bluetooth module &amp;ndash;which were expensive&amp;ndash;,
+or having the Arduino/MCU connected to a regular computer with internet,
+so the whole point of &lt;em&gt;small&lt;/em&gt; devices was not really possible at that time
+in terms of a good efficiency/cost relation.&lt;/p&gt;
+
+&lt;p&gt;After several years without doing electronics, I&amp;rsquo;ve heard about the ESP8266 chip
+and its predecessor the ESP32. The most appealing feature of those chips
+was the built-in support for Wi-Fi or Bluetooth technologies, all shipped in
+convenient development boards which can be programmed either with C, Python, or Lua.&lt;/p&gt;
+
+&lt;p&gt;I got lured by the possibilities of having remote controlled electronics and bought
+an ESP32 development board. As I progress in learning how to use it, I&amp;rsquo;ll blog about
+my experiences getting this new toy up and running, the pitfalls I ran into and
+how I manage to solve them.&lt;/p&gt;
+
+&lt;p&gt;As I publish blog entries, they will be linked in the table of contents near the
+end of this blog post.&lt;/p&gt;
+
+&lt;h2 id=&#34;but-what-exactly-is-an-esp32&#34;&gt;But what exactly is an ESP32?&lt;/h2&gt;
+
+&lt;p&gt;The ESP32 is a low-cost, low-power system on a chip (SoC) series with Wi-Fi and
+dual-mode Bluetooth capabilities, powered by a single or dual core Tensilica
+Xtensa LX6 microprocessor with a clock rate of up to 240 MHz. Yes, a tiny chip
+with the clock rate of an old
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Pentium_II&#34; target=&#34;_blank&#34;&gt;Intel Pentium II CPU&lt;/a&gt;, shipped with
+Wi-Fi and Bluetooth. The availability of two ADC channels and more than 15
+General purpose Input Output pins (GPIO), makes this chip really powerful to IoT
+applications.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how my ESP32 &amp;ndash;based on the &lt;a href=&#34;https://docs.zerynth.com/latest/official/board.zerynth.doit_esp32/docs/index.html&#34; target=&#34;_blank&#34;&gt;doit ESP32 Devkit v1&lt;/a&gt;&amp;ndash; came,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;esp32_2.jpg&#34; alt=&#34;New toy ESP32&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;esp32_1.jpg&#34; alt=&#34;New toy ESP32 other view&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A sneak peak of what is comming,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;blinker.gif&#34; alt=&#34;Blinking&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;
+
+&lt;p&gt;The following blogs are related to ESP32&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;Setting up a development environment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.lucadentella.it/en/category/esp32&#34; target=&#34;_blank&#34;&gt;http://www.lucadentella.it/en/category/esp32&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Alternative blog at http://blog.parallelo.ai</title>
-      <link>https://daniel-m.github.io/post/alternative-blog/</link>
+      <link>https://daniel-m.github.io/post/2018/oct/alternative-blog/</link>
       <pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/post/alternative-blog/</guid>
+      <guid>https://daniel-m.github.io/post/2018/oct/alternative-blog/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m not of an active blogger in this site, but you can take a look at
 &lt;strong&gt;&lt;a href=&#34;http://blog.parallelo.ai&#34; target=&#34;_blank&#34;&gt;http://blog.parallelo.ai&lt;/a&gt;&lt;/strong&gt; and get in touch with
 some of my work-related blog posts.&lt;/p&gt;
@@ -24,10 +97,10 @@ some of my work-related blog posts.&lt;/p&gt;
     
     <item>
       <title>Old Blog</title>
-      <link>https://daniel-m.github.io/post/old-blog/</link>
+      <link>https://daniel-m.github.io/post/2017/old-blog/</link>
       <pubDate>Mon, 01 Jan 2018 06:32:12 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/post/old-blog/</guid>
+      <guid>https://daniel-m.github.io/post/2017/old-blog/</guid>
       <description>
 
 &lt;h1 id=&#34;daniel-s-log-book&#34;&gt;Daniel&amp;rsquo;s log book&lt;/h1&gt;

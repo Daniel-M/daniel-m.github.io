@@ -5,7 +5,16 @@
     
     <url>
     
-      <loc>https://daniel-m.github.io/post/alternative-blog/</loc>
+      <loc>https://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/</loc>
+      <lastmod>2018-10-28T19:42:25-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://daniel-m.github.io/post/2018/oct/alternative-blog/</loc>
       <lastmod>2018-10-17T12:23:57-05:00</lastmod>
     </url>
     
@@ -14,7 +23,7 @@
     
     <url>
     
-      <loc>https://daniel-m.github.io/post/old-blog/</loc>
+      <loc>https://daniel-m.github.io/post/2017/old-blog/</loc>
       <lastmod>2018-01-01T06:32:12-05:00</lastmod>
     </url>
     
@@ -171,6 +180,16 @@
     
     <url>
     
+      <loc>https://daniel-m.github.io/categories/blog/</loc>
+      <lastmod>2018-10-17T12:23:57-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://daniel-m.github.io/tags/calcium/</loc>
       <lastmod>2017-11-17T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -182,6 +201,7 @@
     <url>
     
       <loc>https://daniel-m.github.io/categories/</loc>
+      <lastmod>2018-10-17T12:23:57-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -200,8 +220,38 @@
     
     <url>
     
+      <loc>https://daniel-m.github.io/tags/esp32/</loc>
+      <lastmod>2018-10-28T19:42:25-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://daniel-m.github.io/categories/esp32/</loc>
+      <lastmod>2018-10-28T19:42:25-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://daniel-m.github.io/tags/fluorescence/</loc>
       <lastmod>2017-11-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://daniel-m.github.io/tags/iot/</loc>
+      <lastmod>2018-10-28T19:42:25-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -260,6 +310,16 @@
     
     <url>
     
+      <loc>https://daniel-m.github.io/tags/projects/</loc>
+      <lastmod>2018-10-28T19:42:25-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://daniel-m.github.io/publication_types/</loc>
       <lastmod>2013-01-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -282,6 +342,16 @@
     
       <loc>https://daniel-m.github.io/tags/short-course/</loc>
       <lastmod>2016-05-04T10:31:01-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://daniel-m.github.io/categories/table-of-contents/</loc>
+      <lastmod>2018-10-28T19:42:25-05:00</lastmod>
       <priority>0</priority>
     </url>
     

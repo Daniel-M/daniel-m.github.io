@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -15,10 +13,15 @@
   
   
   
-  <meta name="description" content="Researcher/Programmer">
+    
+      
+    
+  
+  <meta name="description" content="Motivation One of my hobbies during my school days was electronics after learning about B.E.A.M robots during a Popular Mechanics for Kids episode. You can learn more about B.E.A.M. here
+During my University years I had the opportunity to refine my knowledge on basic electronics, and exploit my programming skills programming Arduino and Microchip microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still wanted to be able to send data to remote locations, which could be possible by means of a RaspberryPI, or a GSM module or Bluetooth module &ndash;which were expensive&ndash;, or having the Arduino/MCU connected to a regular computer with internet, so the whole point of small devices was not really possible at that time in terms of a good efficiency/cost relation.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://daniel-m.github.io/tags/open-source/">
+  <link rel="alternate" hreflang="en-us" href="https://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/">
 
   
 
@@ -80,7 +83,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://daniel-m.github.io/tags/open-source/">
+  <link rel="canonical" href="https://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -88,17 +91,20 @@
   <meta property="twitter:creator" content="@danielmejia55_">
   
   <meta property="og:site_name" content="Daniel Mejía Raigosa">
-  <meta property="og:url" content="https://daniel-m.github.io/tags/open-source/">
-  <meta property="og:title" content="Open source | Daniel Mejía Raigosa">
-  <meta property="og:description" content="Researcher/Programmer">
+  <meta property="og:url" content="https://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/">
+  <meta property="og:title" content="Getting started with the ESP32 | Daniel Mejía Raigosa">
+  <meta property="og:description" content="Motivation One of my hobbies during my school days was electronics after learning about B.E.A.M robots during a Popular Mechanics for Kids episode. You can learn more about B.E.A.M. here
+During my University years I had the opportunity to refine my knowledge on basic electronics, and exploit my programming skills programming Arduino and Microchip microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still wanted to be able to send data to remote locations, which could be possible by means of a RaspberryPI, or a GSM module or Bluetooth module &ndash;which were expensive&ndash;, or having the Arduino/MCU connected to a regular computer with internet, so the whole point of small devices was not really possible at that time in terms of a good efficiency/cost relation.">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-10-17T12:23:57-05:00">
+  <meta property="article:published_time" content="2018-10-28T19:42:25-05:00">
+  
+  <meta property="article:modified_time" content="2018-10-28T19:42:25-05:00">
   
 
   
 
-  <title>Open source | Daniel Mejía Raigosa</title>
+  <title>Getting started with the ESP32 | Daniel Mejía Raigosa</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -270,36 +276,197 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
 
 
+  <div class="article-container">
+    <h1 itemprop="name">Getting started with the ESP32</h1>
 
-<div class="universal-wrapper">
+    
 
-  <h1>Open source</h1>
+<div class="article-metadata">
 
+  <span class="article-date">
+    
+    <time datetime="2018-10-28 19:42:25 -0500 -05" itemprop="datePublished dateModified">
+      Oct 28, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Daniel Mejía Raigosa">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
   
 
   
   
-  <div>
-    <h2><a href="https://daniel-m.github.io/post/2018/oct/alternative-blog/">Alternative blog at http://blog.parallelo.ai</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="https://daniel-m.github.io/post/2017/old-blog/">Old Blog</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/esp32">ESP32</a
+    >, 
+    
+    <a href="/categories/table-of-contents">Table of Contents</a
+    >
+    
+  </span>
+  
   
 
   
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Getting%20started%20with%20the%20ESP32&amp;url=https%3a%2f%2fdaniel-m.github.io%2fpost%2f2018%2foct%2fesp32%2fesp32-1_getting_started%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fdaniel-m.github.io%2fpost%2f2018%2foct%2fesp32%2fesp32-1_getting_started%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fdaniel-m.github.io%2fpost%2f2018%2foct%2fesp32%2fesp32-1_getting_started%2f&amp;title=Getting%20started%20with%20the%20ESP32"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fdaniel-m.github.io%2fpost%2f2018%2foct%2fesp32%2fesp32-1_getting_started%2f&amp;title=Getting%20started%20with%20the%20ESP32"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Getting%20started%20with%20the%20ESP32&amp;body=https%3a%2f%2fdaniel-m.github.io%2fpost%2f2018%2foct%2fesp32%2fesp32-1_getting_started%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
 
+
+  
 
 </div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="motivation">Motivation</h2>
+
+<p>One of my hobbies during my school days was electronics after learning about
+<a href="https://en.wikipedia.org/wiki/BEAM_robotics" target="_blank">B.E.A.M</a> robots during a <em>Popular
+Mechanics for Kids</em> episode. <a href="http://solarbotics.net/" target="_blank">You can learn more about B.E.A.M. here</a></p>
+
+<p>During my University years I had the opportunity to refine my knowledge on basic
+electronics, and exploit my programming skills programming Arduino and Microchip
+microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still
+wanted to be able to send data to remote locations, which could be possible by
+means of a RaspberryPI, or a GSM module or Bluetooth module &ndash;which were expensive&ndash;,
+or having the Arduino/MCU connected to a regular computer with internet,
+so the whole point of <em>small</em> devices was not really possible at that time
+in terms of a good efficiency/cost relation.</p>
+
+<p>After several years without doing electronics, I&rsquo;ve heard about the ESP8266 chip
+and its predecessor the ESP32. The most appealing feature of those chips
+was the built-in support for Wi-Fi or Bluetooth technologies, all shipped in
+convenient development boards which can be programmed either with C, Python, or Lua.</p>
+
+<p>I got lured by the possibilities of having remote controlled electronics and bought
+an ESP32 development board. As I progress in learning how to use it, I&rsquo;ll blog about
+my experiences getting this new toy up and running, the pitfalls I ran into and
+how I manage to solve them.</p>
+
+<p>As I publish blog entries, they will be linked in the table of contents near the
+end of this blog post.</p>
+
+<h2 id="but-what-exactly-is-an-esp32">But what exactly is an ESP32?</h2>
+
+<p>The ESP32 is a low-cost, low-power system on a chip (SoC) series with Wi-Fi and
+dual-mode Bluetooth capabilities, powered by a single or dual core Tensilica
+Xtensa LX6 microprocessor with a clock rate of up to 240 MHz. Yes, a tiny chip
+with the clock rate of an old
+<a href="https://en.wikipedia.org/wiki/Pentium_II" target="_blank">Intel Pentium II CPU</a>, shipped with
+Wi-Fi and Bluetooth. The availability of two ADC channels and more than 15
+General purpose Input Output pins (GPIO), makes this chip really powerful to IoT
+applications.</p>
+
+<p>Here&rsquo;s how my ESP32 &ndash;based on the <a href="https://docs.zerynth.com/latest/official/board.zerynth.doit_esp32/docs/index.html" target="_blank">doit ESP32 Devkit v1</a>&ndash; came,</p>
+
+<p><img src="esp32_2.jpg" alt="New toy ESP32" /></p>
+
+<p><img src="esp32_1.jpg" alt="New toy ESP32 other view" /></p>
+
+<p>A sneak peak of what is comming,</p>
+
+<p><img src="blinker.gif" alt="Blinking" /></p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<p>The following blogs are related to ESP32</p>
+
+<ul>
+<li><a href="http://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/" target="_blank">Setting up a development environment</a></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="http://www.lucadentella.it/en/category/esp32" target="_blank">http://www.lucadentella.it/en/category/esp32</a>.</li>
+</ul>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/esp32">ESP32</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/iot">IoT</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/projects">Projects</a>
+  
+</div>
+
+
+
+
+    
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">
@@ -391,6 +558,4 @@
 
   </body>
 </html>
-
-
 
