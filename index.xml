@@ -11,6 +11,203 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>ESP32: Setting up a development environment</title>
+      <link>https://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/</link>
+      <pubDate>Sun, 28 Oct 2018 20:40:25 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;This post is part of a series of ESP32 blog posts. Look the index here&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;introduction-sort-of&#34;&gt;Introduction (sort of)&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://www.espressif.com/en/products/hardware/esp32&#34; target=&#34;_blank&#34;&gt;ESP32&lt;/a&gt; was originally conceived by
+&lt;a href=&#34;https://www.espressif.com/&#34; target=&#34;_blank&#34;&gt;espressif&lt;/a&gt; a multinational company with
+headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth,
+low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32
+series of chips, modules and development boards.&lt;/p&gt;
+
+&lt;p&gt;The ESP32 can be programmed in several ways, among the languages and platforms
+supported the most popular are,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://micropython.org&#34; target=&#34;_blank&#34;&gt;MicroPython&lt;/a&gt; a python implementation for embedded
+systems.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.arduino.cc/en/Main/Software&#34; target=&#34;_blank&#34;&gt;Arduino IDE&lt;/a&gt; the IDE for Arduino
+platforms.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.nodemcu.com/&#34; target=&#34;_blank&#34;&gt;NodeMCU&lt;/a&gt; a platform to program embedded systems
+using Lua.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://platformio.org/platformio-ide&#34; target=&#34;_blank&#34;&gt;PlatformIO&lt;/a&gt; a project which aims to
+provide an unified development tool for embedded systems.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/espressif/esp-idf&#34; target=&#34;_blank&#34;&gt;Espressif esp-idf&lt;/a&gt; Espressif IoT Development Framework. Official development framework for ESP32. I&amp;rsquo;ll be using this.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;getting-a-working-espressif-esp-idf-environment&#34;&gt;Getting a working Espressif esp-idf environment&lt;/h2&gt;
+
+&lt;p&gt;This part is based on &lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/stable/get-started/&#34; target=&#34;_blank&#34;&gt;the official instructions by espressif&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The installation process consists of two steps,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Setting up the toolchain.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Setting up the Espressif esp-idf from github.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To get the esp-idf, head to &lt;a href=&#34;https://github.com/espressif/esp-idf&#34; target=&#34;_blank&#34;&gt;https://github.com/espressif/esp-idf&lt;/a&gt;,
+click the &lt;code&gt;releases&lt;/code&gt; button and download the latest release available.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./idf-releases.png&#34; alt=&#34;IDF releases&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now install some prerequisites to the build process,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install gcc git wget make libncurses-dev flex bison gperf python python-serial
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, a recommended place to install the esp-idf is the path &lt;code&gt;$HOME/opt/esp&lt;/code&gt;. In
+order to simplify the install process, declare the following variable,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export ESP_PATH=$HOME/opt/esp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And create the required destination directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir $ESP_PATH
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;getting-the-toolchain&#34;&gt;Getting the toolchain&lt;/h3&gt;
+
+&lt;p&gt;The toolchain can be obtained by one of two ways,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Building from source. This allows to have a custom toolchain if some
+configurations are set.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Using a precompiled toolchain. This approach is more restrictive, but
+straightforward.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;ve tried both approaches, and found that the later is the simplest way to get
+a working toolchain.&lt;/p&gt;
+
+&lt;p&gt;There are OS specific instructions for &lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/v3.1/get-started/windows-setup.html&#34; target=&#34;_blank&#34;&gt;Windows&lt;/a&gt;,
+&lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/v3.1/get-started/linux-setup.html&#34; target=&#34;_blank&#34;&gt;Linux&lt;/a&gt;,
+and &lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/v3.1/get-started/macos-setup.html&#34; target=&#34;_blank&#34;&gt;MacOS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As the time of writing this blog, the latest precompiled toolchain could be
+obtained in Linux by running,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd $ESP_PATH
+wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+tar xvfz xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, add the toolchain to the &lt;code&gt;$PATH&lt;/code&gt;,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PATH=&amp;quot;$PATH:$HOME/opt/esp/xtensa-esp32-elf/bin&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;getting-the-esp-idf&#34;&gt;Getting the ESP-IDF&lt;/h3&gt;
+
+&lt;p&gt;First, we need to define an environment variable pointing to the destination
+of the esp-idf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export IDF_PATH=$ESP_PATH/esp-idf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we can head there and get the latest version of the esp-idf from github&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd $ESP_PATH
+git clone -b v3.1 --recursive https://github.com/espressif/esp-idf.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can replace &lt;code&gt;v3.1&lt;/code&gt; with the latest tag available in the repository. Now, to
+bootstrap the repository,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd $IDF_PATH
+git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The currently logged user should have read and write access the serial port over USB.
+On most Linux distributions, this is done by adding the user to &lt;code&gt;dialout&lt;/code&gt; group
+with the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo usermod -a -G dialout $USER
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make sure you re-login to the shell in order to the changes to take effect
+(there are other ways to achieve this, but maybe the most universal way is a
+simple logout)&lt;/p&gt;
+
+&lt;p&gt;To test the installation you can run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;xtensa-esp32-elf-gcc --version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;testing-serial-communications&#34;&gt;Testing serial communications&lt;/h2&gt;
+
+&lt;p&gt;A bunch of blog posts cover the ways in which we can read and write to a serial
+port in linux. For example, &lt;a href=&#34;https://www.cyberciti.biz/hardware/5-linux-unix-commands-for-connecting-to-the-serial-console/&#34; target=&#34;_blank&#34;&gt;this blog post shows several options&lt;/a&gt;. In linux systems a way
+to detect the serial port used by our device is to list the contents of the
+tty&amp;rsquo;s available under &lt;code&gt;/dev&lt;/code&gt; with &lt;code&gt;ls /dev/tty*&lt;/code&gt;, then connect the ESP32 with
+the USB cable and list &lt;code&gt;ls /dev/tty*&lt;/code&gt; again. You&amp;rsquo;ll notice that a new element
+appears with the name &lt;code&gt;/dev/ttyS0&lt;/code&gt; or &lt;code&gt;/dev/ttyUSB0&lt;/code&gt; (or any other number like
+ttyUSB1, depending on your particular hardware and linux distribution).&lt;/p&gt;
+
+&lt;h3 id=&#34;picocom&#34;&gt;Picocom&lt;/h3&gt;
+
+&lt;p&gt;Picocom is a minimal terminal emulator which can be connected to the serial
+port. To get it installed just run,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install picocom
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Connect the ESP32. If it is connected to the &lt;code&gt;/dev/ttyUSB0&lt;/code&gt; serial port, you can
+check the connection with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;picocom /dev/ttyUSB0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;esp-idf-monitor&#34;&gt;esp-idf monitor&lt;/h3&gt;
+
+&lt;p&gt;esp-idf comes with a serial monitor which can be run with &lt;code&gt;make monitor&lt;/code&gt; under
+a project&amp;rsquo;s directory.&lt;/p&gt;
+
+&lt;p&gt;The simplest way to check that everything is properly installed is to burn the
+&lt;code&gt;hello world&lt;/code&gt; included with the esp-idf,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd $IDF_PATH/examples/get-started/hello_world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;make
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This compiles the program. To load it to the ESP32, connect it with the USB
+cable and run,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;make flash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Which will take care of everything.&lt;/p&gt;
+
+&lt;p&gt;To check the actual &lt;code&gt;hello world&lt;/code&gt;, wait until the load is completed and either run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;picocom /dev/ttyUSB0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;make monitor # from within the hello-world proyect folder
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You should see something like this,&lt;/p&gt;
+
+&lt;p&gt;![The hello-wolrd]()&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Getting started with the ESP32</title>
       <link>https://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/</link>
       <pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
