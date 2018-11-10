@@ -22,7 +22,7 @@
 
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 
-&lt;p&gt;In &lt;a href=&#34;https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;the last blog post&lt;/a&gt;
+&lt;p&gt;In &lt;a href=&#34;https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;the last blog post&lt;/a&gt; of this series,
 we saw how to set up the basic development environment, then build and loaded
 a &lt;code&gt;hello-world&lt;/code&gt; program included in the examples folder of the esp-idf (Espressif IoT
 Development Framework). Today I&amp;rsquo;ll try to give some details about what is actually
@@ -40,20 +40,20 @@ ESP32, and how it works.&lt;/p&gt;
 &lt;li&gt;Monitoring / debugging of the Application as needed&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The following diagram depicts the ESP32 application development,&lt;/p&gt;
+&lt;p&gt;The following diagram shows the ESP32 application development cycle,&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://docs.espressif.com/projects/esp-idf/en/latest/_images/what-you-need.png&#34; alt=&#34;Depiction of the development of ESP32 applications&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;configuration-of-the-project&#34;&gt;Configuration of the project&lt;/h2&gt;
 
-&lt;p&gt;The esp-idf provides &lt;a href=&#34;https://github.com/espressif/esp-idf-template&#34; target=&#34;_blank&#34;&gt;a project template&lt;/a&gt;
+&lt;p&gt;The esp-idf provides &lt;a href=&#34;https://github.com/espressif/esp-idf-template&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;a project template&lt;/em&gt;&lt;/a&gt;
 which can be used to bootstrap a new project. The source tree has,&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;A Makefile which defines the name for the project (&lt;code&gt;app-template&lt;/code&gt; in the
 template), that also imports a Makefile from the esp-idf location, which is
 expected to be set at &lt;code&gt;IDF_PATH&lt;/code&gt; &lt;a href=&#34;https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;as we did in the last blog&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;A &lt;code&gt;main&lt;/code&gt; path which contains,&lt;br /&gt;
+&lt;li&gt;A &lt;code&gt;src&lt;/code&gt; path which contains,&lt;br /&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;main.c&lt;/code&gt; - The actual source code for our application&lt;/li&gt;
@@ -63,11 +63,12 @@ now&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;The programming language of choice is C, though C++ and even assembly also can be used.
-As mentioned &lt;a href=&#34;https://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;in an earlier blog post&lt;/a&gt; we can use other bootloaders that could allow us to
+As mentioned &lt;a href=&#34;https://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;another post&lt;/a&gt; there are other bootloaders available that could allow us to
 program ESP&amp;rsquo;s with Python or Lua among others.&lt;/p&gt;
 
 &lt;p&gt;To write an application using the espressif template &amp;ndash;which I do recommend&amp;ndash; you&amp;rsquo;ll
-need to edit the file &lt;code&gt;src/main.c&lt;/code&gt;. Another approach is to make a copy of the &lt;code&gt;hello-world&lt;/code&gt;
+need to edit the file &lt;code&gt;src/main.c&lt;/code&gt; and add more files as needed.
+Another approach is to make a copy of the &lt;code&gt;hello-world&lt;/code&gt;
 located at &lt;code&gt;$IDF_PATH/examples/get-started/hello_world&lt;/code&gt; and build upon it.&lt;/p&gt;
 
 &lt;p&gt;Once you have some code, yo can compile it and upload it to the ESP32.
@@ -92,7 +93,7 @@ that run on ESP32 CPUs.&lt;/p&gt;
 &lt;p&gt;In summary, the esp-idf with the toolchain allows to build an upload the application to the
 ESP32.&lt;/p&gt;
 
-&lt;h3 id=&#34;compilation-flashing-and-monitoring-of-the-project&#34;&gt;Compilation flashing and Monitoring of the project&lt;/h3&gt;
+&lt;h3 id=&#34;compilation-flashing-and-monitoring-of-the-project&#34;&gt;Compilation, flashing, and monitoring of the project&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;We have already seen&lt;/a&gt; how to compile the project, flash it to the ESP32, and
 how to look to the serial monitor, all with the esp-idf. If you wish to get a
@@ -125,7 +126,7 @@ A growing number of AWS services are designed for Internet of Things (IoT) appli
 &lt;h3 id=&#34;memory-management&#34;&gt;Memory management&lt;/h3&gt;
 
 &lt;p&gt;Since we are working with C, the use of &lt;code&gt;malloc()&lt;/code&gt; and &lt;code&gt;free()&lt;/code&gt; are valid ways
-to allocate or release memory resources, like in the example below&lt;/p&gt;
+to allocate/release memory resources, like in the example below,&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include&amp;lt;stdio.h&amp;gt;
 #include&amp;lt;stdlib.h&amp;gt;
@@ -198,7 +199,7 @@ call &lt;code&gt;vTaskDelete()&lt;/code&gt; at the end of the scope of the task 
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;I&amp;rsquo;ll go into details about creating task in a following blog post.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll go into details about creating task in an incoming blog post.&lt;/p&gt;
 
 &lt;h3 id=&#34;api-synchronization&#34;&gt;API Synchronization&lt;/h3&gt;
 
@@ -217,10 +218,10 @@ running the entry point function, several steps happen, I recommend reading
 
 &lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
 
-&lt;p&gt;In this blog I&amp;rsquo;ve discussed how the esp-idf helps us to program ESP32 CPUs,
-and what is actually running within our ESP32 device, besides a very basic
+&lt;p&gt;In this blog I&amp;rsquo;ve discussed the logic behind using the esp-idf to program ESP32 CPUs,
+what is the operating system running within our ESP32 device (FreeRTOS), besides a very basic
 notion of what is a task, a concept we will be using a lot in the following blog
-posts&lt;/p&gt;
+posts of the series.&lt;/p&gt;
 
 &lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
 
@@ -505,7 +506,8 @@ applications.&lt;/p&gt;
 &lt;p&gt;The following blogs are related to ESP32&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;Setting up a development environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;Setting up a development environment&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://daniel-m.github.io/post/2018/nov/esp32/esp32-3_words_freertos&#34; target=&#34;_blank&#34;&gt;esp-idf Development Framework and the FreeRTOS kernel&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
