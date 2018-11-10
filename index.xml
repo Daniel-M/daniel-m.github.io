@@ -239,7 +239,7 @@ Mechanics for Kids&lt;/em&gt; episode. &lt;a href=&#34;http://solarbotics.net/&#
 electronics, and exploit my programming skills programming Arduino and Microchip
 microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still
 wanted to be able to send data to remote locations, which could be possible by
-means of a RaspberryPI, or a GSM module or Bluetooth module &amp;ndash;which were expensive&amp;ndash;,
+means of a RaspberryPI, or a GSM module or Bluetooth module &amp;ndash;which were expensive&amp;ndash;
 or having the Arduino/MCU connected to a regular computer with internet,
 so the whole point of &lt;em&gt;small&lt;/em&gt; devices was not really possible at that time
 in terms of a good efficiency/cost relation.&lt;/p&gt;
@@ -292,7 +292,8 @@ applications.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://esp32.net/&#34; target=&#34;_blank&#34;&gt;http://esp32.net/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.lucadentella.it/en/category/esp32&#34; target=&#34;_blank&#34;&gt;http://www.lucadentella.it/en/category/esp32&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.lucadentella.it/en/category/esp32&#34; target=&#34;_blank&#34;&gt;Luca Dentella&amp;rsquo;s blog series on ESP32&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The amazing book &lt;a href=&#34;https://leanpub.com/kolban-ESP32&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Kolban&amp;rsquo;s book on ESP32&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
