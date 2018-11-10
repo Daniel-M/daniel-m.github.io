@@ -11,6 +11,228 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>ESP32: esp-idf Development Framework and the FreeRTOS kernel</title>
+      <link>https://daniel-m.github.io/post/2018/nov/esp32/esp32-3_words_freertos/</link>
+      <pubDate>Sat, 10 Nov 2018 00:40:25 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/post/2018/nov/esp32/esp32-3_words_freertos/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;This post is part of a series of ESP32 blog posts. Look the index here&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;In &lt;a href=&#34;https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;the last blog post&lt;/a&gt;
+we saw how to set up the basic development environment, then build and loaded
+a &lt;code&gt;hello-world&lt;/code&gt; program included in the examples folder of the esp-idf (Espressif IoT
+Development Framework). Today I&amp;rsquo;ll try to give some details about what is actually
+happening in the process, about what is the operating system running within the
+ESP32, and how it works.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-application-development&#34;&gt;The application development&lt;/h2&gt;
+
+&lt;p&gt;The application development may be summarized in four steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Configuration of a Project and writing the code&lt;/li&gt;
+&lt;li&gt;Compilation of the Project and linking it to build an Application&lt;/li&gt;
+&lt;li&gt;Flashing (uploading) of the Application to ESP32&lt;/li&gt;
+&lt;li&gt;Monitoring / debugging of the Application as needed&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The following diagram depicts the ESP32 application development,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://docs.espressif.com/projects/esp-idf/en/latest/_images/what-you-need.png&#34; alt=&#34;Depiction of the development of ESP32 applications&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;configuration-of-the-project&#34;&gt;Configuration of the project&lt;/h2&gt;
+
+&lt;p&gt;The esp-idf provides &lt;a href=&#34;https://github.com/espressif/esp-idf-template&#34; target=&#34;_blank&#34;&gt;a project template&lt;/a&gt;
+which can be used to bootstrap a new project. The source tree has,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A Makefile which defines the name for the project (&lt;code&gt;app-template&lt;/code&gt; in the
+template), that also imports a Makefile from the esp-idf location, which is
+expected to be set at &lt;code&gt;IDF_PATH&lt;/code&gt; &lt;a href=&#34;https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;as we did in the last blog&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;A &lt;code&gt;main&lt;/code&gt; path which contains,&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;main.c&lt;/code&gt; - The actual source code for our application&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;component.mk&lt;/code&gt; - Component specific makefile. We&amp;rsquo;ll leave this empty for
+now&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The programming language of choice is C, though C++ and even assembly also can be used.
+As mentioned &lt;a href=&#34;https://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;in an earlier blog post&lt;/a&gt; we can use other bootloaders that could allow us to
+program ESP&amp;rsquo;s with Python or Lua among others.&lt;/p&gt;
+
+&lt;p&gt;To write an application using the espressif template &amp;ndash;which I do recommend&amp;ndash; you&amp;rsquo;ll
+need to edit the file &lt;code&gt;src/main.c&lt;/code&gt;. Another approach is to make a copy of the &lt;code&gt;hello-world&lt;/code&gt;
+located at &lt;code&gt;$IDF_PATH/examples/get-started/hello_world&lt;/code&gt; and build upon it.&lt;/p&gt;
+
+&lt;p&gt;Once you have some code, yo can compile it and upload it to the ESP32.
+&lt;a href=&#34;https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;As we saw in the last blog post&lt;/a&gt;
+with the esp-idf we can use the Makefile, and perform the compilation with
+&lt;code&gt;make&lt;/code&gt;. This won&amp;rsquo;t upload the code, but it will &lt;em&gt;cross compile&lt;/em&gt; it &amp;ndash;more about
+his below&amp;ndash; to run on ESP32
+CPUs. If the compilation succeeds we can upload the application to the ESP32
+with &lt;code&gt;make flash&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Cross compiling&lt;/em&gt; is the process of using a host computer architecture to compile
+binaries targeted to run in another architecture. For the ESP32, I use my &lt;code&gt;amd64&lt;/code&gt; 64-bit
+architecture to compile programs for the Xtensa Tensilica LX6 Microprocessor,
+which is a 32-bit architecture. That&amp;rsquo;s why we need a toolchain since it
+provides an adequate set of cross compiling tools and library linkers to put
+together machine code that can run on the ESP&amp;rsquo;s 32-bit CPU.&lt;/p&gt;
+
+&lt;p&gt;The toolchain contains several commands with the form &lt;code&gt;xtensa-esp32-elf-*&lt;/code&gt;, for
+instance, &lt;code&gt;xtensa-esp32-elf-gcc&lt;/code&gt; is the C compiler to build Xtensa binaries
+that run on ESP32 CPUs.&lt;/p&gt;
+
+&lt;p&gt;In summary, the esp-idf with the toolchain allows to build an upload the application to the
+ESP32.&lt;/p&gt;
+
+&lt;h3 id=&#34;compilation-flashing-and-monitoring-of-the-project&#34;&gt;Compilation flashing and Monitoring of the project&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/&#34; target=&#34;_blank&#34;&gt;We have already seen&lt;/a&gt; how to compile the project, flash it to the ESP32, and
+how to look to the serial monitor, all with the esp-idf. If you wish to get a
+deeper understanding, I suggest reading more at the amazing &lt;a href=&#34;https://leanpub.com/kolban-ESP32&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Kolban&amp;rsquo;s book on ESP32&lt;/em&gt; by Neil Kolban&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;freertos&#34;&gt;FreeRTOS&lt;/h2&gt;
+
+&lt;p&gt;The purpose of an operating system kernel
+is to provide an interface between the software applications and the underlying
+hardware infrastructure. When we are running ESP32 programs, we are doing so
+within the FreeRTOS kernel.&lt;/p&gt;
+
+&lt;p&gt;The FreeRTOS is an open source operating system designed for embedded systems like the ESP32, it has
+three main core functions,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Memory management&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Task management&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;API Synchronization&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The RTOS stands for Real Time Operating System, a property that we will discuss
+in the next subsection.&lt;/p&gt;
+
+&lt;p&gt;The FreeRTOS kernel was originally developed by Richard Barry around 2003, after years of development and success, Amazon Web Services (AWS) took over the stewardship of the project in 2017. It is natural to ask, why did AWS asume this role?, well AWS offers services to millions of customers, and in all industry sectors.
+A growing number of AWS services are designed for Internet of Things (IoT) applications, that is, the connection and management of internet connected devices.&lt;/p&gt;
+
+&lt;p&gt;Device manufacturers connect their MCU based devices to the cloud, however, it takes time to build the security and connectivity components necessary for those devices run work properly at production scale. A significant proportion of connected MCU devices already run the FreeRTOS kernel, so Amazon chose to provide the FreeRTOS project with the resources necessary to extend their offering into fully integrated security and connectivity libraries, and ensure those libraries can be developed and supported long into the future.&lt;/p&gt;
+
+&lt;h3 id=&#34;memory-management&#34;&gt;Memory management&lt;/h3&gt;
+
+&lt;p&gt;Since we are working with C, the use of &lt;code&gt;malloc()&lt;/code&gt; and &lt;code&gt;free()&lt;/code&gt; are valid ways
+to allocate or release memory resources, like in the example below&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include&amp;lt;stdio.h&amp;gt;
+#include&amp;lt;stdlib.h&amp;gt;
+
+int main() {
+    // Allocate memory for an Int
+    int *counter = malloc(sizeof(int));
+    
+    // Store data in the variable
+    *counter = 123;
+    
+    // Print what we have
+    printf(&amp;quot;Variable contents: %i\n&amp;quot;, *counter);
+    
+    // Release the memory
+    free(counter);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;task-management&#34;&gt;Task management&lt;/h3&gt;
+
+&lt;p&gt;A part of the operating system called the scheduler is responsible for deciding
+which program to run when, and provides the illusion of simultaneous execution
+by rapidly switching between each program.&lt;/p&gt;
+
+&lt;p&gt;The scheduler in FreeRTOS is designed to provide a predictable &amp;ndash;deterministic&amp;ndash;
+execution pattern. This is critical to embedded systems since they often have
+real time requirements, tha is, the embedded system must respond to a certain
+event within a strictly defined time.&lt;/p&gt;
+
+&lt;p&gt;Traditional real time schedulers, such as the scheduler used in FreeRTOS,
+achieve determinism &amp;ndash;hence predictability&amp;ndash; by allowing the user to assign a
+priority to each thread of execution.
+The scheduler then uses the priority to know which thread of execution to run
+next. In FreeRTOS, a thread of execution is called a &lt;em&gt;task&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;A &lt;em&gt;task&lt;/em&gt; can be intuitively understood as any piece of work that can be performed by the CPU.
+Examples of tasks could be checking whether a voltage level changes at certain GPIO port
+&amp;ndash;say, by pressing a button&amp;ndash;, or making a led blink by setting the voltage of
+the associated GPIO from low to high and back to low at certain frequency.&lt;/p&gt;
+
+&lt;p&gt;FreeRTOS allows several tasks to run concurrently by switching between task
+executions in a non locking fashion. In other words, the kernel can sequentially
+execute portions of different tasks at consecutive CPU cycles. The
+following image depicts this behaviour,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.freertos.org/implementation/TaskExecution.gif&#34; alt=&#34;FreeRTOS concurrent task execution&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Each horizontal line represents a task. In the top part of the image, the tasks
+seem to run at the same time, but as the portion at the bottom show, only a task
+at the time is executed by the CPU.&lt;/p&gt;
+
+&lt;p&gt;In FreeRTOS a &lt;code&gt;task&lt;/code&gt; is implemented by a code block responsible of performing
+whatever the task we&amp;rsquo;d like to perform, but with a function signature as,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void theTaskName(void *theParameters)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But this is not enough, the task must be created with &lt;code&gt;xTaskCreate()&lt;/code&gt; &amp;ndash;we well
+discuss this API in detail in a future blog post&amp;ndash;.&lt;/p&gt;
+
+&lt;p&gt;FreeRTOS expects a task to run forever, but, if we need it to end, we need to
+call &lt;code&gt;vTaskDelete()&lt;/code&gt; at the end of the scope of the task code block, like this,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void theTaskName(void *theParameters) {
+
+  // Perform activities
+
+  vTaskDelete(NULL);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;ll go into details about creating task in a following blog post.&lt;/p&gt;
+
+&lt;h3 id=&#34;api-synchronization&#34;&gt;API Synchronization&lt;/h3&gt;
+
+&lt;p&gt;This is a more advanced topic of ESP32 programming with FreeRTOS, I&amp;rsquo;m still
+pending of diving into it and writing about it here.&lt;/p&gt;
+
+&lt;h2 id=&#34;application-entry-point&#34;&gt;Application entry point&lt;/h2&gt;
+
+&lt;p&gt;If you look at the code of the &lt;code&gt;hello-world&lt;/code&gt; example, you&amp;rsquo;ll notice that, unlike
+a regular C program, we have no &lt;code&gt;main()&lt;/code&gt; function. The application entry for the
+esp-idf + FreeRTOS is the &lt;code&gt;app_main()&lt;/code&gt; function. This doesn&amp;rsquo;t mean we can&amp;rsquo;t
+define more functions, as I wrote above, we can create FreeRTOS task and such.
+Programming the ESP32 with esp-idf is really regular C programming. Before
+running the entry point function, several steps happen, I recommend reading
+&lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/stable/get-started/&#34; target=&#34;_blank&#34;&gt;Espressif esp-idf getting started&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;In this blog I&amp;rsquo;ve discussed how the esp-idf helps us to program ESP32 CPUs,
+and what is actually running within our ESP32 device, besides a very basic
+notion of what is a task, a concept we will be using a lot in the following blog
+posts&lt;/p&gt;
+
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/stable/get-started/&#34; target=&#34;_blank&#34;&gt;Espressif esp-idf getting started&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/general-notes.html&#34; target=&#34;_blank&#34;&gt;General Notes About ESP-IDF Programming&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.freertos.org/about-RTOS.html&#34; target=&#34;_blank&#34;&gt;https://www.freertos.org/about-RTOS.html&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>ESP32: Setting up a development environment</title>
       <link>https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/</link>
       <pubDate>Sun, 28 Oct 2018 20:40:25 -0500</pubDate>
