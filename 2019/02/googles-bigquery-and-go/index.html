@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Daniel Mejía Raigosa">
+    <meta name="description" content="Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Google&#39;s BigQuery and Go"/>
+<meta name="twitter:description" content="Notes  BigQuery(BQ) is Google&rsquo;s serverless, highly scalable, enterprise data warehouse
+ SQL-like query language
+ Real time data analysis by &ldquo;streaming ingestion&rdquo; capability
+ Deals with gigabytes to petabytes of data volume
+ Offers data encryption and data access permissions via Cloud Identity and Access Management
+ Machine Learning and Bussiness Intel can be easily integrated with BQ
+ Support for Geospatial data
+  Interacting with BQ To interact with the BQ we can use:"/>
+
+    <meta property="og:title" content="Google&#39;s BigQuery and Go" />
+<meta property="og:description" content="Notes  BigQuery(BQ) is Google&rsquo;s serverless, highly scalable, enterprise data warehouse
+ SQL-like query language
+ Real time data analysis by &ldquo;streaming ingestion&rdquo; capability
+ Deals with gigabytes to petabytes of data volume
+ Offers data encryption and data access permissions via Cloud Identity and Access Management
+ Machine Learning and Bussiness Intel can be easily integrated with BQ
+ Support for Geospatial data
+  Interacting with BQ To interact with the BQ we can use:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel-m.github.io/2019/02/googles-bigquery-and-go/" />
+<meta property="article:published_time" content="2019-02-15T22:33:04-05:00" />
+<meta property="article:modified_time" content="2019-02-15T22:33:04-05:00" />
+
+
+    
+      <base href="https://daniel-m.github.io/2019/02/googles-bigquery-and-go/">
+    
+    <title>
+  Google&#39;s BigQuery and Go · Daniel Mejía Raigosa
+</title>
+
+    
+      <link rel="canonical" href="https://daniel-m.github.io/2019/02/googles-bigquery-and-go/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.56.0-DEV" />
+  </head>
+
+  <body class=" inverted">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://daniel-m.github.io">
+      Daniel Mejía Raigosa
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/now/">Now</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Google&#39;s BigQuery and Go</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-02-15T22:33:04-05:00'>
+                February 15, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://daniel-m.github.io/categories/go/">go</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/categories/notes/">Notes</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://daniel-m.github.io/tags/bigquery/">BigQuery</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/go/">go</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/google/">Google</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/serverless/">Serverless</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/databases/">DataBases</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/datapersistence/">DataPersistence</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<h2 id="notes">Notes</h2>
+
+<ul>
+<li>BigQuery(BQ) is Google&rsquo;s serverless, highly scalable, enterprise data warehouse<br /></li>
+<li>SQL-like query language<br /></li>
+<li>Real time data analysis by &ldquo;streaming ingestion&rdquo; capability<br /></li>
+<li>Deals with gigabytes to petabytes of data volume<br /></li>
+<li>Offers data encryption and data access permissions via Cloud Identity and Access Management<br /></li>
+<li>Machine Learning and Bussiness Intel can be easily integrated with BQ<br /></li>
+<li>Support for Geospatial data<br /></li>
+</ul>
+
+<h2 id="interacting-with-bq">Interacting with BQ</h2>
+
+<p>To interact with the BQ we can use:<br />
+* A CLI tool<br />
+* The GCP BQ UI (New and Old Web UI)<br />
+* REST API which also allows the use of several client libraries</p>
+
+<h2 id="first-things-first">First things first</h2>
+
+<p>To be able to use BQ, it must be enabled for a project. All new projects will have it enabled by default, but for old projects, it must be manually enabled.</p>
+
+<h2 id="on-gcp-concepts">On GCP Concepts</h2>
+
+<h3 id="projects">Projects</h3>
+
+<ul>
+<li>Any GCP resources that you allocate and use must belong to a project.  In order to interact with most GCP resources, you must provide the identifying project information for every request. You can identify a project in either of two ways: a project ID, or a project number<br /></li>
+<li>Google Cloud Platform offers Cloud IAM, which lets you assign granular access to specific Google Cloud Platform resources and prevents unwanted access to other resources. Cloud IAM lets you control who (users) has what access (roles) to which resources by setting Cloud IAM policies on the resources.<br /></li>
+<li>The hierarchy of resources is as follows,<br />
+<img src="https://cloud.google.com/resource-manager/img/cloud-folders-hierarchy.png" alt="image" /><br /></li>
+</ul>
+
+<h2 id="on-possible-queries">On possible queries</h2>
+
+<p>BQ lets you perform,<br />
+* Run interactive queries<br />
+* Run batch queries<br />
+* Create a view, which is a virtual table defined by a SQL query. Views can be created by,<br />
+    * Calling the tables.insert API method<br />
+    * Using the GCP Console or classic BigQuery web UI<br />
+    * Submitting a CREATE VIEW Data Definition Language (DDL) statement<br />
+* Use partitioned tables to query a subset of your data,<br />
+    * A partitioned table is a special table that is divided into segments, called partitions, that make it easier to manage and query your data.<br />
+* In addition to querying and viewing data, you can manage data in BigQuery in the following ways:
+    * Listing projects, jobs, datasets, and tables<br />
+    * Getting information about jobs, datasets, and tables<br />
+    * Defining, updating, or patching datasets and tables<br />
+    * Deleting datasets and tables<br />
+    * Managing table partitions</p>
+
+<h2 id="bigquery-jobs">BigQuery jobs</h2>
+
+<ul>
+<li>Jobs are actions that BigQuery runs on your behalf to load data, export data, query data, or copy data.<br /></li>
+<li>Because jobs can potentially take a long time to complete, they execute asynchronously and can be polled for their status.<br /></li>
+</ul>
+
+<h2 id="datasets">Datasets</h2>
+
+<ul>
+<li>A dataset is contained within a specific project. Datasets are top-level containers that are used to organize and control access to your tables and views. A table or view must belong to a dataset, so you need to create at least one dataset before loading data into BigQuery.<br /></li>
+<li>Datasets are strongly linked to their location (an analogous concept to AWS regions)<br /></li>
+<li>Allow controlled access.<br /></li>
+</ul>
+
+<h3 id="useful-snippets">Useful snippets</h3>
+
+<ul>
+<li><a href="https://cloud.google.com/bigquery/docs/dataset-access-controls">Access control to a dataset</a><br /></li>
+<li><a href="https://cloud.google.com/bigquery/docs/listing-datasets">List datasets</a><br /></li>
+<li><a href="https://cloud.google.com/bigquery/docs/dataset-metadata">Get dataset metadata</a><br /></li>
+<li><a href="https://cloud.google.com/bigquery/docs/updating-datasets">Updating dataset information</a><br /></li>
+</ul>
+
+<h2 id="table-schemas">Table schemas</h2>
+
+<ul>
+<li>BigQuery allows you to specify a table&rsquo;s schema when you load data into a table, and when you create an empty table.<br /></li>
+<li>To specify the schema one can use,<br />
+
+<ul>
+<li>The UI<br /></li>
+<li>CLI<br /></li>
+<li>Create a schema file in JSON format.<br /></li>
+</ul></li>
+<li>A column name must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_), and it must start with a letter or underscore. The maximum column name length is 128 characters. Can not use prefixes like <code>_TABLE_</code>,<code>_FILE_</code> or <code>_PARTITION</code>.<br /></li>
+<li>Column names are case insensitive<br /></li>
+<li>Columns use standard SQL types<br /></li>
+<li>Columns accept <code>NULL</code>able modes (allow NULL entries). This is enabled by default<br /></li>
+<li><a href="https://cloud.google.com/bigquery/docs/schemas">Here&rsquo;s a link in how to send a table schema to the BQ</a><br /></li>
+<li>BigQuery performs best when your data is denormalized, so it is better to denormalize your data and take advantage of nested and repeated columns. Nested and repeated columns can maintain relationships without the performance impact of preserving a relational (normalized) schema.
+For example, a relational database used to track library books would likely keep all author information in a separate table. A key such as author_id would be used to link the book to the authors.
+In BigQuery, you can preserve the relationship between book and author without creating a separate author table. Instead, you create an author column, and you nest fields within it such as the author&rsquo;s first name, last name, date of birth, and so on. If a book has multiple authors, you can make the nested author column repeated.<br />
+Here&rsquo;s an example to have NESTED data in schema <a href="https://cloud.google.com/bigquery/docs/nested-repeated">https://cloud.google.com/bigquery/docs/nested-repeated</a><br /></li>
+<li>Schemas can&rsquo;t be changed, but can be improved by adding columns<br /></li>
+</ul>
+
+<h3 id="bigquery-tables">BigQuery tables</h3>
+
+<ul>
+<li>A BigQuery table contains individual records organized in rows. Each record is composed of columns (also called fields).<br /></li>
+<li>Every table is defined by a schema that describes the column names, data types, and other information.<br /></li>
+<li>Table names must be unique for a dataset<br /></li>
+<li>Tables can be copied only to the same location (region, like in aws)<br /></li>
+<li>You can create a table in BigQuery <a href="https://cloud.google.com/bigquery/docs/tables">go snippet to table creation</a>:<br />
+
+<ul>
+<li>Manually using the GCP Console, the classic BigQuery web UI, or the command-line tool&rsquo;s bq mk command<br /></li>
+<li>Programmatically by calling the tables.insert API method<br /></li>
+<li>From query results<br /></li>
+<li>By defining a table that references an external data source<br /></li>
+<li>When you load data<br /></li>
+</ul></li>
+<li>Table names can have up to 1024 characters<br /></li>
+</ul>
+
+<h3 id="partitioned-tables">Partitioned tables</h3>
+
+<ul>
+<li>A partitioned table is a special table that is divided into segments, called partitions, that make it easier to manage and query your data. By dividing a large table into smaller partitions, you can improve query performance, and you can control costs by reducing the number of bytes read by a query.<br /></li>
+<li>Partitioned tables are ordered by data load date or data date of arrival<br /></li>
+</ul>
+
+<h2 id="views">Views</h2>
+
+<ul>
+<li>A view is a virtual table defined by a SQL query<br /></li>
+<li>You can query and create views in BigQuery by using either of,<br />
+
+<ul>
+<li>Query editor box in the GCP Console<br /></li>
+<li>Compose Query option in the classic BigQuery web UI<br /></li>
+<li>BigQuery command-line tool&rsquo;s bq query command<br /></li>
+<li>BigQuery REST API to programmatically call the jobs.query or query-type jobs.insert methods<br /></li>
+<li>BigQuery client libraries<br /></li>
+</ul></li>
+<li>To create a view take into account the snippet <a href="https://cloud.google.com/bigquery/docs/views">https://cloud.google.com/bigquery/docs/views</a><br /></li>
+<li>Views must be created before being viewed<br /></li>
+<li>Caution viewing views is not the same as viewing tables, views are virtual, tables not<br /></li>
+</ul>
+
+<hr />
+
+<h2 id="resources">Resources</h2>
+
+<ol>
+<li><a href="https://cloud.google.com/bigquery/docs/reference/libraries">https://cloud.google.com/bigquery/docs/reference/libraries</a><br /></li>
+<li><a href="https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#projects">https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#projects</a><br /></li>
+<li><a href="https://cloud.google.com/bigquery/docs">https://cloud.google.com/bigquery/docs</a></li>
+</ol>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-daniel-m-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div id="commento"></div>
+<script src="https://daniel-m.github.io/js/commento.js"></script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-91541000-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

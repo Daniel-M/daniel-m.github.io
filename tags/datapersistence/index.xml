@@ -6,17 +6,17 @@
     <description>Recent content in DataPersistence on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 Jul 2019 22:33:04 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 15 Feb 2019 22:33:04 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/tags/datapersistence/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Googles BigQuery and Go</title>
-      <link>https://daniel-m.github.io/2019/07/googles-bigquery-and-go/</link>
-      <pubDate>Mon, 01 Jul 2019 22:33:04 -0500</pubDate>
+      <title>Google&#39;s BigQuery and Go</title>
+      <link>https://daniel-m.github.io/2019/02/googles-bigquery-and-go/</link>
+      <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/2019/07/googles-bigquery-and-go/</guid>
+      <guid>https://daniel-m.github.io/2019/02/googles-bigquery-and-go/</guid>
       <description>Notes  BigQuery(BQ) is Google&amp;rsquo;s serverless, highly scalable, enterprise data warehouse
  SQL-like query language
  Real time data analysis by &amp;ldquo;streaming ingestion&amp;rdquo; capability
