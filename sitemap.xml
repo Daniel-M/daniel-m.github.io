@@ -97,30 +97,30 @@
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/categories/esp32/</loc>
-    <lastmod>2018-12-03T20:40:25-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://daniel-m.github.io/2018/12/esp32-blinking-a-led/</loc>
     <lastmod>2018-12-03T20:40:25-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/categories/freertos/</loc>
+    <loc>https://daniel-m.github.io/categories/embededdevices/</loc>
     <lastmod>2018-12-03T20:40:25-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/tags/iot/</loc>
+    <loc>https://daniel-m.github.io/tags/freertos/</loc>
     <lastmod>2018-12-03T20:40:25-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/tags/projects/</loc>
+    <loc>https://daniel-m.github.io/categories/iot/</loc>
+    <lastmod>2018-12-03T20:40:25-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel-m.github.io/categories/projects/</loc>
     <lastmod>2018-12-03T20:40:25-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -131,14 +131,14 @@
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/tags/freertos/</loc>
-    <lastmod>2018-11-10T00:40:25-05:00</lastmod>
-    <priority>0</priority>
+    <loc>https://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</loc>
+    <lastmod>2018-10-28T20:40:25-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</loc>
-    <lastmod>2018-10-28T20:40:25-05:00</lastmod>
+    <loc>https://daniel-m.github.io/categories/esp32/</loc>
+    <lastmod>2018-10-28T19:42:25-05:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -216,19 +216,19 @@
   </url>
   
   <url>
+    <loc>https://daniel-m.github.io/categories/webdevelopment/</loc>
+    <lastmod>2018-06-26T21:37:38-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel-m.github.io/categories/webframeworks/</loc>
+    <lastmod>2018-06-26T21:37:38-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://daniel-m.github.io/tags/golang/</loc>
-    <lastmod>2018-06-26T21:37:38-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel-m.github.io/categories/web-development/</loc>
-    <lastmod>2018-06-26T21:37:38-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel-m.github.io/categories/web-frameworks/</loc>
     <lastmod>2018-06-26T21:37:38-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -292,13 +292,7 @@
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/tags/multiprocessing/</loc>
-    <lastmod>2018-03-22T21:53:32-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel-m.github.io/tags/python/</loc>
+    <loc>https://daniel-m.github.io/tags/parallelprogramming/</loc>
     <lastmod>2018-03-22T21:53:32-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -310,8 +304,8 @@
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/tags/gis/</loc>
-    <lastmod>2018-02-15T21:30:14-05:00</lastmod>
+    <loc>https://daniel-m.github.io/tags/multiprocessing/</loc>
+    <lastmod>2018-03-22T21:53:32-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -333,11 +327,6 @@
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</loc>
-    <lastmod>2018-01-25T21:21:21-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://daniel-m.github.io/tags/django/</loc>
     <lastmod>2018-01-25T21:21:21-05:00</lastmod>
     <priority>0</priority>
@@ -356,13 +345,12 @@
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/tags/tornado/</loc>
+    <loc>https://daniel-m.github.io/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</loc>
     <lastmod>2018-01-25T21:21:21-05:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/categories/web/</loc>
+    <loc>https://daniel-m.github.io/tags/tornado/</loc>
     <lastmod>2018-01-25T21:21:21-05:00</lastmod>
     <priority>0</priority>
   </url>

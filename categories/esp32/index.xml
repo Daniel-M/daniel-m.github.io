@@ -6,42 +6,10 @@
     <description>Recent content in ESP32 on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 03 Dec 2018 20:40:25 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 28 Oct 2018 19:42:25 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/categories/esp32/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>ESP32: Blinking a LED</title>
-      <link>https://daniel-m.github.io/2018/12/esp32-blinking-a-led/</link>
-      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/2018/12/esp32-blinking-a-led/</guid>
-      <description>This post is part of a series of ESP32 blog posts. Look the index here
-Motivation In the last blog of the series I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to provide a predictable execution pattern. The Tasks allow to design better workflows for our applications, allowing to control memory allocation, and modularizing each task as separate entities which can run concurrently.
-Blinking a led without using Tasks Programming embedded devices requires few extra steps than programming computers.</description>
-    </item>
-    
-    <item>
-      <title>ESP32: esp-idf Development Framework and the FreeRTOS kernel</title>
-      <link>https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</link>
-      <pubDate>Sat, 10 Nov 2018 00:40:25 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</guid>
-      <description>This post is part of a series of ESP32 blog posts. Look the index here
-Motivation In the last blog post of this series, we saw how to set up the basic development environment, then built and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I&amp;rsquo;ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works.</description>
-    </item>
-    
-    <item>
-      <title>ESP32: Setting up a development environment</title>
-      <link>https://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</link>
-      <pubDate>Sun, 28 Oct 2018 20:40:25 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</guid>
-      <description>This post is part of a series of ESP32 blog posts. Look the index here
-Introduction (sort of) The ESP32 was originally conceived by espressif a multinational company with headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth, low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32 series of chips, modules and development boards.
-The ESP32 can be programmed in several ways, among the languages and platforms supported the most popular are,</description>
-    </item>
     
     <item>
       <title>Getting started with the ESP32</title>

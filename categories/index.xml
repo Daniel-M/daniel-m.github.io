@@ -30,20 +30,38 @@
     </item>
     
     <item>
-      <title>ESP32</title>
-      <link>https://daniel-m.github.io/categories/esp32/</link>
+      <title>EmbededDevices</title>
+      <link>https://daniel-m.github.io/categories/embededdevices/</link>
       <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/categories/esp32/</guid>
+      <guid>https://daniel-m.github.io/categories/embededdevices/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>FreeRTOS</title>
-      <link>https://daniel-m.github.io/categories/freertos/</link>
+      <title>IoT</title>
+      <link>https://daniel-m.github.io/categories/iot/</link>
       <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/categories/freertos/</guid>
+      <guid>https://daniel-m.github.io/categories/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://daniel-m.github.io/categories/projects/</link>
+      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ESP32</title>
+      <link>https://daniel-m.github.io/categories/esp32/</link>
+      <pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/esp32/</guid>
       <description></description>
     </item>
     
@@ -75,20 +93,20 @@
     </item>
     
     <item>
-      <title>web-development</title>
-      <link>https://daniel-m.github.io/categories/web-development/</link>
+      <title>WebDevelopment</title>
+      <link>https://daniel-m.github.io/categories/webdevelopment/</link>
       <pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/categories/web-development/</guid>
+      <guid>https://daniel-m.github.io/categories/webdevelopment/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>web-frameworks</title>
-      <link>https://daniel-m.github.io/categories/web-frameworks/</link>
+      <title>WebFrameworks</title>
+      <link>https://daniel-m.github.io/categories/webframeworks/</link>
       <pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/categories/web-frameworks/</guid>
+      <guid>https://daniel-m.github.io/categories/webframeworks/</guid>
       <description></description>
     </item>
     
@@ -102,7 +120,7 @@
     </item>
     
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://daniel-m.github.io/categories/python/</link>
       <pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
       
@@ -116,15 +134,6 @@
       <pubDate>Thu, 15 Feb 2018 21:30:14 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/categories/gis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
-      <link>https://daniel-m.github.io/categories/web/</link>
-      <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/categories/web/</guid>
       <description></description>
     </item>
     

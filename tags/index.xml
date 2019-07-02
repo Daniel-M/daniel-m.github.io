@@ -84,27 +84,9 @@
     </item>
     
     <item>
-      <title>IoT</title>
-      <link>https://daniel-m.github.io/tags/iot/</link>
-      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/iot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>https://daniel-m.github.io/tags/projects/</link>
-      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/projects/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>FreeRTOS</title>
       <link>https://daniel-m.github.io/tags/freertos/</link>
-      <pubDate>Sat, 10 Nov 2018 00:40:25 -0500</pubDate>
+      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/freertos/</guid>
       <description></description>
@@ -237,29 +219,20 @@
     </item>
     
     <item>
+      <title>ParallelProgramming</title>
+      <link>https://daniel-m.github.io/tags/parallelprogramming/</link>
+      <pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/parallelprogramming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>multiprocessing</title>
       <link>https://daniel-m.github.io/tags/multiprocessing/</link>
       <pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/multiprocessing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://daniel-m.github.io/tags/python/</link>
-      <pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GIS</title>
-      <link>https://daniel-m.github.io/tags/gis/</link>
-      <pubDate>Thu, 15 Feb 2018 21:30:14 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/gis/</guid>
       <description></description>
     </item>
     
@@ -273,7 +246,7 @@
     </item>
     
     <item>
-      <title>django</title>
+      <title>Django</title>
       <link>https://daniel-m.github.io/tags/django/</link>
       <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
       
@@ -282,7 +255,7 @@
     </item>
     
     <item>
-      <title>flask</title>
+      <title>Flask</title>
       <link>https://daniel-m.github.io/tags/flask/</link>
       <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
       
@@ -291,7 +264,7 @@
     </item>
     
     <item>
-      <title>pyramid</title>
+      <title>Pyramid</title>
       <link>https://daniel-m.github.io/tags/pyramid/</link>
       <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
       
@@ -300,7 +273,7 @@
     </item>
     
     <item>
-      <title>tornado</title>
+      <title>Tornado</title>
       <link>https://daniel-m.github.io/tags/tornado/</link>
       <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
       
