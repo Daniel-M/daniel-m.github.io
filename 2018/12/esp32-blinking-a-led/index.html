@@ -271,7 +271,9 @@ on the tick rate. The constant <code>portTICK_PERIOD_MS</code> can be used to ca
 real time from the tick rate - with the resolution of one tick period, hence
 if</p>
 
-<p>$$ \text{Number Of Delayed Ticks} \times \text{One Tick Period in ms} = 500 \, ms $$</p>
+<p>$$
+\text{Number Of Delayed Ticks} \times \text{One Tick Period in ms} = 500 \, ms
+$$</p>
 
 <p>We have that</p>
 
@@ -393,7 +395,18 @@ the device</li>
       </footer>
     </article>
 
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+        ]
+      }
+    );">
+  </script>
   </section>
 
       </div>
