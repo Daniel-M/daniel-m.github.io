@@ -3,149 +3,149 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://daniel-m.github.io/categories/</loc>
+    <loc>https://daniel-m.github.io/categories/</loc>
     <lastmod>2019-03-31T00:05:45-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/</loc>
+    <loc>https://daniel-m.github.io/</loc>
     <lastmod>2019-03-31T00:05:45-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/esp8266/</loc>
+    <loc>https://daniel-m.github.io/categories/esp8266/</loc>
     <lastmod>2019-03-31T00:05:45-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/categories/esp8266/</loc>
+    <loc>https://daniel-m.github.io/tags/esp8266/</loc>
     <lastmod>2019-03-31T00:05:45-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/freertos/</loc>
+    <loc>https://daniel-m.github.io/tags/freertos/</loc>
     <lastmod>2019-03-31T00:05:45-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/2019/03/getting-started-with-the-esp8266/</loc>
+    <loc>https://daniel-m.github.io/2019/03/getting-started-with-the-esp8266/</loc>
     <lastmod>2019-03-31T00:05:45-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/iot/</loc>
-    <lastmod>2019-03-31T00:05:45-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://daniel-m.github.io/posts/</loc>
+    <loc>https://daniel-m.github.io/tags/iot/</loc>
     <lastmod>2019-03-31T00:05:45-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/projects/</loc>
+    <loc>https://daniel-m.github.io/posts/</loc>
     <lastmod>2019-03-31T00:05:45-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/</loc>
+    <loc>https://daniel-m.github.io/tags/projects/</loc>
     <lastmod>2019-03-31T00:05:45-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/esp32/</loc>
+    <loc>https://daniel-m.github.io/tags/</loc>
+    <lastmod>2019-03-31T00:05:45-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel-m.github.io/categories/esp32/</loc>
     <lastmod>2018-11-10T00:40:25-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/categories/esp32/</loc>
+    <loc>https://daniel-m.github.io/tags/esp32/</loc>
     <lastmod>2018-11-10T00:40:25-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</loc>
+    <loc>https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</loc>
     <lastmod>2018-11-10T00:40:25-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</loc>
+    <loc>https://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</loc>
     <lastmod>2018-10-28T20:40:25-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/2018/10/getting-started-with-the-esp32/</loc>
+    <loc>https://daniel-m.github.io/2018/10/getting-started-with-the-esp32/</loc>
     <lastmod>2018-10-28T19:42:25-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/categories/table-of-contents/</loc>
+    <loc>https://daniel-m.github.io/categories/table-of-contents/</loc>
     <lastmod>2018-10-28T19:42:25-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/2018/10/alternative-blog-at-http/blog.parallelo.ai/</loc>
+    <loc>https://daniel-m.github.io/2018/10/alternative-blog-at-http/blog.parallelo.ai/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/blog/</loc>
-    <lastmod>2018-10-17T12:23:57-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://daniel-m.github.io/categories/blog/</loc>
+    <loc>https://daniel-m.github.io/categories/blog/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/open-source/</loc>
+    <loc>https://daniel-m.github.io/tags/blog/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/opinion/</loc>
+    <loc>https://daniel-m.github.io/tags/open-source/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/tags/personal/</loc>
+    <loc>https://daniel-m.github.io/tags/opinion/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/2018/01/old-blog/</loc>
+    <loc>https://daniel-m.github.io/tags/personal/</loc>
+    <lastmod>2018-10-17T12:23:57-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel-m.github.io/2018/01/old-blog/</loc>
     <lastmod>2018-01-01T06:32:12-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/about/</loc>
+    <loc>https://daniel-m.github.io/about/</loc>
     <lastmod>2016-04-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/now/</loc>
+    <loc>https://daniel-m.github.io/now/</loc>
     <lastmod>2016-04-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://daniel-m.github.io/series/</loc>
+    <loc>https://daniel-m.github.io/series/</loc>
     <priority>0</priority>
   </url>
   

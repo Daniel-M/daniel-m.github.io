@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FreeRTOS on Daniel Mejía Raigosa</title>
-    <link>http://daniel-m.github.io/tags/freertos/</link>
+    <link>https://daniel-m.github.io/tags/freertos/</link>
     <description>Recent content in FreeRTOS on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 31 Mar 2019 00:05:45 -0500</lastBuildDate>
     
-	<atom:link href="http://daniel-m.github.io/tags/freertos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://daniel-m.github.io/tags/freertos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started with the ESP8266</title>
-      <link>http://daniel-m.github.io/2019/03/getting-started-with-the-esp8266/</link>
+      <link>https://daniel-m.github.io/2019/03/getting-started-with-the-esp8266/</link>
       <pubDate>Sun, 31 Mar 2019 00:05:45 -0500</pubDate>
       
-      <guid>http://daniel-m.github.io/2019/03/getting-started-with-the-esp8266/</guid>
+      <guid>https://daniel-m.github.io/2019/03/getting-started-with-the-esp8266/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ESP32: esp-idf Development Framework and the FreeRTOS kernel</title>
-      <link>http://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</link>
+      <link>https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</link>
       <pubDate>Sat, 10 Nov 2018 00:40:25 -0500</pubDate>
       
-      <guid>http://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</guid>
+      <guid>https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</guid>
       <description>This post is part of a series of ESP32 blog posts. Look the index here
 Motivation In the last blog post of this series, we saw how to set up the basic development environment, then build and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I&amp;rsquo;ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works.</description>
     </item>

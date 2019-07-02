@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ESP32 on Daniel Mejía Raigosa</title>
-    <link>http://daniel-m.github.io/tags/esp32/</link>
+    <link>https://daniel-m.github.io/tags/esp32/</link>
     <description>Recent content in ESP32 on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 10 Nov 2018 00:40:25 -0500</lastBuildDate>
     
-	<atom:link href="http://daniel-m.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://daniel-m.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ESP32: esp-idf Development Framework and the FreeRTOS kernel</title>
-      <link>http://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</link>
+      <link>https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</link>
       <pubDate>Sat, 10 Nov 2018 00:40:25 -0500</pubDate>
       
-      <guid>http://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</guid>
+      <guid>https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</guid>
       <description>This post is part of a series of ESP32 blog posts. Look the index here
 Motivation In the last blog post of this series, we saw how to set up the basic development environment, then build and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I&amp;rsquo;ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works.</description>
     </item>
     
     <item>
       <title>ESP32: Setting up a development environment</title>
-      <link>http://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</link>
+      <link>https://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</link>
       <pubDate>Sun, 28 Oct 2018 20:40:25 -0500</pubDate>
       
-      <guid>http://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</guid>
+      <guid>https://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</guid>
       <description>This post is part of a series of ESP32 blog posts. Look the index here
 Introduction (sort of) The ESP32 was originally conceived by espressif a multinational company with headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth, low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32 series of chips, modules and development boards.
 The ESP32 can be programmed in several ways, among the languages and platforms supported the most popular are,</description>
@@ -34,10 +34,10 @@ The ESP32 can be programmed in several ways, among the languages and platforms s
     
     <item>
       <title>Getting started with the ESP32</title>
-      <link>http://daniel-m.github.io/2018/10/getting-started-with-the-esp32/</link>
+      <link>https://daniel-m.github.io/2018/10/getting-started-with-the-esp32/</link>
       <pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
       
-      <guid>http://daniel-m.github.io/2018/10/getting-started-with-the-esp32/</guid>
+      <guid>https://daniel-m.github.io/2018/10/getting-started-with-the-esp32/</guid>
       <description>Motivation One of my hobbies during my school days was electronics after learning about B.E.A.M robots during a Popular Mechanics for Kids episode. You can learn more about B.E.A.M. here
 During my University years I had the opportunity to refine my knowledge on basic electronics, and exploit my programming skills programming Arduino and Microchip microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still wanted to be able to send data to remote locations, which could be possible by means of a RaspberryPI, or a GSM module or Bluetooth module &amp;ndash;which were expensive&amp;ndash; or having the Arduino/MCU connected to a regular computer with internet, so the whole point of small devices was not really possible at that time in terms of a good efficiency/cost relation.</description>
     </item>
