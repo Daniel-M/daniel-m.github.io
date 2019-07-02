@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Daniel Mejía Raigosa">
+    <meta name="description" content="Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ESP32: Setting up a development environment"/>
+<meta name="twitter:description" content="This post is part of a series of ESP32 blog posts. Look the index here
+Introduction (sort of) The ESP32 was originally conceived by espressif a multinational company with headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth, low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32 series of chips, modules and development boards.
+The ESP32 can be programmed in several ways, among the languages and platforms supported the most popular are,"/>
+
+    <meta property="og:title" content="ESP32: Setting up a development environment" />
+<meta property="og:description" content="This post is part of a series of ESP32 blog posts. Look the index here
+Introduction (sort of) The ESP32 was originally conceived by espressif a multinational company with headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth, low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32 series of chips, modules and development boards.
+The ESP32 can be programmed in several ways, among the languages and platforms supported the most popular are," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/" />
+<meta property="article:published_time" content="2018-10-28T20:40:25-05:00" />
+<meta property="article:modified_time" content="2018-10-28T20:40:25-05:00" />
+
+
+    
+      <base href="http://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/">
+    
+    <title>
+  ESP32: Setting up a development environment · Daniel Mejía Raigosa
+</title>
+
+    
+      <link rel="canonical" href="http://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="http://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.56.0-DEV" />
+  </head>
+
+  <body class=" inverted">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://daniel-m.github.io">
+      Daniel Mejía Raigosa
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://daniel-m.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://daniel-m.github.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://daniel-m.github.io/now/">Now</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">ESP32: Setting up a development environment</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-10-28T20:40:25-05:00'>
+                October 28, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://daniel-m.github.io/categories/esp32/">ESP32</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://daniel-m.github.io/tags/esp32/">ESP32</a>
+      <span class="separator">•</span>
+    <a href="http://daniel-m.github.io/tags/iot/">IoT</a>
+      <span class="separator">•</span>
+    <a href="http://daniel-m.github.io/tags/projects/">Projects</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<p><a href="http://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/"><em>This post is part of a series of ESP32 blog posts. Look the index here</em></a></p>
+
+<h2 id="introduction-sort-of">Introduction (sort of)</h2>
+
+<p>The <a href="https://www.espressif.com/en/products/hardware/esp32">ESP32</a> was originally conceived by
+<a href="https://www.espressif.com/">espressif</a> a multinational company with
+headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth,
+low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32
+series of chips, modules and development boards.</p>
+
+<p>The ESP32 can be programmed in several ways, among the languages and platforms
+supported the most popular are,</p>
+
+<ul>
+<li><a href="https://micropython.org">MicroPython</a> a python implementation for embedded
+systems.<br /></li>
+<li><a href="https://www.arduino.cc/en/Main/Software">Arduino IDE</a> the IDE for Arduino
+platforms.</li>
+<li><a href="http://www.nodemcu.com/">NodeMCU</a> a platform to program embedded systems
+using Lua.<br /></li>
+<li><a href="https://platformio.org/platformio-ide">PlatformIO</a> a project which aims to
+provide an unified development tool for embedded systems.<br /></li>
+<li><a href="https://github.com/espressif/esp-idf">Espressif esp-idf</a> Espressif IoT Development Framework. Official development framework for ESP32. I&rsquo;ll be using this.<br /></li>
+</ul>
+
+<h2 id="getting-a-working-espressif-esp-idf-environment">Getting a working Espressif esp-idf environment</h2>
+
+<p>This part is based on <a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/">the official instructions by espressif</a>.</p>
+
+<p>The installation process consists of two steps,</p>
+
+<ul>
+<li>Setting up the toolchain.<br /></li>
+<li>Setting up the Espressif esp-idf from github.<br /></li>
+</ul>
+
+<p>To get the esp-idf, head to <a href="https://github.com/espressif/esp-idf">https://github.com/espressif/esp-idf</a>,
+click the <code>releases</code> button and download the latest release available.</p>
+
+<p><img src="./idf-releases.png" alt="IDF releases" /></p>
+
+<p>Now install some prerequisites to the build process,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo apt-get install gcc git wget make libncurses-dev flex bison gperf python python-serial</pre></div>
+<p>Now, a recommended place to install the esp-idf is the path <code>$HOME/opt/esp</code>. In
+order to simplify the install process, declare the following variable,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">export ESP_PATH=$HOME/opt/esp</pre></div>
+<p>And create the required destination directory.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mkdir $ESP_PATH</pre></div>
+<h3 id="getting-the-toolchain">Getting the toolchain</h3>
+
+<p>The toolchain can be obtained by one of two ways,</p>
+
+<ul>
+<li>Building from source. This allows to have a custom toolchain if some
+configurations are set.<br /></li>
+<li>Using a precompiled toolchain. This approach is more restrictive, but
+straightforward.<br /></li>
+</ul>
+
+<p>I&rsquo;ve tried both approaches, and found that the later is the simplest way to get
+a working toolchain.</p>
+
+<p>There are OS specific instructions for <a href="https://docs.espressif.com/projects/esp-idf/en/v3.1/get-started/windows-setup.html">Windows</a>,
+<a href="https://docs.espressif.com/projects/esp-idf/en/v3.1/get-started/linux-setup.html">Linux</a>,
+and <a href="https://docs.espressif.com/projects/esp-idf/en/v3.1/get-started/macos-setup.html">MacOS</a>.</p>
+
+<p>As the time of writing this blog, the latest precompiled toolchain could be
+obtained in Linux by running,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd $ESP_PATH
+wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+tar xvfz xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz</pre></div>
+<p>Finally, add the toolchain to the <code>$PATH</code>,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">export PATH=&#34;$PATH:$HOME/opt/esp/xtensa-esp32-elf/bin&#34;</pre></div>
+<h3 id="getting-the-esp-idf">Getting the ESP-IDF</h3>
+
+<p>First, we need to define an environment variable pointing to the destination
+of the esp-idf</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">export IDF_PATH=$ESP_PATH/esp-idf</pre></div>
+<p>Then we can head there and get the latest version of the esp-idf from github</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd $ESP_PATH
+git clone -b v3.1 --recursive https://github.com/espressif/esp-idf.git</pre></div>
+<p>You can replace <code>v3.1</code> with the latest tag available in the repository. Now, to
+bootstrap the repository,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd $IDF_PATH
+git submodule update --init --recursive</pre></div>
+<p>The currently logged user should have read and write access the serial port over USB.
+On most Linux distributions, this is done by adding the user to <code>dialout</code> group
+with the following command:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo usermod -a -G dialout $USER</pre></div>
+<p>Make sure you re-login to the shell in order to the changes to take effect
+(there are other ways to achieve this, but maybe the most universal way is a
+simple logout)</p>
+
+<p>To test the installation you can run</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">xtensa-esp32-elf-gcc --version</pre></div>
+<h2 id="testing-serial-communications">Testing serial communications</h2>
+
+<p>A bunch of blog posts cover the ways in which we can read and write to a serial
+port in linux. For example, <a href="https://www.cyberciti.biz/hardware/5-linux-unix-commands-for-connecting-to-the-serial-console/">this blog post shows several options</a>. In linux systems a way
+to detect the serial port used by our device is to list the contents of the
+tty&rsquo;s available under <code>/dev</code> with <code>ls /dev/tty*</code>, then connect the ESP32 with
+the USB cable and list <code>ls /dev/tty*</code> again. You&rsquo;ll notice that a new element
+appears with the name <code>/dev/ttyS0</code> or <code>/dev/ttyUSB0</code> (or any other number like
+ttyUSB1, depending on your particular hardware and linux distribution).</p>
+
+<h3 id="picocom">Picocom</h3>
+
+<p>Picocom is a minimal terminal emulator which can be connected to the serial
+port. To get it installed just run,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo apt-get install picocom</pre></div>
+<p>Connect the ESP32. If it is connected to the <code>/dev/ttyUSB0</code> serial port, you can
+check the connection with</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">picocom /dev/ttyUSB0</pre></div>
+<h3 id="esp-idf-monitor">esp-idf monitor</h3>
+
+<p>esp-idf comes with a serial monitor which can be run with <code>make monitor</code> under
+a project&rsquo;s directory.</p>
+
+<p>The simplest way to check that everything is properly installed is to burn the
+<code>hello world</code> included with the esp-idf,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd $IDF_PATH/examples/get-started/hello_world</pre></div>
+<p>And run</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">make</pre></div>
+<p>This compiles the program. To load it to the ESP32, connect it with the USB
+cable and run,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">make flash</pre></div>
+<p>Which will take care of everything.</p>
+
+<p>To check the actual <code>hello world</code>, wait until the load is completed and either run</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">picocom /dev/ttyUSB0</pre></div>
+<p>or</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">make monitor # from within the hello-world proyect folder</pre></div>
+<p>You should see something like this,</p>
+
+<p><img src="./hello-world-esp32.png" alt="The hello-world" /></p>
+
+<p>The messages shown will be different, according to your particular hardware.</p>
+
+<p>You can use <code>picocom /dev/ttyUSB0</code> and see the messages similarly, but I rather
+use <code>make monitor</code> since it is faster to type.</p>
+
+<p>Well, that&rsquo;s about it, you got the official espressif-idf development
+environment ready to use in your system.</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/">Espressif esp-idf getting started</a></li>
+</ul>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-daniel-m-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div id="commento"></div>
+<script src="http://daniel-m.github.io/js/commento.js"></script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-91541000-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Daniel Mejía Raigosa</title>
+    <link>http://daniel-m.github.io/</link>
+    <description>Recent content on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 31 Mar 2019 00:05:45 -0500</lastBuildDate>
+    
+	<atom:link href="http://daniel-m.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started with the ESP8266</title>
+      <link>http://daniel-m.github.io/2019/03/getting-started-with-the-esp8266/</link>
+      <pubDate>Sun, 31 Mar 2019 00:05:45 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/2019/03/getting-started-with-the-esp8266/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ESP32: esp-idf Development Framework and the FreeRTOS kernel</title>
+      <link>http://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</link>
+      <pubDate>Sat, 10 Nov 2018 00:40:25 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</guid>
+      <description>This post is part of a series of ESP32 blog posts. Look the index here
+Motivation In the last blog post of this series, we saw how to set up the basic development environment, then build and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I&amp;rsquo;ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works.</description>
+    </item>
+    
+    <item>
+      <title>ESP32: Setting up a development environment</title>
+      <link>http://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</link>
+      <pubDate>Sun, 28 Oct 2018 20:40:25 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/</guid>
+      <description>This post is part of a series of ESP32 blog posts. Look the index here
+Introduction (sort of) The ESP32 was originally conceived by espressif a multinational company with headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth, low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32 series of chips, modules and development boards.
+The ESP32 can be programmed in several ways, among the languages and platforms supported the most popular are,</description>
+    </item>
+    
+    <item>
+      <title>Getting started with the ESP32</title>
+      <link>http://daniel-m.github.io/2018/10/getting-started-with-the-esp32/</link>
+      <pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/2018/10/getting-started-with-the-esp32/</guid>
+      <description>Motivation One of my hobbies during my school days was electronics after learning about B.E.A.M robots during a Popular Mechanics for Kids episode. You can learn more about B.E.A.M. here
+During my University years I had the opportunity to refine my knowledge on basic electronics, and exploit my programming skills programming Arduino and Microchip microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still wanted to be able to send data to remote locations, which could be possible by means of a RaspberryPI, or a GSM module or Bluetooth module &amp;ndash;which were expensive&amp;ndash; or having the Arduino/MCU connected to a regular computer with internet, so the whole point of small devices was not really possible at that time in terms of a good efficiency/cost relation.</description>
+    </item>
+    
+    <item>
+      <title>Alternative blog at http://blog.parallelo.ai</title>
+      <link>http://daniel-m.github.io/2018/10/alternative-blog-at-http/blog.parallelo.ai/</link>
+      <pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/2018/10/alternative-blog-at-http/blog.parallelo.ai/</guid>
+      <description>I&amp;rsquo;m not of an active blogger in this site, but you can take a look at http://blog.parallelo.ai and get in touch with some of my work-related blog posts.</description>
+    </item>
+    
+    <item>
+      <title>Old Blog</title>
+      <link>http://daniel-m.github.io/2018/01/old-blog/</link>
+      <pubDate>Mon, 01 Jan 2018 06:32:12 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/2018/01/old-blog/</guid>
+      <description>Daniel&amp;rsquo;s log book The site https://dalogbook.blogspot.com/ is my old blog, which I haven&amp;rsquo;t updated since forever. Nevertheless I have lots of drafts soon to be published so stay tuned for updates.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://daniel-m.github.io/about/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://daniel-m.github.io/about/</guid>
+      <description>Hi! I&amp;rsquo;m Daniel, a physicist very passionate about problem solving, research, and computer programming that spends most of its days telling computers how to do stuff. I enjoy blogging, mostly about computer programming, you also can read me at http://blog.parallelo.ai.
+If you wanna know more about me, my work, my research or my programming projects, click any social network icon on the left.
+What I&amp;rsquo;m Doing Now? I find the practice of the nownownow really interesting,</description>
+    </item>
+    
+    <item>
+      <title>What I&#39;m Doing Now?</title>
+      <link>http://daniel-m.github.io/now/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://daniel-m.github.io/now/</guid>
+      <description>Currently I&amp;rsquo;m,
+ Studying a set of classic papers on deep learning and convolutional neural networks (CNN) and general machine learning Learning and working with computer vision and deep learning with OpenCV, Keras and MXNet.
+ Working on lectures and materials for a course on Go and Go Web Development.
+ Learning about programming embedded systems with the ESP32.
+  </description>
+    </item>
+    
+  </channel>
+</rss>

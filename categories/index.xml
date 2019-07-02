@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Daniel Mejía Raigosa</title>
+    <link>http://daniel-m.github.io/categories/</link>
+    <description>Recent content in Categories on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 31 Mar 2019 00:05:45 -0500</lastBuildDate>
+    
+	<atom:link href="http://daniel-m.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ESP8266</title>
+      <link>http://daniel-m.github.io/categories/esp8266/</link>
+      <pubDate>Sun, 31 Mar 2019 00:05:45 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/categories/esp8266/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ESP32</title>
+      <link>http://daniel-m.github.io/categories/esp32/</link>
+      <pubDate>Sat, 10 Nov 2018 00:40:25 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/categories/esp32/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Table of Contents</title>
+      <link>http://daniel-m.github.io/categories/table-of-contents/</link>
+      <pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/categories/table-of-contents/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>http://daniel-m.github.io/categories/blog/</link>
+      <pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
+      
+      <guid>http://daniel-m.github.io/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
