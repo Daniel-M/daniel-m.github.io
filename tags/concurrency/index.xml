@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>concurrency on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/tags/concurrency/</link>
+    <description>Recent content in concurrency on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Jan 2019 22:30:51 -0500</lastBuildDate>
+    
+	<atom:link href="https://daniel-m.github.io/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Notes on Go concurrency</title>
+      <link>https://daniel-m.github.io/2019/01/notes-on-go-concurrency/</link>
+      <pubDate>Tue, 01 Jan 2019 22:30:51 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2019/01/notes-on-go-concurrency/</guid>
+      <description>Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &amp;ldquo;thread of control&amp;rdquo; for each computation (&amp;ldquo;process&amp;rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FreeRTOS on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/categories/freertos/</link>
+    <description>Recent content in FreeRTOS on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Dec 2018 20:40:25 -0500</lastBuildDate>
+    
+	<atom:link href="https://daniel-m.github.io/categories/freertos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ESP32: Blinking a LED</title>
+      <link>https://daniel-m.github.io/2018/12/esp32-blinking-a-led/</link>
+      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2018/12/esp32-blinking-a-led/</guid>
+      <description>This post is part of a series of ESP32 blog posts. Look the index here
+Motivation In the last blog of the series I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to provide a predictable execution pattern. The Tasks allow to design better workflows for our applications, allowing to control memory allocation, and modularizing each task as separate entities which can run concurrently.
+Blinking a led without using Tasks Programming embedded devices requires few extra steps than programming computers.</description>
+    </item>
+    
+  </channel>
+</rss>

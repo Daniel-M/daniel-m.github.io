@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/tags/golang/</link>
+    <description>Recent content in golang on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 26 Jun 2018 21:37:38 -0500</lastBuildDate>
+    
+	<atom:link href="https://daniel-m.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Overview of Go Web Frameworks</title>
+      <link>https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/</link>
+      <pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/</guid>
+      <description>Introduction Exploration of http servers in Go. The packages under considerations are,
+ net/http
+ https://github.com/go-chi/chi
+ https://github.com/julienschmidt/httprouter
+ https://github.com/gorilla/mux
+ https://github.com/zenazn/goji/
+ https://github.com/go-swagger/go-swagger
+ https://github.com/manyminds/api2go
+ https://github.com/labstack/echo
+  https://github.com/go-chi/chi  chi is a lightweight, idiomatic and composable router for building Go 1.7+ HTTP services.
+ Designed to support larg REST API services.
+ built on top of context a go package that handles signaling, cancelation and request-scoped values across a handler chain.</description>
+    </item>
+    
+  </channel>
+</rss>

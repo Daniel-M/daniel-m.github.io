@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Daniel Mejía Raigosa">
+    <meta name="description" content="Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Continuous Integration and Continuous Delivery Systems On The Cloud"/>
+<meta name="twitter:description" content="Comparison of Continuous Integration and Continuous Delivery Systems"/>
+
+    <meta property="og:title" content="Continuous Integration and Continuous Delivery Systems On The Cloud" />
+<meta property="og:description" content="Comparison of Continuous Integration and Continuous Delivery Systems" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/" />
+<meta property="article:published_time" content="2018-08-11T21:57:55-05:00" />
+<meta property="article:modified_time" content="2018-08-11T21:57:55-05:00" />
+
+
+    
+      <base href="https://daniel-m.github.io/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/">
+    
+    <title>
+  Continuous Integration and Continuous Delivery Systems On The Cloud · Daniel Mejía Raigosa
+</title>
+
+    
+      <link rel="canonical" href="https://daniel-m.github.io/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.56.0-DEV" />
+  </head>
+
+  <body class=" inverted">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://daniel-m.github.io">
+      Daniel Mejía Raigosa
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/now/">Now</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Continuous Integration and Continuous Delivery Systems On The Cloud</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-08-11T21:57:55-05:00'>
+                August 11, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              6 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://daniel-m.github.io/categories/notes/">notes</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/categories/devops/">DevOps</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://daniel-m.github.io/tags/continuousintegration/">ContinuousIntegration</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/continuousdelivery/">ContinuousDelivery</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<h2 id="what-are-continuous-integration-ci-and-continuous-delivery-cd-systems">What are continuous integration(CI) and continuous delivery(CD) systems?</h2>
+
+<p>According to <a href="https://martinfowler.com/articles/continuousIntegration.html">Martin Fowler</a> , one of the members of the Agile manifesto, Continuous Integration (CI),
+&gt; is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible. Many teams find that this approach leads to significantly reduced integration problems and allows a team to develop cohesive software more rapidly.</p>
+
+<p>The idea behind CI is that, whenever a code commit occurs, it triggers an automated system that checks how the changes introduced in the commit <em>integrate</em> into the project without breaking its functionality.</p>
+
+<p><a href="https://martinfowler.com/bliki/ContinuousDelivery.html">On the other hand</a>, Martin Fowler defines Continuous Delivery (CD), as
+&gt;  a software development discipline where you build software in such a way that the software can be released to production at any time.</p>
+
+<blockquote>
+<p>You’re doing continuous delivery when,</p>
+
+<ul>
+<li>Your software is deployable throughout its lifecycle</li>
+<li>Your team prioritizes keeping the software deployable over working on new features</li>
+<li>Anybody can get fast, automated feedback on the production readiness of their systems any time somebody makes a change to them</li>
+<li>You can perform push-button deployments of any version of the software to any environment on demand</li>
+</ul>
+</blockquote>
+
+<p>Thus, CI and CD are strictly related since whenever any change is made into the code, CI triggers checks to prove that those changes won&rsquo;t break functionality and CD deploys the new version into production enviroments.</p>
+
+<p>In this document we will compare five continuous delivery systems,</p>
+
+<ul>
+<li>Jenkins<br /></li>
+<li>GoCD<br /></li>
+<li>CircleCI<br /></li>
+<li>Travis-CI</li>
+<li>AWS CodePipelines</li>
+</ul>
+
+<h2 id="jenkins">Jenkins</h2>
+
+<p>Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.</p>
+
+<h3 id="main-features">Main features</h3>
+
+<ul>
+<li>First conceived as a Continuous Integration system, it evolved into a Continuous Delivery system</li>
+<li>Jenkins can run either,<br />
+
+<ul>
+<li>With standard system packages<br /></li>
+<li>Within Docker containers<br /></li>
+<li>Standalone in machines with Java Runtime Environment (JRE)<br /></li>
+</ul></li>
+<li>Has a huge number of plugins, of interest are,
+
+<ul>
+<li>Build integration using GitHub to trigger builds, besides, with aid of a plugin, Jenkins can pull code from any repository it has access to.<br />
+
+<ul>
+<li>Authentication integration using GitHub as the source of authentication information to secure a Jenkins instance.<br /></li>
+<li>Extensibility is core to Jenkins. Its flexibility attributes itself to plugins being critical to Jenkins’ functionality. So it depends heavily on plugins for pretty much any use case.</li>
+</ul></li>
+</ul></li>
+<li>CI/CD configuration can be done either with a graphic dashboard or using a pipeline plugin</li>
+<li>With the Pipeline plugin users can implement a project’s entire build/test/deploy pipeline in a Jenkinsfile and store that alongside their code, treating their pipeline as another piece of code checked into source control.<br /></li>
+<li>Jenkins can be deployed on your own servers, on the cloud, even is offered as an hosted service by some companies</li>
+<li>CD is achieved by the use of plugins</li>
+</ul>
+
+<h2 id="gocd">GoCD</h2>
+
+<ul>
+<li>GoCD aims to support the most common CD scenarios out of the box without any plugin installation, built on the principles of Continuous Delivery.<br /></li>
+<li>Although GoCD is built specifically with CD in mind, it has sophisticated features for continuous integration.<br /></li>
+<li>GoCD incorporates its own pipelines,
+
+<ul>
+<li>The GoCD server does not perform work on its own, it dependes on the <em>agents</em>.<br /></li>
+<li>The <em>agents</em> are the entities responsible to performing any task (run commands, do deployments, etc.).<br /></li>
+<li>The <em>pipeline</em> represents a workflow or part of a workflow.<br /></li>
+<li>Pipelines are triggered by <em>materials</em>, typically materials are source control repositories (like git, mercurial, subversion, etc.)<br /></li>
+<li>Agents are the responsible of running workflows declare on pipelines.<br /></li>
+</ul></li>
+<li>GoCD offers a graphical dashboard when agents and pipelines are declared.<br /></li>
+<li>It is possible to configure pipelines with GoCD&rsquo;s template system. Templates support different formats like JSON or YAML<br /></li>
+<li>GoCD includes a generous set of plugins,
+
+<ul>
+<li>To enable integration with other systems and deployment to docker containers or publish/fetch from AWS S3 buckets</li>
+<li>Notification plugins via email, websockets, Gitter, AWS SNS, Slack integrations, and much more</li>
+</ul></li>
+<li>GoCD must be run on a server (either if this server is a virtual machine on the cloud or a private server), we don&rsquo;t know hosted GoCD providers.<br /></li>
+</ul>
+
+<h2 id="circleci">CircleCI</h2>
+
+<ul>
+<li>CircleCI integrates with GitHub, GitHub Enterprise, and Bitbucket. Every time you commit code, CircleCI creates a build.<br /></li>
+<li>CircleCI automatically tests your build in a clean container or virtual machine. Any docker image, Linux VM, or mac OS VM is supported.<br /></li>
+<li>Your team is notified if a build fails so issues can be fixed quickly.<br /></li>
+<li>Passing builds are deployed to various environments so your product goes to market faster.<br /></li>
+<li>CircleCI is language agnostic, if it can run on Linux, it can be deployed with CircleCI.<br /></li>
+<li>Supports parallel or sequential jobs.<br /></li>
+<li>It is hosted on the cloud (Integrating against Github or Bitbucket), or can run on paid private servers (private servers only integrate with Github).<br /></li>
+</ul>
+
+<h2 id="travis-ci">Travis-CI</h2>
+
+<ul>
+<li>Exclusively integrates with Github.<br /></li>
+<li>Code commits trigger TravisCI builds, which notify of build completion/failure and can deploy to heroku, AWS, Google Cloud, <a href="https://docs.travis-ci.com/user/deployment">among a long list of other popular options</a><br /></li>
+<li>Travis CI offers a few different infrastructure environments, so you can select the setup that suits your project best:
+
+<ul>
+<li>Container-based, a Linux Ubuntu environment running in a Docker container.<br /></li>
+<li>Sudo-enabled - this Linux Ubuntu environment runs on full virtual machine. It starts a little slower, but it has more computational resources, and supports the use of sudo, setuid, and setgid.<br /></li>
+<li>OS X - uses one of several versions of the OS X operating system. This environment is useful for building projects that require the OS X software, such as projects written in Swift.<br /></li>
+</ul></li>
+</ul>
+
+<h2 id="aws-codepipelines">AWS CodePipelines</h2>
+
+<ul>
+<li>AWS CodePipeline is a continuous delivery service you can use to model, visualize, and automate the steps required to release your software.<br /></li>
+<li>In AWS CodePipeline, a <em>pipeline</em> is a workflow construct that describes how software changes go through a release process.<br /></li>
+<li>AWS CodePipeline breaks up your workflow into a series of stages, where every stage contains at least one action.<br /></li>
+<li>You can use the AWS CodePipeline console, the AWS Command Line Interface (AWS CLI), the AWS SDKs, or any combination of these to create and manage your pipelines.<br /></li>
+<li>AWS CodePipeline fully automates the release process from end to end, starting from the source repository through build, test, and deployment.<br /></li>
+<li>It is possible to incorporate existing source, build, and deployment tools into the pipeline.<br /></li>
+<li>Reviewing the real-time status of the pipelines, check the details of any alerts, retry failed actions, view details about the source revisions used in the latest pipeline execution in each stage, and manually rerunning any pipeline is possible with the AWS CodePipelines console<br /></li>
+</ul>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<ol>
+<li><a href="https://jenkins.io/">https://jenkins.io/</a><br /></li>
+<li><a href="https://www.gocd.org/">https://www.gocd.org/</a><br /></li>
+<li><a href="https://circleci.com/product/">https://circleci.com/product/</a><br /></li>
+<li><a href="https://highops.com/insights/continuous-delivery-pipelines-gocd-vs-jenkins/">https://highops.com/insights/continuous-delivery-pipelines-gocd-vs-jenkins/</a><br /></li>
+<li><a href="https://www.gocd.org/jenkins/">https://www.gocd.org/jenkins/</a><br /></li>
+<li><a href="https://docs.travis-ci.com/">https://docs.travis-ci.com/</a></li>
+<li><a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html</a></li>
+<li><a href="https://martinfowler.com/articles/continuousIntegration.html">https://martinfowler.com/articles/continuousIntegration.html</a><br /></li>
+<li><a href="https://martinfowler.com/bliki/ContinuousDelivery.html">https://martinfowler.com/bliki/ContinuousDelivery.html</a></li>
+</ol>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-daniel-m-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div id="commento"></div>
+<script src="https://daniel-m.github.io/js/commento.js"></script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-91541000-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

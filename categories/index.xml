@@ -6,26 +6,44 @@
     <description>Recent content in Categories on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 31 Mar 2019 00:05:45 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jul 2019 22:33:04 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>ESP8266</title>
-      <link>https://daniel-m.github.io/categories/esp8266/</link>
-      <pubDate>Sun, 31 Mar 2019 00:05:45 -0500</pubDate>
+      <title>Notes</title>
+      <link>https://daniel-m.github.io/categories/notes/</link>
+      <pubDate>Mon, 01 Jul 2019 22:33:04 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/categories/esp8266/</guid>
+      <guid>https://daniel-m.github.io/categories/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://daniel-m.github.io/categories/go/</link>
+      <pubDate>Mon, 01 Jul 2019 22:33:04 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ESP32</title>
       <link>https://daniel-m.github.io/categories/esp32/</link>
-      <pubDate>Sat, 10 Nov 2018 00:40:25 -0500</pubDate>
+      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/categories/esp32/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FreeRTOS</title>
+      <link>https://daniel-m.github.io/categories/freertos/</link>
+      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/freertos/</guid>
       <description></description>
     </item>
     
@@ -44,6 +62,69 @@
       <pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DevOps</title>
+      <link>https://daniel-m.github.io/categories/devops/</link>
+      <pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web-development</title>
+      <link>https://daniel-m.github.io/categories/web-development/</link>
+      <pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/web-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web-frameworks</title>
+      <link>https://daniel-m.github.io/categories/web-frameworks/</link>
+      <pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/web-frameworks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DeepLearning</title>
+      <link>https://daniel-m.github.io/categories/deeplearning/</link>
+      <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/deeplearning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://daniel-m.github.io/categories/python/</link>
+      <pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GIS</title>
+      <link>https://daniel-m.github.io/categories/gis/</link>
+      <pubDate>Thu, 15 Feb 2018 21:30:14 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/gis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://daniel-m.github.io/categories/web/</link>
+      <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/web/</guid>
       <description></description>
     </item>
     

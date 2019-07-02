@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/categories/go/</link>
+    <description>Recent content in go on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jul 2019 22:33:04 -0500</lastBuildDate>
+    
+	<atom:link href="https://daniel-m.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Googles BigQuery and Go</title>
+      <link>https://daniel-m.github.io/2019/07/googles-bigquery-and-go/</link>
+      <pubDate>Mon, 01 Jul 2019 22:33:04 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2019/07/googles-bigquery-and-go/</guid>
+      <description>Notes  BigQuery(BQ) is Google&amp;rsquo;s serverless, highly scalable, enterprise data warehouse
+ SQL-like query language
+ Real time data analysis by &amp;ldquo;streaming ingestion&amp;rdquo; capability
+ Deals with gigabytes to petabytes of data volume
+ Offers data encryption and data access permissions via Cloud Identity and Access Management
+ Machine Learning and Bussiness Intel can be easily integrated with BQ
+ Support for Geospatial data
+  Interacting with BQ To interact with the BQ we can use:</description>
+    </item>
+    
+    <item>
+      <title>Notes on Go concurrency</title>
+      <link>https://daniel-m.github.io/2019/01/notes-on-go-concurrency/</link>
+      <pubDate>Tue, 01 Jan 2019 22:30:51 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2019/01/notes-on-go-concurrency/</guid>
+      <description>Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &amp;ldquo;thread of control&amp;rdquo; for each computation (&amp;ldquo;process&amp;rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete</description>
+    </item>
+    
+    <item>
+      <title>An Overview of Go Web Frameworks</title>
+      <link>https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/</link>
+      <pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/</guid>
+      <description>Introduction Exploration of http servers in Go. The packages under considerations are,
+ net/http
+ https://github.com/go-chi/chi
+ https://github.com/julienschmidt/httprouter
+ https://github.com/gorilla/mux
+ https://github.com/zenazn/goji/
+ https://github.com/go-swagger/go-swagger
+ https://github.com/manyminds/api2go
+ https://github.com/labstack/echo
+  https://github.com/go-chi/chi  chi is a lightweight, idiomatic and composable router for building Go 1.7+ HTTP services.
+ Designed to support larg REST API services.
+ built on top of context a go package that handles signaling, cancelation and request-scoped values across a handler chain.</description>
+    </item>
+    
+  </channel>
+</rss>

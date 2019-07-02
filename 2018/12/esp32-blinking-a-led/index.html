@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Daniel Mejía Raigosa">
+    <meta name="description" content="Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ESP32: Blinking a LED"/>
+<meta name="twitter:description" content="This post is part of a series of ESP32 blog posts. Look the index here
+Motivation In the last blog of the series I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to provide a predictable execution pattern. The Tasks allow to design better workflows for our applications, allowing to control memory allocation, and modularizing each task as separate entities which can run concurrently.
+Blinking a led without using Tasks Programming embedded devices requires few extra steps than programming computers."/>
+
+    <meta property="og:title" content="ESP32: Blinking a LED" />
+<meta property="og:description" content="This post is part of a series of ESP32 blog posts. Look the index here
+Motivation In the last blog of the series I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to provide a predictable execution pattern. The Tasks allow to design better workflows for our applications, allowing to control memory allocation, and modularizing each task as separate entities which can run concurrently.
+Blinking a led without using Tasks Programming embedded devices requires few extra steps than programming computers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/12/esp32-blinking-a-led/" />
+<meta property="article:published_time" content="2018-12-03T20:40:25-05:00" />
+<meta property="article:modified_time" content="2018-12-03T20:40:25-05:00" />
+
+
+    
+      <base href="https://daniel-m.github.io/2018/12/esp32-blinking-a-led/">
+    
+    <title>
+  ESP32: Blinking a LED · Daniel Mejía Raigosa
+</title>
+
+    
+      <link rel="canonical" href="https://daniel-m.github.io/2018/12/esp32-blinking-a-led/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.56.0-DEV" />
+  </head>
+
+  <body class=" inverted">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://daniel-m.github.io">
+      Daniel Mejía Raigosa
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/now/">Now</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">ESP32: Blinking a LED</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-12-03T20:40:25-05:00'>
+                December 3, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://daniel-m.github.io/categories/esp32/">ESP32</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/categories/freertos/">FreeRTOS</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/categories/notes/">Notes</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://daniel-m.github.io/tags/esp32/">ESP32</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/iot/">IoT</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/projects/">Projects</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<p><a href="http://daniel-m.github.io/categories/esp32/"><em>This post is part of a series of ESP32 blog posts. Look the index here</em></a></p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p><a href="https://daniel-m.github.io/categories/esp32/">In <em>the last blog of the
+series</em></a>
+I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to
+provide a predictable execution pattern. The Tasks allow to design better
+workflows for our applications, allowing to control memory allocation, and
+modularizing each task as separate entities which can run concurrently.</p>
+
+<h2 id="blinking-a-led-without-using-tasks">Blinking a led without using Tasks</h2>
+
+<p>Programming embedded devices requires few extra steps than programming
+computers. Steps such as configuring clock rates, enabling or disabling internal
+features like the ADC (Analog to Digital Converter), DAC (Digital to Analog
+Converter), enabling certain pins as binary outputs or binary inputs, or even
+setting the clock speed of the device.</p>
+
+<p>Amongst the configurable ESP32 features we can find,</p>
+
+<ul>
+<li>ADCs (analog-to-digital converter)<br /></li>
+<li>DACs (digital-to-analog converter)<br /></li>
+<li>I2C (Inter-Integrated Circuit)<br /></li>
+<li>UART (universal asynchronous receiver/transmitter)<br /></li>
+<li>CAN 2.0 (Controller Area Network)<br /></li>
+<li>SPI (Serial Peripheral Interface)<br /></li>
+<li>I2S (Integrated Inter-IC Sound)<br /></li>
+<li>RMII (Reduced Media-Independent Interface)<br /></li>
+<li>PWM (pulse width modulation)<br /></li>
+<li>WiFi</li>
+<li>Bluetooth<br /></li>
+<li>GPIO (General Purpose Input/Output) pins<br /></li>
+</ul>
+
+<p>In order to use each of the above elements, me <strong>must</strong> configure it properly.
+It is really, <strong>really</strong> important to understand that embedded devices require
+configuration of each feature and each individual pin to be involved in an
+application. I recommend reading <a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/index.html">the API reference</a>
+to understand better the required functions and their corresponding header
+libraries (the <code>#include &quot;&lt;library&gt;&quot;</code> statements).</p>
+
+<p>To blink a led we need to cyclically change from a logic <em>high</em> to a logic <em>low</em>
+at a given GPIO pin.</p>
+
+<p>The <a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/peripherals/gpio.html">GPIO API</a>
+states that we need to import &ldquo;driver/gpio.h&rdquo; in order to interact with GPIO
+pins. There we can read that the functions of interest are,</p>
+
+<ul>
+<li><code>gpio_config</code> configure a GPIO pin.<br /></li>
+<li><code>gpio_set_direction</code> to configure a GPIO pin as input or output</li>
+<li><code>gpio_set_level</code> to set the logic level of a pin</li>
+</ul>
+
+<p>To configure a GPIO pin we can either</p>
+
+<ul>
+<li>Declare a <code>gpio_config_t</code> struct and set each of its individual
+properties and then pass it by reference to <code>gpio_config</code>.<br /></li>
+<li>Or user <code>gpio_set_direction</code> to select a GPIO as input or output.</li>
+</ul>
+
+<p>The method <code>gpio_set_level</code> sets the logic level on an output GPIO pin.</p>
+
+<p><a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/peripherals/gpio.html">Reading the API from the espressif</a>
+will give us details about the input parameters and return values of each of the
+aforementioned functions.</p>
+
+<p>So, the proposed workflow is,</p>
+
+<ul>
+<li>Prompt and starting message</li>
+<li>Pick the output pin</li>
+<li>Set the desired pin as output</li>
+<li>Start a loop of 10 iterations
+
+<ul>
+<li>Set the GPIO pin to high</li>
+<li>Wait for 500 ms</li>
+<li>Set the GPIO pin to low</li>
+<li>Wait for 500 ms</li>
+</ul></li>
+<li>Restart the device</li>
+</ul>
+
+<p>The code that does this is,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;stdio.h&gt;
+#include &#34;freertos/FreeRTOS.h&#34;
+#include &#34;freertos/task.h&#34;
+#include &#34;esp_system.h&#34;
+#include &#34;driver/gpio.h&#34;
+#include &#34;sdkconfig.h&#34;
+
+void app_main()
+{
+    printf(&#34;******************************\n&#34;);
+    printf(&#34;* Hello!!, let&#39;s blink a led *\n&#34;);
+    printf(&#34;******************************\n\n&#34;);
+
+    // Set the output pin to the led&#39;s anode 
+    uint32_t thePin = 0x2;
+
+    printf(&#34;Selecting the pin %d\n&#34;, thePin);
+
+    // Set the mode of the output pin
+    gpio_set_direction(thePin, GPIO_MODE_OUTPUT);
+
+    // Loop to blink the led
+    for (int i = 0; i &lt; 10; i++) {
+      printf(&#34;%d blink cycle for pin %d\n&#34;, i, thePin);
+      gpio_set_level(thePin, 1);
+      vTaskDelay(500 / portTICK_PERIOD_MS);
+      gpio_set_level(thePin, 0);
+      vTaskDelay(500 / portTICK_PERIOD_MS);
+    }
+
+    // Restart the ESP32
+    printf(&#34;Restarting the chip now.\n&#34;);
+    fflush(stdout);
+    esp_restart();
+}</pre></div>
+<p>Note that we used the <code>vTaskDelay</code> function whose signature is
+<code>void vTaskDelay(const TickType_t xTicksToDelay)</code> and delays a task for a given
+number of processor ticks. The actual time that the task remains blocked depends
+on the tick rate. The constant <code>portTICK_PERIOD_MS</code> can be used to calculate
+real time from the tick rate - with the resolution of one tick period, hence
+if</p>
+
+<p>$$ \text{Number Of Delayed Ticks} \times \text{One Tick Period in ms} = 500 \, ms $$</p>
+
+<p>We have that</p>
+
+<p>$$ \text{Number Of Delayed Ticks} = \frac{500 \, ms}{\text{One Tick Period in ms}} $$</p>
+
+<p>So the proper signature is <code>vTaskDelay(500 / portTICK_PERIOD_MS)</code> since the
+constant <code>portTICK_PERIOD_MS</code> stores the milliseconds taken for one tick</p>
+
+<p>Once we run <code>make</code> followed by <code>make flash</code>, we can <code>make monitor</code> and obtain</p>
+
+<p><img src="https://daniel-m.github.io/2018/12/blinker.gif" alt="Blinking" /></p>
+
+<p>But this is not very elegant, and we are underusing the freeRTOS task
+capabilities.</p>
+
+<p>We can refactor the code above to look like the following,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;stdio.h&gt;
+#include &#34;freertos/FreeRTOS.h&#34;
+#include &#34;freertos/task.h&#34;
+#include &#34;esp_system.h&#34;
+#include &#34;driver/gpio.h&#34;
+#include &#34;sdkconfig.h&#34;
+
+void blink_task(void* pvParameters) {
+  printf(&#34;[task] ******************************************\n&#34;);
+  printf(&#34;[task] * Hello Daniel, let&#39;s blink concurrently *\n&#34;);
+  printf(&#34;[task] ******************************************\n&#34;);
+
+  uint32_t thePin = 0x2;
+
+  printf(&#34;[task] Selecting the pin %d\n&#34;, thePin);
+
+  /*gpio_pad_select_gpio(thePin);*/
+  gpio_set_direction(thePin, GPIO_MODE_OUTPUT);
+
+  for (int i = 0; i &lt; 10; i++) {
+    printf(&#34;[task] %d blink cycle for pin %d\n&#34;, i, thePin);
+    gpio_set_level(thePin, 1);
+    vTaskDelay(500 / portTICK_PERIOD_MS);
+    gpio_set_level(thePin, 0);
+    vTaskDelay(500 / portTICK_PERIOD_MS);
+  }
+  printf(&#34;[task] blink loop ended, deleting task...\n&#34;);
+  vTaskDelete(NULL);
+}
+
+void app_main()
+{
+  printf(&#34;[main] Running the task in 3 seconds...\n&#34;);
+  
+  vTaskDelay(3000 / portTICK_PERIOD_MS);
+  
+  printf(&#34;[main] Running concurrent task now\n&#34;);
+  
+  xTaskCreate(&amp;blink_task, &#34;blinking_led&#34;, 5*configMINIMAL_STACK_SIZE, NULL, 5, NULL);
+ 
+  printf(&#34;[main] The chip will restart in 20 seconds...\n&#34;);
+ 
+  vTaskDelay(20000 / portTICK_PERIOD_MS);
+
+  printf(&#34;[main] Restarting the chip now.\n&#34;);
+  fflush(stdout);
+  esp_restart();
+}</pre></div>
+<p>Note several changes here,</p>
+
+<ul>
+<li>We isolated the blinking loop to a separate function called <code>blinking_task</code>
+with signature <code>void blink_task(void* pvParameters)</code></li>
+<li>At the end of the task we call <code>vTaskDelete(NULL)</code></li>
+<li>Inside the <code>app_main()</code> we create the task with <code>xTaskCreate</code> by passing the
+address of <code>blinking_task</code> to it, besides a string and a stack size</li>
+<li>We delay both the begining of the task creation and the restar operation of
+the device</li>
+</ul>
+
+<p>Yielding</p>
+
+<p><img src="https://daniel-m.github.io/2018/12/blinkerTask.gif" alt="Blinking with tasks" /></p>
+
+<hr />
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/">Espressif esp-idf getting started</a><br /></li>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/system/freertos.html#_CPPv211xTaskCreate14TaskFunction_tPCKcK8uint32_tPCv11UBaseType_tPC12TaskHandle_t">The <code>xTaskCreate</code> API documentation</a></li>
+<li><a href="http://esp32.net/">The ESP32 Network</a></li>
+</ul>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-daniel-m-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div id="commento"></div>
+<script src="https://daniel-m.github.io/js/commento.js"></script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-91541000-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

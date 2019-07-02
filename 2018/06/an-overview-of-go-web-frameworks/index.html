@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Daniel Mejía Raigosa">
+    <meta name="description" content="Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="An Overview of Go Web Frameworks"/>
+<meta name="twitter:description" content="An overview of go web frameworks"/>
+
+    <meta property="og:title" content="An Overview of Go Web Frameworks" />
+<meta property="og:description" content="An overview of go web frameworks" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/" />
+<meta property="article:published_time" content="2018-06-26T21:37:38-05:00" />
+<meta property="article:modified_time" content="2018-06-26T21:37:38-05:00" />
+
+
+    
+      <base href="https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/">
+    
+    <title>
+  An Overview of Go Web Frameworks · Daniel Mejía Raigosa
+</title>
+
+    
+      <link rel="canonical" href="https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.56.0-DEV" />
+  </head>
+
+  <body class=" inverted">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://daniel-m.github.io">
+      Daniel Mejía Raigosa
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/now/">Now</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">An Overview of Go Web Frameworks</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-06-26T21:37:38-05:00'>
+                June 26, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://daniel-m.github.io/categories/notes/">notes</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/categories/go/">go</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/categories/web-development/">web-development</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/categories/web-frameworks/">web-frameworks</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://daniel-m.github.io/tags/golang/">golang</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/go/">go</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Exploration of http servers in Go. The packages under considerations are,</p>
+
+<ul>
+<li><a href="http://golang.org/pkg/net/http">net/http</a><br /></li>
+<li><a href="https://github.com/go-chi/chi">https://github.com/go-chi/chi</a><br /></li>
+<li><a href="https://github.com/julienschmidt/httprouter">https://github.com/julienschmidt/httprouter</a><br /></li>
+<li><a href="https://github.com/gorilla/mux">https://github.com/gorilla/mux</a><br /></li>
+<li><a href="https://github.com/zenazn/goji/">https://github.com/zenazn/goji/</a><br /></li>
+<li><a href="https://github.com/go-swagger/go-swagger">https://github.com/go-swagger/go-swagger</a><br /></li>
+<li><a href="https://github.com/manyminds/api2go">https://github.com/manyminds/api2go</a><br /></li>
+<li><a href="https://github.com/labstack/echo">https://github.com/labstack/echo</a><br /></li>
+</ul>
+
+<h2 id="https-github-com-go-chi-chi-https-github-com-go-chi-chi"><a href="https://github.com/go-chi/chi">https://github.com/go-chi/chi</a></h2>
+
+<ul>
+<li><code>chi</code> is a lightweight, idiomatic and composable router for building Go 1.7+ HTTP services.<br /></li>
+<li>Designed to support larg REST API services.<br /></li>
+<li>built on top of <code>context</code> a go package that handles signaling, cancelation and request-scoped values across a handler chain.<br /></li>
+<li>The features reported in the readme are,<br /></li>
+</ul>
+
+<blockquote>
+<ul>
+<li>Lightweight - cloc&rsquo;d in ~1000 LOC for the chi router</li>
+<li>Fast - yes, see benchmarks</li>
+<li>100% compatible with net/http - use any http or middleware pkg in the ecosystem that is also compatible with net/http</li>
+<li>Designed for modular/composable APIs - middlewares, inline middlewares, route groups and subrouter mounting</li>
+<li>Context control - built on new context package, providing value chaining, cancelations and timeouts</li>
+<li>Robust - in production at Pressly, CloudFlare, Heroku, 99Designs, and many others (see discussion)</li>
+<li>Doc generation - docgen auto-generates routing documentation from your source to JSON or Markdown</li>
+<li>No external dependencies - plain ol&rsquo; Go 1.7+ stdlib + net/http</li>
+</ul>
+</blockquote>
+
+<ul>
+<li>Comes with a set of detailed examples<br /></li>
+<li>MIT License<br /></li>
+</ul>
+
+<h3 id="in-numbers">In numbers</h3>
+
+<ul>
+<li>3652 stars in github<br /></li>
+<li>46 contributors<br /></li>
+<li>472 commits<br /></li>
+<li>254 forks<br /></li>
+<li>17 releases<br /></li>
+</ul>
+
+<h3 id="remarks">Remarks</h3>
+
+<ul>
+<li>Growing dev community<br /></li>
+<li>It looks like a suitable candidate for REST-API Serivices in Go<br /></li>
+<li>the docs convinced me, they are clear<br /></li>
+<li>well documented, looks simple to use<br /></li>
+</ul>
+
+<h2 id="https-github-com-julienschmidt-httprouter-https-github-com-julienschmidt-httprouter"><a href="https://github.com/julienschmidt/httprouter">https://github.com/julienschmidt/httprouter</a></h2>
+
+<ul>
+<li>HttpRouter is a lightweight high performance HTTP request router (also called multiplexer or just mux for short) for Go.<br /></li>
+<li>Good scaling<br /></li>
+<li>Good performance benchmarkings (claims to be amongst the bests)<br /></li>
+<li>net/http compliance<br /></li>
+<li>Well documented<br /></li>
+<li>Lincense is not clear (GNU-like)<br /></li>
+</ul>
+
+<h3 id="in-numbers-1">In numbers</h3>
+
+<ul>
+<li>7213 stars on github<br /></li>
+<li>32 contributors<br /></li>
+<li>206 commits<br /></li>
+<li>718 forks<br /></li>
+<li>2 releases<br /></li>
+</ul>
+
+<h3 id="remarks-1">Remarks</h3>
+
+<ul>
+<li>The license is not clear<br /></li>
+<li>Has an interesinting backing community<br /></li>
+</ul>
+
+<h2 id="https-github-com-gorilla-mux-https-github-com-gorilla-mux"><a href="https://github.com/gorilla/mux">https://github.com/gorilla/mux </a></h2>
+
+<ul>
+<li>Package gorilla/mux implements a request router and dispatcher for matching incoming requests to their respective handler.<br /></li>
+<li>Not a REST specific<br /></li>
+<li>More of an http router<br /></li>
+<li>net/http compliant<br /></li>
+</ul>
+
+<h3 id="in-numbers-2">In numbers</h3>
+
+<ul>
+<li>6435 stars on github<br /></li>
+<li>66 contributors<br /></li>
+<li>238 commits<br /></li>
+<li>778 forks<br /></li>
+<li>8 releases<br /></li>
+</ul>
+
+<h3 id="remarks-2">Remarks</h3>
+
+<ul>
+<li>Not REST Specific, this makes gorilla/mux a non suitable candidate<br /></li>
+<li>good backing community in its favor<br /></li>
+<li>well documented<br /></li>
+</ul>
+
+<h2 id="https-goji-io-https-goji-io"><a href="https://goji.io/">https://goji.io/</a></h2>
+
+<ul>
+<li><p>Goji is a HTTP request multiplexer, similar to net/http.ServeMux.</p></li>
+
+<li><blockquote>
+<p>Goji itself has very few features: it is first and foremost a standard set of interfaces for writing web applications. Several subpackages are distributed with Goji to provide standard production-ready implementations of several of the interfaces, however users are also encouraged to implement the interfaces on their own, especially if their needs are unusual.</p>
+</blockquote></li>
+
+<li><p>MIT License</p></li>
+</ul>
+
+<h3 id="in-numbers-3">In numbers</h3>
+
+<ul>
+<li>649 stars on github<br /></li>
+<li>4 contributors<br /></li>
+<li>51 commits<br /></li>
+<li>45 forks<br /></li>
+<li>3 releases</li>
+</ul>
+
+<h3 id="remarks-3">Remarks</h3>
+
+<ul>
+<li>Not a suitable prospect<br /></li>
+<li>Not very active, though some people recommended it<br /></li>
+</ul>
+
+<h2 id="https-github-com-labstack-echo-https-github-com-labstack-echo"><a href="https://github.com/labstack/echo">https://github.com/labstack/echo</a></h2>
+
+<blockquote>
+<ul>
+<li>Optimized HTTP router which smartly prioritize routes</li>
+<li>Build robust and scalable RESTful APIs</li>
+<li>Group APIs</li>
+<li>Extensible middleware framework</li>
+<li>Define middleware at root, group or route level</li>
+<li>Data binding for JSON, XML and form payload</li>
+<li>Handy functions to send variety of HTTP responses</li>
+<li>Centralized HTTP error handling</li>
+<li>Template rendering with any template engine</li>
+<li>Define your format for the logger</li>
+<li>Highly customizable</li>
+<li>Automatic TLS via Let’s Encrypt</li>
+<li>HTTP/2 support</li>
+</ul>
+</blockquote>
+
+<ul>
+<li>MIT License<br /></li>
+</ul>
+
+<h3 id="in-numbers-4">In numbers</h3>
+
+<ul>
+<li>10790 stars on github<br /></li>
+<li>103 contributors<br /></li>
+<li>1207 commits<br /></li>
+<li>950 forks<br /></li>
+<li>57 releases</li>
+</ul>
+
+<h3 id="remarks-4">Remarks</h3>
+
+<ul>
+<li>Has very active development<br /></li>
+<li>has a good backing community<br /></li>
+<li>Benchmarks show good performance (or the say so)<br /></li>
+<li>well documented, looks simple to use<br /></li>
+</ul>
+
+<h2 id="https-github-com-manyminds-api2go-https-github-com-manyminds-api2go"><a href="https://github.com/manyminds/api2go">https://github.com/manyminds/api2go</a></h2>
+
+<blockquote>
+<p>A JSON API Implementation for Go, to be used e.g. as server for Ember Data.</p>
+</blockquote>
+
+<h3 id="in-numbers-5">In numbers</h3>
+
+<ul>
+<li>519 stars on github<br /></li>
+<li>23 contributors<br /></li>
+<li>521 commits<br /></li>
+<li>66 forks<br /></li>
+<li>10 releases</li>
+</ul>
+
+<h3 id="remarks-5">Remarks</h3>
+
+<ul>
+<li>Doesn&rsquo;t look appealing, since JSON API is not our primary objective<br /></li>
+<li>I&rsquo;m not really convinced with the project whatsoever<br /></li>
+</ul>
+
+<h2 id="https-github-com-go-swagger-go-swagger-https-github-com-go-swagger-go-swagger"><a href="https://github.com/go-swagger/go-swagger">https://github.com/go-swagger/go-swagger</a></h2>
+
+<ul>
+<li>Sponsored by VMWare<br /></li>
+
+<li><p>golang implementation of Swagger 2.0 (aka OpenAPI 2.0): it knows how to serialize and deserialize swagger specifications.</p></li>
+
+<li><blockquote>
+<p>go-swagger brings to the go community a complete suite of fully-featured, high-performance, API components to work with a Swagger API: server, client and data model.
+Generates a server from a swagger specification
+Generates a client from a swagger specification
+Supports most features offered by jsonschema and swagger, including polymorphism
+Generates a swagger specification from annotated go code
+Additional tools to work with a swagger spec
+Great customization features, with vendor extensions and customizable templates</p>
+</blockquote></li>
+
+<li><p>Apache 2.0 License</p></li>
+</ul>
+
+<h3 id="in-numbers-6">In numbers</h3>
+
+<ul>
+<li>2391 stars on github<br /></li>
+<li>144 contributors<br /></li>
+<li>2185 commits<br /></li>
+<li>440 forks<br /></li>
+<li>36 releases<br /></li>
+</ul>
+
+<h3 id="remarks-6">Remarks</h3>
+
+<ul>
+<li>I&rsquo;m not sure if SWAGGER 2.0 is what we want, if so it looks like a good candidate<br /></li>
+<li>Well documented and with a good dev community<br /></li>
+</ul>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-daniel-m-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div id="commento"></div>
+<script src="https://daniel-m.github.io/js/commento.js"></script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-91541000-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>
