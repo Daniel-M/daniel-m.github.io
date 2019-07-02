@@ -84,7 +84,8 @@ During my University years I had the opportunity to refine my knowledge on basic
       <pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/</guid>
-      <description>What are continuous integration(CI) and continuous delivery(CD) systems? According to Martin Fowler , one of the members of the Agile manifesto, Continuous Integration (CI), &amp;gt; is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.</description>
+      <description>What are continuous integration(CI) and continuous delivery(CD) systems? According to Martin Fowler , one of the members of the Agile manifesto, Continuous Integration (CI),
+ is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.</description>
     </item>
     
     <item>
