@@ -137,26 +137,30 @@
 
 <p>Two common ways of concurrency are
 * Share memory: concurrent components comunicate by altering the contents of shared memory locations. This form of concurrency requires some form of locking to coordinate between threads,
-    * mutexes
-    * semaphores
-    * monitors
-Programs implementing those (correctly) are known as thread-safe
-* Message passing: concurrent components comunicate by exchanging messages</p>
+    * mutexes<br />
+    * semaphores<br />
+    * monitors</p>
+
+<p>Programs implementing those (correctly) are known as thread-safe</p>
+
+<ul>
+<li>Message passing: concurrent components comunicate by exchanging messages<br /></li>
+</ul>
 
 <p>Concurrency can happen at  programming level or operating system level. At programming level we encounter</p>
 
 <ul>
-<li>Channels</li>
-<li>Coroutines</li>
-<li>Futures and promises</li>
+<li>Channels<br /></li>
+<li>Coroutines<br /></li>
+<li>Futures and promises<br /></li>
 </ul>
 
 <p>At operating system level,</p>
 
 <ul>
-<li>Computer multitasking</li>
-<li>Process</li>
-<li>Thread</li>
+<li>Computer multitasking<br /></li>
+<li>Process<br /></li>
+<li>Thread<br /></li>
 </ul>
 
 <h3 id="on-threads">On threads</h3>
@@ -164,20 +168,20 @@ Programs implementing those (correctly) are known as thread-safe
 <p>A thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system, the scheduler is
 responsible for asigning resources to a given work (a set of instructions to be executed), in this case, the thread</p>
 
-<p>All OS support multiple threads of execution. The problems that can arise,
-    * Shared Data
+<p>All OS support multiple threads of execution. The problems that can arise,<br />
+    * Shared Data<br />
     * Signaling between threads</p>
 
 <h3 id="concurrency-primitives">Concurrency primitives</h3>
 
 <ul>
-<li>Locks (a.k.a. Mutex -&gt; MUTually EXclusive): Only one thread executes in selected regions of code</li>
-<li>Monitors: are like locks but require explicit unlocking</li>
-<li>Semaphores: support a wide range of coordination escenarios</li>
-<li>Wait-Notify: like semaphones but require explicit programming of missed notify triggers</li>
-<li>Conditional values: thread sleeping according to a given condition</li>
-<li>Channels and buffers: listen/collect messages</li>
-<li>Non-blocking data structures: nonblocking queue, atomic counters. Allow access from many threads without using locks or minimal amount of locks</li>
+<li>Locks (a.k.a. Mutex -&gt; MUTually EXclusive): Only one thread executes in selected regions of code<br /></li>
+<li>Monitors: are like locks but require explicit unlocking<br /></li>
+<li>Semaphores: support a wide range of coordination escenarios<br /></li>
+<li>Wait-Notify: like semaphones but require explicit programming of missed notify triggers<br /></li>
+<li>Conditional values: thread sleeping according to a given condition<br /></li>
+<li>Channels and buffers: listen/collect messages<br /></li>
+<li>Non-blocking data structures: nonblocking queue, atomic counters. Allow access from many threads without using locks or minimal amount of locks<br /></li>
 </ul>
 
 <p>Locks and semaphores can do every concurrency use case you can imagine.</p>
@@ -185,15 +189,16 @@ responsible for asigning resources to a given work (a set of instructions to be 
 <h2 id="go-routines">Go routines</h2>
 
 <ul>
-<li>A goroutine is a lightweight thread managed by the Go runtime.</li>
-<li>Goroutines run in the same address space, so access to shared memory must be synchronized.</li>
-<li></li>
+<li>A goroutine is a lightweight thread managed by the Go runtime.<br /></li>
+<li>Goroutines run in the same address space, so access to shared memory must be synchronized.<br /></li>
 </ul>
 
 <h3 id="exploring-sync-waitgroup">Exploring sync.WaitGroup</h3>
 
-<p>Consider the following go-routine call,
-1. <a href="https://play.golang.org/p/EdyHKFb0qzf">https://play.golang.org/p/EdyHKFb0qzf</a></p>
+<p>Consider the following go-routine call,</p>
+
+<ol>
+<li><p><a href="https://play.golang.org/p/EdyHKFb0qzf">https://play.golang.org/p/EdyHKFb0qzf</a></p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="font-weight:bold">package</span> main
 
 <span style="font-weight:bold">import</span> (
@@ -209,7 +214,9 @@ responsible for asigning resources to a given work (a set of instructions to be 
 <span style="font-weight:bold">func</span> main() {
 	<span style="font-weight:bold">go</span> Concurrent()
 	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
-}</pre></div>
+}</pre></div></li>
+</ol>
+
 <p>As you see, the playground exits without showing anything on the execution of the go routine.
 If we want to actually wait for the execution, we would need to instance a wait group <code>sync.WaitGroup</code>. Consider the following modification to our code,</p>
 
@@ -240,7 +247,7 @@ If we want to actually wait for the execution, we would need to instance a wait 
 }</pre></div></li>
 </ol>
 
-<p>Now, we have a <code>sync.WaitGroup</code> which upong calling <code>wg.Add(1)</code> we are telling him that he should wait for the end of the execution of a go-routine, &ndash; one, sice we did wg.Add(1)&ndash;, all the execution will lock at <code>wg.Wait()</code> and continue once all go-routines end.</p>
+<p>Now, we have a <code>sync.WaitGroup</code> which upon calling <code>wg.Add(1)</code> we are telling it that he should wait for the end of the execution of a go-routine, &ndash;one, sice we did <code>wg.Add(1)</code>&ndash;, all the execution will lock at <code>wg.Wait()</code> and continue once all go-routines end.</p>
 
 <p>Thus, we can do something more advanced like,</p>
 
