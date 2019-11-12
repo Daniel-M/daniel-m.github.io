@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Feb 2019 22:33:04 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 17:51:16 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>NVIDIA Optimus: A tale of two graphic cards</title>
+      <link>https://daniel-m.github.io/2019/11/nvidia-optimus-a-tale-of-two-graphic-cards/</link>
+      <pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2019/11/nvidia-optimus-a-tale-of-two-graphic-cards/</guid>
+      <description>This is a short summary on how I managed to use the nvidia graphic card with my Debian Testing installation. I&amp;rsquo;ve cooked this blog since it may help other (and a future me) during their debian configuration stage
+L&amp;rsquo;Entrée Most Linux users are familiar with the hassle of making Nvidia GPU&amp;rsquo;s working with their linux distributions. I&amp;rsquo;ve bought a Laptop that happens to run a new &amp;ndash; at least for me &amp;ndash; technology known as NVIDIA Optimus which allows to have an internal Intel Graphics Card running with dedicated Nvidia GPU, each independent of the other, so we can selectively render graphics at each card according to our performance needs, thus optimizing the use of resources mostly for Laptops like mine.</description>
+    </item>
     
     <item>
       <title>Google&#39;s BigQuery and Go</title>

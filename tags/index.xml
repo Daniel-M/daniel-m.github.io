@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Feb 2019 22:33:04 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 17:51:16 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>debian</title>
+      <link>https://daniel-m.github.io/tags/debian/</link>
+      <pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gpu</title>
+      <link>https://daniel-m.github.io/tags/gpu/</link>
+      <pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/gpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nvidia</title>
+      <link>https://daniel-m.github.io/tags/nvidia/</link>
+      <pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/nvidia/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>BigQuery</title>
