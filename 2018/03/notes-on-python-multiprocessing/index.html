@@ -112,7 +112,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              3 minutes read
+              2 minutes read
             </span>
           </div>
           <div class="categories">
@@ -190,8 +190,6 @@ Instance(1) # Should return 15
 import multiprocessing as mp
 p = mp.Pool() # instance of pool
 p.map(Instance, [1, 2, 3, 4, 5]) # returns [15, 24, 33, 42, 51]</pre></div>
-<p>Now, suppose we would like to iterate through a couple of lists</p>
-
 <hr />
 
 <h2 id="observations">Observations</h2>
@@ -208,7 +206,7 @@ p.map(Instance, [1, 2, 3, 4, 5]) # returns [15, 24, 33, 42, 51]</pre></div>
 For example,</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">with open(&#34;x.txt&#34;) as f:
     data = f.read()
-    do something with data</pre></div>
+    # do something with data</pre></div>
 <p>Carefully closes the file descriptor <code>f</code> is something bad happens within the scope of the <code>with</code> statement.</p>
 
 <hr />
