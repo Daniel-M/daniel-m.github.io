@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Daniel Mejía Raigosa">
+    <meta name="description" content="Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A mystery using Python hashlib to calculate checksums"/>
+<meta name="twitter:description" content="Short note on using python hashlib"/>
+
+    <meta property="og:title" content="A mystery using Python hashlib to calculate checksums" />
+<meta property="og:description" content="Short note on using python hashlib" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daniel-m.github.io/2020/02/a-mystery-using-python-hashlib-to-calculate-checksums/" />
+<meta property="article:published_time" content="2020-02-04T16:17:42-05:00" />
+<meta property="article:modified_time" content="2020-02-04T16:17:42-05:00" />
+
+
+    
+      <base href="https://daniel-m.github.io/2020/02/a-mystery-using-python-hashlib-to-calculate-checksums/">
+    
+    <title>
+  A mystery using Python hashlib to calculate checksums · Daniel Mejía Raigosa
+</title>
+
+    
+      <link rel="canonical" href="https://daniel-m.github.io/2020/02/a-mystery-using-python-hashlib-to-calculate-checksums/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.56.0-DEV" />
+  </head>
+
+  <body class=" inverted">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://daniel-m.github.io">
+      Daniel Mejía Raigosa
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/about/">About Me</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://daniel-m.github.io/now/">Now</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">A mystery using Python hashlib to calculate checksums</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-02-04T16:17:42-05:00'>
+                February 4, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://daniel-m.github.io/categories/python/">python</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/categories/programming/">programming</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/categories/fast-notes/">fast-notes</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://daniel-m.github.io/tags/python/">python</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/hashlib/">hashlib</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/hash/">hash</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/checksum/">checksum</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/md5/">md5</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        <p>Recently I was working with hashing some files in order to take checksums to avoid
+working with data-corrupted files received at the endpoint of a web server.
+It sounds easy, receive the file, calculate the hash, and emit the response.
+I only needed something like <code>hash = calculate_hash(file)</code>.<br />
+A five minute research on <a href="http://duckduckgo.com">duckduckgo</a> lead me to write the following code,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import hashlib
+
+def calculate_hash(filepath, chunk_size=4096, hash_method=hashlib.md5()):
+    hasher = hash_method
+
+    with open(filepath, &#39;rb&#39;) as fp:
+        buffer = fp.read(chunk_size)
+        while len(buffer) &gt; 0:
+            hasher.update(buffer)
+            buffer = fp.read(chunk_size)
+
+    return hasher.hexdigest()</pre></div>
+<p>Open a file in binary mode and read it chunk-wise, updating a hash
+with each chunk until EOF. Easy, right? WRONG!</p>
+
+<p>The issue was that everytime a new request arrived with the same file, the hasher
+calculated the wrong hash for it from the second request onwards.
+I could not find what was wrong with the code, it looked like somehow
+the <code>hasher</code> state was kept between function calls, that&rsquo;s why It showed different
+hash digest even when using the very same file for each request. With little time
+at hand I decided to refactor the code, and even though python docs encourage to
+use named constructors &ndash; like
+<code>hashlib.md5()</code> &ndash; over <code>hashlib.new('md5')</code> I found that the following implementation worked really well
+and most importantly worked as expected,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import hashlib
+
+def calculate_hash(filepath, chunk_size=4096, hash_method=&#39;md5&#39;):
+    hasher = hashlib.new(hash_method)
+
+    with open(filepath, &#39;rb&#39;) as fp:
+        buffer = fp.read(chunk_size)
+        while len(buffer) &gt; 0:
+            hasher.update(buffer)
+            buffer = fp.read(chunk_size)
+
+    return hasher.hexdigest()</pre></div>
+<p>Whether hashlib or the hasher instance was preserved between function calls is
+something I need to explore further, I just wanted to keep this anecdote for future
+reference here.</p>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-daniel-m-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div id="commento"></div>
+<script src="https://daniel-m.github.io/js/commento.js"></script>
+      </footer>
+    </article>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+        ]
+      }
+    );">
+  </script>
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
+    
+     © 2020
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-91541000-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

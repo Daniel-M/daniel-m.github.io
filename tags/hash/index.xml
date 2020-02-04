@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hash on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/tags/hash/</link>
+    <description>Recent content in hash on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 04 Feb 2020 16:17:42 -0500</lastBuildDate>
+    
+	<atom:link href="https://daniel-m.github.io/tags/hash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A mystery using Python hashlib to calculate checksums</title>
+      <link>https://daniel-m.github.io/2020/02/a-mystery-using-python-hashlib-to-calculate-checksums/</link>
+      <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2020/02/a-mystery-using-python-hashlib-to-calculate-checksums/</guid>
+      <description>Recently I was working with hashing some files in order to take checksums to avoid working with data-corrupted files received at the endpoint of a web server. It sounds easy, receive the file, calculate the hash, and emit the response. I only needed something like hash = calculate_hash(file).
+A five minute research on duckduckgo lead me to write the following code,
+import hashlib def calculate_hash(filepath, chunk_size=4096, hash_method=hashlib.md5()): hasher = hash_method with open(filepath, &amp;#39;rb&amp;#39;) as fp: buffer = fp.</description>
+    </item>
+    
+  </channel>
+</rss>

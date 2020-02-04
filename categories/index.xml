@@ -6,10 +6,37 @@
     <description>Recent content in Categories on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 12 Nov 2019 17:51:16 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2020 16:17:42 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>fast-notes</title>
+      <link>https://daniel-m.github.io/categories/fast-notes/</link>
+      <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/fast-notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://daniel-m.github.io/categories/programming/</link>
+      <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://daniel-m.github.io/categories/python/</link>
+      <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/python/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>debian</title>
@@ -143,15 +170,6 @@
       <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/categories/deeplearning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://daniel-m.github.io/categories/python/</link>
-      <pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/categories/python/</guid>
       <description></description>
     </item>
     
