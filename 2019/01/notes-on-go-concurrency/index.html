@@ -112,7 +112,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              3 minutes read
+              4 minutes read
             </span>
           </div>
           <div class="categories">
@@ -135,17 +135,30 @@
 
 <p>Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &ldquo;thread of control&rdquo; for each computation (&ldquo;process&rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete</p>
 
-<p>Two common ways of concurrency are
-* Share memory: concurrent components comunicate by altering the contents of shared memory locations. This form of concurrency requires some form of locking to coordinate between threads,
-    * mutexes<br />
-    * semaphores<br />
-    * monitors</p>
+<p>Two common ways of concurrency are,</p>
+
+<ul>
+<li>Share memory<br /></li>
+<li>Message passing<br /></li>
+</ul>
+
+<h5 id="share-memory">Share memory</h5>
+
+<p>Here the concurrent components communicate by altering the contents of shared memory locations. This form of concurrency requires some form of locking to coordinate between threads,</p>
+
+<ul>
+<li>mutexes<br /></li>
+<li>semaphores<br /></li>
+<li>monitors<br /></li>
+</ul>
 
 <p>Programs implementing those (correctly) are known as thread-safe</p>
 
-<ul>
-<li>Message passing: concurrent components comunicate by exchanging messages<br /></li>
-</ul>
+<h5 id="message-passing">Message passing</h5>
+
+<p>Here the concurrent components communicate by exchanging messages.</p>
+
+<hr />
 
 <p>Concurrency can happen at  programming level or operating system level. At programming level we encounter</p>
 
@@ -165,20 +178,25 @@
 
 <h3 id="on-threads">On threads</h3>
 
-<p>A thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system, the scheduler is
-responsible for asigning resources to a given work (a set of instructions to be executed), in this case, the thread</p>
+<p>A thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system. The scheduler is
+responsible for assigning resources to a given work (a set of instructions to be executed), in this case, the thread</p>
 
-<p>All OS support multiple threads of execution. The problems that can arise,<br />
-    * Shared Data<br />
-    * Signaling between threads</p>
+<p>All OS support multiple threads of execution. The problems that can arise when dealing with,</p>
+
+<ul>
+<li>Shared Data<br /></li>
+<li>Signaling between threads<br /></li>
+</ul>
 
 <h3 id="concurrency-primitives">Concurrency primitives</h3>
+
+<p>A set of concurrent primitives usually exposed by the OS in some way to programming languages are,</p>
 
 <ul>
 <li>Locks (a.k.a. Mutex -&gt; MUTually EXclusive): Only one thread executes in selected regions of code<br /></li>
 <li>Monitors: are like locks but require explicit unlocking<br /></li>
-<li>Semaphores: support a wide range of coordination escenarios<br /></li>
-<li>Wait-Notify: like semaphones but require explicit programming of missed notify triggers<br /></li>
+<li>Semaphores: support a wide range of coordination scenarios<br /></li>
+<li>Wait-Notify: like semaphores but require explicit programming of missed notify triggers<br /></li>
 <li>Conditional values: thread sleeping according to a given condition<br /></li>
 <li>Channels and buffers: listen/collect messages<br /></li>
 <li>Non-blocking data structures: nonblocking queue, atomic counters. Allow access from many threads without using locks or minimal amount of locks<br /></li>
@@ -188,10 +206,16 @@ responsible for asigning resources to a given work (a set of instructions to be 
 
 <h2 id="go-routines">Go routines</h2>
 
-<ul>
-<li>A goroutine is a lightweight thread managed by the Go runtime.<br /></li>
-<li>Goroutines run in the same address space, so access to shared memory must be synchronized.<br /></li>
-</ul>
+<p>Go has its own way of dealing with concurrency. The go routine is a fundamental concept that represents
+the execution of a concurrent routine. A goroutine is a lightweight thread managed by the Go runtime, and
+run in the same address space of the &ldquo;parent&rdquo; process, so access to shared memory must be synchronized.</p>
+
+<p>To spawn go routines, Go uses the reserved word <code>go</code>. For instance,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">fmt.Printf(&#34;hello &#34;)
+go LauchThisConcurrently()
+fmt.Printf(&#34;world&#34;)</pre></div>
+<p>Would print <code>&quot;hello world&quot;</code> with no delay between words since the <code>LauchThisConcurrently</code> function call
+will be execute concurrently. But, how do we synchronize jobs performed by go routines? we can use WaitGroups</p>
 
 <h3 id="exploring-sync-waitgroup">Exploring sync.WaitGroup</h3>
 
@@ -345,7 +369,7 @@ If we want to actually wait for the execution, we would need to instance a wait 
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2019
+     © 2020
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
