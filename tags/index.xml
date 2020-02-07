@@ -6,10 +6,64 @@
     <description>Recent content in Tags on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Feb 2020 16:17:42 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 00:08:20 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>character encodings</title>
+      <link>https://daniel-m.github.io/tags/character-encodings/</link>
+      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/character-encodings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>character sets</title>
+      <link>https://daniel-m.github.io/tags/character-sets/</link>
+      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/character-sets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>encodings</title>
+      <link>https://daniel-m.github.io/tags/encodings/</link>
+      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/encodings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://daniel-m.github.io/tags/python/</link>
+      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unicode</title>
+      <link>https://daniel-m.github.io/tags/unicode/</link>
+      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/unicode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utf</title>
+      <link>https://daniel-m.github.io/tags/utf/</link>
+      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/utf/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>checksum</title>
@@ -44,15 +98,6 @@
       <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/md5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://daniel-m.github.io/tags/python/</link>
-      <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/python/</guid>
       <description></description>
     </item>
     

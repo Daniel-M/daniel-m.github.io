@@ -6,10 +6,20 @@
     <description>Recent content in fast-notes on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Feb 2020 16:17:42 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 00:08:20 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/categories/fast-notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Character encodings and a bit of Python</title>
+      <link>https://daniel-m.github.io/2020/02/character-encodings-and-a-bit-of-python/</link>
+      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2020/02/character-encodings-and-a-bit-of-python/</guid>
+      <description>I&amp;rsquo;ve been wanting to write about character sets and encodings for a while, since I had problems in the past understanding what is it all about?
+Words and information When reading this, all you are seeing is an arrangement of characters disposed in a certain way that they are meaningful to you. &amp;ndash; for instance &amp;ldquo;blank&amp;rdquo; separations between words are an indication of different words &amp;ndash; so this give us an idea that, the way in which symbols are disposed mean something.</description>
+    </item>
     
     <item>
       <title>A mystery using Python hashlib to calculate checksums</title>
