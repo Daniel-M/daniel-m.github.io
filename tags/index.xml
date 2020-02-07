@@ -57,11 +57,29 @@
     </item>
     
     <item>
-      <title>utf</title>
-      <link>https://daniel-m.github.io/tags/utf/</link>
+      <title>utf-16</title>
+      <link>https://daniel-m.github.io/tags/utf-16/</link>
       <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/tags/utf/</guid>
+      <guid>https://daniel-m.github.io/tags/utf-16/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utf-32</title>
+      <link>https://daniel-m.github.io/tags/utf-32/</link>
+      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/utf-32/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utf-8</title>
+      <link>https://daniel-m.github.io/tags/utf-8/</link>
+      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/utf-8/</guid>
       <description></description>
     </item>
     
