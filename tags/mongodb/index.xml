@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mongodb on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/tags/mongodb/</link>
+    <description>Recent content in mongodb on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 28 Oct 2020 16:17:42 -0500</lastBuildDate>
+    
+	<atom:link href="https://daniel-m.github.io/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Configuring a minimal MongoDB Replica Set with authentication</title>
+      <link>https://daniel-m.github.io/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/</link>
+      <pubDate>Wed, 28 Oct 2020 16:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/</guid>
+      <description>Forewords This was tested using 3 different nodes with debian 10 GNU/Linux
+A replica set in MongoDB is a group of mongod processes that maintain the same data set. Replica sets provide redundancy and high availability, and are the basis for all production deployments.
+The primary node receives all write operations and records all changes to its data sets in its operation log, i.e. oplog. The secondaries replicate the primary’s oplog and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,20 @@
     <description>Recent content in python on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Feb 2020 00:08:20 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 08 Nov 2021 10:52:28 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mananing python versions and virtual environments with pyenv</title>
+      <link>https://daniel-m.github.io/2021/11/mananing-python-versions-and-virtual-environments-with-pyenv/</link>
+      <pubDate>Mon, 08 Nov 2021 10:52:28 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2021/11/mananing-python-versions-and-virtual-environments-with-pyenv/</guid>
+      <description>What is pyenv? pyenv is a tool that lets you easily switch between multiple versions of Python, and it is really useful to work on python projects that require different python versions. If you are familiar with nvm the node version manager, pyenv follows a similar approach.
+Another big advantage of pyenv is the use of pyenv-vitualenv which completely isolates environments. I know you can use python -m venv but, having completely isolated python installations and requisites makes the programming process more reproducible (say, to get things inside containers, or have proper specs to run the code)</description>
+    </item>
     
     <item>
       <title>Character encodings and a bit of Python</title>

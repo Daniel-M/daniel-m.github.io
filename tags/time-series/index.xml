@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>time series on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/tags/time-series/</link>
+    <description>Recent content in time series on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Oct 2020 14:17:42 -0500</lastBuildDate>
+    
+	<atom:link href="https://daniel-m.github.io/tags/time-series/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing InfluxDB with High Availability</title>
+      <link>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</link>
+      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</guid>
+      <description>Forewords It is advisable to have high availability when serving data. We are considering debian GNU/Linux 10 during this process. With influxdb replication is achieved either by means of paying a managed influxdb instance, buying enteprise version, or implementing an influx-relay that offers bare-minumum high-availability.
+In this guide we will create 3 nodes (the minimum to have high availability) serving influxdb by means of a load balancer and an influx-relay.</description>
+    </item>
+    
+  </channel>
+</rss>

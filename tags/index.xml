@@ -6,10 +6,73 @@
     <description>Recent content in Tags on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Feb 2020 00:08:20 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 08 Nov 2021 10:52:28 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python</title>
+      <link>https://daniel-m.github.io/tags/python/</link>
+      <pubDate>Mon, 08 Nov 2021 10:52:28 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>self-doc</title>
+      <link>https://daniel-m.github.io/tags/self-doc/</link>
+      <pubDate>Mon, 08 Nov 2021 10:52:28 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/self-doc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>databases</title>
+      <link>https://daniel-m.github.io/tags/databases/</link>
+      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/databases/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>high availability</title>
+      <link>https://daniel-m.github.io/tags/high-availability/</link>
+      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/high-availability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>influxdb</title>
+      <link>https://daniel-m.github.io/tags/influxdb/</link>
+      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/influxdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>time series</title>
+      <link>https://daniel-m.github.io/tags/time-series/</link>
+      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/time-series/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mongodb</title>
+      <link>https://daniel-m.github.io/tags/mongodb/</link>
+      <pubDate>Wed, 28 Oct 2020 16:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/mongodb/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>character encodings</title>
@@ -35,15 +98,6 @@
       <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/encodings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://daniel-m.github.io/tags/python/</link>
-      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/python/</guid>
       <description></description>
     </item>
     
@@ -152,15 +206,6 @@
       <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/bigquery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DataBases</title>
-      <link>https://daniel-m.github.io/tags/databases/</link>
-      <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/databases/</guid>
       <description></description>
     </item>
     

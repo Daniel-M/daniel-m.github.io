@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>high availability on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/tags/high-availability/</link>
+    <description>Recent content in high availability on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Oct 2020 14:17:42 -0500</lastBuildDate>
+    
+	<atom:link href="https://daniel-m.github.io/tags/high-availability/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing InfluxDB with High Availability</title>
+      <link>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</link>
+      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</guid>
+      <description>Forewords It is advisable to have high availability when serving data. We are considering debian GNU/Linux 10 during this process. With influxdb replication is achieved either by means of paying a managed influxdb instance, buying enteprise version, or implementing an influx-relay that offers bare-minumum high-availability.
+In this guide we will create 3 nodes (the minimum to have high availability) serving influxdb by means of a load balancer and an influx-relay.</description>
+    </item>
+    
+    <item>
+      <title>Configuring a minimal MongoDB Replica Set with authentication</title>
+      <link>https://daniel-m.github.io/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/</link>
+      <pubDate>Wed, 28 Oct 2020 16:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/</guid>
+      <description>Forewords This was tested using 3 different nodes with debian 10 GNU/Linux
+A replica set in MongoDB is a group of mongod processes that maintain the same data set. Replica sets provide redundancy and high availability, and are the basis for all production deployments.
+The primary node receives all write operations and records all changes to its data sets in its operation log, i.e. oplog. The secondaries replicate the primary’s oplog and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set.</description>
+    </item>
+    
+  </channel>
+</rss>

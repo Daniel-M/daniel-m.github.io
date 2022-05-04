@@ -6,10 +6,41 @@
     <description>Recent content in Posts on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Feb 2020 00:08:20 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 08 Nov 2021 10:52:28 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mananing python versions and virtual environments with pyenv</title>
+      <link>https://daniel-m.github.io/2021/11/mananing-python-versions-and-virtual-environments-with-pyenv/</link>
+      <pubDate>Mon, 08 Nov 2021 10:52:28 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2021/11/mananing-python-versions-and-virtual-environments-with-pyenv/</guid>
+      <description>What is pyenv? pyenv is a tool that lets you easily switch between multiple versions of Python, and it is really useful to work on python projects that require different python versions. If you are familiar with nvm the node version manager, pyenv follows a similar approach.
+Another big advantage of pyenv is the use of pyenv-vitualenv which completely isolates environments. I know you can use python -m venv but, having completely isolated python installations and requisites makes the programming process more reproducible (say, to get things inside containers, or have proper specs to run the code)</description>
+    </item>
+    
+    <item>
+      <title>Installing InfluxDB with High Availability</title>
+      <link>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</link>
+      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</guid>
+      <description>Forewords It is advisable to have high availability when serving data. We are considering debian GNU/Linux 10 during this process. With influxdb replication is achieved either by means of paying a managed influxdb instance, buying enteprise version, or implementing an influx-relay that offers bare-minumum high-availability.
+In this guide we will create 3 nodes (the minimum to have high availability) serving influxdb by means of a load balancer and an influx-relay.</description>
+    </item>
+    
+    <item>
+      <title>Configuring a minimal MongoDB Replica Set with authentication</title>
+      <link>https://daniel-m.github.io/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/</link>
+      <pubDate>Wed, 28 Oct 2020 16:17:42 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/</guid>
+      <description>Forewords This was tested using 3 different nodes with debian 10 GNU/Linux
+A replica set in MongoDB is a group of mongod processes that maintain the same data set. Replica sets provide redundancy and high availability, and are the basis for all production deployments.
+The primary node receives all write operations and records all changes to its data sets in its operation log, i.e. oplog. The secondaries replicate the primary’s oplog and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set.</description>
+    </item>
     
     <item>
       <title>Character encodings and a bit of Python</title>
