@@ -15,7 +15,7 @@
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/2021/11/mananing-python-versions-and-virtual-environments-with-pyenv/</loc>
+    <loc>https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</loc>
     <lastmod>2021-11-08T10:52:28-05:00</lastmod>
   </url>
   
@@ -68,6 +68,12 @@
   </url>
   
   <url>
+    <loc>https://daniel-m.github.io/tags/databases/</loc>
+    <lastmod>2020-10-29T14:17:42-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://daniel-m.github.io/categories/influxdb/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
     <priority>0</priority>
@@ -76,12 +82,6 @@
   <url>
     <loc>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://daniel-m.github.io/tags/databases/</loc>
-    <lastmod>2020-10-29T14:17:42-05:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
