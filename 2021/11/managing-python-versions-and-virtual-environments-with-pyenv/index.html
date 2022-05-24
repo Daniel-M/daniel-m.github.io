@@ -181,6 +181,27 @@ eval <span style="font-style:italic">&#34;</span><span style="font-weight:bold">
 <p>Once installed an properly configured, one can add python versions by running</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pyenv update
 $ pyenv install &lt;&lt;python version&gt;&gt;</code></pre></div>
+<h2 id="pyenv-virtual-environments">Pyenv virtual environments</h2>
+
+<p>To take advante of virtual environments using pyenv, which translates into having different virtual environments with their own python version,
+we must install a plugin called <code>pyenv-virtualenv</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone https://github.com/pyenv/pyenv-virtualenv.git <span style="font-weight:bold">$(</span>pyenv root<span style="font-weight:bold">)</span>/plugins/pyenv-virtualenv</code></pre></div>
+<p>And to enable auto-activation of virtualenvs, add pyenv virtualenv-init to your shell. In bash this is achieved by,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ echo <span style="font-style:italic">&#39;eval &#34;$(pyenv virtualenv-init -)&#34;&#39;</span> &gt;&gt; ~/.bashrc</code></pre></div>
+<h3 id="creating-virtual-envs">Creating virtual-envs</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pyenv virtualenv &lt;python-version&gt; &lt;virtual-env-name&gt;</code></pre></div>
+<p>for instance</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pyenv virtualenv 3.10.4 my-django-env-3.10.4</code></pre></div>
+<p>Will create virtualenv called <code>my-django-env-3.10.4</code> using python version <code>3.10.4</code>. Virtual envs created are shown by</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pyenv virtualenvs</code></pre></div>
+<p>You activate/deactivate virtualenvs using</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="font-style:italic"># Activate</span>
+pyenv activate &lt;virtual-env-name&gt;
+
+<span style="font-style:italic"># Deactivate</span>
+pyenv deactivate</code></pre></div>
+<p>Finally, to delete virtualenvs</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pyenv virtualenv-delete &lt;virtual-env-name&gt; </code></pre></div>
       </div>
 
       <footer>
