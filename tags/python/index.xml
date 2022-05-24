@@ -6,10 +6,19 @@
     <description>Recent content in python on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 08 Nov 2021 10:52:28 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 24 May 2022 14:12:46 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dealing with scammers using Selenium</title>
+      <link>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium/</link>
+      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium/</guid>
+      <description>Introduction Recently got a SMS with a link to a phishing site intended to capture credit card information. The way of doing it was a billing due to a stalled international delivery, and scammers were cautious enough so the phishing site redirected to the true deliverycorporation once the credit card information with the payment were filled. I saw this as an opportunity to learn new things, so decided to write a simple bot to send fake data also known as trash, to the scammers database.</description>
+    </item>
     
     <item>
       <title>Managing python versions and virtual environments with pyenv</title>

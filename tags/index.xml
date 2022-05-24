@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 08 Nov 2021 10:52:28 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 24 May 2022 14:12:46 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>python</title>
       <link>https://daniel-m.github.io/tags/python/</link>
-      <pubDate>Mon, 08 Nov 2021 10:52:28 -0500</pubDate>
+      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>selenium</title>
+      <link>https://daniel-m.github.io/tags/selenium/</link>
+      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/selenium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webscraping</title>
+      <link>https://daniel-m.github.io/tags/webscraping/</link>
+      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/webscraping/</guid>
       <description></description>
     </item>
     
