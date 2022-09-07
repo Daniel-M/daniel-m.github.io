@@ -12,11 +12,29 @@
     
     
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://daniel-m.github.io/categories/python/</link>
       <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>poc</title>
+      <link>https://daniel-m.github.io/categories/poc/</link>
+      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/poc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proof of concept</title>
+      <link>https://daniel-m.github.io/categories/proof-of-concept/</link>
+      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/proof-of-concept/</guid>
       <description></description>
     </item>
     

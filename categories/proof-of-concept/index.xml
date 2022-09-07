@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>selenium on Daniel Mejía Raigosa</title>
-    <link>https://daniel-m.github.io/tags/selenium/</link>
-    <description>Recent content in selenium on Daniel Mejía Raigosa</description>
+    <title>proof of concept on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/categories/proof-of-concept/</link>
+    <description>Recent content in proof of concept on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 24 May 2022 14:12:46 -0500</lastBuildDate>
     
-	<atom:link href="https://daniel-m.github.io/tags/selenium/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://daniel-m.github.io/categories/proof-of-concept/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

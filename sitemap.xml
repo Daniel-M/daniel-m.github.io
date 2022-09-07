@@ -15,18 +15,12 @@
   </url>
   
   <url>
-    <loc>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium/</loc>
+    <loc>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium-and-python/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://daniel-m.github.io/posts/</loc>
-    <lastmod>2022-05-24T14:12:46-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://daniel-m.github.io/tags/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -39,6 +33,36 @@
   
   <url>
     <loc>https://daniel-m.github.io/categories/python/</loc>
+    <lastmod>2022-05-24T14:12:46-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel-m.github.io/tags/</loc>
+    <lastmod>2022-05-24T14:12:46-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel-m.github.io/tags/poc/</loc>
+    <lastmod>2022-05-24T14:12:46-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel-m.github.io/categories/poc/</loc>
+    <lastmod>2022-05-24T14:12:46-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel-m.github.io/tags/proof-of-concept/</loc>
+    <lastmod>2022-05-24T14:12:46-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daniel-m.github.io/categories/proof-of-concept/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -97,6 +121,12 @@
   </url>
   
   <url>
+    <loc>https://daniel-m.github.io/tags/databases/</loc>
+    <lastmod>2020-10-29T14:17:42-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://daniel-m.github.io/categories/influxdb/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
     <priority>0</priority>
@@ -105,12 +135,6 @@
   <url>
     <loc>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://daniel-m.github.io/tags/databases/</loc>
-    <lastmod>2020-10-29T14:17:42-05:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

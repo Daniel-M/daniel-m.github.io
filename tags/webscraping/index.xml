@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Dealing with scammers using Selenium</title>
-      <link>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium/</link>
+      <title>Dealing with scammers using Selenium and Python</title>
+      <link>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium-and-python/</link>
       <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium/</guid>
+      <guid>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium-and-python/</guid>
       <description>Introduction Recently got a SMS with a link to a phishing site intended to capture credit card information. The way of doing it was a billing due to a stalled international delivery, and scammers were cautious enough so the phishing site redirected to the true deliverycorporation once the credit card information with the payment were filled. I saw this as an opportunity to learn new things, so decided to write a simple bot to send fake data also known as trash, to the scammers database.</description>
     </item>
     

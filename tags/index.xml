@@ -12,11 +12,29 @@
     
     
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://daniel-m.github.io/tags/python/</link>
       <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>poc</title>
+      <link>https://daniel-m.github.io/tags/poc/</link>
+      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/poc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proof of concept</title>
+      <link>https://daniel-m.github.io/tags/proof-of-concept/</link>
+      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/proof-of-concept/</guid>
       <description></description>
     </item>
     
@@ -48,7 +66,7 @@
     </item>
     
     <item>
-      <title>databases</title>
+      <title>DataBases</title>
       <link>https://daniel-m.github.io/tags/databases/</link>
       <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
       
