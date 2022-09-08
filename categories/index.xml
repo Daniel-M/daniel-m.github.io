@@ -6,10 +6,64 @@
     <description>Recent content in Categories on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 24 May 2022 14:12:46 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jun 2022 08:46:43 -0500</lastBuildDate>
     
 	<atom:link href="https://daniel-m.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>autodoc</title>
+      <link>https://daniel-m.github.io/categories/autodoc/</link>
+      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/autodoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>backend</title>
+      <link>https://daniel-m.github.io/categories/backend/</link>
+      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/backend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>doc</title>
+      <link>https://daniel-m.github.io/categories/doc/</link>
+      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/doc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>expressjs</title>
+      <link>https://daniel-m.github.io/categories/expressjs/</link>
+      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/expressjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>integrations</title>
+      <link>https://daniel-m.github.io/categories/integrations/</link>
+      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/integrations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nodejs</title>
+      <link>https://daniel-m.github.io/categories/nodejs/</link>
+      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/nodejs/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>poc</title>
