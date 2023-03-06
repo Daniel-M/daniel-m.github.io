@@ -1,30 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>go on Daniel Mejía Raigosa</title>
+    <title>Go on Daniel Mejía Raigosa</title>
     <link>https://daniel-m.github.io/categories/go/</link>
-    <description>Recent content in go on Daniel Mejía Raigosa</description>
+    <description>Recent content in Go on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Feb 2019 22:33:04 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 15 Feb 2019 22:33:04 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Google&#39;s BigQuery and Go</title>
       <link>https://daniel-m.github.io/2019/02/googles-bigquery-and-go/</link>
       <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/2019/02/googles-bigquery-and-go/</guid>
-      <description>Notes  BigQuery(BQ) is Google&amp;rsquo;s serverless, highly scalable, enterprise data warehouse
- SQL-like query language
- Real time data analysis by &amp;ldquo;streaming ingestion&amp;rdquo; capability
- Deals with gigabytes to petabytes of data volume
- Offers data encryption and data access permissions via Cloud Identity and Access Management
- Machine Learning and Bussiness Intel can be easily integrated with BQ
- Support for Geospatial data
-  Interacting with BQ To interact with the BQ we can use:</description>
+      <description>Notes BigQuery(BQ) is Google&amp;rsquo;s serverless, highly scalable, enterprise data warehouse SQL-like query language Real time data analysis by &amp;ldquo;streaming ingestion&amp;rdquo; capability Deals with gigabytes to petabytes of data volume Offers data encryption and data access permissions via Cloud Identity and Access Management Machine Learning and Bussiness Intel can be easily integrated with BQ Support for Geospatial data Interacting with BQ To interact with the BQ we can use:
+A CLI tool The GCP BQ UI (New and Old Web UI) REST API which also allows the use of several client libraries First things first To be able to use BQ, it must be enabled for a project.</description>
     </item>
     
     <item>
@@ -43,17 +33,7 @@
       
       <guid>https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/</guid>
       <description>Introduction Exploration of http servers in Go. The packages under considerations are,
- net/http
- https://github.com/go-chi/chi
- https://github.com/julienschmidt/httprouter
- https://github.com/gorilla/mux
- https://github.com/zenazn/goji/
- https://github.com/go-swagger/go-swagger
- https://github.com/manyminds/api2go
- https://github.com/labstack/echo
-  https://github.com/go-chi/chi  chi is a lightweight, idiomatic and composable router for building Go 1.7+ HTTP services.
- Designed to support larg REST API services.
- built on top of context a go package that handles signaling, cancelation and request-scoped values across a handler chain.</description>
+net/http https://github.com/go-chi/chi https://github.com/julienschmidt/httprouter https://github.com/gorilla/mux https://github.com/zenazn/goji/ https://github.com/go-swagger/go-swagger https://github.com/manyminds/api2go https://github.com/labstack/echo https://github.com/go-chi/chi chi is a lightweight, idiomatic and composable router for building Go 1.7+ HTTP services. Designed to support larg REST API services. built on top of context a go package that handles signaling, cancelation and request-scoped values across a handler chain. The features reported in the readme are, Lightweight - cloc&amp;rsquo;d in ~1000 LOC for the chi router Fast - yes, see benchmarks 100% compatible with net/http - use any http or middleware pkg in the ecosystem that is also compatible with net/http Designed for modular/composable APIs - middlewares, inline middlewares, route groups and subrouter mounting Context control - built on new context package, providing value chaining, cancelations and timeouts Robust - in production at Pressly, CloudFlare, Heroku, 99Designs, and many others (see discussion) Doc generation - docgen auto-generates routing documentation from your source to JSON or Markdown No external dependencies - plain ol&amp;rsquo; Go 1.</description>
     </item>
     
   </channel>

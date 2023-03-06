@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GIS on Daniel Mejía Raigosa</title>
@@ -6,11 +6,7 @@
     <description>Recent content in GIS on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Feb 2018 21:30:14 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/categories/gis/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 15 Feb 2018 21:30:14 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/gis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The GeoJSON Format</title>
       <link>https://daniel-m.github.io/2018/02/the-geojson-format/</link>
@@ -18,9 +14,7 @@
       
       <guid>https://daniel-m.github.io/2018/02/the-geojson-format/</guid>
       <description>General notes and remarks Abreviations of interest,
- WKB - Well Known Binary.
- WKT - Well Known Text.
-  Introduction GeoJSON is a geospatial data interchange format based on JavaScript Object Notation (JSON). It defines several types of JSON objects and the manner in which they are combined to represent data about geographic features, their properties, and their spatial extents. GeoJSON uses a geographic coordinate reference system, World Geodetic System 1984, and units of decimal degrees.</description>
+WKB - Well Known Binary. WKT - Well Known Text. Introduction GeoJSON is a geospatial data interchange format based on JavaScript Object Notation (JSON). It defines several types of JSON objects and the manner in which they are combined to represent data about geographic features, their properties, and their spatial extents. GeoJSON uses a geographic coordinate reference system, World Geodetic System 1984, and units of decimal degrees.</description>
     </item>
     
   </channel>

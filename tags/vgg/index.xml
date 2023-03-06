@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>VGG on Daniel Mejía Raigosa</title>
@@ -6,25 +6,14 @@
     <description>Recent content in VGG on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 01 Jun 2018 21:47:48 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/tags/vgg/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 01 Jun 2018 21:47:48 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/vgg/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ImageNet: VGGNet, ResNet, Inception, and Xception with Keras</title>
       <link>https://daniel-m.github.io/2018/06/imagenet-vggnet-resnet-inception-and-xception-with-keras/</link>
       <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/2018/06/imagenet-vggnet-resnet-inception-and-xception-with-keras/</guid>
-      <description>Link: https://www.pyimagesearch.com/2017/03/20/imagenet-vggnet-resnet-inception-xception-keras/ Key concepts:  CNN: Convolutional Neural Network
- ImageNet dataset
- ImageNet Large Scale Visual Recognition Challenge: train a model that can correctly classify an input image into 1,000 separate object categories. ImageNet challenge is the de facto benchmark for computer vision classification algorithms
- Weight serialization
- Weights of a neural network
- Pooling
- Softmax
-  Notes:  Keras comes integrated with VGG16, VGG19, ResNet50, Inception V3, and Xception neural network models (look inside applications submodules)</description>
+      <description>Link: https://www.pyimagesearch.com/2017/03/20/imagenet-vggnet-resnet-inception-xception-keras/ Key concepts: CNN: Convolutional Neural Network ImageNet dataset ImageNet Large Scale Visual Recognition Challenge: train a model that can correctly classify an input image into 1,000 separate object categories. ImageNet challenge is the de facto benchmark for computer vision classification algorithms Weight serialization Weights of a neural network Pooling Softmax Notes: Keras comes integrated with VGG16, VGG19, ResNet50, Inception V3, and Xception neural network models (look inside applications submodules) ImageNet: manually labeled 22 000 object categories ImageNet Large Scale Visual Recognition Challenge: train a model that can correctly classify an input image into 1,000 separate object categories.</description>
     </item>
     
   </channel>

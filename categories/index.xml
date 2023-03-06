@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Daniel Mejía Raigosa</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Categories on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Jun 2022 08:46:43 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 07 Jun 2022 08:46:43 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>autodoc</title>
       <link>https://daniel-m.github.io/categories/autodoc/</link>
@@ -84,7 +80,7 @@
     </item>
     
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://daniel-m.github.io/categories/python/</link>
       <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
       
@@ -111,29 +107,11 @@
     </item>
     
     <item>
-      <title>environments</title>
-      <link>https://daniel-m.github.io/categories/environments/</link>
-      <pubDate>Mon, 08 Nov 2021 10:52:28 -0500</pubDate>
+      <title>databases</title>
+      <link>https://daniel-m.github.io/categories/databases/</link>
+      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/categories/environments/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pyenv</title>
-      <link>https://daniel-m.github.io/categories/pyenv/</link>
-      <pubDate>Mon, 08 Nov 2021 10:52:28 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/categories/pyenv/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>virtualenv</title>
-      <link>https://daniel-m.github.io/categories/virtualenv/</link>
-      <pubDate>Mon, 08 Nov 2021 10:52:28 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/categories/virtualenv/</guid>
+      <guid>https://daniel-m.github.io/categories/databases/</guid>
       <description></description>
     </item>
     
@@ -143,15 +121,6 @@
       <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/categories/influxdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>databases</title>
-      <link>https://daniel-m.github.io/categories/databases/</link>
-      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/categories/databases/</guid>
       <description></description>
     </item>
     
@@ -210,20 +179,20 @@
     </item>
     
     <item>
+      <title>Go</title>
+      <link>https://daniel-m.github.io/categories/go/</link>
+      <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Notes</title>
       <link>https://daniel-m.github.io/categories/notes/</link>
       <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/categories/notes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://daniel-m.github.io/categories/go/</link>
-      <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/categories/go/</guid>
       <description></description>
     </item>
     

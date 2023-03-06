@@ -16,7 +16,7 @@
     <meta property="og:title" content="Continuous Integration and Continuous Delivery Systems On The Cloud" />
 <meta property="og:description" content="Comparison of Continuous Integration and Continuous Delivery Systems" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-08-11T21:57:55-05:00" />
 <meta property="article:modified_time" content="2018-08-11T21:57:55-05:00" />
 
@@ -60,7 +60,7 @@
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -131,24 +131,20 @@
       </header>
 
       <div>
-        
-
-<h2 id="what-are-continuous-integration-ci-and-continuous-delivery-cd-systems">What are continuous integration(CI) and continuous delivery(CD) systems?</h2>
-
+        <h2 id="what-are-continuous-integrationci-and-continuous-deliverycd-systems">What are continuous integration(CI) and continuous delivery(CD) systems?</h2>
 <p>According to <a href="https://martinfowler.com/articles/continuousIntegration.html">Martin Fowler</a> , one of the members of the Agile manifesto, Continuous Integration (CI),</p>
-
 <blockquote>
 <p>is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible. Many teams find that this approach leads to significantly reduced integration problems and allows a team to develop cohesive software more rapidly.</p>
 </blockquote>
-
 <p>The idea behind CI is that, whenever a code commit occurs, it triggers an automated system that checks how the changes introduced in the commit <em>integrate</em> into the project without breaking its functionality.</p>
-
-<p><a href="https://martinfowler.com/bliki/ContinuousDelivery.html">On the other hand</a>, Martin Fowler defines Continuous Delivery (CD), as
-&gt;  a software development discipline where you build software in such a way that the software can be released to production at any time.</p>
-
+<p><a href="https://martinfowler.com/bliki/ContinuousDelivery.html">On the other hand</a>, Martin Fowler defines Continuous Delivery (CD), as</p>
+<blockquote>
+<p>a software development discipline where you build software in such a way that the software can be released to production at any time.</p>
+</blockquote>
 <blockquote>
 <p>You’re doing continuous delivery when,</p>
-
+</blockquote>
+<blockquote>
 <ul>
 <li>Your software is deployable throughout its lifecycle</li>
 <li>Your team prioritizes keeping the software deployable over working on new features</li>
@@ -156,126 +152,108 @@
 <li>You can perform push-button deployments of any version of the software to any environment on demand</li>
 </ul>
 </blockquote>
-
 <p>Thus, CI and CD are strictly related since whenever any change is made into the code, CI triggers checks to prove that those changes won&rsquo;t break functionality and CD deploys the new version into production enviroments.</p>
-
 <p>In this document we will compare five continuous delivery systems,</p>
-
 <ul>
-<li>Jenkins<br /></li>
-<li>GoCD<br /></li>
-<li>CircleCI<br /></li>
-<li>Travis-CI<br /></li>
-<li>AWS CodePipelines<br /></li>
+<li>Jenkins</li>
+<li>GoCD</li>
+<li>CircleCI</li>
+<li>Travis-CI</li>
+<li>AWS CodePipelines</li>
 </ul>
-
 <h2 id="jenkins">Jenkins</h2>
-
 <p>Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.</p>
-
 <h3 id="main-features">Main features</h3>
-
 <ul>
 <li>First conceived as a Continuous Integration system, it evolved into a Continuous Delivery system</li>
-<li>Jenkins can run either,<br />
-
+<li>Jenkins can run either,
 <ul>
-<li>With standard system packages<br /></li>
-<li>Within Docker containers<br /></li>
-<li>Standalone in machines with Java Runtime Environment (JRE)<br /></li>
-</ul></li>
-<li>Has a huge number of plugins, of interest are,<br />
-
+<li>With standard system packages</li>
+<li>Within Docker containers</li>
+<li>Standalone in machines with Java Runtime Environment (JRE)</li>
+</ul>
+</li>
+<li>Has a huge number of plugins, of interest are,
 <ul>
-<li>Build integration using GitHub to trigger builds, besides, with aid of a plugin, Jenkins can pull code from any repository it has access to.<br />
-
+<li>Build integration using GitHub to trigger builds, besides, with aid of a plugin, Jenkins can pull code from any repository it has access to.
 <ul>
-<li>Authentication integration using GitHub as the source of authentication information to secure a Jenkins instance.<br /></li>
+<li>Authentication integration using GitHub as the source of authentication information to secure a Jenkins instance.</li>
 <li>Extensibility is core to Jenkins. Its flexibility attributes itself to plugins being critical to Jenkins’ functionality. So it depends heavily on plugins for pretty much any use case.</li>
-</ul></li>
-</ul></li>
-<li>CI/CD configuration can be done either with a graphic dashboard or using a pipeline plugin<br /></li>
-<li>With the Pipeline plugin users can implement a project’s entire build/test/deploy pipeline in a Jenkinsfile and store that alongside their code, treating their pipeline as another piece of code checked into source control.<br /></li>
-<li>Jenkins can be deployed on your own servers, on the cloud, even is offered as an hosted service by some companies<br /></li>
-<li>CD is achieved by the use of plugins<br /></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li>CI/CD configuration can be done either with a graphic dashboard or using a pipeline plugin</li>
+<li>With the Pipeline plugin users can implement a project’s entire build/test/deploy pipeline in a Jenkinsfile and store that alongside their code, treating their pipeline as another piece of code checked into source control.</li>
+<li>Jenkins can be deployed on your own servers, on the cloud, even is offered as an hosted service by some companies</li>
+<li>CD is achieved by the use of plugins</li>
+</ul>
 <h2 id="gocd">GoCD</h2>
-
 <ul>
-<li>GoCD aims to support the most common CD scenarios out of the box without any plugin installation, built on the principles of Continuous Delivery.<br /></li>
-<li>Although GoCD is built specifically with CD in mind, it has sophisticated features for continuous integration.<br /></li>
-<li>GoCD incorporates its own pipelines,<br />
-
+<li>GoCD aims to support the most common CD scenarios out of the box without any plugin installation, built on the principles of Continuous Delivery.</li>
+<li>Although GoCD is built specifically with CD in mind, it has sophisticated features for continuous integration.</li>
+<li>GoCD incorporates its own pipelines,
 <ul>
-<li>The GoCD server does not perform work on its own, it dependes on the <em>agents</em>.<br /></li>
-<li>The <em>agents</em> are the entities responsible to performing any task (run commands, do deployments, etc.).<br /></li>
-<li>The <em>pipeline</em> represents a workflow or part of a workflow.<br /></li>
-<li>Pipelines are triggered by <em>materials</em>, typically materials are source control repositories (like git, mercurial, subversion, etc.)<br /></li>
-<li>Agents are the responsible of running workflows declare on pipelines.<br /></li>
-</ul></li>
-<li>GoCD offers a graphical dashboard when agents and pipelines are declared.<br /></li>
-<li>It is possible to configure pipelines with GoCD&rsquo;s template system. Templates support different formats like JSON or YAML<br /></li>
-<li>GoCD includes a generous set of plugins,<br />
-
-<ul>
-<li>To enable integration with other systems and deployment to docker containers or publish/fetch from AWS S3 buckets<br /></li>
-<li>Notification plugins via email, websockets, Gitter, AWS SNS, Slack integrations, and much more<br /></li>
-</ul></li>
-<li>GoCD must be run on a server (either if this server is a virtual machine on the cloud or a private server), we don&rsquo;t know hosted GoCD providers.<br /></li>
+<li>The GoCD server does not perform work on its own, it dependes on the <em>agents</em>.</li>
+<li>The <em>agents</em> are the entities responsible to performing any task (run commands, do deployments, etc.).</li>
+<li>The <em>pipeline</em> represents a workflow or part of a workflow.</li>
+<li>Pipelines are triggered by <em>materials</em>, typically materials are source control repositories (like git, mercurial, subversion, etc.)</li>
+<li>Agents are the responsible of running workflows declare on pipelines.</li>
 </ul>
-
+</li>
+<li>GoCD offers a graphical dashboard when agents and pipelines are declared.</li>
+<li>It is possible to configure pipelines with GoCD&rsquo;s template system. Templates support different formats like JSON or YAML</li>
+<li>GoCD includes a generous set of plugins,
+<ul>
+<li>To enable integration with other systems and deployment to docker containers or publish/fetch from AWS S3 buckets</li>
+<li>Notification plugins via email, websockets, Gitter, AWS SNS, Slack integrations, and much more</li>
+</ul>
+</li>
+<li>GoCD must be run on a server (either if this server is a virtual machine on the cloud or a private server), we don&rsquo;t know hosted GoCD providers.</li>
+</ul>
 <h2 id="circleci">CircleCI</h2>
-
 <ul>
-<li>CircleCI integrates with GitHub, GitHub Enterprise, and Bitbucket. Every time you commit code, CircleCI creates a build.<br /></li>
-<li>CircleCI automatically tests your build in a clean container or virtual machine. Any docker image, Linux VM, or mac OS VM is supported.<br /></li>
-<li>Your team is notified if a build fails so issues can be fixed quickly.<br /></li>
-<li>Passing builds are deployed to various environments so your product goes to market faster.<br /></li>
-<li>CircleCI is language agnostic, if it can run on Linux, it can be deployed with CircleCI.<br /></li>
-<li>Supports parallel or sequential jobs.<br /></li>
-<li>It is hosted on the cloud (Integrating against Github or Bitbucket), or can run on paid private servers (private servers only integrate with Github).<br /></li>
+<li>CircleCI integrates with GitHub, GitHub Enterprise, and Bitbucket. Every time you commit code, CircleCI creates a build.</li>
+<li>CircleCI automatically tests your build in a clean container or virtual machine. Any docker image, Linux VM, or mac OS VM is supported.</li>
+<li>Your team is notified if a build fails so issues can be fixed quickly.</li>
+<li>Passing builds are deployed to various environments so your product goes to market faster.</li>
+<li>CircleCI is language agnostic, if it can run on Linux, it can be deployed with CircleCI.</li>
+<li>Supports parallel or sequential jobs.</li>
+<li>It is hosted on the cloud (Integrating against Github or Bitbucket), or can run on paid private servers (private servers only integrate with Github).</li>
 </ul>
-
 <h2 id="travis-ci">Travis-CI</h2>
-
 <ul>
-<li>Exclusively integrates with Github.<br /></li>
-<li>Code commits trigger TravisCI builds, which notify of build completion/failure and can deploy to heroku, AWS, Google Cloud, <a href="https://docs.travis-ci.com/user/deployment">among a long list of other popular options</a><br /></li>
-<li>Travis CI offers a few different infrastructure environments, so you can select the setup that suits your project best:<br />
-
+<li>Exclusively integrates with Github.</li>
+<li>Code commits trigger TravisCI builds, which notify of build completion/failure and can deploy to heroku, AWS, Google Cloud, <a href="https://docs.travis-ci.com/user/deployment">among a long list of other popular options</a></li>
+<li>Travis CI offers a few different infrastructure environments, so you can select the setup that suits your project best:
 <ul>
-<li>Container-based, a Linux Ubuntu environment running in a Docker container.<br /></li>
-<li>Sudo-enabled - this Linux Ubuntu environment runs on full virtual machine. It starts a little slower, but it has more computational resources, and supports the use of sudo, setuid, and setgid.<br /></li>
-<li>OS X - uses one of several versions of the OS X operating system. This environment is useful for building projects that require the OS X software, such as projects written in Swift.<br /></li>
-</ul></li>
+<li>Container-based, a Linux Ubuntu environment running in a Docker container.</li>
+<li>Sudo-enabled - this Linux Ubuntu environment runs on full virtual machine. It starts a little slower, but it has more computational resources, and supports the use of sudo, setuid, and setgid.</li>
+<li>OS X - uses one of several versions of the OS X operating system. This environment is useful for building projects that require the OS X software, such as projects written in Swift.</li>
 </ul>
-
+</li>
+</ul>
 <h2 id="aws-codepipelines">AWS CodePipelines</h2>
-
 <ul>
-<li>AWS CodePipeline is a continuous delivery service you can use to model, visualize, and automate the steps required to release your software.<br /></li>
-<li>In AWS CodePipeline, a <em>pipeline</em> is a workflow construct that describes how software changes go through a release process.<br /></li>
-<li>AWS CodePipeline breaks up your workflow into a series of stages, where every stage contains at least one action.<br /></li>
-<li>You can use the AWS CodePipeline console, the AWS Command Line Interface (AWS CLI), the AWS SDKs, or any combination of these to create and manage your pipelines.<br /></li>
-<li>AWS CodePipeline fully automates the release process from end to end, starting from the source repository through build, test, and deployment.<br /></li>
-<li>It is possible to incorporate existing source, build, and deployment tools into the pipeline.<br /></li>
-<li>Reviewing the real-time status of the pipelines, check the details of any alerts, retry failed actions, view details about the source revisions used in the latest pipeline execution in each stage, and manually rerunning any pipeline is possible with the AWS CodePipelines console<br /></li>
+<li>AWS CodePipeline is a continuous delivery service you can use to model, visualize, and automate the steps required to release your software.</li>
+<li>In AWS CodePipeline, a <em>pipeline</em> is a workflow construct that describes how software changes go through a release process.</li>
+<li>AWS CodePipeline breaks up your workflow into a series of stages, where every stage contains at least one action.</li>
+<li>You can use the AWS CodePipeline console, the AWS Command Line Interface (AWS CLI), the AWS SDKs, or any combination of these to create and manage your pipelines.</li>
+<li>AWS CodePipeline fully automates the release process from end to end, starting from the source repository through build, test, and deployment.</li>
+<li>It is possible to incorporate existing source, build, and deployment tools into the pipeline.</li>
+<li>Reviewing the real-time status of the pipelines, check the details of any alerts, retry failed actions, view details about the source revisions used in the latest pipeline execution in each stage, and manually rerunning any pipeline is possible with the AWS CodePipelines console</li>
 </ul>
-
-<hr />
-
+<hr>
 <h2 id="references">References</h2>
-
 <ol>
-<li><a href="https://jenkins.io/">https://jenkins.io/</a><br /></li>
-<li><a href="https://www.gocd.org/">https://www.gocd.org/</a><br /></li>
-<li><a href="https://circleci.com/product/">https://circleci.com/product/</a><br /></li>
-<li><a href="https://highops.com/insights/continuous-delivery-pipelines-gocd-vs-jenkins/">https://highops.com/insights/continuous-delivery-pipelines-gocd-vs-jenkins/</a><br /></li>
-<li><a href="https://www.gocd.org/jenkins/">https://www.gocd.org/jenkins/</a><br /></li>
+<li><a href="https://jenkins.io/">https://jenkins.io/</a></li>
+<li><a href="https://www.gocd.org/">https://www.gocd.org/</a></li>
+<li><a href="https://circleci.com/product/">https://circleci.com/product/</a></li>
+<li><a href="https://highops.com/insights/continuous-delivery-pipelines-gocd-vs-jenkins/">https://highops.com/insights/continuous-delivery-pipelines-gocd-vs-jenkins/</a></li>
+<li><a href="https://www.gocd.org/jenkins/">https://www.gocd.org/jenkins/</a></li>
 <li><a href="https://docs.travis-ci.com/">https://docs.travis-ci.com/</a></li>
 <li><a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html">https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html</a></li>
-<li><a href="https://martinfowler.com/articles/continuousIntegration.html">https://martinfowler.com/articles/continuousIntegration.html</a><br /></li>
+<li><a href="https://martinfowler.com/articles/continuousIntegration.html">https://martinfowler.com/articles/continuousIntegration.html</a></li>
 <li><a href="https://martinfowler.com/bliki/ContinuousDelivery.html">https://martinfowler.com/bliki/ContinuousDelivery.html</a></li>
 </ol>
 
@@ -287,7 +265,7 @@
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -331,7 +309,7 @@
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -355,7 +333,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

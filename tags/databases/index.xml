@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>databases on Daniel Mejía Raigosa</title>
+    <title>DataBases on Daniel Mejía Raigosa</title>
     <link>https://daniel-m.github.io/tags/databases/</link>
-    <description>Recent content in databases on Daniel Mejía Raigosa</description>
+    <description>Recent content in DataBases on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Oct 2020 14:17:42 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/tags/databases/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 29 Oct 2020 14:17:42 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/databases/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing InfluxDB with High Availability</title>
       <link>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</link>
@@ -38,14 +34,8 @@ The primary node receives all write operations and records all changes to its da
       <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/2019/02/googles-bigquery-and-go/</guid>
-      <description>Notes  BigQuery(BQ) is Google&amp;rsquo;s serverless, highly scalable, enterprise data warehouse
- SQL-like query language
- Real time data analysis by &amp;ldquo;streaming ingestion&amp;rdquo; capability
- Deals with gigabytes to petabytes of data volume
- Offers data encryption and data access permissions via Cloud Identity and Access Management
- Machine Learning and Bussiness Intel can be easily integrated with BQ
- Support for Geospatial data
-  Interacting with BQ To interact with the BQ we can use:</description>
+      <description>Notes BigQuery(BQ) is Google&amp;rsquo;s serverless, highly scalable, enterprise data warehouse SQL-like query language Real time data analysis by &amp;ldquo;streaming ingestion&amp;rdquo; capability Deals with gigabytes to petabytes of data volume Offers data encryption and data access permissions via Cloud Identity and Access Management Machine Learning and Bussiness Intel can be easily integrated with BQ Support for Geospatial data Interacting with BQ To interact with the BQ we can use:
+A CLI tool The GCP BQ UI (New and Old Web UI) REST API which also allows the use of several client libraries First things first To be able to use BQ, it must be enabled for a project.</description>
     </item>
     
   </channel>

@@ -20,7 +20,7 @@ The ESP32 can be programmed in several ways, among the languages and platforms s
 Introduction (sort of) The ESP32 was originally conceived by espressif a multinational company with headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth, low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32 series of chips, modules and development boards.
 The ESP32 can be programmed in several ways, among the languages and platforms supported the most popular are," />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/10/esp32-setting-up-a-development-environment/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-10-28T20:40:25-05:00" />
 <meta property="article:modified_time" content="2018-10-28T20:40:25-05:00" />
 
@@ -64,7 +64,7 @@ The ESP32 can be programmed in several ways, among the languages and platforms s
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -137,105 +137,84 @@ The ESP32 can be programmed in several ways, among the languages and platforms s
       </header>
 
       <div>
-        
-
-<p><a href="http://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/"><em>This post is part of a series of ESP32 blog posts. Look the index here</em></a></p>
-
+        <p><a href="http://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/"><em>This post is part of a series of ESP32 blog posts. Look the index here</em></a></p>
 <h2 id="introduction-sort-of">Introduction (sort of)</h2>
-
 <p>The <a href="https://www.espressif.com/en/products/hardware/esp32">ESP32</a> was originally conceived by
 <a href="https://www.espressif.com/">espressif</a> a multinational company with
 headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth,
 low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32
 series of chips, modules and development boards.</p>
-
 <p>The ESP32 can be programmed in several ways, among the languages and platforms
 supported the most popular are,</p>
-
 <ul>
 <li><a href="https://micropython.org">MicroPython</a> a python implementation for embedded
-systems.<br /></li>
+systems.</li>
 <li><a href="https://www.arduino.cc/en/Main/Software">Arduino IDE</a> the IDE for Arduino
 platforms.</li>
 <li><a href="http://www.nodemcu.com/">NodeMCU</a> a platform to program embedded systems
-using Lua.<br /></li>
+using Lua.</li>
 <li><a href="https://platformio.org/platformio-ide">PlatformIO</a> a project which aims to
-provide an unified development tool for embedded systems.<br /></li>
-<li><a href="https://github.com/espressif/esp-idf">Espressif esp-idf</a> Espressif IoT Development Framework. Official development framework for ESP32. I&rsquo;ll be using this.<br /></li>
+provide an unified development tool for embedded systems.</li>
+<li><a href="https://github.com/espressif/esp-idf">Espressif esp-idf</a> Espressif IoT Development Framework. Official development framework for ESP32. I&rsquo;ll be using this.</li>
 </ul>
-
 <h2 id="getting-a-working-espressif-esp-idf-environment">Getting a working Espressif esp-idf environment</h2>
-
 <p>This part is based on <a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/">the official instructions by espressif</a>.</p>
-
 <p>The installation process consists of two steps,</p>
-
 <ul>
-<li>Setting up the toolchain.<br /></li>
-<li>Setting up the Espressif esp-idf from github.<br /></li>
+<li>Setting up the toolchain.</li>
+<li>Setting up the Espressif esp-idf from github.</li>
 </ul>
-
 <p>To get the esp-idf, head to <a href="https://github.com/espressif/esp-idf">https://github.com/espressif/esp-idf</a>,
 click the <code>releases</code> button and download the latest release available.</p>
-
-<p><img src="https://daniel-m.github.io/2018/oct/idf-releases.png" alt="IDF releases" /></p>
-
+<p><img src="https://daniel-m.github.io/2018/oct/idf-releases.png" alt="IDF releases"></p>
 <p>Now install some prerequisites to the build process,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo apt-get install gcc git wget make libncurses-dev flex bison gperf python python-serial</pre></div>
-<p>Now, a recommended place to install the esp-idf is the path <code>$HOME/opt/esp</code>. In
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt-get install gcc git wget make libncurses-dev flex bison gperf python python-serial
+</span></span></code></pre></div><p>Now, a recommended place to install the esp-idf is the path <code>$HOME/opt/esp</code>. In
 order to simplify the install process, declare the following variable,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">export ESP_PATH=$HOME/opt/esp</pre></div>
-<p>And create the required destination directory.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mkdir $ESP_PATH</pre></div>
-<h3 id="getting-the-toolchain">Getting the toolchain</h3>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>export ESP_PATH=$HOME/opt/esp
+</span></span></code></pre></div><p>And create the required destination directory.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>mkdir $ESP_PATH
+</span></span></code></pre></div><h3 id="getting-the-toolchain">Getting the toolchain</h3>
 <p>The toolchain can be obtained by one of two ways,</p>
-
 <ul>
 <li>Building from source. This allows to have a custom toolchain if some
-configurations are set.<br /></li>
+configurations are set.</li>
 <li>Using a precompiled toolchain. This approach is more restrictive, but
-straightforward.<br /></li>
+straightforward.</li>
 </ul>
-
 <p>I&rsquo;ve tried both approaches, and found that the later is the simplest way to get
 a working toolchain.</p>
-
 <p>There are OS specific instructions for <a href="https://docs.espressif.com/projects/esp-idf/en/v3.1/get-started/windows-setup.html">Windows</a>,
 <a href="https://docs.espressif.com/projects/esp-idf/en/v3.1/get-started/linux-setup.html">Linux</a>,
 and <a href="https://docs.espressif.com/projects/esp-idf/en/v3.1/get-started/macos-setup.html">MacOS</a>.</p>
-
 <p>As the time of writing this blog, the latest precompiled toolchain could be
 obtained in Linux by running,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd $ESP_PATH
-wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
-tar xvfz xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz</pre></div>
-<p>Finally, add the toolchain to the <code>$PATH</code>,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">export PATH=&#34;$PATH:$HOME/opt/esp/xtensa-esp32-elf/bin&#34;</pre></div>
-<h3 id="getting-the-esp-idf">Getting the ESP-IDF</h3>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd $ESP_PATH
+</span></span><span style="display:flex;"><span>wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+</span></span><span style="display:flex;"><span>tar xvfz xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+</span></span></code></pre></div><p>Finally, add the toolchain to the <code>$PATH</code>,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>export PATH=&#34;$PATH:$HOME/opt/esp/xtensa-esp32-elf/bin&#34;
+</span></span></code></pre></div><h3 id="getting-the-esp-idf">Getting the ESP-IDF</h3>
 <p>First, we need to define an environment variable pointing to the destination
 of the esp-idf</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">export IDF_PATH=$ESP_PATH/esp-idf</pre></div>
-<p>Then we can head there and get the latest version of the esp-idf from github</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd $ESP_PATH
-git clone -b v3.1 --recursive https://github.com/espressif/esp-idf.git</pre></div>
-<p>You can replace <code>v3.1</code> with the latest tag available in the repository. Now, to
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>export IDF_PATH=$ESP_PATH/esp-idf
+</span></span></code></pre></div><p>Then we can head there and get the latest version of the esp-idf from github</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd $ESP_PATH
+</span></span><span style="display:flex;"><span>git clone -b v3.1 --recursive https://github.com/espressif/esp-idf.git
+</span></span></code></pre></div><p>You can replace <code>v3.1</code> with the latest tag available in the repository. Now, to
 bootstrap the repository,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd $IDF_PATH
-git submodule update --init --recursive</pre></div>
-<p>The currently logged user should have read and write access the serial port over USB.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>cd $<span style="font-weight:bold">IDF_PATH</span>
+</span></span><span style="display:flex;"><span>git submodule update --init --recursive
+</span></span></code></pre></div><p>The currently logged user should have read and write access the serial port over USB.
 On most Linux distributions, this is done by adding the user to <code>dialout</code> group
 with the following command:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo usermod -a -G dialout $USER</pre></div>
-<p>Make sure you re-login to the shell in order to the changes to take effect
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo usermod -a -G dialout $USER
+</span></span></code></pre></div><p>Make sure you re-login to the shell in order to the changes to take effect
 (there are other ways to achieve this, but maybe the most universal way is a
 simple logout)</p>
-
 <p>To test the installation you can run</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">xtensa-esp32-elf-gcc --version</pre></div>
-<h2 id="testing-serial-communications">Testing serial communications</h2>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>xtensa-esp32-elf-gcc --version
+</span></span></code></pre></div><h2 id="testing-serial-communications">Testing serial communications</h2>
 <p>A bunch of blog posts cover the ways in which we can read and write to a serial
 port in linux. For example, <a href="https://www.cyberciti.biz/hardware/5-linux-unix-commands-for-connecting-to-the-serial-console/">this blog post shows several options</a>. In linux systems a way
 to detect the serial port used by our device is to list the contents of the
@@ -243,48 +222,37 @@ tty&rsquo;s available under <code>/dev</code> with <code>ls /dev/tty*</code>, th
 the USB cable and list <code>ls /dev/tty*</code> again. You&rsquo;ll notice that a new element
 appears with the name <code>/dev/ttyS0</code> or <code>/dev/ttyUSB0</code> (or any other number like
 ttyUSB1, depending on your particular hardware and linux distribution).</p>
-
 <h3 id="picocom">Picocom</h3>
-
 <p>Picocom is a minimal terminal emulator which can be connected to the serial
 port. To get it installed just run,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sudo apt-get install picocom</pre></div>
-<p>Connect the ESP32. If it is connected to the <code>/dev/ttyUSB0</code> serial port, you can
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt-get install picocom
+</span></span></code></pre></div><p>Connect the ESP32. If it is connected to the <code>/dev/ttyUSB0</code> serial port, you can
 check the connection with</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">picocom /dev/ttyUSB0</pre></div>
-<h3 id="esp-idf-monitor">esp-idf monitor</h3>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>picocom /dev/ttyUSB0
+</span></span></code></pre></div><h3 id="esp-idf-monitor">esp-idf monitor</h3>
 <p>esp-idf comes with a serial monitor which can be run with <code>make monitor</code> under
 a project&rsquo;s directory.</p>
-
 <p>The simplest way to check that everything is properly installed is to burn the
 <code>hello world</code> included with the esp-idf,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd $IDF_PATH/examples/get-started/hello_world</pre></div>
-<p>And run</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">make</pre></div>
-<p>This compiles the program. To load it to the ESP32, connect it with the USB
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd $IDF_PATH/examples/get-started/hello_world
+</span></span></code></pre></div><p>And run</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>make
+</span></span></code></pre></div><p>This compiles the program. To load it to the ESP32, connect it with the USB
 cable and run,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">make flash</pre></div>
-<p>Which will take care of everything.</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>make flash
+</span></span></code></pre></div><p>Which will take care of everything.</p>
 <p>To check the actual <code>hello world</code>, wait until the load is completed and either run</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">picocom /dev/ttyUSB0</pre></div>
-<p>or</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">make monitor # from within the hello-world proyect folder</pre></div>
-<p>You should see something like this,</p>
-
-<p><img src="https://daniel-m.github.io/2018/oct/hello-world-esp32.png" alt="The hello-world" /></p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>picocom /dev/ttyUSB0
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>make monitor # from within the hello-world proyect folder
+</span></span></code></pre></div><p>You should see something like this,</p>
+<p><img src="https://daniel-m.github.io/2018/oct/hello-world-esp32.png" alt="The hello-world"></p>
 <p>The messages shown will be different, according to your particular hardware.</p>
-
 <p>You can use <code>picocom /dev/ttyUSB0</code> and see the messages similarly, but I rather
 use <code>make monitor</code> since it is faster to type.</p>
-
 <p>Well, that&rsquo;s about it, you got the official espressif-idf development
 environment ready to use in your system.</p>
-
 <h2 id="resources">Resources</h2>
-
 <ul>
 <li><a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/">Espressif esp-idf getting started</a></li>
 </ul>
@@ -297,7 +265,7 @@ environment ready to use in your system.</p>
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -341,7 +309,7 @@ environment ready to use in your system.</p>
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -365,7 +333,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

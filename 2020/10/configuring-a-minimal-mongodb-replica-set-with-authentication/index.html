@@ -16,7 +16,7 @@
     <meta property="og:title" content="Configuring a minimal MongoDB Replica Set with authentication" />
 <meta property="og:description" content="A sucessful attempt to get a mongodb replica set with high availability" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/" />
+<meta property="og:url" content="https://daniel-m.github.io/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-10-28T16:17:42-05:00" />
 <meta property="article:modified_time" content="2020-10-28T16:17:42-05:00" />
 
@@ -60,7 +60,7 @@
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -133,330 +133,310 @@
       </header>
 
       <div>
-        
-
-<h2 id="forewords">Forewords</h2>
-
+        <h2 id="forewords">Forewords</h2>
 <p>This was tested using 3 different nodes with debian 10 GNU/Linux</p>
-
 <p>A replica set in MongoDB is a group of mongod processes that maintain the same data set. Replica sets provide redundancy and high availability, and are the basis for all production deployments.</p>
-
 <p>The primary node receives all write operations and records all changes to its data sets in its operation log, i.e. oplog. The secondaries replicate the primary’s oplog and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set.</p>
-
 <p>The first requirement is to have mongodb running, this is, to have a mongod process running at a certain host.
 We require that the mongod can be accessed from the outside. This poses a risk, hence we need that our mongo
 database uses authentication.</p>
-
 <p>Now, in debian, a rapid way to install the official mongodb server is to run the sequence</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt update
-sudo apt install -y gnupg
-wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
-echo <span style="font-style:italic">&#34;deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.4 main&#34;</span> | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
-sudo apt update
-sudo apt-get install -y mongodb-org
-systemctl start mongod.service</code></pre></div>
-<p>This should expose mongo at the port 27017 of the host. In what follows I&rsquo;ll consider a fresh install, which looks more likely to be the use case</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install -y gnupg
+</span></span><span style="display:flex;"><span>wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+</span></span><span style="display:flex;"><span>echo <span style="font-style:italic">&#34;deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.4 main&#34;</span> | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+</span></span><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt-get install -y mongodb-org
+</span></span><span style="display:flex;"><span>systemctl start mongod.service
+</span></span></code></pre></div><p>This should expose mongo at the port 27017 of the host. In what follows I&rsquo;ll consider a fresh install, which looks more likely to be the use case</p>
 <h2 id="preparation">Preparation</h2>
-
 <p>It is advisable to go and create an admin user for this instance. run <code>mongo</code> and type</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="font-style:italic"># In the context of the mongo console</span>
-db.createUser({ user: <span style="font-style:italic">&#39;admin&#39;</span>, pwd: passwordPrompt(), roles: [{ role:<span style="font-style:italic">&#39;root&#39;</span>, db: <span style="font-style:italic">&#39;admin&#39;</span>}] })</code></pre></div>
-<h2 id="configuration-file-etc-mongod-conf">Configuration file /etc/mongod.conf</h2>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="font-style:italic"># In the context of the mongo console</span>
+</span></span><span style="display:flex;"><span>db.createUser({ user: <span style="font-style:italic">&#39;admin&#39;</span>, pwd: passwordPrompt(), roles: [{ role:<span style="font-style:italic">&#39;root&#39;</span>, db: <span style="font-style:italic">&#39;admin&#39;</span>}] })
+</span></span></code></pre></div><h2 id="configuration-file-etcmongodconf">Configuration file /etc/mongod.conf</h2>
 <p>Edit the configuration file to look like</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">net:
-  port: 27017
-  #bindIp: 127.0.0.1
-  bindIp: 0.0.0.0
-...
-#security:
-  #keyFile: /etc/mongod_rs.key
-  #authorization: enabled
-#operationProfiling:
-
-replication:
-  replSetName: &#34;rs0&#34;</code></pre></div>
-<p>This achieves,</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>net:
+</span></span><span style="display:flex;"><span>  port: 27017
+</span></span><span style="display:flex;"><span>  #bindIp: 127.0.0.1
+</span></span><span style="display:flex;"><span>  bindIp: 0.0.0.0
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>#security:
+</span></span><span style="display:flex;"><span>  #keyFile: /etc/mongod_rs.key
+</span></span><span style="display:flex;"><span>  #authorization: enabled
+</span></span><span style="display:flex;"><span>#operationProfiling:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>replication:
+</span></span><span style="display:flex;"><span>  replSetName: &#34;rs0&#34;
+</span></span></code></pre></div><p>This achieves,</p>
 <p>a) Our instance is reachable through 0.0.0.0, hence open to the world
 b) Pre-fills the auth mechanisms that we will enable once the replicaset is configure (the keyFile will be created soon)
 c) sets the replicaset to <code>rs0</code>. It could be anything more creative</p>
-
 <h3 id="creating-the-key-for-inter-replica-authentication">Creating the key for inter-replica authentication</h3>
-
 <p>The key authentication relies on the fact that all replicas have the same key.
 The key must have certain size and be a <code>base64</code> string. It can be created with</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">openssl rand -base64 756 &gt; /etc/mongod_rs.key</code></pre></div>
-<p>And I insist, it must be the same key for all the nodes on the replica set, so create it once and place it
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>openssl rand -base64 756 &gt; /etc/mongod_rs.key
+</span></span></code></pre></div><p>And I insist, it must be the same key for all the nodes on the replica set, so create it once and place it
 under <code>/etc/mongod_rs.key</code> of all nodes.</p>
-
 <p>The <code>/etc/mongod_rs.key</code> contents should look like,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">0jWT0/u5vQd89NESR7Dvunyi3aQGLPlu3y6kxyMTSVNYJC3HWSM96t8K7OUrSsud
-Oa0nenkWuYYip+RGl/kPeR6oT4YXhEWsOi8BJOV9x0zp99Irx39b18k9t3vYrvZh
-M1ChKfPfgEB/Gf5abrv+F85ZbL5W1ived4POknMPTyzv/I6LDxzzsLLYEY4U2TQT
-aWZ/80WqjHVVY0tyOsjwWEcuYDI7YlDCzvzw3nTqbegBqU1W4pscQ01yzpK9gHyf
-43HJtAn05mmOtbzdx6fmV3bR0swV/BtdnZn6F5PmlOLRb4KLxUc+NGc4HDnWn/eJ
-wwH1Hsc9oTtMxKI4JcTHzt3fnY3OuWw8jlrgjzepeTbxAZyVLCwpGsOtPtQjtkh9
-MPE9VDkG4WFXJ07gCGJfklEvt6W8nDpH+CSFn5nDvgF4FP8ffWDFKV8KKbG/T7PU
-KH7c4pqIzg4kS9OrVhDcrRH3HpwqUcuAlVW2Zspum6mdgHfG6OBMbUcJYmckbTgi
-nllh+Nzyhxmgarfl1n2oCUaEuuvhPyGvqyjmuRvIWjjmqMt+QanG+mHMYjamYY3K
-bBIkO4M1Ec6vNpk7a5T6OQurctyCC6VQYXRMFkvfLic+6sNDVXa9B9ymt3V+kzYj
-4MbHyAhINLGKgPLRcVvhHJD2t3p/4O9SoNlbo2Wh6C+v51sX6qULI/M2OYSL1snL
-4beDWqNH6aq/6m6vlGcarHipaTRd+C7XEMw43aP0m4QJ4fNH7k14r4MH4edoxErd
-WaTq87Up54wEIdVRKpS2rpz1NjnBheDIDysczaMSat+xhKyX3dzzAuYr2vCHFJlh
-gHkaRxYtTde0YPFCLe6Hz/vzTeEzKcEZGvHM1ZO+YAxtsJToywWRhe4TqninM9n/
-R3bR5Jm3ppO0X11SD9HsqsvJy3zlYTnn91/yOOR9kby8JKkKTZlfPw9W0oUyxPB+
-Y5BUoxAlgJ6xR4JLz8l6sfKwBGVY0sJqVKVQZmw3BKEtOI+b</code></pre></div>
-<p>Again this file <em>must</em> be the same in all hosts serving a mongodb replica.</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>0jWT0/u5vQd89NESR7Dvunyi3aQGLPlu3y6kxyMTSVNYJC3HWSM96t8K7OUrSsud
+</span></span><span style="display:flex;"><span>Oa0nenkWuYYip+RGl/kPeR6oT4YXhEWsOi8BJOV9x0zp99Irx39b18k9t3vYrvZh
+</span></span><span style="display:flex;"><span>M1ChKfPfgEB/Gf5abrv+F85ZbL5W1ived4POknMPTyzv/I6LDxzzsLLYEY4U2TQT
+</span></span><span style="display:flex;"><span>aWZ/80WqjHVVY0tyOsjwWEcuYDI7YlDCzvzw3nTqbegBqU1W4pscQ01yzpK9gHyf
+</span></span><span style="display:flex;"><span>43HJtAn05mmOtbzdx6fmV3bR0swV/BtdnZn6F5PmlOLRb4KLxUc+NGc4HDnWn/eJ
+</span></span><span style="display:flex;"><span>wwH1Hsc9oTtMxKI4JcTHzt3fnY3OuWw8jlrgjzepeTbxAZyVLCwpGsOtPtQjtkh9
+</span></span><span style="display:flex;"><span>MPE9VDkG4WFXJ07gCGJfklEvt6W8nDpH+CSFn5nDvgF4FP8ffWDFKV8KKbG/T7PU
+</span></span><span style="display:flex;"><span>KH7c4pqIzg4kS9OrVhDcrRH3HpwqUcuAlVW2Zspum6mdgHfG6OBMbUcJYmckbTgi
+</span></span><span style="display:flex;"><span>nllh+Nzyhxmgarfl1n2oCUaEuuvhPyGvqyjmuRvIWjjmqMt+QanG+mHMYjamYY3K
+</span></span><span style="display:flex;"><span>bBIkO4M1Ec6vNpk7a5T6OQurctyCC6VQYXRMFkvfLic+6sNDVXa9B9ymt3V+kzYj
+</span></span><span style="display:flex;"><span>4MbHyAhINLGKgPLRcVvhHJD2t3p/4O9SoNlbo2Wh6C+v51sX6qULI/M2OYSL1snL
+</span></span><span style="display:flex;"><span>4beDWqNH6aq/6m6vlGcarHipaTRd+C7XEMw43aP0m4QJ4fNH7k14r4MH4edoxErd
+</span></span><span style="display:flex;"><span>WaTq87Up54wEIdVRKpS2rpz1NjnBheDIDysczaMSat+xhKyX3dzzAuYr2vCHFJlh
+</span></span><span style="display:flex;"><span>gHkaRxYtTde0YPFCLe6Hz/vzTeEzKcEZGvHM1ZO+YAxtsJToywWRhe4TqninM9n/
+</span></span><span style="display:flex;"><span>R3bR5Jm3ppO0X11SD9HsqsvJy3zlYTnn91/yOOR9kby8JKkKTZlfPw9W0oUyxPB+
+</span></span><span style="display:flex;"><span>Y5BUoxAlgJ6xR4JLz8l6sfKwBGVY0sJqVKVQZmw3BKEtOI+b
+</span></span></code></pre></div><p>Again this file <em>must</em> be the same in all hosts serving a mongodb replica.</p>
 <p>Be sure to change the permissions to</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">chown mongodb:root /etc/mongod_rs.key
-chmod 400 /etc/mongod_rs.key</code></pre></div>
-<p>And to enable autostart and restart the mongo replica for the changes to take effect</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">systemctl enable mongod.service
-systemctl restart mongod.service</code></pre></div>
-<h2 id="configuring-hosts">Configuring hosts</h2>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>chown mongodb:root /etc/mongod_rs.key
+</span></span><span style="display:flex;"><span>chmod 400 /etc/mongod_rs.key
+</span></span></code></pre></div><p>And to enable autostart and restart the mongo replica for the changes to take effect</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>systemctl enable mongod.service
+</span></span><span style="display:flex;"><span>systemctl restart mongod.service
+</span></span></code></pre></div><h2 id="configuring-hosts">Configuring hosts</h2>
 <p>We need to modify each host&rsquo;s <code>/etc/hosts</code> file in order to add a reference to the other hosts
 Also, mongo forbids mixing hosts, either 3 instances run in the same host, or the three of them are running at separate hosts
 The host file should have something like</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="font-style:italic"># MongoDB nodes</span>
-xxx.xxx.xxx.xxx mongodb-node
-xxx.xxx.xxx.xxx mongodb-node-02
-xxx.xxx.xxx.xxx mongodb-node-03</code></pre></div>
-<p>where <code>xxx.xxx.xxx.xxx</code> represents the IP of the corresponding host</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="font-style:italic"># MongoDB nodes</span>
+</span></span><span style="display:flex;"><span>xxx.xxx.xxx.xxx mongodb-node
+</span></span><span style="display:flex;"><span>xxx.xxx.xxx.xxx mongodb-node-02
+</span></span><span style="display:flex;"><span>xxx.xxx.xxx.xxx mongodb-node-03
+</span></span></code></pre></div><p>where <code>xxx.xxx.xxx.xxx</code> represents the IP of the corresponding host</p>
 <h2 id="initiating-the-replication-set">Initiating the replication set</h2>
-
 <p>Pick one of the nodes running mongo and open the mongod service. Issue a rs.initiate() command putting the hostnames for each of the hosts with its port. It is advisable to have auth disabled at this point so the replicaset initiates without problems</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rs.initiate(
-  {
-    _id : <span style="font-style:italic">&#34;rs0&#34;</span>,
-    members: [
-      { _id : 0, host : <span style="font-style:italic">&#34;mongodb-node:27017&#34;</span> },
-      { _id : 1, host : <span style="font-style:italic">&#34;mongodb-node-02:27017&#34;</span> },
-      { _id : 2, host : <span style="font-style:italic">&#34;mongodb-node-03:27017&#34;</span> }
-    ]
-  }
-)</code></pre></div>
-<p>Now, perform <code>rs.status()</code> and look for the primary. If errors due to authentication are raised as in,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rs0:PRIMARY&gt; rs.status()
-{
-	<span style="font-style:italic">&#34;operationTime&#34;</span> : Timestamp(1603902158, 1),
-	<span style="font-style:italic">&#34;ok&#34;</span> : 0,
-	<span style="font-style:italic">&#34;errmsg&#34;</span> : <span style="font-style:italic">&#34;command replSetGetStatus requires authentication&#34;</span>,
-	<span style="font-style:italic">&#34;code&#34;</span> : 13,
-	<span style="font-style:italic">&#34;codeName&#34;</span> : <span style="font-style:italic">&#34;Unauthorized&#34;</span>,
-	<span style="font-style:italic">&#34;</span>$clusterTime<span style="font-style:italic">&#34;</span> : {
-		<span style="font-style:italic">&#34;clusterTime&#34;</span> : Timestamp(1603902158, 1),
-		<span style="font-style:italic">&#34;signature&#34;</span> : {
-			<span style="font-style:italic">&#34;hash&#34;</span> : BinData(0,<span style="font-style:italic">&#34;B/2vzM5Hr/dc/87LzyqMtaYCQsA=&#34;</span>),
-			<span style="font-style:italic">&#34;keyId&#34;</span> : NumberLong(<span style="font-style:italic">&#34;6888691302955745283&#34;</span>)
-		}
-	}
-}</code></pre></div>
-<p>We need to authenticate first, using</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="font-style:italic"># Use the user we&#39;ve created before, when setting up the mongo instance</span>
-db.auth(<span style="font-style:italic">&#34;admin&#34;</span>, passwordPrompt())</code></pre></div>
-<p>and issue a <code>rs.status()</code> again. It should show something like,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rs0:PRIMARY&gt; rs.status()
-{
-	<span style="font-style:italic">&#34;set&#34;</span> : <span style="font-style:italic">&#34;rs0&#34;</span>,
-	<span style="font-style:italic">&#34;date&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:30.698Z&#34;</span>),
-	<span style="font-style:italic">&#34;myState&#34;</span> : 1,
-	<span style="font-style:italic">&#34;term&#34;</span> : NumberLong(6),
-	<span style="font-style:italic">&#34;syncSourceHost&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
-	<span style="font-style:italic">&#34;syncSourceId&#34;</span> : -1,
-	<span style="font-style:italic">&#34;heartbeatIntervalMillis&#34;</span> : NumberLong(2000),
-	<span style="font-style:italic">&#34;majorityVoteCount&#34;</span> : 2,
-	<span style="font-style:italic">&#34;writeMajorityCount&#34;</span> : 2,
-	<span style="font-style:italic">&#34;votingMembersCount&#34;</span> : 3,
-	<span style="font-style:italic">&#34;writableVotingMembersCount&#34;</span> : 3,
-	<span style="font-style:italic">&#34;optimes&#34;</span> : {
-		<span style="font-style:italic">&#34;lastCommittedOpTime&#34;</span> : {
-			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
-			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
-		},
-		<span style="font-style:italic">&#34;lastCommittedWallTime&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28.974Z&#34;</span>),
-		<span style="font-style:italic">&#34;readConcernMajorityOpTime&#34;</span> : {
-			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
-			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
-		},
-		<span style="font-style:italic">&#34;readConcernMajorityWallTime&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28.974Z&#34;</span>),
-		<span style="font-style:italic">&#34;appliedOpTime&#34;</span> : {
-			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
-			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
-		},
-		<span style="font-style:italic">&#34;durableOpTime&#34;</span> : {
-			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
-			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
-		},
-		<span style="font-style:italic">&#34;lastAppliedWallTime&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28.974Z&#34;</span>),
-		<span style="font-style:italic">&#34;lastDurableWallTime&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28.974Z&#34;</span>)
-	},
-	<span style="font-style:italic">&#34;lastStableRecoveryTimestamp&#34;</span> : Timestamp(1603902198, 1),
-	<span style="font-style:italic">&#34;electionCandidateMetrics&#34;</span> : {
-		<span style="font-style:italic">&#34;lastElectionReason&#34;</span> : <span style="font-style:italic">&#34;stepUpRequestSkipDryRun&#34;</span>,
-		<span style="font-style:italic">&#34;lastElectionDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T15:26:28.867Z&#34;</span>),
-		<span style="font-style:italic">&#34;electionTerm&#34;</span> : NumberLong(6),
-		<span style="font-style:italic">&#34;lastCommittedOpTimeAtElection&#34;</span> : {
-			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603898780, 1),
-			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(5)
-		},
-		<span style="font-style:italic">&#34;lastSeenOpTimeAtElection&#34;</span> : {
-			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603898780, 1),
-			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(5)
-		},
-		<span style="font-style:italic">&#34;numVotesNeeded&#34;</span> : 2,
-		<span style="font-style:italic">&#34;priorityAtElection&#34;</span> : 1,
-		<span style="font-style:italic">&#34;electionTimeoutMillis&#34;</span> : NumberLong(10000),
-		<span style="font-style:italic">&#34;priorPrimaryMemberId&#34;</span> : 0,
-		<span style="font-style:italic">&#34;numCatchUpOps&#34;</span> : NumberLong(0),
-		<span style="font-style:italic">&#34;newTermStartDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T15:26:28.874Z&#34;</span>),
-		<span style="font-style:italic">&#34;wMajorityWriteAvailabilityDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T15:26:28.918Z&#34;</span>)
-	},
-	<span style="font-style:italic">&#34;members&#34;</span> : [
-		{
-			<span style="font-style:italic">&#34;_id&#34;</span> : 0,
-			<span style="font-style:italic">&#34;name&#34;</span> : <span style="font-style:italic">&#34;mongodb-node:27017&#34;</span>,
-			<span style="font-style:italic">&#34;health&#34;</span> : 1,
-			<span style="font-style:italic">&#34;state&#34;</span> : 2,
-			<span style="font-style:italic">&#34;stateStr&#34;</span> : <span style="font-style:italic">&#34;SECONDARY&#34;</span>,
-			<span style="font-style:italic">&#34;uptime&#34;</span> : 3417,
-			<span style="font-style:italic">&#34;optime&#34;</span> : {
-				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
-				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
-			},
-			<span style="font-style:italic">&#34;optimeDurable&#34;</span> : {
-				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
-				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
-			},
-			<span style="font-style:italic">&#34;optimeDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
-			<span style="font-style:italic">&#34;optimeDurableDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
-			<span style="font-style:italic">&#34;lastHeartbeat&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:30.421Z&#34;</span>),
-			<span style="font-style:italic">&#34;lastHeartbeatRecv&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:30.006Z&#34;</span>),
-			<span style="font-style:italic">&#34;pingMs&#34;</span> : NumberLong(0),
-			<span style="font-style:italic">&#34;lastHeartbeatMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
-			<span style="font-style:italic">&#34;syncSourceHost&#34;</span> : <span style="font-style:italic">&#34;mongodb-node-03:27017&#34;</span>,
-			<span style="font-style:italic">&#34;syncSourceId&#34;</span> : 2,
-			<span style="font-style:italic">&#34;infoMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
-			<span style="font-style:italic">&#34;configVersion&#34;</span> : 1,
-			<span style="font-style:italic">&#34;configTerm&#34;</span> : 6
-		},
-		{
-			<span style="font-style:italic">&#34;_id&#34;</span> : 1,
-			<span style="font-style:italic">&#34;name&#34;</span> : <span style="font-style:italic">&#34;mongodb-node-02:27017&#34;</span>,
-			<span style="font-style:italic">&#34;health&#34;</span> : 1,
-			<span style="font-style:italic">&#34;state&#34;</span> : 1,
-			<span style="font-style:italic">&#34;stateStr&#34;</span> : <span style="font-style:italic">&#34;PRIMARY&#34;</span>,
-			<span style="font-style:italic">&#34;uptime&#34;</span> : 3433,
-			<span style="font-style:italic">&#34;optime&#34;</span> : {
-				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
-				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
-			},
-			<span style="font-style:italic">&#34;optimeDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
-			<span style="font-style:italic">&#34;syncSourceHost&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
-			<span style="font-style:italic">&#34;syncSourceId&#34;</span> : -1,
-			<span style="font-style:italic">&#34;infoMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
-			<span style="font-style:italic">&#34;electionTime&#34;</span> : Timestamp(1603898788, 1),
-			<span style="font-style:italic">&#34;electionDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T15:26:28Z&#34;</span>),
-			<span style="font-style:italic">&#34;configVersion&#34;</span> : 1,
-			<span style="font-style:italic">&#34;configTerm&#34;</span> : 6,
-			<span style="font-style:italic">&#34;self&#34;</span> : true,
-			<span style="font-style:italic">&#34;lastHeartbeatMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>
-		},
-		{
-			<span style="font-style:italic">&#34;_id&#34;</span> : 2,
-			<span style="font-style:italic">&#34;name&#34;</span> : <span style="font-style:italic">&#34;mongodb-node-03:27017&#34;</span>,
-			<span style="font-style:italic">&#34;health&#34;</span> : 1,
-			<span style="font-style:italic">&#34;state&#34;</span> : 2,
-			<span style="font-style:italic">&#34;stateStr&#34;</span> : <span style="font-style:italic">&#34;SECONDARY&#34;</span>,
-			<span style="font-style:italic">&#34;uptime&#34;</span> : 3431,
-			<span style="font-style:italic">&#34;optime&#34;</span> : {
-				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
-				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
-			},
-			<span style="font-style:italic">&#34;optimeDurable&#34;</span> : {
-				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
-				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
-			},
-			<span style="font-style:italic">&#34;optimeDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
-			<span style="font-style:italic">&#34;optimeDurableDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
-			<span style="font-style:italic">&#34;lastHeartbeat&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:30.583Z&#34;</span>),
-			<span style="font-style:italic">&#34;lastHeartbeatRecv&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:29.823Z&#34;</span>),
-			<span style="font-style:italic">&#34;pingMs&#34;</span> : NumberLong(0),
-			<span style="font-style:italic">&#34;lastHeartbeatMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
-			<span style="font-style:italic">&#34;syncSourceHost&#34;</span> : <span style="font-style:italic">&#34;mongodb-node-02:27017&#34;</span>,
-			<span style="font-style:italic">&#34;syncSourceId&#34;</span> : 1,
-			<span style="font-style:italic">&#34;infoMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
-			<span style="font-style:italic">&#34;configVersion&#34;</span> : 1,
-			<span style="font-style:italic">&#34;configTerm&#34;</span> : 6
-		}
-	],
-	<span style="font-style:italic">&#34;ok&#34;</span> : 1,
-	<span style="font-style:italic">&#34;</span>$clusterTime<span style="font-style:italic">&#34;</span> : {
-		<span style="font-style:italic">&#34;clusterTime&#34;</span> : Timestamp(1603902208, 1),
-		<span style="font-style:italic">&#34;signature&#34;</span> : {
-			<span style="font-style:italic">&#34;hash&#34;</span> : BinData(0,<span style="font-style:italic">&#34;A5FW5fxYTcD2+6fnXpO7TWEAKZo=&#34;</span>),
-			<span style="font-style:italic">&#34;keyId&#34;</span> : NumberLong(<span style="font-style:italic">&#34;9888691302955745288&#34;</span>)
-		}
-	},
-	<span style="font-style:italic">&#34;operationTime&#34;</span> : Timestamp(1603902208, 1)
-}</code></pre></div>
-<p>The <code>members</code> property shows who is the primary and the secondaries.</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rs.initiate(
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _id : <span style="font-style:italic">&#34;rs0&#34;</span>,
+</span></span><span style="display:flex;"><span>    members: [
+</span></span><span style="display:flex;"><span>      { _id : 0, host : <span style="font-style:italic">&#34;mongodb-node:27017&#34;</span> },
+</span></span><span style="display:flex;"><span>      { _id : 1, host : <span style="font-style:italic">&#34;mongodb-node-02:27017&#34;</span> },
+</span></span><span style="display:flex;"><span>      { _id : 2, host : <span style="font-style:italic">&#34;mongodb-node-03:27017&#34;</span> }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Now, perform <code>rs.status()</code> and look for the primary. If errors due to authentication are raised as in,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rs0:PRIMARY&gt; rs.status()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;operationTime&#34;</span> : Timestamp(1603902158, 1),
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;ok&#34;</span> : 0,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;errmsg&#34;</span> : <span style="font-style:italic">&#34;command replSetGetStatus requires authentication&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;code&#34;</span> : 13,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;codeName&#34;</span> : <span style="font-style:italic">&#34;Unauthorized&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;</span>$clusterTime<span style="font-style:italic">&#34;</span> : {
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;clusterTime&#34;</span> : Timestamp(1603902158, 1),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;signature&#34;</span> : {
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;hash&#34;</span> : BinData(0,<span style="font-style:italic">&#34;B/2vzM5Hr/dc/87LzyqMtaYCQsA=&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;keyId&#34;</span> : NumberLong(<span style="font-style:italic">&#34;6888691302955745283&#34;</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We need to authenticate first, using</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="font-style:italic"># Use the user we&#39;ve created before, when setting up the mongo instance</span>
+</span></span><span style="display:flex;"><span>db.auth(<span style="font-style:italic">&#34;admin&#34;</span>, passwordPrompt())
+</span></span></code></pre></div><p>and issue a <code>rs.status()</code> again. It should show something like,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rs0:PRIMARY&gt; rs.status()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;set&#34;</span> : <span style="font-style:italic">&#34;rs0&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;date&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:30.698Z&#34;</span>),
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;myState&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;term&#34;</span> : NumberLong(6),
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;syncSourceHost&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;syncSourceId&#34;</span> : -1,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;heartbeatIntervalMillis&#34;</span> : NumberLong(2000),
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;majorityVoteCount&#34;</span> : 2,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;writeMajorityCount&#34;</span> : 2,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;votingMembersCount&#34;</span> : 3,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;writableVotingMembersCount&#34;</span> : 3,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;optimes&#34;</span> : {
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;lastCommittedOpTime&#34;</span> : {
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;lastCommittedWallTime&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28.974Z&#34;</span>),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;readConcernMajorityOpTime&#34;</span> : {
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;readConcernMajorityWallTime&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28.974Z&#34;</span>),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;appliedOpTime&#34;</span> : {
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;durableOpTime&#34;</span> : {
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;lastAppliedWallTime&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28.974Z&#34;</span>),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;lastDurableWallTime&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28.974Z&#34;</span>)
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;lastStableRecoveryTimestamp&#34;</span> : Timestamp(1603902198, 1),
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;electionCandidateMetrics&#34;</span> : {
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;lastElectionReason&#34;</span> : <span style="font-style:italic">&#34;stepUpRequestSkipDryRun&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;lastElectionDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T15:26:28.867Z&#34;</span>),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;electionTerm&#34;</span> : NumberLong(6),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;lastCommittedOpTimeAtElection&#34;</span> : {
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603898780, 1),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(5)
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;lastSeenOpTimeAtElection&#34;</span> : {
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603898780, 1),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(5)
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;numVotesNeeded&#34;</span> : 2,
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;priorityAtElection&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;electionTimeoutMillis&#34;</span> : NumberLong(10000),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;priorPrimaryMemberId&#34;</span> : 0,
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;numCatchUpOps&#34;</span> : NumberLong(0),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;newTermStartDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T15:26:28.874Z&#34;</span>),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;wMajorityWriteAvailabilityDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T15:26:28.918Z&#34;</span>)
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;members&#34;</span> : [
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;_id&#34;</span> : 0,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;name&#34;</span> : <span style="font-style:italic">&#34;mongodb-node:27017&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;health&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;state&#34;</span> : 2,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;stateStr&#34;</span> : <span style="font-style:italic">&#34;SECONDARY&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;uptime&#34;</span> : 3417,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optime&#34;</span> : {
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
+</span></span><span style="display:flex;"><span>			},
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optimeDurable&#34;</span> : {
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
+</span></span><span style="display:flex;"><span>			},
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optimeDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optimeDurableDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;lastHeartbeat&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:30.421Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;lastHeartbeatRecv&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:30.006Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;pingMs&#34;</span> : NumberLong(0),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;lastHeartbeatMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;syncSourceHost&#34;</span> : <span style="font-style:italic">&#34;mongodb-node-03:27017&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;syncSourceId&#34;</span> : 2,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;infoMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;configVersion&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;configTerm&#34;</span> : 6
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;_id&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;name&#34;</span> : <span style="font-style:italic">&#34;mongodb-node-02:27017&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;health&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;state&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;stateStr&#34;</span> : <span style="font-style:italic">&#34;PRIMARY&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;uptime&#34;</span> : 3433,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optime&#34;</span> : {
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
+</span></span><span style="display:flex;"><span>			},
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optimeDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;syncSourceHost&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;syncSourceId&#34;</span> : -1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;infoMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;electionTime&#34;</span> : Timestamp(1603898788, 1),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;electionDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T15:26:28Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;configVersion&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;configTerm&#34;</span> : 6,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;self&#34;</span> : true,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;lastHeartbeatMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;_id&#34;</span> : 2,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;name&#34;</span> : <span style="font-style:italic">&#34;mongodb-node-03:27017&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;health&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;state&#34;</span> : 2,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;stateStr&#34;</span> : <span style="font-style:italic">&#34;SECONDARY&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;uptime&#34;</span> : 3431,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optime&#34;</span> : {
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
+</span></span><span style="display:flex;"><span>			},
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optimeDurable&#34;</span> : {
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;ts&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>				<span style="font-style:italic">&#34;t&#34;</span> : NumberLong(6)
+</span></span><span style="display:flex;"><span>			},
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optimeDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;optimeDurableDate&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:28Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;lastHeartbeat&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:30.583Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;lastHeartbeatRecv&#34;</span> : ISODate(<span style="font-style:italic">&#34;2020-10-28T16:23:29.823Z&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;pingMs&#34;</span> : NumberLong(0),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;lastHeartbeatMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;syncSourceHost&#34;</span> : <span style="font-style:italic">&#34;mongodb-node-02:27017&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;syncSourceId&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;infoMessage&#34;</span> : <span style="font-style:italic">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;configVersion&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;configTerm&#34;</span> : 6
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	],
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;ok&#34;</span> : 1,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;</span>$clusterTime<span style="font-style:italic">&#34;</span> : {
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;clusterTime&#34;</span> : Timestamp(1603902208, 1),
+</span></span><span style="display:flex;"><span>		<span style="font-style:italic">&#34;signature&#34;</span> : {
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;hash&#34;</span> : BinData(0,<span style="font-style:italic">&#34;A5FW5fxYTcD2+6fnXpO7TWEAKZo=&#34;</span>),
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;keyId&#34;</span> : NumberLong(<span style="font-style:italic">&#34;9888691302955745288&#34;</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;operationTime&#34;</span> : Timestamp(1603902208, 1)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>members</code> property shows who is the primary and the secondaries.</p>
 <p>Connect to your primary node (I&rsquo;ve already done that as you see on the promts above) and create an user
 to be an admin on the replica set,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">admin = db.getSiblingDB(<span style="font-style:italic">&#34;admin&#34;</span>)
-admin.createUser(
-  {
-    user: <span style="font-style:italic">&#34;rs-admin&#34;</span>,
-    pwd: passwordPrompt(), // or cleartext password
-    roles: [ { role: <span style="font-style:italic">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="font-style:italic">&#34;admin&#34;</span> } ]
-  }
-)</code></pre></div>
-<p>The whole process looks like this</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rs0:PRIMARY&gt; admin = db.getSiblingDB(<span style="font-style:italic">&#34;admin&#34;</span>)
-admin
-rs0:PRIMARY&gt; admin.createUser(
-...   {
-...     user: <span style="font-style:italic">&#34;rs-admin&#34;</span>,
-...     pwd: passwordPrompt(),
-...     roles: [ { role: <span style="font-style:italic">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="font-style:italic">&#34;admin&#34;</span> } ]
-...   }
-... )
-Enter password: 
-Successfully added user: {
-	<span style="font-style:italic">&#34;user&#34;</span> : <span style="font-style:italic">&#34;rs-admin&#34;</span>,
-	<span style="font-style:italic">&#34;roles&#34;</span> : [
-		{
-			<span style="font-style:italic">&#34;role&#34;</span> : <span style="font-style:italic">&#34;userAdminAnyDatabase&#34;</span>,
-			<span style="font-style:italic">&#34;db&#34;</span> : <span style="font-style:italic">&#34;admin&#34;</span>
-		}
-	]
-}</code></pre></div>
-<p>Now, authenticate as this new created user</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">db.getSiblingDB(<span style="font-style:italic">&#34;admin&#34;</span>).auth(<span style="font-style:italic">&#34;rs-admin&#34;</span>, passwordPrompt())</code></pre></div>
-<p>And create a cluster administrator user,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">db.getSiblingDB(<span style="font-style:italic">&#34;admin&#34;</span>).createUser(
-  {
-    <span style="font-style:italic">&#34;user&#34;</span> : <span style="font-style:italic">&#34;rs-cluster-admin&#34;</span>,
-    <span style="font-style:italic">&#34;pwd&#34;</span> : passwordPrompt(), 
-    roles: [ { <span style="font-style:italic">&#34;role&#34;</span> : <span style="font-style:italic">&#34;clusterAdmin&#34;</span>, <span style="font-style:italic">&#34;db&#34;</span> : <span style="font-style:italic">&#34;admin&#34;</span> } ]
-  }
-)</code></pre></div>
-<p>Now, you can create users to authenticate against the replica-set, create
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>admin = db.getSiblingDB(<span style="font-style:italic">&#34;admin&#34;</span>)
+</span></span><span style="display:flex;"><span>admin.createUser(
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    user: <span style="font-style:italic">&#34;rs-admin&#34;</span>,
+</span></span><span style="display:flex;"><span>    pwd: passwordPrompt(), // or cleartext password
+</span></span><span style="display:flex;"><span>    roles: [ { role: <span style="font-style:italic">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="font-style:italic">&#34;admin&#34;</span> } ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>The whole process looks like this</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rs0:PRIMARY&gt; admin = db.getSiblingDB(<span style="font-style:italic">&#34;admin&#34;</span>)
+</span></span><span style="display:flex;"><span>admin
+</span></span><span style="display:flex;"><span>rs0:PRIMARY&gt; admin.createUser(
+</span></span><span style="display:flex;"><span>...   {
+</span></span><span style="display:flex;"><span>...     user: <span style="font-style:italic">&#34;rs-admin&#34;</span>,
+</span></span><span style="display:flex;"><span>...     pwd: passwordPrompt(),
+</span></span><span style="display:flex;"><span>...     roles: [ { role: <span style="font-style:italic">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="font-style:italic">&#34;admin&#34;</span> } ]
+</span></span><span style="display:flex;"><span>...   }
+</span></span><span style="display:flex;"><span>... )
+</span></span><span style="display:flex;"><span>Enter password: 
+</span></span><span style="display:flex;"><span>Successfully added user: {
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;user&#34;</span> : <span style="font-style:italic">&#34;rs-admin&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;roles&#34;</span> : [
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;role&#34;</span> : <span style="font-style:italic">&#34;userAdminAnyDatabase&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="font-style:italic">&#34;db&#34;</span> : <span style="font-style:italic">&#34;admin&#34;</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now, authenticate as this new created user</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>db.getSiblingDB(<span style="font-style:italic">&#34;admin&#34;</span>).auth(<span style="font-style:italic">&#34;rs-admin&#34;</span>, passwordPrompt())
+</span></span></code></pre></div><p>And create a cluster administrator user,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>db.getSiblingDB(<span style="font-style:italic">&#34;admin&#34;</span>).createUser(
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="font-style:italic">&#34;user&#34;</span> : <span style="font-style:italic">&#34;rs-cluster-admin&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="font-style:italic">&#34;pwd&#34;</span> : passwordPrompt(), 
+</span></span><span style="display:flex;"><span>    roles: [ { <span style="font-style:italic">&#34;role&#34;</span> : <span style="font-style:italic">&#34;clusterAdmin&#34;</span>, <span style="font-style:italic">&#34;db&#34;</span> : <span style="font-style:italic">&#34;admin&#34;</span> } ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Now, you can create users to authenticate against the replica-set, create
 database, or do whatever mongodb use case you have</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">db.getSiblingDB(&#34;mydb&#34;).createUser(
-  {
-    &#34;user&#34; : &#34;mydb-owner&#34;,
-    &#34;pwd&#34; : passwordPrompt(),     // or cleartext password
-    roles: [ { &#34;role&#34; : &#34;dbOwner&#34;, &#34;db&#34; : &#34;mydb&#34; } ]
-  }
-)</pre></div>
-<h2 id="references">References</h2>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>db.getSiblingDB(&#34;mydb&#34;).createUser(
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    &#34;user&#34; : &#34;mydb-owner&#34;,
+</span></span><span style="display:flex;"><span>    &#34;pwd&#34; : passwordPrompt(),     // or cleartext password
+</span></span><span style="display:flex;"><span>    roles: [ { &#34;role&#34; : &#34;dbOwner&#34;, &#34;db&#34; : &#34;mydb&#34; } ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h2 id="references">References</h2>
 <p>This document presents a combination of practical experience accompanied of lots of reading of
 the official documentation on Deploying Replica Sets.</p>
 
@@ -468,7 +448,7 @@ the official documentation on Deploying Replica Sets.</p>
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -512,7 +492,7 @@ the official documentation on Deploying Replica Sets.</p>
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -536,7 +516,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

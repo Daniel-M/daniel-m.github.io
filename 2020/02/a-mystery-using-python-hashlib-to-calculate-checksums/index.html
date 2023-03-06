@@ -16,7 +16,7 @@
     <meta property="og:title" content="A mystery using Python hashlib to calculate checksums" />
 <meta property="og:description" content="Short note on using python hashlib" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2020/02/a-mystery-using-python-hashlib-to-calculate-checksums/" />
+<meta property="og:url" content="https://daniel-m.github.io/2020/02/a-mystery-using-python-hashlib-to-calculate-checksums/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-02-04T16:17:42-05:00" />
 <meta property="article:modified_time" content="2020-02-04T16:17:42-05:00" />
 
@@ -60,7 +60,7 @@
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -142,23 +142,22 @@
         <p>Recently I was working with hashing some files in order to take checksums to avoid
 working with data-corrupted files received at the endpoint of a web server.
 It sounds easy, receive the file, calculate the hash, and emit the response.
-I only needed something like <code>hash = calculate_hash(file)</code>.<br />
+I only needed something like <code>hash = calculate_hash(file)</code>.<br>
 A five minute research on <a href="http://duckduckgo.com">duckduckgo</a> lead me to write the following code,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import hashlib
-
-def calculate_hash(filepath, chunk_size=4096, hash_method=hashlib.md5()):
-    hasher = hash_method
-
-    with open(filepath, &#39;rb&#39;) as fp:
-        buffer = fp.read(chunk_size)
-        while len(buffer) &gt; 0:
-            hasher.update(buffer)
-            buffer = fp.read(chunk_size)
-
-    return hasher.hexdigest()</pre></div>
-<p>Open a file in binary mode and read it chunk-wise, updating a hash
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>import hashlib
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def calculate_hash(filepath, chunk_size=4096, hash_method=hashlib.md5()):
+</span></span><span style="display:flex;"><span>    hasher = hash_method
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    with open(filepath, &#39;rb&#39;) as fp:
+</span></span><span style="display:flex;"><span>        buffer = fp.read(chunk_size)
+</span></span><span style="display:flex;"><span>        while len(buffer) &gt; 0:
+</span></span><span style="display:flex;"><span>            hasher.update(buffer)
+</span></span><span style="display:flex;"><span>            buffer = fp.read(chunk_size)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    return hasher.hexdigest()
+</span></span></code></pre></div><p>Open a file in binary mode and read it chunk-wise, updating a hash
 with each chunk until EOF. Easy, right? WRONG!</p>
-
 <p>The issue was that everytime a new request arrived with the same file, the hasher
 calculated the wrong hash for it from the second request onwards.
 I could not find what was wrong with the code, it looked like somehow
@@ -168,19 +167,19 @@ at hand I decided to refactor the code, and even though python docs encourage to
 use named constructors &ndash; like
 <code>hashlib.md5()</code> &ndash; over <code>hashlib.new('md5')</code> I found that the following implementation worked really well
 and most importantly worked as expected,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import hashlib
-
-def calculate_hash(filepath, chunk_size=4096, hash_method=&#39;md5&#39;):
-    hasher = hashlib.new(hash_method)
-
-    with open(filepath, &#39;rb&#39;) as fp:
-        buffer = fp.read(chunk_size)
-        while len(buffer) &gt; 0:
-            hasher.update(buffer)
-            buffer = fp.read(chunk_size)
-
-    return hasher.hexdigest()</pre></div>
-<p>Whether hashlib or the hasher instance was preserved between function calls is
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>import hashlib
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def calculate_hash(filepath, chunk_size=4096, hash_method=&#39;md5&#39;):
+</span></span><span style="display:flex;"><span>    hasher = hashlib.new(hash_method)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    with open(filepath, &#39;rb&#39;) as fp:
+</span></span><span style="display:flex;"><span>        buffer = fp.read(chunk_size)
+</span></span><span style="display:flex;"><span>        while len(buffer) &gt; 0:
+</span></span><span style="display:flex;"><span>            hasher.update(buffer)
+</span></span><span style="display:flex;"><span>            buffer = fp.read(chunk_size)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    return hasher.hexdigest()
+</span></span></code></pre></div><p>Whether hashlib or the hasher instance was preserved between function calls is
 something I need to explore further, I just wanted to keep this anecdote for future
 reference here.</p>
 
@@ -192,7 +191,7 @@ reference here.</p>
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -236,7 +235,7 @@ reference here.</p>
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -260,7 +259,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

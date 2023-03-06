@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Daniel Mejía Raigosa</title>
+    <title>Python on Daniel Mejía Raigosa</title>
     <link>https://daniel-m.github.io/categories/python/</link>
-    <description>Recent content in python on Daniel Mejía Raigosa</description>
+    <description>Recent content in Python on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 24 May 2022 14:12:46 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 24 May 2022 14:12:46 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dealing with scammers using Selenium and Python</title>
       <link>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium-and-python/</link>
@@ -18,16 +14,6 @@
       
       <guid>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium-and-python/</guid>
       <description>Introduction Recently got a SMS with a link to a phishing site intended to capture credit card information. The way of doing it was a billing due to a stalled international delivery, and scammers were cautious enough so the phishing site redirected to the true deliverycorporation once the credit card information with the payment were filled. I saw this as an opportunity to learn new things, so decided to write a simple bot to send fake data also known as trash, to the scammers database.</description>
-    </item>
-    
-    <item>
-      <title>Managing python versions and virtual environments with pyenv</title>
-      <link>https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</link>
-      <pubDate>Mon, 08 Nov 2021 10:52:28 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</guid>
-      <description>What is pyenv? pyenv is a tool that lets you easily switch between multiple versions of Python, and it is really useful to work on python projects that require different python versions. If you are familiar with nvm the node version manager, pyenv follows a similar approach.
-Another big advantage of pyenv is the use of pyenv-vitualenv which completely isolates environments. I know you can use python -m venv but, having completely isolated python installations and requisites makes the programming process more reproducible (say, to get things inside containers, or have proper specs to run the code)</description>
     </item>
     
     <item>
@@ -57,9 +43,7 @@ import hashlib def calculate_hash(filepath, chunk_size=4096, hash_method=hashlib
       <pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/2018/03/notes-on-python-multiprocessing/</guid>
-      <description>multiprocessing is a package that supports spawning processes using an API similar to the threading module.[1]
- The Pool object which offers a convenient means of parallelizing the execution of a function across multiple input values, distributing the input data across processes (data parallelism).[1]
- One should protect the “entry point” of the program by using if __name__ == &#39;__main__&#39; this line is mandatory.  One of the simplest ways of show the use of multi processing is,</description>
+      <description>multiprocessing is a package that supports spawning processes using an API similar to the threading module.[1] The Pool object which offers a convenient means of parallelizing the execution of a function across multiple input values, distributing the input data across processes (data parallelism).[1] One should protect the “entry point” of the program by using if __name__ == &#39;__main__&#39; this line is mandatory. One of the simplest ways of show the use of multi processing is,</description>
     </item>
     
     <item>
@@ -70,10 +54,7 @@ import hashlib def calculate_hash(filepath, chunk_size=4096, hash_method=hashlib
       <guid>https://daniel-m.github.io/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</guid>
       <description>Reading guide The text is accompanied with questions and observations at the end, such that notes of the form (Q#) correspond to the question number # on the list. In the same fashion (O#) indicates the observation number #.
 Notes on Flask http://flask.pocoo.org/ https://github.com/pallets/flask
- &amp;ldquo;Flask is a (Q1)microframework for Python based on Werkzeug(Q2), Jinja 2(Q3) and good intentions.&amp;rdquo;
- BSD Licensed.
- Latest release 0.12.2 (github tag).
- Flask is minimalistic, so it doesn&amp;rsquo;t decide for you what to use, it lets you to use extensions provided the task you need.</description>
+&amp;ldquo;Flask is a (Q1)microframework for Python based on Werkzeug(Q2), Jinja 2(Q3) and good intentions.&amp;rdquo; BSD Licensed. Latest release 0.12.2 (github tag). Flask is minimalistic, so it doesn&amp;rsquo;t decide for you what to use, it lets you to use extensions provided the task you need.</description>
     </item>
     
   </channel>

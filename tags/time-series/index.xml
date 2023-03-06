@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>time series on Daniel Mejía Raigosa</title>
@@ -6,11 +6,7 @@
     <description>Recent content in time series on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Oct 2020 14:17:42 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/tags/time-series/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 29 Oct 2020 14:17:42 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/time-series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing InfluxDB with High Availability</title>
       <link>https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/</link>

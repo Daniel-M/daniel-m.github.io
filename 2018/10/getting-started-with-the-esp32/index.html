@@ -18,7 +18,7 @@ During my University years I had the opportunity to refine my knowledge on basic
 <meta property="og:description" content="Motivation One of my hobbies during my school days was electronics after learning about B.E.A.M robots during a Popular Mechanics for Kids episode. You can learn more about B.E.A.M. here
 During my University years I had the opportunity to refine my knowledge on basic electronics, and exploit my programming skills programming Arduino and Microchip microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still wanted to be able to send data to remote locations, which could be possible by means of a RaspberryPI, or a GSM module or Bluetooth module &ndash;which were expensive&ndash; or having the Arduino/MCU connected to a regular computer with internet, so the whole point of small devices was not really possible at that time in terms of a good efficiency/cost relation." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2018/10/getting-started-with-the-esp32/" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/10/getting-started-with-the-esp32/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-10-28T19:42:25-05:00" />
 <meta property="article:modified_time" content="2018-10-28T19:42:25-05:00" />
 
@@ -62,7 +62,7 @@ During my University years I had the opportunity to refine my knowledge on basic
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -137,14 +137,10 @@ During my University years I had the opportunity to refine my knowledge on basic
       </header>
 
       <div>
-        
-
-<h2 id="motivation">Motivation</h2>
-
+        <h2 id="motivation">Motivation</h2>
 <p>One of my hobbies during my school days was electronics after learning about
 <a href="https://en.wikipedia.org/wiki/BEAM_robotics">B.E.A.M</a> robots during a <em>Popular
 Mechanics for Kids</em> episode. <a href="http://solarbotics.net/">You can learn more about B.E.A.M. here</a></p>
-
 <p>During my University years I had the opportunity to refine my knowledge on basic
 electronics, and exploit my programming skills programming Arduino and Microchip
 microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still
@@ -153,22 +149,17 @@ means of a RaspberryPI, or a GSM module or Bluetooth module &ndash;which were ex
 or having the Arduino/MCU connected to a regular computer with internet,
 so the whole point of <em>small</em> devices was not really possible at that time
 in terms of a good efficiency/cost relation.</p>
-
 <p>After several years without doing electronics, I&rsquo;ve heard about the ESP8266 chip
 and its predecessor the ESP32. The most appealing feature of those chips
 was the built-in support for Wi-Fi or Bluetooth technologies, all shipped in
 convenient development boards which can be programmed either with C, Python, or Lua.</p>
-
 <p>I got lured by the possibilities of having remote controlled electronics and bought
 an ESP32 development board. As I progress in learning how to use it, I&rsquo;ll blog about
 my experiences getting this new toy up and running, the pitfalls I ran into and
 how I manage to solve them.</p>
-
 <p>As I publish blog entries, they will be linked in the table of contents near the
 end of this blog post.</p>
-
 <h2 id="but-what-exactly-is-an-esp32">But what exactly is an ESP32?</h2>
-
 <p>The ESP32 is a low-cost, low-power system on a chip (SoC) series with Wi-Fi and
 dual-mode Bluetooth capabilities, powered by a single or dual core Tensilica
 Xtensa LX6 microprocessor with a clock rate of up to 240 MHz. Yes, a tiny chip
@@ -177,30 +168,19 @@ with the clock rate of an old
 Wi-Fi and Bluetooth. The availability of two ADC channels and more than 15
 General purpose Input Output pins (GPIO), makes this chip really powerful to IoT
 applications.</p>
-
 <p>Here&rsquo;s how my ESP32 &ndash;based on the <a href="https://docs.zerynth.com/latest/official/board.zerynth.doit_esp32/docs/index.html">doit ESP32 Devkit v1</a>&ndash; came,</p>
-
-<p><img src="https://daniel-m.github.io/2018/oct/esp32_2.jpg" alt="New toy ESP32" /></p>
-
-<p><img src="https://daniel-m.github.io/2018/oct/esp32_1.jpg" alt="New toy ESP32 other view" /></p>
-
+<p><img src="https://daniel-m.github.io/2018/oct/esp32_2.jpg" alt="New toy ESP32"></p>
+<p><img src="https://daniel-m.github.io/2018/oct/esp32_1.jpg" alt="New toy ESP32 other view"></p>
 <p>A sneak peak of what is comming,</p>
-
-<p><img src="https://daniel-m.github.io/2018/oct/blinker.gif" alt="Blinking" /></p>
-
+<p><img src="https://daniel-m.github.io/2018/oct/blinker.gif" alt="Blinking"></p>
 <h2 id="table-of-contents">Table of Contents</h2>
-
 <p>The following blogs are related to ESP32</p>
-
 <ul>
-<li><a href="http://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/">Setting up a development environment</a><br /></li>
+<li><a href="http://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/">Setting up a development environment</a></li>
 <li><a href="https://daniel-m.github.io/post/2018/nov/esp32/esp32-3_words_freertos">esp-idf Development Framework and the FreeRTOS kernel</a></li>
 </ul>
-
 <h2 id="resources">Resources</h2>
-
 <p>Some useful resources are available at,</p>
-
 <ul>
 <li><a href="http://esp32.net/">http://esp32.net/</a></li>
 <li><a href="http://www.lucadentella.it/en/category/esp32">Luca Dentella&rsquo;s blog series on ESP32</a></li>
@@ -215,7 +195,7 @@ applications.</p>
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -259,7 +239,7 @@ applications.</p>
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -283,7 +263,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

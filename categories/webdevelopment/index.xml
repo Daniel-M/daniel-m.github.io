@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WebDevelopment on Daniel Mejía Raigosa</title>
@@ -6,11 +6,7 @@
     <description>Recent content in WebDevelopment on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Jun 2018 21:37:38 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/categories/webdevelopment/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 26 Jun 2018 21:37:38 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/webdevelopment/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Overview of Go Web Frameworks</title>
       <link>https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/</link>
@@ -18,17 +14,7 @@
       
       <guid>https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/</guid>
       <description>Introduction Exploration of http servers in Go. The packages under considerations are,
- net/http
- https://github.com/go-chi/chi
- https://github.com/julienschmidt/httprouter
- https://github.com/gorilla/mux
- https://github.com/zenazn/goji/
- https://github.com/go-swagger/go-swagger
- https://github.com/manyminds/api2go
- https://github.com/labstack/echo
-  https://github.com/go-chi/chi  chi is a lightweight, idiomatic and composable router for building Go 1.7+ HTTP services.
- Designed to support larg REST API services.
- built on top of context a go package that handles signaling, cancelation and request-scoped values across a handler chain.</description>
+net/http https://github.com/go-chi/chi https://github.com/julienschmidt/httprouter https://github.com/gorilla/mux https://github.com/zenazn/goji/ https://github.com/go-swagger/go-swagger https://github.com/manyminds/api2go https://github.com/labstack/echo https://github.com/go-chi/chi chi is a lightweight, idiomatic and composable router for building Go 1.7+ HTTP services. Designed to support larg REST API services. built on top of context a go package that handles signaling, cancelation and request-scoped values across a handler chain. The features reported in the readme are, Lightweight - cloc&amp;rsquo;d in ~1000 LOC for the chi router Fast - yes, see benchmarks 100% compatible with net/http - use any http or middleware pkg in the ecosystem that is also compatible with net/http Designed for modular/composable APIs - middlewares, inline middlewares, route groups and subrouter mounting Context control - built on new context package, providing value chaining, cancelations and timeouts Robust - in production at Pressly, CloudFlare, Heroku, 99Designs, and many others (see discussion) Doc generation - docgen auto-generates routing documentation from your source to JSON or Markdown No external dependencies - plain ol&amp;rsquo; Go 1.</description>
     </item>
     
     <item>
@@ -39,10 +25,7 @@
       <guid>https://daniel-m.github.io/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</guid>
       <description>Reading guide The text is accompanied with questions and observations at the end, such that notes of the form (Q#) correspond to the question number # on the list. In the same fashion (O#) indicates the observation number #.
 Notes on Flask http://flask.pocoo.org/ https://github.com/pallets/flask
- &amp;ldquo;Flask is a (Q1)microframework for Python based on Werkzeug(Q2), Jinja 2(Q3) and good intentions.&amp;rdquo;
- BSD Licensed.
- Latest release 0.12.2 (github tag).
- Flask is minimalistic, so it doesn&amp;rsquo;t decide for you what to use, it lets you to use extensions provided the task you need.</description>
+&amp;ldquo;Flask is a (Q1)microframework for Python based on Werkzeug(Q2), Jinja 2(Q3) and good intentions.&amp;rdquo; BSD Licensed. Latest release 0.12.2 (github tag). Flask is minimalistic, so it doesn&amp;rsquo;t decide for you what to use, it lets you to use extensions provided the task you need.</description>
     </item>
     
   </channel>

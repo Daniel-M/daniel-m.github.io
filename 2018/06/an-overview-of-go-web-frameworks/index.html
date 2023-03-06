@@ -16,7 +16,7 @@
     <meta property="og:title" content="An Overview of Go Web Frameworks" />
 <meta property="og:description" content="An overview of go web frameworks" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/06/an-overview-of-go-web-frameworks/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-06-26T21:37:38-05:00" />
 <meta property="article:modified_time" content="2018-06-26T21:37:38-05:00" />
 
@@ -60,7 +60,7 @@
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -135,32 +135,25 @@
       </header>
 
       <div>
-        
-
-<h2 id="introduction">Introduction</h2>
-
+        <h2 id="introduction">Introduction</h2>
 <p>Exploration of http servers in Go. The packages under considerations are,</p>
-
 <ul>
-<li><a href="http://golang.org/pkg/net/http">net/http</a><br /></li>
-<li><a href="https://github.com/go-chi/chi">https://github.com/go-chi/chi</a><br /></li>
-<li><a href="https://github.com/julienschmidt/httprouter">https://github.com/julienschmidt/httprouter</a><br /></li>
-<li><a href="https://github.com/gorilla/mux">https://github.com/gorilla/mux</a><br /></li>
-<li><a href="https://github.com/zenazn/goji/">https://github.com/zenazn/goji/</a><br /></li>
-<li><a href="https://github.com/go-swagger/go-swagger">https://github.com/go-swagger/go-swagger</a><br /></li>
-<li><a href="https://github.com/manyminds/api2go">https://github.com/manyminds/api2go</a><br /></li>
-<li><a href="https://github.com/labstack/echo">https://github.com/labstack/echo</a><br /></li>
+<li><a href="http://golang.org/pkg/net/http">net/http</a></li>
+<li><a href="https://github.com/go-chi/chi">https://github.com/go-chi/chi</a></li>
+<li><a href="https://github.com/julienschmidt/httprouter">https://github.com/julienschmidt/httprouter</a></li>
+<li><a href="https://github.com/gorilla/mux">https://github.com/gorilla/mux</a></li>
+<li><a href="https://github.com/zenazn/goji/">https://github.com/zenazn/goji/</a></li>
+<li><a href="https://github.com/go-swagger/go-swagger">https://github.com/go-swagger/go-swagger</a></li>
+<li><a href="https://github.com/manyminds/api2go">https://github.com/manyminds/api2go</a></li>
+<li><a href="https://github.com/labstack/echo">https://github.com/labstack/echo</a></li>
 </ul>
-
-<h2 id="https-github-com-go-chi-chi-https-github-com-go-chi-chi"><a href="https://github.com/go-chi/chi">https://github.com/go-chi/chi</a></h2>
-
+<h2 id="httpsgithubcomgo-chichihttpsgithubcomgo-chichi"><a href="https://github.com/go-chi/chi">https://github.com/go-chi/chi</a></h2>
 <ul>
-<li><code>chi</code> is a lightweight, idiomatic and composable router for building Go 1.7+ HTTP services.<br /></li>
-<li>Designed to support larg REST API services.<br /></li>
-<li>built on top of <code>context</code> a go package that handles signaling, cancelation and request-scoped values across a handler chain.<br /></li>
-<li>The features reported in the readme are,<br /></li>
+<li><code>chi</code> is a lightweight, idiomatic and composable router for building Go 1.7+ HTTP services.</li>
+<li>Designed to support larg REST API services.</li>
+<li>built on top of <code>context</code> a go package that handles signaling, cancelation and request-scoped values across a handler chain.</li>
+<li>The features reported in the readme are,</li>
 </ul>
-
 <blockquote>
 <ul>
 <li>Lightweight - cloc&rsquo;d in ~1000 LOC for the chi router</li>
@@ -173,117 +166,96 @@
 <li>No external dependencies - plain ol&rsquo; Go 1.7+ stdlib + net/http</li>
 </ul>
 </blockquote>
-
 <ul>
-<li>Comes with a set of detailed examples<br /></li>
-<li>MIT License<br /></li>
+<li>Comes with a set of detailed examples</li>
+<li>MIT License</li>
 </ul>
-
 <h3 id="in-numbers">In numbers</h3>
-
 <ul>
-<li>3652 stars in github<br /></li>
-<li>46 contributors<br /></li>
-<li>472 commits<br /></li>
-<li>254 forks<br /></li>
-<li>17 releases<br /></li>
+<li>3652 stars in github</li>
+<li>46 contributors</li>
+<li>472 commits</li>
+<li>254 forks</li>
+<li>17 releases</li>
 </ul>
-
 <h3 id="remarks">Remarks</h3>
-
 <ul>
-<li>Growing dev community<br /></li>
-<li>It looks like a suitable candidate for REST-API Serivices in Go<br /></li>
-<li>the docs convinced me, they are clear<br /></li>
-<li>well documented, looks simple to use<br /></li>
+<li>Growing dev community</li>
+<li>It looks like a suitable candidate for REST-API Serivices in Go</li>
+<li>the docs convinced me, they are clear</li>
+<li>well documented, looks simple to use</li>
 </ul>
-
-<h2 id="https-github-com-julienschmidt-httprouter-https-github-com-julienschmidt-httprouter"><a href="https://github.com/julienschmidt/httprouter">https://github.com/julienschmidt/httprouter</a></h2>
-
+<h2 id="httpsgithubcomjulienschmidthttprouterhttpsgithubcomjulienschmidthttprouter"><a href="https://github.com/julienschmidt/httprouter">https://github.com/julienschmidt/httprouter</a></h2>
 <ul>
-<li>HttpRouter is a lightweight high performance HTTP request router (also called multiplexer or just mux for short) for Go.<br /></li>
-<li>Good scaling<br /></li>
-<li>Good performance benchmarkings (claims to be amongst the bests)<br /></li>
-<li>net/http compliance<br /></li>
-<li>Well documented<br /></li>
-<li>Lincense is not clear (GNU-like)<br /></li>
+<li>HttpRouter is a lightweight high performance HTTP request router (also called multiplexer or just mux for short) for Go.</li>
+<li>Good scaling</li>
+<li>Good performance benchmarkings (claims to be amongst the bests)</li>
+<li>net/http compliance</li>
+<li>Well documented</li>
+<li>Lincense is not clear (GNU-like)</li>
 </ul>
-
 <h3 id="in-numbers-1">In numbers</h3>
-
 <ul>
-<li>7213 stars on github<br /></li>
-<li>32 contributors<br /></li>
-<li>206 commits<br /></li>
-<li>718 forks<br /></li>
-<li>2 releases<br /></li>
+<li>7213 stars on github</li>
+<li>32 contributors</li>
+<li>206 commits</li>
+<li>718 forks</li>
+<li>2 releases</li>
 </ul>
-
 <h3 id="remarks-1">Remarks</h3>
-
 <ul>
-<li>The license is not clear<br /></li>
-<li>Has an interesinting backing community<br /></li>
+<li>The license is not clear</li>
+<li>Has an interesinting backing community</li>
 </ul>
-
-<h2 id="https-github-com-gorilla-mux-https-github-com-gorilla-mux"><a href="https://github.com/gorilla/mux">https://github.com/gorilla/mux </a></h2>
-
+<h2 id="httpsgithubcomgorillamux-httpsgithubcomgorillamux-"><a href="https://github.com/gorilla/mux">https://github.com/gorilla/mux </a></h2>
 <ul>
-<li>Package gorilla/mux implements a request router and dispatcher for matching incoming requests to their respective handler.<br /></li>
-<li>Not a REST specific<br /></li>
-<li>More of an http router<br /></li>
-<li>net/http compliant<br /></li>
+<li>Package gorilla/mux implements a request router and dispatcher for matching incoming requests to their respective handler.</li>
+<li>Not a REST specific</li>
+<li>More of an http router</li>
+<li>net/http compliant</li>
 </ul>
-
 <h3 id="in-numbers-2">In numbers</h3>
-
 <ul>
-<li>6435 stars on github<br /></li>
-<li>66 contributors<br /></li>
-<li>238 commits<br /></li>
-<li>778 forks<br /></li>
-<li>8 releases<br /></li>
+<li>6435 stars on github</li>
+<li>66 contributors</li>
+<li>238 commits</li>
+<li>778 forks</li>
+<li>8 releases</li>
 </ul>
-
 <h3 id="remarks-2">Remarks</h3>
-
 <ul>
-<li>Not REST Specific, this makes gorilla/mux a non suitable candidate<br /></li>
-<li>good backing community in its favor<br /></li>
-<li>well documented<br /></li>
+<li>Not REST Specific, this makes gorilla/mux a non suitable candidate</li>
+<li>good backing community in its favor</li>
+<li>well documented</li>
 </ul>
-
-<h2 id="https-goji-io-https-goji-io"><a href="https://goji.io/">https://goji.io/</a></h2>
-
+<h2 id="httpsgojiiohttpsgojiio"><a href="https://goji.io/">https://goji.io/</a></h2>
 <ul>
-<li><p>Goji is a HTTP request multiplexer, similar to net/http.ServeMux.</p></li>
-
-<li><blockquote>
+<li>
+<p>Goji is a HTTP request multiplexer, similar to net/http.ServeMux.</p>
+</li>
+<li>
+<blockquote>
 <p>Goji itself has very few features: it is first and foremost a standard set of interfaces for writing web applications. Several subpackages are distributed with Goji to provide standard production-ready implementations of several of the interfaces, however users are also encouraged to implement the interfaces on their own, especially if their needs are unusual.</p>
-</blockquote></li>
-
-<li><p>MIT License</p></li>
+</blockquote>
+</li>
+<li>
+<p>MIT License</p>
+</li>
 </ul>
-
 <h3 id="in-numbers-3">In numbers</h3>
-
 <ul>
-<li>649 stars on github<br /></li>
-<li>4 contributors<br /></li>
-<li>51 commits<br /></li>
-<li>45 forks<br /></li>
+<li>649 stars on github</li>
+<li>4 contributors</li>
+<li>51 commits</li>
+<li>45 forks</li>
 <li>3 releases</li>
 </ul>
-
 <h3 id="remarks-3">Remarks</h3>
-
 <ul>
-<li>Not a suitable prospect<br /></li>
-<li>Not very active, though some people recommended it<br /></li>
+<li>Not a suitable prospect</li>
+<li>Not very active, though some people recommended it</li>
 </ul>
-
-<h2 id="https-github-com-labstack-echo-https-github-com-labstack-echo"><a href="https://github.com/labstack/echo">https://github.com/labstack/echo</a></h2>
-
+<h2 id="httpsgithubcomlabstackechohttpsgithubcomlabstackecho"><a href="https://github.com/labstack/echo">https://github.com/labstack/echo</a></h2>
 <blockquote>
 <ul>
 <li>Optimized HTTP router which smartly prioritize routes</li>
@@ -301,88 +273,78 @@
 <li>HTTP/2 support</li>
 </ul>
 </blockquote>
-
 <ul>
-<li>MIT License<br /></li>
+<li>MIT License</li>
 </ul>
-
 <h3 id="in-numbers-4">In numbers</h3>
-
 <ul>
-<li>10790 stars on github<br /></li>
-<li>103 contributors<br /></li>
-<li>1207 commits<br /></li>
-<li>950 forks<br /></li>
+<li>10790 stars on github</li>
+<li>103 contributors</li>
+<li>1207 commits</li>
+<li>950 forks</li>
 <li>57 releases</li>
 </ul>
-
 <h3 id="remarks-4">Remarks</h3>
-
 <ul>
-<li>Has very active development<br /></li>
-<li>has a good backing community<br /></li>
-<li>Benchmarks show good performance (or the say so)<br /></li>
-<li>well documented, looks simple to use<br /></li>
+<li>Has very active development</li>
+<li>has a good backing community</li>
+<li>Benchmarks show good performance (or the say so)</li>
+<li>well documented, looks simple to use</li>
 </ul>
-
-<h2 id="https-github-com-manyminds-api2go-https-github-com-manyminds-api2go"><a href="https://github.com/manyminds/api2go">https://github.com/manyminds/api2go</a></h2>
-
+<h2 id="httpsgithubcommanymindsapi2gohttpsgithubcommanymindsapi2go"><a href="https://github.com/manyminds/api2go">https://github.com/manyminds/api2go</a></h2>
 <blockquote>
 <p>A JSON API Implementation for Go, to be used e.g. as server for Ember Data.</p>
 </blockquote>
-
 <h3 id="in-numbers-5">In numbers</h3>
-
 <ul>
-<li>519 stars on github<br /></li>
-<li>23 contributors<br /></li>
-<li>521 commits<br /></li>
-<li>66 forks<br /></li>
+<li>519 stars on github</li>
+<li>23 contributors</li>
+<li>521 commits</li>
+<li>66 forks</li>
 <li>10 releases</li>
 </ul>
-
 <h3 id="remarks-5">Remarks</h3>
-
 <ul>
-<li>Doesn&rsquo;t look appealing, since JSON API is not our primary objective<br /></li>
-<li>I&rsquo;m not really convinced with the project whatsoever<br /></li>
+<li>Doesn&rsquo;t look appealing, since JSON API is not our primary objective</li>
+<li>I&rsquo;m not really convinced with the project whatsoever</li>
 </ul>
-
-<h2 id="https-github-com-go-swagger-go-swagger-https-github-com-go-swagger-go-swagger"><a href="https://github.com/go-swagger/go-swagger">https://github.com/go-swagger/go-swagger</a></h2>
-
+<h2 id="httpsgithubcomgo-swaggergo-swaggerhttpsgithubcomgo-swaggergo-swagger"><a href="https://github.com/go-swagger/go-swagger">https://github.com/go-swagger/go-swagger</a></h2>
 <ul>
-<li>Sponsored by VMWare<br /></li>
-
-<li><p>golang implementation of Swagger 2.0 (aka OpenAPI 2.0): it knows how to serialize and deserialize swagger specifications.</p></li>
-
-<li><blockquote>
-<p>go-swagger brings to the go community a complete suite of fully-featured, high-performance, API components to work with a Swagger API: server, client and data model.
-Generates a server from a swagger specification
+<li>
+<p>Sponsored by VMWare</p>
+</li>
+<li>
+<p>golang implementation of Swagger 2.0 (aka OpenAPI 2.0): it knows how to serialize and deserialize swagger specifications.</p>
+</li>
+<li>
+<blockquote>
+<p>go-swagger brings to the go community a complete suite of fully-featured, high-performance, API components to work with a Swagger API: server, client and data model.</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>Generates a server from a swagger specification
 Generates a client from a swagger specification
 Supports most features offered by jsonschema and swagger, including polymorphism
 Generates a swagger specification from annotated go code
 Additional tools to work with a swagger spec
 Great customization features, with vendor extensions and customizable templates</p>
-</blockquote></li>
-
-<li><p>Apache 2.0 License</p></li>
+</blockquote>
+<ul>
+<li>Apache 2.0 License</li>
 </ul>
-
 <h3 id="in-numbers-6">In numbers</h3>
-
 <ul>
-<li>2391 stars on github<br /></li>
-<li>144 contributors<br /></li>
-<li>2185 commits<br /></li>
-<li>440 forks<br /></li>
-<li>36 releases<br /></li>
+<li>2391 stars on github</li>
+<li>144 contributors</li>
+<li>2185 commits</li>
+<li>440 forks</li>
+<li>36 releases</li>
 </ul>
-
 <h3 id="remarks-6">Remarks</h3>
-
 <ul>
-<li>I&rsquo;m not sure if SWAGGER 2.0 is what we want, if so it looks like a good candidate<br /></li>
-<li>Well documented and with a good dev community<br /></li>
+<li>I&rsquo;m not sure if SWAGGER 2.0 is what we want, if so it looks like a good candidate</li>
+<li>Well documented and with a good dev community</li>
 </ul>
 
       </div>
@@ -393,7 +355,7 @@ Great customization features, with vendor extensions and customizable templates<
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -437,7 +399,7 @@ Great customization features, with vendor extensions and customizable templates<
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -461,7 +423,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

@@ -16,7 +16,7 @@
     <meta property="og:title" content="Installing InfluxDB with High Availability" />
 <meta property="og:description" content="how to get high availability using nginx and influx-relay with OSS InfluxDB" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/" />
+<meta property="og:url" content="https://daniel-m.github.io/2020/10/installing-influxdb-with-high-availability/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-10-29T14:17:42-05:00" />
 <meta property="article:modified_time" content="2020-10-29T14:17:42-05:00" />
 
@@ -60,7 +60,7 @@
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -135,250 +135,231 @@
       </header>
 
       <div>
-        
-
-<h2 id="forewords">Forewords</h2>
-
+        <h2 id="forewords">Forewords</h2>
 <p>It is advisable to have high availability when serving data. We are considering debian GNU/Linux 10 during this process. With influxdb replication is achieved either by means of paying a managed influxdb instance, buying enteprise version, or implementing an influx-relay that offers bare-minumum high-availability.</p>
-
 <p>In this guide we will create 3 nodes (the minimum to have high availability) serving influxdb by means of a load balancer and an influx-relay.</p>
-
 <h2 id="installing-influxdb">Installing InfluxDB</h2>
-
 <p>A minimal set of instructions to install InfluxDB version 1.8.3 (as the date of this writing v2.0 is still beta)</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">wget https://dl.influxdata.com/influxdb/releases/influxdb_1.8.3_amd64.deb
-dpkg -i influxdb_1.8.3_amd64.deb</code></pre></div>
-<h3 id="open-influx-cli-and-create-your-user">Open <code>influx</code> cli and create your user</h3>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://dl.influxdata.com/influxdb/releases/influxdb_1.8.3_amd64.deb
+</span></span><span style="display:flex;"><span>dpkg -i influxdb_1.8.3_amd64.deb
+</span></span></code></pre></div><h3 id="open-influx-cli-and-create-your-user">Open <code>influx</code> cli and create your user</h3>
 <p>Start the influx service</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">systemctl start influxd</code></pre></div>
-<p>And the call <code>influx</code> cli from the terminal and type the following instruction using an appealing password</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">CREATE USER root WITH PASSWORD <span style="font-style:italic">&#39;&lt;password&gt;&#39;</span> WITH ALL PRIVILEGES</code></pre></div>
-<h3 id="basic-configuration">Basic configuration</h3>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>systemctl start influxd
+</span></span></code></pre></div><p>And the call <code>influx</code> cli from the terminal and type the following instruction using an appealing password</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>CREATE USER root WITH PASSWORD <span style="font-style:italic">&#39;&lt;password&gt;&#39;</span> WITH ALL PRIVILEGES
+</span></span></code></pre></div><h3 id="basic-configuration">Basic configuration</h3>
 <p>We need to edit <code>/etc/influxdb/influxdb.conf</code> to enable authorization. Look for the <code>[http]</code> block and set the following configurations</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">[http]
-  <span style="font-style:italic"># Determines whether HTTP endpoint is enabled.</span>
-  <span style="font-style:italic"># enabled = true</span>
-...
-  <span style="font-style:italic"># The bind address used by the HTTP service.</span>
-  bind-address = <span style="font-style:italic">&#34;:8086&#34;</span>
-...
-  <span style="font-style:italic"># Determines whether user authentication is enabled over HTTP/HTTPS.</span>
-  auth-enabled = true 
-...
-  <span style="font-style:italic"># Determines whether HTTP request logging is enabled.</span>
-  log-enabled = true
-...
-  <span style="font-style:italic"># If influxd is unable to access the specified path, it will log an error and fall back to writing</span>
-  <span style="font-style:italic"># the request log to stderr.</span>
-  access-log-path = <span style="font-style:italic">&#34;/var/log/influxdb/access.log&#34;</span></code></pre></div>
-<p>Once edited, restart the influxdb service for the new configurations to take effect,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">systemctl restart influxd.service</code></pre></div>
-<p>Now, install influx at the remaining 2 nodes (3 is the mininum number of replicas to be considered &ldquo;High Availability&rdquo;). And  configure them exactly the same way (even with the same <code>root</code> user at influx)</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>[http]
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic"># Determines whether HTTP endpoint is enabled.</span>
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic"># enabled = true</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic"># The bind address used by the HTTP service.</span>
+</span></span><span style="display:flex;"><span>  bind-address = <span style="font-style:italic">&#34;:8086&#34;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic"># Determines whether user authentication is enabled over HTTP/HTTPS.</span>
+</span></span><span style="display:flex;"><span>  auth-enabled = true 
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic"># Determines whether HTTP request logging is enabled.</span>
+</span></span><span style="display:flex;"><span>  log-enabled = true
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic"># If influxd is unable to access the specified path, it will log an error and fall back to writing</span>
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic"># the request log to stderr.</span>
+</span></span><span style="display:flex;"><span>  access-log-path = <span style="font-style:italic">&#34;/var/log/influxdb/access.log&#34;</span>
+</span></span></code></pre></div><p>Once edited, restart the influxdb service for the new configurations to take effect,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>systemctl restart influxd.service
+</span></span></code></pre></div><p>Now, install influx at the remaining 2 nodes (3 is the mininum number of replicas to be considered &ldquo;High Availability&rdquo;). And  configure them exactly the same way (even with the same <code>root</code> user at influx)</p>
 <h2 id="configuring-hosts">Configuring hosts</h2>
-
 <p>We need to modify each host’s <code>/etc/hosts</code> file in order to add a reference to the other hosts
 The host file should have a section like,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt"># InfluxDB nodes
-xxx.xxx.xxx.xxx influxdb-node
-xxx.xxx.xxx.xxx influxdb-node-02
-xxx.xxx.xxx.xxx influxdb-node-03</code></pre></div>
-<p>where <code>xxx.xxx.xxx.xxx</code> represents the IP of the corresponding host</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span># InfluxDB nodes
+</span></span><span style="display:flex;"><span>xxx.xxx.xxx.xxx influxdb-node
+</span></span><span style="display:flex;"><span>xxx.xxx.xxx.xxx influxdb-node-02
+</span></span><span style="display:flex;"><span>xxx.xxx.xxx.xxx influxdb-node-03
+</span></span></code></pre></div><p>where <code>xxx.xxx.xxx.xxx</code> represents the IP of the corresponding host</p>
 <h2 id="installing-the-influx-relay">Installing the influx-relay</h2>
-
 <p>With influxdb replication is achieved either by means of paying a managed influxdb instance, buying enteprise version, or implementing an influx-relay that offers bare-minumum high-availability performing distributed writes among different influxdb replicas
 We will use  <a href="https://github.com/influxdata/influxdb-relay">https://github.com/influxdata/influxdb-relay</a>.</p>
-
 <p>You can either install go or precompile the binaries. I&rsquo;ll made use of my existing local go installation and followed the steps of,</p>
-
 <ul>
-<li>Install  <code>go get -u github.com/influxdata/influxdb-relay</code><br /></li>
-<li>Copy <code>cp $GOPATH/src/github.com/influxdata/influxdb-relay/sample.toml ./relay.toml</code><br /></li>
+<li>Install  <code>go get -u github.com/influxdata/influxdb-relay</code></li>
+<li>Copy <code>cp $GOPATH/src/github.com/influxdata/influxdb-relay/sample.toml ./relay.toml</code></li>
 </ul>
-
 <p>Then copied <code>$GOPATH/bin/influxdb-relay</code> (since it was compiled for amd64) and distributed it across all the nodes soon to be influxdb replicas.</p>
-
-<p>Now, according to the readme of influx-relay,
-&gt; The architecture is fairly simple and consists of a load balancer, two or more InfluxDB Relay processes and two or more InfluxDB processes. The load balancer should point UDP traffic and HTTP POST requests with the path /write to the two relays while pointing GET requests with the path /query to the two InfluxDB servers.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">        ┌─────────────────┐                 
-        │writes &amp; queries │                 
-        └─────────────────┘                 
-                 │                          
-                 ▼                          
-         ┌───────────────┐                  
-         │               │                  
-┌────────│ Load Balancer │─────────┐        
-│        │               │         │        
-│        └──────┬─┬──────┘         │        
-│               │ │                │        
-│               │ │                │        
-│        ┌──────┘ └────────┐       │        
-│        │ ┌─────────────┐ │       │┌──────┐
-│        │ │/write or UDP│ │       ││/query│
-│        ▼ └─────────────┘ ▼       │└──────┘
-│  ┌──────────┐      ┌──────────┐  │        
-│  │ InfluxDB │      │ InfluxDB │  │        
-│  │ Relay    │      │ Relay    │  │        
-│  └──┬────┬──┘      └────┬──┬──┘  │        
-│     │    |              |  │     │        
-│     |  ┌─┼──────────────┘  |     │        
-│     │  │ └──────────────┐  │     │        
-│     ▼  ▼                ▼  ▼     │        
-│  ┌──────────┐      ┌──────────┐  │        
-│  │          │      │          │  │        
-└─▶│ InfluxDB │      │ InfluxDB │◀─┘        
-   │          │      │          │           
-   └──────────┘      └──────────┘           </code></pre></div>
-<p>We will pick a master node and install a nginx upstream to point to the influx relays and influxdb instances. To do so we first copied both the compiled binary and the configuration to the target hosts.</p>
-
+<p>Now, according to the readme of influx-relay,</p>
+<blockquote>
+<p>The architecture is fairly simple and consists of a load balancer, two or more InfluxDB Relay processes and two or more InfluxDB processes. The load balancer should point UDP traffic and HTTP POST requests with the path /write to the two relays while pointing GET requests with the path /query to the two InfluxDB servers.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>        ┌─────────────────┐                 
+</span></span><span style="display:flex;"><span>        │writes &amp; queries │                 
+</span></span><span style="display:flex;"><span>        └─────────────────┘                 
+</span></span><span style="display:flex;"><span>                 │                          
+</span></span><span style="display:flex;"><span>                 ▼                          
+</span></span><span style="display:flex;"><span>         ┌───────────────┐                  
+</span></span><span style="display:flex;"><span>         │               │                  
+</span></span><span style="display:flex;"><span>┌────────│ Load Balancer │─────────┐        
+</span></span><span style="display:flex;"><span>│        │               │         │        
+</span></span><span style="display:flex;"><span>│        └──────┬─┬──────┘         │        
+</span></span><span style="display:flex;"><span>│               │ │                │        
+</span></span><span style="display:flex;"><span>│               │ │                │        
+</span></span><span style="display:flex;"><span>│        ┌──────┘ └────────┐       │        
+</span></span><span style="display:flex;"><span>│        │ ┌─────────────┐ │       │┌──────┐
+</span></span><span style="display:flex;"><span>│        │ │/write or UDP│ │       ││/query│
+</span></span><span style="display:flex;"><span>│        ▼ └─────────────┘ ▼       │└──────┘
+</span></span><span style="display:flex;"><span>│  ┌──────────┐      ┌──────────┐  │        
+</span></span><span style="display:flex;"><span>│  │ InfluxDB │      │ InfluxDB │  │        
+</span></span><span style="display:flex;"><span>│  │ Relay    │      │ Relay    │  │        
+</span></span><span style="display:flex;"><span>│  └──┬────┬──┘      └────┬──┬──┘  │        
+</span></span><span style="display:flex;"><span>│     │    |              |  │     │        
+</span></span><span style="display:flex;"><span>│     |  ┌─┼──────────────┘  |     │        
+</span></span><span style="display:flex;"><span>│     │  │ └──────────────┐  │     │        
+</span></span><span style="display:flex;"><span>│     ▼  ▼                ▼  ▼     │        
+</span></span><span style="display:flex;"><span>│  ┌──────────┐      ┌──────────┐  │        
+</span></span><span style="display:flex;"><span>│  │          │      │          │  │        
+</span></span><span style="display:flex;"><span>└─▶│ InfluxDB │      │ InfluxDB │◀─┘        
+</span></span><span style="display:flex;"><span>   │          │      │          │           
+</span></span><span style="display:flex;"><span>   └──────────┘      └──────────┘           
+</span></span></code></pre></div><p>We will pick a master node and install a nginx upstream to point to the influx relays and influxdb instances. To do so we first copied both the compiled binary and the configuration to the target hosts.</p>
 <p>Edited the file <code>relay.toml</code> to look like this,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt"># relay.toml
-[[http]]
-name = &#34;influxdb-node-http&#34;
-bind-addr = &#34;127.0.0.1:9086&#34;
-output = [
-    { name=&#34;influxdb-node-01&#34;, location = &#34;http://127.0.0.1:8086/write&#34; },
-    { name=&#34;influxdb-node-02&#34;, location = &#34;http://influxdb-node-02:8086/write&#34; },
-    { name=&#34;influxdb-node-03&#34;, location = &#34;http://influxdb-node-03:8086/write&#34; },
-]
-
-[[udp]]
-name = &#34;influxdb-node-udp&#34;
-bind-addr = &#34;127.0.0.1:9086&#34;
-read-buffer = 0 # default
-output = [
-    { name=&#34;influxdb-node-01&#34;, location=&#34;127.0.0.1:8086&#34;, mtu=512 },
-    { name=&#34;influxdb-node-02&#34;, location=&#34;influxdb-node-02:8086&#34;, mtu=1024 },
-    { name=&#34;influxdb-node-03&#34;, location=&#34;influxdb-node-03:8086&#34;, mtu=1024 },
-]</code></pre></div>
-<p>As the docs say, we require a load balancer to redirect queries to the database (which hopefully will have the same data as the relay would perform writes to all of them). An nginx configuration that looks working is,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">  upstream influxdb_relay {
-          server 127.0.0.1:9086;
-          server influxdb-node-02:9086;
-          server influxdb-node-03:9086;
-  }
-
-  upstream influxdb {
-          server 127.0.0.1:8086;
-          server influxdb-node-02:8086;
-          server influxdb-node-03:8086;
-  }
-
-  server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    server_name _;
-
-    location ~* ^/write?(.+)$ {
-      if ($query_string) {
-        proxy_pass http://influxdb_relay/write?$query_string;
-      }
-    }
-
-    location ~* ^/query?(.+)$ {
-      if ($query_string) {
-        proxy_pass http://influxdb/query?$query_string;
-      }
-    }
-
-    # We can use this location to debug the server. 
-    # Feel free to remove it once you are convinced of how the locations work
-    location ~* ^/debug?(.+)$ {
-      add_header Content-Type text/plain;
-      
-      if ($query_string) {
-        return 200 &#34;query_string=$query_string&#34;;
-      }
-    }
-  }</code></pre></div>
-<p>Note that requests without query-strings will produce 404 responses. Also note that the relay only allow writes (it only broadcats writes) If we eventually wanted to broadcast certain requests not allowed by the relay, we could rely (&lt;- &ldquo;winks&rdquo;)  on the ngx_http_mirror_module (available since nginx 1.13.4):</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">server {
-    location / {
-        proxy_pass http://17.0.0.1:8000;
-        mirror /s1;
-        mirror /s2;
-        mirror /s3;       
-    }
-    location /s1 { internal; proxy_pass http://17.0.0.1:8001$request_uri; }
-    location /s2 { internal; proxy_pass http://17.0.0.1:8002$request_uri; }
-    location /s3 { internal; proxy_pass http://17.0.0.1:8003$request_uri; }
-}</code></pre></div>
-<p>nginx will:</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span># relay.toml
+</span></span><span style="display:flex;"><span>[[http]]
+</span></span><span style="display:flex;"><span>name = &#34;influxdb-node-http&#34;
+</span></span><span style="display:flex;"><span>bind-addr = &#34;127.0.0.1:9086&#34;
+</span></span><span style="display:flex;"><span>output = [
+</span></span><span style="display:flex;"><span>    { name=&#34;influxdb-node-01&#34;, location = &#34;http://127.0.0.1:8086/write&#34; },
+</span></span><span style="display:flex;"><span>    { name=&#34;influxdb-node-02&#34;, location = &#34;http://influxdb-node-02:8086/write&#34; },
+</span></span><span style="display:flex;"><span>    { name=&#34;influxdb-node-03&#34;, location = &#34;http://influxdb-node-03:8086/write&#34; },
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[udp]]
+</span></span><span style="display:flex;"><span>name = &#34;influxdb-node-udp&#34;
+</span></span><span style="display:flex;"><span>bind-addr = &#34;127.0.0.1:9086&#34;
+</span></span><span style="display:flex;"><span>read-buffer = 0 # default
+</span></span><span style="display:flex;"><span>output = [
+</span></span><span style="display:flex;"><span>    { name=&#34;influxdb-node-01&#34;, location=&#34;127.0.0.1:8086&#34;, mtu=512 },
+</span></span><span style="display:flex;"><span>    { name=&#34;influxdb-node-02&#34;, location=&#34;influxdb-node-02:8086&#34;, mtu=1024 },
+</span></span><span style="display:flex;"><span>    { name=&#34;influxdb-node-03&#34;, location=&#34;influxdb-node-03:8086&#34;, mtu=1024 },
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>As the docs say, we require a load balancer to redirect queries to the database (which hopefully will have the same data as the relay would perform writes to all of them). An nginx configuration that looks working is,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>  upstream influxdb_relay {
+</span></span><span style="display:flex;"><span>          server 127.0.0.1:9086;
+</span></span><span style="display:flex;"><span>          server influxdb-node-02:9086;
+</span></span><span style="display:flex;"><span>          server influxdb-node-03:9086;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  upstream influxdb {
+</span></span><span style="display:flex;"><span>          server 127.0.0.1:8086;
+</span></span><span style="display:flex;"><span>          server influxdb-node-02:8086;
+</span></span><span style="display:flex;"><span>          server influxdb-node-03:8086;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  server {
+</span></span><span style="display:flex;"><span>    listen 80 default_server;
+</span></span><span style="display:flex;"><span>    listen [::]:80 default_server;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    server_name _;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    location ~* ^/write?(.+)$ {
+</span></span><span style="display:flex;"><span>      if ($query_string) {
+</span></span><span style="display:flex;"><span>        proxy_pass http://influxdb_relay/write?$query_string;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    location ~* ^/query?(.+)$ {
+</span></span><span style="display:flex;"><span>      if ($query_string) {
+</span></span><span style="display:flex;"><span>        proxy_pass http://influxdb/query?$query_string;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    # We can use this location to debug the server. 
+</span></span><span style="display:flex;"><span>    # Feel free to remove it once you are convinced of how the locations work
+</span></span><span style="display:flex;"><span>    location ~* ^/debug?(.+)$ {
+</span></span><span style="display:flex;"><span>      add_header Content-Type text/plain;
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      if ($query_string) {
+</span></span><span style="display:flex;"><span>        return 200 &#34;query_string=$query_string&#34;;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Note that requests without query-strings will produce 404 responses. Also note that the relay only allow writes (it only broadcats writes) If we eventually wanted to broadcast certain requests not allowed by the relay, we could rely (&lt;- &ldquo;winks&rdquo;)  on the ngx_http_mirror_module (available since nginx 1.13.4):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>server {
+</span></span><span style="display:flex;"><span>    location / {
+</span></span><span style="display:flex;"><span>        proxy_pass http://17.0.0.1:8000;
+</span></span><span style="display:flex;"><span>        mirror /s1;
+</span></span><span style="display:flex;"><span>        mirror /s2;
+</span></span><span style="display:flex;"><span>        mirror /s3;       
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    location /s1 { internal; proxy_pass http://17.0.0.1:8001$request_uri; }
+</span></span><span style="display:flex;"><span>    location /s2 { internal; proxy_pass http://17.0.0.1:8002$request_uri; }
+</span></span><span style="display:flex;"><span>    location /s3 { internal; proxy_pass http://17.0.0.1:8003$request_uri; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>nginx will:</p>
 <p>send the same request to all servers
 wait for all of them to finish
-respond with the <a href="http://17.0.0.1:8000">http://17.0.0.1:8000</a> response (and ignore the others)</p>
-
+respond with the http://17.0.0.1:8000 response (and ignore the others)</p>
 <h2 id="influxrelay-service-unit-for-systemd">InfluxRelay service unit for systemd</h2>
-
 <p>Create the directory
 <code>/opt/influxdb-relay</code> and put the compiled executable <code>influx-relay</code> and the configuration file <code>relay.toml</code> there</p>
-
 <p>create <code>/lib/systemd/system/influxdb-relay.service</code> with the contents,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">[Unit]
-Description=InfluxDB Relay service
-After=network.target
-
-[Service]
-User=root
-Type=simple
-WorkingDirectory=/opt/influxdb-relay
-ExecStart=/opt/influxdb-relay/influxdb-relay -config /opt/influxdb-relay/relay.toml
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target</code></pre></div>
-<p>Load it, enable it and start it,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">systemctl daemon-reload
-systemctl enable influxdb-relay.service
-systemctl start influxdb-relay.service</code></pre></div>
-<p>verify that the service unit is running</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">root@influxdb-node:/opt/influxdb-relay# systemctl status influxdb-relay.service 
-● influxdb-relay.service - InfluxDB Relay service
-   Loaded: loaded (/lib/systemd/system/influxdb-relay.service; enabled; vendor preset: enabled)
-   Active: active (running) since Tue 2020-10-27 17:42:59 UTC; 31s ago
- Main PID: 8135 (influxdb-relay)
-    Tasks: 6 (limit: 2377)
-   Memory: 6.7M
-   CGroup: /system.slice/influxdb-relay.service
-           └─8135 /opt/influxdb-relay/influxdb-relay -config /opt/influxdb-relay/relay.toml
-
-Oct 27 17:42:59 influxdb-node systemd[1]: Started InfluxDB Relay service.
-Oct 27 17:42:59 influxdb-node influxdb-relay[8135]: 2020/10/27 17:42:59 starting relays...
-Oct 27 17:42:59 influxdb-node influxdb-relay[8135]: 2020/10/27 17:42:59 Starting UDP relay &#34;influxdb-node-udp&#34; o
-Oct 27 17:42:59 influxdb-node influxdb-relay[8135]: 2020/10/27 17:42:59 Starting HTTP relay &#34;influxdb-node-http&#34;</code></pre></div>
-<p>I&rsquo;ve verified that the relay works by performing requests directly to it</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>[Unit]
+</span></span><span style="display:flex;"><span>Description=InfluxDB Relay service
+</span></span><span style="display:flex;"><span>After=network.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Service]
+</span></span><span style="display:flex;"><span>User=root
+</span></span><span style="display:flex;"><span>Type=simple
+</span></span><span style="display:flex;"><span>WorkingDirectory=/opt/influxdb-relay
+</span></span><span style="display:flex;"><span>ExecStart=/opt/influxdb-relay/influxdb-relay -config /opt/influxdb-relay/relay.toml
+</span></span><span style="display:flex;"><span>Restart=on-failure
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Install]
+</span></span><span style="display:flex;"><span>WantedBy=multi-user.target
+</span></span></code></pre></div><p>Load it, enable it and start it,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>systemctl daemon-reload
+</span></span><span style="display:flex;"><span>systemctl enable influxdb-relay.service
+</span></span><span style="display:flex;"><span>systemctl start influxdb-relay.service
+</span></span></code></pre></div><p>verify that the service unit is running</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>root@influxdb-node:/opt/influxdb-relay# systemctl status influxdb-relay.service 
+</span></span><span style="display:flex;"><span>● influxdb-relay.service - InfluxDB Relay service
+</span></span><span style="display:flex;"><span>   Loaded: loaded (/lib/systemd/system/influxdb-relay.service; enabled; vendor preset: enabled)
+</span></span><span style="display:flex;"><span>   Active: active (running) since Tue 2020-10-27 17:42:59 UTC; 31s ago
+</span></span><span style="display:flex;"><span> Main PID: 8135 (influxdb-relay)
+</span></span><span style="display:flex;"><span>    Tasks: 6 (limit: 2377)
+</span></span><span style="display:flex;"><span>   Memory: 6.7M
+</span></span><span style="display:flex;"><span>   CGroup: /system.slice/influxdb-relay.service
+</span></span><span style="display:flex;"><span>           └─8135 /opt/influxdb-relay/influxdb-relay -config /opt/influxdb-relay/relay.toml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Oct 27 17:42:59 influxdb-node systemd[1]: Started InfluxDB Relay service.
+</span></span><span style="display:flex;"><span>Oct 27 17:42:59 influxdb-node influxdb-relay[8135]: 2020/10/27 17:42:59 starting relays...
+</span></span><span style="display:flex;"><span>Oct 27 17:42:59 influxdb-node influxdb-relay[8135]: 2020/10/27 17:42:59 Starting UDP relay &#34;influxdb-node-udp&#34; o
+</span></span><span style="display:flex;"><span>Oct 27 17:42:59 influxdb-node influxdb-relay[8135]: 2020/10/27 17:42:59 Starting HTTP relay &#34;influxdb-node-http&#34;
+</span></span></code></pre></div><p>I&rsquo;ve verified that the relay works by performing requests directly to it</p>
 <p>In particular a couple of requests:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -i -XPOST http://localhost:19086/write --data-urlencode <span style="font-style:italic">&#34;q=CREATE DATABASE mydb&#34;</span></code></pre></div>
-<p>which will fail since the <code>db</code> parameter was not passed</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -i -XPOST <span style="font-style:italic">&#39;http://localhost:19086/write?db=mydb&#39;</span> --data-binary <span style="font-style:italic">&#39;cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000000&#39;</span> -u <span style="font-style:italic">&#39;user:password&#39;</span></code></pre></div>
-<p>Which will fail since the database <code>mydb</code> does not exists. It can be verified that both relay and influxdb show the same response</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -i -XPOST <span style="font-style:italic">&#39;http://localhost:18086/write?db=mydb&#39;</span> --data-binary <span style="font-style:italic">&#39;cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000000&#39;</span> -u <span style="font-style:italic">&#39;user:password&#39;</span>
-
-HTTP/1.1 404 Not Found
-Content-Type: application/json
-Request-Id: b05c293a-188d-11eb-aa70-1c1b0deb4028
-X-Influxdb-Build: OSS
-X-Influxdb-Error: database not found: <span style="font-style:italic">&#34;mydb&#34;</span>
-X-Influxdb-Version: 1.8.3
-X-Request-Id: b05c293a-188d-11eb-aa70-1c1b0deb4028
-Date: Tue, 27 Oct 2020 19:50:39 GMT
-Content-Length: 41
-
-{<span style="font-style:italic">&#34;error&#34;</span>:<span style="font-style:italic">&#34;database not found: \&#34;mydb\&#34;&#34;</span>}</code></pre></div>
-<p>Just like,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -i -XPOST <span style="font-style:italic">&#39;http://localhost:19086/write?db=mydb&#39;</span> --data-binary <span style="font-style:italic">&#39;cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000000&#39;</span> -u <span style="font-style:italic">&#39;user:password&#39;</span>
-HTTP/1.1 404 Not Found
-Content-Length: 41
-Date: Tue, 27 Oct 2020 19:16:21 GMT
-Content-Type: text/plain; charset=utf-8
-
-{<span style="font-style:italic">&#34;error&#34;</span>:<span style="font-style:italic">&#34;database not found: \&#34;mydb\&#34;&#34;</span>}</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl -i -XPOST http://localhost:19086/write --data-urlencode <span style="font-style:italic">&#34;q=CREATE DATABASE mydb&#34;</span>
+</span></span></code></pre></div><p>which will fail since the <code>db</code> parameter was not passed</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl -i -XPOST <span style="font-style:italic">&#39;http://localhost:19086/write?db=mydb&#39;</span> --data-binary <span style="font-style:italic">&#39;cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000000&#39;</span> -u <span style="font-style:italic">&#39;user:password&#39;</span>
+</span></span></code></pre></div><p>Which will fail since the database <code>mydb</code> does not exists. It can be verified that both relay and influxdb show the same response</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl -i -XPOST <span style="font-style:italic">&#39;http://localhost:18086/write?db=mydb&#39;</span> --data-binary <span style="font-style:italic">&#39;cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000000&#39;</span> -u <span style="font-style:italic">&#39;user:password&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HTTP/1.1 404 Not Found
+</span></span><span style="display:flex;"><span>Content-Type: application/json
+</span></span><span style="display:flex;"><span>Request-Id: b05c293a-188d-11eb-aa70-1c1b0deb4028
+</span></span><span style="display:flex;"><span>X-Influxdb-Build: OSS
+</span></span><span style="display:flex;"><span>X-Influxdb-Error: database not found: <span style="font-style:italic">&#34;mydb&#34;</span>
+</span></span><span style="display:flex;"><span>X-Influxdb-Version: 1.8.3
+</span></span><span style="display:flex;"><span>X-Request-Id: b05c293a-188d-11eb-aa70-1c1b0deb4028
+</span></span><span style="display:flex;"><span>Date: Tue, 27 Oct 2020 19:50:39 GMT
+</span></span><span style="display:flex;"><span>Content-Length: 41
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{<span style="font-style:italic">&#34;error&#34;</span>:<span style="font-style:italic">&#34;database not found: \&#34;mydb\&#34;&#34;</span>}
+</span></span></code></pre></div><p>Just like,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl -i -XPOST <span style="font-style:italic">&#39;http://localhost:19086/write?db=mydb&#39;</span> --data-binary <span style="font-style:italic">&#39;cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000000&#39;</span> -u <span style="font-style:italic">&#39;user:password&#39;</span>
+</span></span><span style="display:flex;"><span>HTTP/1.1 404 Not Found
+</span></span><span style="display:flex;"><span>Content-Length: 41
+</span></span><span style="display:flex;"><span>Date: Tue, 27 Oct 2020 19:16:21 GMT
+</span></span><span style="display:flex;"><span>Content-Type: text/plain; charset=utf-8
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{<span style="font-style:italic">&#34;error&#34;</span>:<span style="font-style:italic">&#34;database not found: \&#34;mydb\&#34;&#34;</span>}
+</span></span></code></pre></div>
       </div>
 
       <footer>
@@ -387,7 +368,7 @@ Content-Type: text/plain; charset=utf-8
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -431,7 +412,7 @@ Content-Type: text/plain; charset=utf-8
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -455,7 +436,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

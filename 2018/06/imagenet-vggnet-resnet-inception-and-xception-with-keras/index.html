@@ -16,7 +16,7 @@
     <meta property="og:title" content="ImageNet: VGGNet, ResNet, Inception, and Xception with Keras" />
 <meta property="og:description" content="A summary of readings on ImageNet Networks" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2018/06/imagenet-vggnet-resnet-inception-and-xception-with-keras/" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/06/imagenet-vggnet-resnet-inception-and-xception-with-keras/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-06-01T21:47:48-05:00" />
 <meta property="article:modified_time" content="2018-06-01T21:47:48-05:00" />
 
@@ -60,7 +60,7 @@
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -141,121 +141,98 @@
       </header>
 
       <div>
-        
-
-<h4 id="link-https-www-pyimagesearch-com-2017-03-20-imagenet-vggnet-resnet-inception-xception-keras">Link: <a href="https://www.pyimagesearch.com/2017/03/20/imagenet-vggnet-resnet-inception-xception-keras/">https://www.pyimagesearch.com/2017/03/20/imagenet-vggnet-resnet-inception-xception-keras/</a></h4>
-
+        <h4 id="link-httpswwwpyimagesearchcom20170320imagenet-vggnet-resnet-inception-xception-keras">Link: <a href="https://www.pyimagesearch.com/2017/03/20/imagenet-vggnet-resnet-inception-xception-keras/">https://www.pyimagesearch.com/2017/03/20/imagenet-vggnet-resnet-inception-xception-keras/</a></h4>
 <h2 id="key-concepts">Key concepts:</h2>
-
 <ul>
-<li>CNN: Convolutional Neural Network<br /></li>
-<li>ImageNet dataset<br /></li>
-<li>ImageNet Large Scale Visual Recognition Challenge:  train a model that can correctly classify an input image into 1,000 separate object categories. ImageNet challenge is the de facto benchmark for computer vision classification algorithms<br /></li>
-<li>Weight serialization<br /></li>
-<li>Weights of a neural network<br /></li>
-<li>Pooling<br /></li>
-<li>Softmax<br /></li>
+<li>CNN: Convolutional Neural Network</li>
+<li>ImageNet dataset</li>
+<li>ImageNet Large Scale Visual Recognition Challenge:  train a model that can correctly classify an input image into 1,000 separate object categories. ImageNet challenge is the de facto benchmark for computer vision classification algorithms</li>
+<li>Weight serialization</li>
+<li>Weights of a neural network</li>
+<li>Pooling</li>
+<li>Softmax</li>
 </ul>
-
 <h2 id="notes">Notes:</h2>
-
 <ul>
-<li>Keras comes integrated with VGG16, VGG19, ResNet50, Inception V3, and Xception neural network models (look inside applications submodules)<br /></li>
-<li>ImageNet: manually labeled 22 000 object categories<br /></li>
-<li>ImageNet Large Scale Visual Recognition Challenge:  train a model that can correctly classify an input image into 1,000 separate object categories.<br /></li>
-<li>ImageNet challenge is the de facto benchmark for computer vision classification algorithms<br /></li>
+<li>Keras comes integrated with VGG16, VGG19, ResNet50, Inception V3, and Xception neural network models (look inside applications submodules)</li>
+<li>ImageNet: manually labeled 22 000 object categories</li>
+<li>ImageNet Large Scale Visual Recognition Challenge:  train a model that can correctly classify an input image into 1,000 separate object categories.</li>
+<li>ImageNet challenge is the de facto benchmark for computer vision classification algorithms</li>
 </ul>
-
 <h3 id="vgg16-vgg19">VGG16 VGG19</h3>
-
 <ul>
-<li>arXiv:<br />
-
+<li>arXiv:
 <ul>
-<li><a href="https://arxiv.org/abs/1409.1556">https://arxiv.org/abs/1409.1556</a><br /></li>
-</ul></li>
-<li>The VGG network architecture was introduced by Simonyan and Zisserman in their 2014 paper, Very Deep Convolutional Networks for Large Scale Image Recognition.<br /></li>
-<li>3×3 convolutional layers stacked on top of each other in increasing depth<br /></li>
-<li>The “16” and “19” stand for the number of weight layers in the network<br /></li>
-<li>The smaller networks converged and were then used as initializations for the larger, deeper networks — this process is called pre-training.<br /></li>
-<li>Slow to train<br /></li>
-<li>Huge compared to other networks, in terms of bandwidth and disk usage<br /></li>
+<li><a href="https://arxiv.org/abs/1409.1556">https://arxiv.org/abs/1409.1556</a></li>
 </ul>
-
+</li>
+<li>The VGG network architecture was introduced by Simonyan and Zisserman in their 2014 paper, Very Deep Convolutional Networks for Large Scale Image Recognition.</li>
+<li>3×3 convolutional layers stacked on top of each other in increasing depth</li>
+<li>The “16” and “19” stand for the number of weight layers in the network</li>
+<li>The smaller networks converged and were then used as initializations for the larger, deeper networks — this process is called pre-training.</li>
+<li>Slow to train</li>
+<li>Huge compared to other networks, in terms of bandwidth and disk usage</li>
+</ul>
 <h3 id="resnet">ResNet</h3>
-
 <ul>
-<li>arXiv:<br />
-
+<li>arXiv:
 <ul>
-<li><a href="https://arxiv.org/abs/1512.03385">https://arxiv.org/abs/1512.03385</a><br /></li>
-<li><a href="https://arxiv.org/abs/1603.05027">https://arxiv.org/abs/1603.05027</a><br /></li>
-</ul></li>
-<li>First introduced by He et al. in their 2015 paper, Deep Residual Learning for Image Recognition<br /></li>
-<li>Micro-architecture modules -&gt; building blocks to construct the network<br /></li>
-<li>ResNet50 -&gt; 50 weight layers, based on 2015 paper<br /></li>
+<li><a href="https://arxiv.org/abs/1512.03385">https://arxiv.org/abs/1512.03385</a></li>
+<li><a href="https://arxiv.org/abs/1603.05027">https://arxiv.org/abs/1603.05027</a></li>
 </ul>
-
+</li>
+<li>First introduced by He et al. in their 2015 paper, Deep Residual Learning for Image Recognition</li>
+<li>Micro-architecture modules -&gt; building blocks to construct the network</li>
+<li>ResNet50 -&gt; 50 weight layers, based on 2015 paper</li>
+</ul>
 <h3 id="inception-v3">Inception V3</h3>
-
 <ul>
-<li>arXiv:<br />
-
+<li>arXiv:
 <ul>
-<li><a href="https://arxiv.org/abs/1409.4842">https://arxiv.org/abs/1409.4842</a><br /></li>
-<li><a href="https://arxiv.org/abs/1512.00567">https://arxiv.org/abs/1512.00567</a><br /></li>
-</ul></li>
-<li>First introduced by Szegedy et al. in their 2014 paper, Going Deeper with Convolutions<br /></li>
-<li>The goal of the inception module is to act as a “multi-level feature extractor” by computing 1×1, 3×3, and 5×5 convolutions within the same module of the network<br /></li>
-<li>GoogLeNet -&gt; Inception vN, N = version number put by google<br /></li>
-<li>Keras has inception from paper of 2015<br /></li>
+<li><a href="https://arxiv.org/abs/1409.4842">https://arxiv.org/abs/1409.4842</a></li>
+<li><a href="https://arxiv.org/abs/1512.00567">https://arxiv.org/abs/1512.00567</a></li>
 </ul>
-
+</li>
+<li>First introduced by Szegedy et al. in their 2014 paper, Going Deeper with Convolutions</li>
+<li>The goal of the inception module is to act as a “multi-level feature extractor” by computing 1×1, 3×3, and 5×5 convolutions within the same module of the network</li>
+<li>GoogLeNet -&gt; Inception vN, N = version number put by google</li>
+<li>Keras has inception from paper of 2015</li>
+</ul>
 <h3 id="xception">Xception</h3>
-
 <ul>
-<li>arXiv:<br />
-
+<li>arXiv:
 <ul>
-<li><a href="https://arxiv.org/abs/1610.02357">https://arxiv.org/abs/1610.02357</a><br /></li>
-</ul></li>
-<li>The original publication, Xception: Deep Learning with Depthwise Separable Convolutions, by  François Chollet<br /></li>
-<li>Smallest weight serialization<br /></li>
+<li><a href="https://arxiv.org/abs/1610.02357">https://arxiv.org/abs/1610.02357</a></li>
 </ul>
-
+</li>
+<li>The original publication, Xception: Deep Learning with Depthwise Separable Convolutions, by  François Chollet</li>
+<li>Smallest weight serialization</li>
+</ul>
 <h3 id="squeezenet">SqueezeNet</h3>
-
 <ul>
-<li>arXiv:<br />
-
+<li>arXiv:
 <ul>
-<li><a href="https://arxiv.org/abs/1602.07360">https://arxiv.org/abs/1602.07360</a><br /></li>
-</ul></li>
-<li>Can achieve levels of accuracy similar to AlexNet.<br /></li>
+<li><a href="https://arxiv.org/abs/1602.07360">https://arxiv.org/abs/1602.07360</a></li>
 </ul>
-
-<hr />
-
+</li>
+<li>Can achieve levels of accuracy similar to AlexNet.</li>
+</ul>
+<hr>
 <h2 id="classifying-images-with-vggnet-resnet-inception-and-xception-with-python-and-keras">Classifying images with VGGNet, ResNet, Inception, and Xception with Python and Keras</h2>
-
 <h3 id="cnn-image-pixel-sizes">CNN Image pixel sizes</h3>
-
 <ul>
-<li>ImageNet : 224×224, 227×227, 256×256, and 299×299; however, you may see other dimensions as well.<br /></li>
-<li>VGG16 : 224×224<br /></li>
-<li>VGG19 : 224×224<br /></li>
-<li>ResNet : 224×224<br /></li>
-<li>Inception V3: 299x299<br /></li>
-<li>Xception: 299×299 pixel inputs<br /></li>
+<li>ImageNet : 224×224, 227×227, 256×256, and 299×299; however, you may see other dimensions as well.</li>
+<li>VGG16 : 224×224</li>
+<li>VGG19 : 224×224</li>
+<li>ResNet : 224×224</li>
+<li>Inception V3: 299x299</li>
+<li>Xception: 299×299 pixel inputs</li>
 </ul>
-
 <p>The weights for the chosen neural network will be downloaded in the first use and will be available for later uses with Keras</p>
-
 <h2 id="links">Links:</h2>
-
 <ul>
-<li>ImageNet dataset at <a href="http://image-net.org/">http://image-net.org/</a><br /></li>
-<li>ImageNet Large Scale Visual Recognition Challenge at <a href="http://www.image-net.org/challenges/LSVRC/">http://www.image-net.org/challenges/LSVRC/</a><br /></li>
+<li>ImageNet dataset at <a href="http://image-net.org/">http://image-net.org/</a></li>
+<li>ImageNet Large Scale Visual Recognition Challenge at <a href="http://www.image-net.org/challenges/LSVRC/">http://www.image-net.org/challenges/LSVRC/</a></li>
 </ul>
 
       </div>
@@ -266,7 +243,7 @@
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -310,7 +287,7 @@
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -334,7 +311,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

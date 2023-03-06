@@ -16,7 +16,7 @@
     <meta property="og:title" content="Notes on Go concurrency" />
 <meta property="og:description" content="Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &ldquo;thread of control&rdquo; for each computation (&ldquo;process&rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2019/01/notes-on-go-concurrency/" />
+<meta property="og:url" content="https://daniel-m.github.io/2019/01/notes-on-go-concurrency/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-01-01T22:30:51-05:00" />
 <meta property="article:modified_time" content="2019-01-01T22:30:51-05:00" />
 
@@ -60,7 +60,7 @@
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -131,190 +131,153 @@
       </header>
 
       <div>
-        
-
-<p>Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &ldquo;thread of control&rdquo; for each computation (&ldquo;process&rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete</p>
-
+        <p>Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &ldquo;thread of control&rdquo; for each computation (&ldquo;process&rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete</p>
 <p>Two common ways of concurrency are,</p>
-
 <ul>
-<li>Share memory<br /></li>
-<li>Message passing<br /></li>
+<li>Share memory</li>
+<li>Message passing</li>
 </ul>
-
 <h5 id="share-memory">Share memory</h5>
-
 <p>Here the concurrent components communicate by altering the contents of shared memory locations. This form of concurrency requires some form of locking to coordinate between threads,</p>
-
 <ul>
-<li>mutexes<br /></li>
-<li>semaphores<br /></li>
-<li>monitors<br /></li>
+<li>mutexes</li>
+<li>semaphores</li>
+<li>monitors</li>
 </ul>
-
 <p>Programs implementing those (correctly) are known as thread-safe</p>
-
 <h5 id="message-passing">Message passing</h5>
-
 <p>Here the concurrent components communicate by exchanging messages.</p>
-
-<hr />
-
+<hr>
 <p>Concurrency can happen at  programming level or operating system level. At programming level we encounter</p>
-
 <ul>
-<li>Channels<br /></li>
-<li>Coroutines<br /></li>
-<li>Futures and promises<br /></li>
+<li>Channels</li>
+<li>Coroutines</li>
+<li>Futures and promises</li>
 </ul>
-
 <p>At operating system level,</p>
-
 <ul>
-<li>Computer multitasking<br /></li>
-<li>Process<br /></li>
-<li>Thread<br /></li>
+<li>Computer multitasking</li>
+<li>Process</li>
+<li>Thread</li>
 </ul>
-
 <h3 id="on-threads">On threads</h3>
-
 <p>A thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system. The scheduler is
 responsible for assigning resources to a given work (a set of instructions to be executed), in this case, the thread</p>
-
 <p>All OS support multiple threads of execution. The problems that can arise when dealing with,</p>
-
 <ul>
-<li>Shared Data<br /></li>
-<li>Signaling between threads<br /></li>
+<li>Shared Data</li>
+<li>Signaling between threads</li>
 </ul>
-
 <h3 id="concurrency-primitives">Concurrency primitives</h3>
-
 <p>A set of concurrent primitives usually exposed by the OS in some way to programming languages are,</p>
-
 <ul>
-<li>Locks (a.k.a. Mutex -&gt; MUTually EXclusive): Only one thread executes in selected regions of code<br /></li>
-<li>Monitors: are like locks but require explicit unlocking<br /></li>
-<li>Semaphores: support a wide range of coordination scenarios<br /></li>
-<li>Wait-Notify: like semaphores but require explicit programming of missed notify triggers<br /></li>
-<li>Conditional values: thread sleeping according to a given condition<br /></li>
-<li>Channels and buffers: listen/collect messages<br /></li>
-<li>Non-blocking data structures: nonblocking queue, atomic counters. Allow access from many threads without using locks or minimal amount of locks<br /></li>
+<li>Locks (a.k.a. Mutex -&gt; MUTually EXclusive): Only one thread executes in selected regions of code</li>
+<li>Monitors: are like locks but require explicit unlocking</li>
+<li>Semaphores: support a wide range of coordination scenarios</li>
+<li>Wait-Notify: like semaphores but require explicit programming of missed notify triggers</li>
+<li>Conditional values: thread sleeping according to a given condition</li>
+<li>Channels and buffers: listen/collect messages</li>
+<li>Non-blocking data structures: nonblocking queue, atomic counters. Allow access from many threads without using locks or minimal amount of locks</li>
 </ul>
-
 <p>Locks and semaphores can do every concurrency use case you can imagine.</p>
-
 <h2 id="go-routines">Go routines</h2>
-
 <p>Go has its own way of dealing with concurrency. The go routine is a fundamental concept that represents
 the execution of a concurrent routine. A goroutine is a lightweight thread managed by the Go runtime, and
 run in the same address space of the &ldquo;parent&rdquo; process, so access to shared memory must be synchronized.</p>
-
 <p>To spawn go routines, Go uses the reserved word <code>go</code>. For instance,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">fmt.Printf(&#34;hello &#34;)
-go LauchThisConcurrently()
-fmt.Printf(&#34;world&#34;)</pre></div>
-<p>Would print <code>&quot;hello world&quot;</code> with no delay between words since the <code>LauchThisConcurrently</code> function call
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fmt.Printf(&#34;hello &#34;)
+</span></span><span style="display:flex;"><span>go LauchThisConcurrently()
+</span></span><span style="display:flex;"><span>fmt.Printf(&#34;world&#34;)
+</span></span></code></pre></div><p>Would print <code>&quot;hello world&quot;</code> with no delay between words since the <code>LauchThisConcurrently</code> function call
 will be execute concurrently. But, how do we synchronize jobs performed by go routines? we can use WaitGroups</p>
-
-<h3 id="exploring-sync-waitgroup">Exploring sync.WaitGroup</h3>
-
+<h3 id="exploring-syncwaitgroup">Exploring sync.WaitGroup</h3>
 <p>Consider the following go-routine call,</p>
-
 <ol>
-<li><p><a href="https://play.golang.org/p/EdyHKFb0qzf">https://play.golang.org/p/EdyHKFb0qzf</a></p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="font-weight:bold">package</span> main
-
-<span style="font-weight:bold">import</span> (
-	<span style="font-style:italic">&#34;fmt&#34;</span>
-)
-
-<span style="font-weight:bold">func</span> Concurrent() {
-	<span style="font-weight:bold">for</span> i := 0; i &lt; 5; i++ {
-		fmt.Println(<span style="font-style:italic">&#34;Concurrent count&#34;</span>, i)
-	}
-}
-
-<span style="font-weight:bold">func</span> main() {
-	<span style="font-weight:bold">go</span> Concurrent()
-	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
-}</pre></div></li>
+<li><a href="https://play.golang.org/p/EdyHKFb0qzf">https://play.golang.org/p/EdyHKFb0qzf</a></li>
 </ol>
-
-<p>As you see, the playground exits without showing anything on the execution of the go routine.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> Concurrent() {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">for</span> i := 0; i &lt; 5; i++ {
+</span></span><span style="display:flex;"><span>		fmt.Println(<span style="font-style:italic">&#34;Concurrent count&#34;</span>, i)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> main() {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">go</span> Concurrent()
+</span></span><span style="display:flex;"><span>	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>As you see, the playground exits without showing anything on the execution of the go routine.
 If we want to actually wait for the execution, we would need to instance a wait group <code>sync.WaitGroup</code>. Consider the following modification to our code,</p>
-
-<ol>
-<li><p><a href="https://play.golang.org/p/QrFtBfhI6hL">https://play.golang.org/p/QrFtBfhI6hL</a></p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="font-weight:bold">package</span> main
-
-<span style="font-weight:bold">import</span> (
-	<span style="font-style:italic">&#34;fmt&#34;</span>
-	<span style="font-style:italic">&#34;sync&#34;</span>
-)
-
-<span style="font-weight:bold">func</span> Concurrent(wg *sync.WaitGroup) {
-	<span style="font-weight:bold">for</span> i := 0; i &lt; 5; i++ {
-		fmt.Println(<span style="font-style:italic">&#34;Concurrent count&#34;</span>, i)
-	}
-	wg.Done()
-}
-
-<span style="font-weight:bold">func</span> main() {
-	<span style="font-weight:bold">var</span> wg sync.WaitGroup
-	wg.Add(1)
-
-	<span style="font-weight:bold">go</span> Concurrent(&amp;wg)
-
-	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
-	wg.Wait()
-}</pre></div></li>
+<ol start="2">
+<li><a href="https://play.golang.org/p/QrFtBfhI6hL">https://play.golang.org/p/QrFtBfhI6hL</a></li>
 </ol>
-
-<p>Now, we have a <code>sync.WaitGroup</code> which upon calling <code>wg.Add(1)</code> we are telling it that he should wait for the end of the execution of a go-routine, &ndash;one, sice we did <code>wg.Add(1)</code>&ndash;, all the execution will lock at <code>wg.Wait()</code> and continue once all go-routines end.</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> Concurrent(wg *sync.WaitGroup) {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">for</span> i := 0; i &lt; 5; i++ {
+</span></span><span style="display:flex;"><span>		fmt.Println(<span style="font-style:italic">&#34;Concurrent count&#34;</span>, i)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	wg.Done()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> main() {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">var</span> wg sync.WaitGroup
+</span></span><span style="display:flex;"><span>	wg.Add(1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">go</span> Concurrent(&amp;wg)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
+</span></span><span style="display:flex;"><span>	wg.Wait()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now, we have a <code>sync.WaitGroup</code> which upon calling <code>wg.Add(1)</code> we are telling it that he should wait for the end of the execution of a go-routine, &ndash;one, sice we did <code>wg.Add(1)</code>&ndash;, all the execution will lock at <code>wg.Wait()</code> and continue once all go-routines end.</p>
 <p>Thus, we can do something more advanced like,</p>
-
-<ol>
-<li><p><a href="https://play.golang.org/p/fASebuJ_07N">https://play.golang.org/p/fASebuJ_07N</a></p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="font-weight:bold">package</span> main
-
-<span style="font-weight:bold">import</span> (
-	<span style="font-style:italic">&#34;fmt&#34;</span>
-	<span style="font-style:italic">&#34;sync&#34;</span>
-)
-
-<span style="font-weight:bold">func</span> Concurrent(wg *sync.WaitGroup, id <span style="">int</span>) {
-	<span style="font-weight:bold">for</span> i := 0; i &lt; 5; i++ {
-		fmt.Printf(<span style="font-style:italic">&#34;%d worker, counting %d\n&#34;</span>, id, i)
-	}
-	wg.Done()
-}
-
-<span style="font-weight:bold">func</span> main() {
-	<span style="font-weight:bold">var</span> workers = 3
-	<span style="font-weight:bold">var</span> wg sync.WaitGroup
-
-	wg.Add(workers)
-
-	<span style="font-weight:bold">for</span> i := 0; i &lt; workers; i++ {
-		<span style="font-weight:bold">go</span> Concurrent(&amp;wg, i)
-	}
-
-	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
-	wg.Wait()
-}</pre></div></li>
+<ol start="3">
+<li><a href="https://play.golang.org/p/fASebuJ_07N">https://play.golang.org/p/fASebuJ_07N</a></li>
 </ol>
-
-<hr />
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> Concurrent(wg *sync.WaitGroup, id <span style="">int</span>) {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">for</span> i := 0; i &lt; 5; i++ {
+</span></span><span style="display:flex;"><span>		fmt.Printf(<span style="font-style:italic">&#34;%d worker, counting %d\n&#34;</span>, id, i)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	wg.Done()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> main() {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">var</span> workers = 3
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">var</span> wg sync.WaitGroup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	wg.Add(workers)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">for</span> i := 0; i &lt; workers; i++ {
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">go</span> Concurrent(&amp;wg, i)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
+</span></span><span style="display:flex;"><span>	wg.Wait()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
 <h2 id="resources">Resources</h2>
-
 <ol>
-<li><a href="https://medium.freecodecamp.org/concurrency-ideologies-of-programming-languages-java-c-c-c-go-and-rust-bd4671d943f">https://medium.freecodecamp.org/concurrency-ideologies-of-programming-languages-java-c-c-c-go-and-rust-bd4671d943f</a><br /></li>
-<li><a href="https://en.wikipedia.org/wiki/Concurrent_computing">https://en.wikipedia.org/wiki/Concurrent_computing</a><br /></li>
-<li><a href="https://en.wikipedia.org/wiki/Concurrency_control">https://en.wikipedia.org/wiki/Concurrency_control</a><br /></li>
-<li><a href="https://en.wikipedia.org/wiki/Thread_(computing)">https://en.wikipedia.org/wiki/Thread_(computing)</a><br /></li>
+<li><a href="https://medium.freecodecamp.org/concurrency-ideologies-of-programming-languages-java-c-c-c-go-and-rust-bd4671d943f">https://medium.freecodecamp.org/concurrency-ideologies-of-programming-languages-java-c-c-c-go-and-rust-bd4671d943f</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Concurrent_computing">https://en.wikipedia.org/wiki/Concurrent_computing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Concurrency_control">https://en.wikipedia.org/wiki/Concurrency_control</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Thread_(computing)">https://en.wikipedia.org/wiki/Thread_(computing)</a></li>
 </ol>
 
       </div>
@@ -325,7 +288,7 @@ If we want to actually wait for the execution, we would need to instance a wait 
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -369,7 +332,7 @@ If we want to actually wait for the execution, we would need to instance a wait 
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -393,7 +356,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

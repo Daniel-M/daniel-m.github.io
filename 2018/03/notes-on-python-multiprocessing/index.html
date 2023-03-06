@@ -16,7 +16,7 @@
     <meta property="og:title" content="Notes on Python multiprocessing" />
 <meta property="og:description" content="Notes on how to use multiprocessing in Python" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2018/03/notes-on-python-multiprocessing/" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/03/notes-on-python-multiprocessing/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-03-22T21:53:32-05:00" />
 <meta property="article:modified_time" content="2018-03-22T21:53:32-05:00" />
 
@@ -60,7 +60,7 @@
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -133,91 +133,81 @@
       </header>
 
       <div>
-        
-
-<ul>
-<li><code>multiprocessing</code> is a package that supports spawning processes using an API similar to the <code>threading</code> module.[1]<br /></li>
-<li>The <code>Pool</code> object which offers a convenient means of parallelizing the execution of a function across multiple input values, distributing the input data across processes (data parallelism).[1]<br /></li>
+        <ul>
+<li><code>multiprocessing</code> is a package that supports spawning processes using an API similar to the <code>threading</code> module.[1]</li>
+<li>The <code>Pool</code> object which offers a convenient means of parallelizing the execution of a function across multiple input values, distributing the input data across processes (data parallelism).[1]</li>
 <li>One should protect the “entry point” of the program by using <code>if __name__ == '__main__'</code> this line is mandatory.</li>
 </ul>
-
 <p>One of the simplest ways of show the use of multi processing is,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import multiprocessing as mp
-
-def fx(x):
-    print(&#34;hello for &#34;+str(x)+&#34;th time!&#34;)
-
-if __name__==&#34;__main__&#34;:
-    with mp.Pool(10) as p:
-        p.map(fx,[1,2,3,4,5,6,7,8,9])</pre></div>
-<p>It doesn&rsquo;t look much of multiprocessed, right?. After adding a bit of complexity as follows,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import multiprocessing as mp
-
-def fx(x):
-    print(&#34;hello for &#34;+str(x)+&#34;th time!&#34;)
-
-if __name__==&#34;__main__&#34;:
-    numbers = list()
-    for n in range(0,100):
-       numbers.append(n)
-
-    with mp.Pool(10) as p:
-        p.map(fx,numbers)</pre></div>
-<p>You will see that the processes execute in non ordered way!,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">...
-hello for 15th time!
-hello for 9th time!
-hello for 6th time!
-hello for 10th time!
-hello for 11th time!
-hello for 7th time!
-hello for 8th time!
-hello for 13th time!
-hello for 24th time!
-...</pre></div>
-<p>Neat hah?</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>import multiprocessing as mp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def fx(x):
+</span></span><span style="display:flex;"><span>    print(&#34;hello for &#34;+str(x)+&#34;th time!&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>if __name__==&#34;__main__&#34;:
+</span></span><span style="display:flex;"><span>    with mp.Pool(10) as p:
+</span></span><span style="display:flex;"><span>        p.map(fx,[1,2,3,4,5,6,7,8,9])
+</span></span></code></pre></div><p>It doesn&rsquo;t look much of multiprocessed, right?. After adding a bit of complexity as follows,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>import multiprocessing as mp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def fx(x):
+</span></span><span style="display:flex;"><span>    print(&#34;hello for &#34;+str(x)+&#34;th time!&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>if __name__==&#34;__main__&#34;:
+</span></span><span style="display:flex;"><span>    numbers = list()
+</span></span><span style="display:flex;"><span>    for n in range(0,100):
+</span></span><span style="display:flex;"><span>       numbers.append(n)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    with mp.Pool(10) as p:
+</span></span><span style="display:flex;"><span>        p.map(fx,numbers)
+</span></span></code></pre></div><p>You will see that the processes execute in non ordered way!,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>hello for 15th time!
+</span></span><span style="display:flex;"><span>hello for 9th time!
+</span></span><span style="display:flex;"><span>hello for 6th time!
+</span></span><span style="display:flex;"><span>hello for 10th time!
+</span></span><span style="display:flex;"><span>hello for 11th time!
+</span></span><span style="display:flex;"><span>hello for 7th time!
+</span></span><span style="display:flex;"><span>hello for 8th time!
+</span></span><span style="display:flex;"><span>hello for 13th time!
+</span></span><span style="display:flex;"><span>hello for 24th time!
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Neat hah?</p>
 <p>By the time of this writting multiprocessing doesn&rsquo;t allow to use multiple-argument functions in its implementation of <code>multiprocessing.Pool.map()</code>. But, it is possible to iterate a multiple argument case by using <em>functors</em>(a C++ concept)[3] as follows,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def Multi(x,y,z):
-    return z*(x*z + y)
-class Functor(object):
-    def __init__(self,y,z):
-        self.y = y
-        self.z = z
-    def __call__(self,x):
-        return Multi(x,self.y,self.z)
-Instance = Functor(2,3) # instance of the functor
-Instance(0) # Should return 6
-Instance(1) # Should return 15
-import multiprocessing as mp
-p = mp.Pool() # instance of pool
-p.map(Instance, [1, 2, 3, 4, 5]) # returns [15, 24, 33, 42, 51]</pre></div>
-<hr />
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>def Multi(x,y,z):
+</span></span><span style="display:flex;"><span>    return z*(x*z + y)
+</span></span><span style="display:flex;"><span>class Functor(object):
+</span></span><span style="display:flex;"><span>    def __init__(self,y,z):
+</span></span><span style="display:flex;"><span>        self.y = y
+</span></span><span style="display:flex;"><span>        self.z = z
+</span></span><span style="display:flex;"><span>    def __call__(self,x):
+</span></span><span style="display:flex;"><span>        return Multi(x,self.y,self.z)
+</span></span><span style="display:flex;"><span>Instance = Functor(2,3) # instance of the functor
+</span></span><span style="display:flex;"><span>Instance(0) # Should return 6
+</span></span><span style="display:flex;"><span>Instance(1) # Should return 15
+</span></span><span style="display:flex;"><span>import multiprocessing as mp
+</span></span><span style="display:flex;"><span>p = mp.Pool() # instance of pool
+</span></span><span style="display:flex;"><span>p.map(Instance, [1, 2, 3, 4, 5]) # returns [15, 24, 33, 42, 51]
+</span></span></code></pre></div><hr>
 <h2 id="observations">Observations</h2>
-
-<h3 id="on-the-use-of-with-as-statement">On the use of <code>with ... as ...</code> statement.</h3>
-
+<h3 id="on-the-use-of-with--as--statement">On the use of <code>with ... as ...</code> statement.</h3>
 <p>Consider the following <code>class</code> in Python,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">    class sample
-        def __enter__(self):
-		# some code ..
-        def __exit__(self, type, value, traceback):
-		# some code ..</pre></div>
-<p>The keyword <code>with sample as ...</code> is used to access the <code>sample</code>&rsquo;s  method <code>__enter__(self)</code> and executes it and assings whatever it returns to the variable after the <code>as</code>. Once the code following the <code>with</code> statement is executed and no matter what happens in there, the <code>with</code> statement calls the <code>__exit__(self)</code> method of the object [2]. The <code>__exit__(self, type, value, traceback)</code> also can handle exceptions for wich you have to define the behaviour once a particular exception is raised.<br />
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    class sample
+</span></span><span style="display:flex;"><span>        def __enter__(self):
+</span></span><span style="display:flex;"><span>		# some code ..
+</span></span><span style="display:flex;"><span>        def __exit__(self, type, value, traceback):
+</span></span><span style="display:flex;"><span>		# some code ..
+</span></span></code></pre></div><p>The keyword <code>with sample as ...</code> is used to access the <code>sample</code>&rsquo;s  method <code>__enter__(self)</code> and executes it and assings whatever it returns to the variable after the <code>as</code>. Once the code following the <code>with</code> statement is executed and no matter what happens in there, the <code>with</code> statement calls the <code>__exit__(self)</code> method of the object [2]. The <code>__exit__(self, type, value, traceback)</code> also can handle exceptions for wich you have to define the behaviour once a particular exception is raised.<br>
 For example,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">with open(&#34;x.txt&#34;) as f:
-    data = f.read()
-    # do something with data</pre></div>
-<p>Carefully closes the file descriptor <code>f</code> is something bad happens within the scope of the <code>with</code> statement.</p>
-
-<hr />
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>with open(&#34;x.txt&#34;) as f:
+</span></span><span style="display:flex;"><span>    data = f.read()
+</span></span><span style="display:flex;"><span>    # do something with data
+</span></span></code></pre></div><p>Carefully closes the file descriptor <code>f</code> is something bad happens within the scope of the <code>with</code> statement.</p>
+<hr>
 <h2 id="resources">Resources</h2>
-
 <ol>
 <li><a href="https://docs.python.org/3/library/multiprocessing.html">https://docs.python.org/3/library/multiprocessing.html</a></li>
-<li><a href="http://effbot.org/zone/python-with-statement.htm">http://effbot.org/zone/python-with-statement.htm</a><br /></li>
+<li><a href="http://effbot.org/zone/python-with-statement.htm">http://effbot.org/zone/python-with-statement.htm</a></li>
 <li><a href="https://www.daniweb.com/programming/software-development/threads/485098/functors-in-python">https://www.daniweb.com/programming/software-development/threads/485098/functors-in-python</a></li>
 </ol>
 
@@ -229,7 +219,7 @@ For example,</p>
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -273,7 +263,7 @@ For example,</p>
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -297,7 +287,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

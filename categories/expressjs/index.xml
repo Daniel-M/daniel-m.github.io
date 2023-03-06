@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>expressjs on Daniel Mejía Raigosa</title>
@@ -6,11 +6,7 @@
     <description>Recent content in expressjs on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Jun 2022 08:46:43 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/categories/expressjs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 07 Jun 2022 08:46:43 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/expressjs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ExpressJS uploads to Digital Ocean Spaces through S3 AWS-S3</title>
       <link>https://daniel-m.github.io/2022/06/expressjs-uploads-to-digital-ocean-spaces-through-s3-aws-s3/</link>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EmbededDevices on Daniel Mejía Raigosa</title>
@@ -6,11 +6,7 @@
     <description>Recent content in EmbededDevices on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 03 Dec 2018 20:40:25 -0500</lastBuildDate>
-    
-	<atom:link href="https://daniel-m.github.io/categories/embededdevices/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 03 Dec 2018 20:40:25 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/embededdevices/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ESP32: Blinking a LED</title>
       <link>https://daniel-m.github.io/2018/12/esp32-blinking-a-led/</link>

@@ -20,7 +20,7 @@ Blinking a led without using Tasks Programming embedded devices requires few ext
 Motivation In the last blog of the series I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to provide a predictable execution pattern. The Tasks allow to design better workflows for our applications, allowing to control memory allocation, and modularizing each task as separate entities which can run concurrently.
 Blinking a led without using Tasks Programming embedded devices requires few extra steps than programming computers." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2018/12/esp32-blinking-a-led/" />
+<meta property="og:url" content="https://daniel-m.github.io/2018/12/esp32-blinking-a-led/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-12-03T20:40:25-05:00" />
 <meta property="article:modified_time" content="2018-12-03T20:40:25-05:00" />
 
@@ -64,7 +64,7 @@ Blinking a led without using Tasks Programming embedded devices requires few ext
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0-DEV" />
+    <meta name="generator" content="Hugo 0.111.2">
   </head>
 
   <body class=" inverted">
@@ -139,207 +139,179 @@ Blinking a led without using Tasks Programming embedded devices requires few ext
       </header>
 
       <div>
-        
-
-<p><a href="http://daniel-m.github.io/categories/esp32/"><em>This post is part of a series of ESP32 blog posts. Look the index here</em></a></p>
-
+        <p><a href="http://daniel-m.github.io/categories/esp32/"><em>This post is part of a series of ESP32 blog posts. Look the index here</em></a></p>
 <h2 id="motivation">Motivation</h2>
-
 <p><a href="https://daniel-m.github.io/categories/esp32/">In <em>the last blog of the
 series</em></a>
 I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to
 provide a predictable execution pattern. The Tasks allow to design better
 workflows for our applications, allowing to control memory allocation, and
 modularizing each task as separate entities which can run concurrently.</p>
-
 <h2 id="blinking-a-led-without-using-tasks">Blinking a led without using Tasks</h2>
-
 <p>Programming embedded devices requires few extra steps than programming
 computers. Steps such as configuring clock rates, enabling or disabling internal
 features like the ADC (Analog to Digital Converter), DAC (Digital to Analog
 Converter), enabling certain pins as binary outputs or binary inputs, or even
 setting the clock speed of the device.</p>
-
 <p>Amongst the configurable ESP32 features we can find,</p>
-
 <ul>
-<li>ADCs (analog-to-digital converter)<br /></li>
-<li>DACs (digital-to-analog converter)<br /></li>
-<li>I2C (Inter-Integrated Circuit)<br /></li>
-<li>UART (universal asynchronous receiver/transmitter)<br /></li>
-<li>CAN 2.0 (Controller Area Network)<br /></li>
-<li>SPI (Serial Peripheral Interface)<br /></li>
-<li>I2S (Integrated Inter-IC Sound)<br /></li>
-<li>RMII (Reduced Media-Independent Interface)<br /></li>
-<li>PWM (pulse width modulation)<br /></li>
+<li>ADCs (analog-to-digital converter)</li>
+<li>DACs (digital-to-analog converter)</li>
+<li>I2C (Inter-Integrated Circuit)</li>
+<li>UART (universal asynchronous receiver/transmitter)</li>
+<li>CAN 2.0 (Controller Area Network)</li>
+<li>SPI (Serial Peripheral Interface)</li>
+<li>I2S (Integrated Inter-IC Sound)</li>
+<li>RMII (Reduced Media-Independent Interface)</li>
+<li>PWM (pulse width modulation)</li>
 <li>WiFi</li>
-<li>Bluetooth<br /></li>
-<li>GPIO (General Purpose Input/Output) pins<br /></li>
+<li>Bluetooth</li>
+<li>GPIO (General Purpose Input/Output) pins</li>
 </ul>
-
 <p>In order to use each of the above elements, me <strong>must</strong> configure it properly.
 It is really, <strong>really</strong> important to understand that embedded devices require
 configuration of each feature and each individual pin to be involved in an
 application. I recommend reading <a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/index.html">the API reference</a>
 to understand better the required functions and their corresponding header
 libraries (the <code>#include &quot;&lt;library&gt;&quot;</code> statements).</p>
-
 <p>To blink a led we need to cyclically change from a logic <em>high</em> to a logic <em>low</em>
 at a given GPIO pin.</p>
-
 <p>The <a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/peripherals/gpio.html">GPIO API</a>
 states that we need to import &ldquo;driver/gpio.h&rdquo; in order to interact with GPIO
 pins. There we can read that the functions of interest are,</p>
-
 <ul>
-<li><code>gpio_config</code> configure a GPIO pin.<br /></li>
+<li><code>gpio_config</code> configure a GPIO pin.</li>
 <li><code>gpio_set_direction</code> to configure a GPIO pin as input or output</li>
 <li><code>gpio_set_level</code> to set the logic level of a pin</li>
 </ul>
-
 <p>To configure a GPIO pin we can either</p>
-
 <ul>
 <li>Declare a <code>gpio_config_t</code> struct and set each of its individual
-properties and then pass it by reference to <code>gpio_config</code>.<br /></li>
+properties and then pass it by reference to <code>gpio_config</code>.</li>
 <li>Or user <code>gpio_set_direction</code> to select a GPIO as input or output.</li>
 </ul>
-
 <p>The method <code>gpio_set_level</code> sets the logic level on an output GPIO pin.</p>
-
 <p><a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/peripherals/gpio.html">Reading the API from the espressif</a>
 will give us details about the input parameters and return values of each of the
 aforementioned functions.</p>
-
 <p>So, the proposed workflow is,</p>
-
 <ul>
 <li>Prompt and starting message</li>
 <li>Pick the output pin</li>
 <li>Set the desired pin as output</li>
 <li>Start a loop of 10 iterations
-
 <ul>
 <li>Set the GPIO pin to high</li>
 <li>Wait for 500 ms</li>
 <li>Set the GPIO pin to low</li>
 <li>Wait for 500 ms</li>
-</ul></li>
+</ul>
+</li>
 <li>Restart the device</li>
 </ul>
-
 <p>The code that does this is,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;stdio.h&gt;
-#include &#34;freertos/FreeRTOS.h&#34;
-#include &#34;freertos/task.h&#34;
-#include &#34;esp_system.h&#34;
-#include &#34;driver/gpio.h&#34;
-#include &#34;sdkconfig.h&#34;
-
-void app_main()
-{
-    printf(&#34;******************************\n&#34;);
-    printf(&#34;* Hello!!, let&#39;s blink a led *\n&#34;);
-    printf(&#34;******************************\n\n&#34;);
-
-    // Set the output pin to the led&#39;s anode 
-    uint32_t thePin = 0x2;
-
-    printf(&#34;Selecting the pin %d\n&#34;, thePin);
-
-    // Set the mode of the output pin
-    gpio_set_direction(thePin, GPIO_MODE_OUTPUT);
-
-    // Loop to blink the led
-    for (int i = 0; i &lt; 10; i++) {
-      printf(&#34;%d blink cycle for pin %d\n&#34;, i, thePin);
-      gpio_set_level(thePin, 1);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-      gpio_set_level(thePin, 0);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
-    }
-
-    // Restart the ESP32
-    printf(&#34;Restarting the chip now.\n&#34;);
-    fflush(stdout);
-    esp_restart();
-}</pre></div>
-<p>Note that we used the <code>vTaskDelay</code> function whose signature is
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>#include &#34;freertos/FreeRTOS.h&#34;
+</span></span><span style="display:flex;"><span>#include &#34;freertos/task.h&#34;
+</span></span><span style="display:flex;"><span>#include &#34;esp_system.h&#34;
+</span></span><span style="display:flex;"><span>#include &#34;driver/gpio.h&#34;
+</span></span><span style="display:flex;"><span>#include &#34;sdkconfig.h&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>void app_main()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf(&#34;******************************\n&#34;);
+</span></span><span style="display:flex;"><span>    printf(&#34;* Hello!!, let&#39;s blink a led *\n&#34;);
+</span></span><span style="display:flex;"><span>    printf(&#34;******************************\n\n&#34;);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    // Set the output pin to the led&#39;s anode 
+</span></span><span style="display:flex;"><span>    uint32_t thePin = 0x2;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    printf(&#34;Selecting the pin %d\n&#34;, thePin);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    // Set the mode of the output pin
+</span></span><span style="display:flex;"><span>    gpio_set_direction(thePin, GPIO_MODE_OUTPUT);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    // Loop to blink the led
+</span></span><span style="display:flex;"><span>    for (int i = 0; i &lt; 10; i++) {
+</span></span><span style="display:flex;"><span>      printf(&#34;%d blink cycle for pin %d\n&#34;, i, thePin);
+</span></span><span style="display:flex;"><span>      gpio_set_level(thePin, 1);
+</span></span><span style="display:flex;"><span>      vTaskDelay(500 / portTICK_PERIOD_MS);
+</span></span><span style="display:flex;"><span>      gpio_set_level(thePin, 0);
+</span></span><span style="display:flex;"><span>      vTaskDelay(500 / portTICK_PERIOD_MS);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    // Restart the ESP32
+</span></span><span style="display:flex;"><span>    printf(&#34;Restarting the chip now.\n&#34;);
+</span></span><span style="display:flex;"><span>    fflush(stdout);
+</span></span><span style="display:flex;"><span>    esp_restart();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Note that we used the <code>vTaskDelay</code> function whose signature is
 <code>void vTaskDelay(const TickType_t xTicksToDelay)</code> and delays a task for a given
 number of processor ticks. The actual time that the task remains blocked depends
 on the tick rate. The constant <code>portTICK_PERIOD_MS</code> can be used to calculate
 real time from the tick rate - with the resolution of one tick period, hence
 if</p>
-
 <p>$$
-\text{Number Of Delayed Ticks} \times \text{One Tick Period in ms} = 500 \, ms
+\text{Number Of Delayed Ticks} \times \text{One Tick Period in ms} = 500 , ms
 $$</p>
-
 <p>We have that</p>
-
-<p>$$ \text{Number Of Delayed Ticks} = \frac{500 \, ms}{\text{One Tick Period in ms}} $$</p>
-
+<p>$$ \text{Number Of Delayed Ticks} = \frac{500 , ms}{\text{One Tick Period in ms}} $$</p>
 <p>So the proper signature is <code>vTaskDelay(500 / portTICK_PERIOD_MS)</code> since the
 constant <code>portTICK_PERIOD_MS</code> stores the milliseconds taken for one tick</p>
-
 <p>Once we run <code>make</code> followed by <code>make flash</code>, we can <code>make monitor</code> and obtain</p>
-
-<p><img src="https://daniel-m.github.io/2018/dic/blinker.gif" alt="Blinking" /></p>
-
+<p><img src="https://daniel-m.github.io/2018/dic/blinker.gif" alt="Blinking"></p>
 <p>But this is not very elegant, and we are underusing the freeRTOS task
 capabilities.</p>
-
 <p>We can refactor the code above to look like the following,</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;stdio.h&gt;
-#include &#34;freertos/FreeRTOS.h&#34;
-#include &#34;freertos/task.h&#34;
-#include &#34;esp_system.h&#34;
-#include &#34;driver/gpio.h&#34;
-#include &#34;sdkconfig.h&#34;
-
-void blink_task(void* pvParameters) {
-  printf(&#34;[task] ******************************************\n&#34;);
-  printf(&#34;[task] * Hello Daniel, let&#39;s blink concurrently *\n&#34;);
-  printf(&#34;[task] ******************************************\n&#34;);
-
-  uint32_t thePin = 0x2;
-
-  printf(&#34;[task] Selecting the pin %d\n&#34;, thePin);
-
-  /*gpio_pad_select_gpio(thePin);*/
-  gpio_set_direction(thePin, GPIO_MODE_OUTPUT);
-
-  for (int i = 0; i &lt; 10; i++) {
-    printf(&#34;[task] %d blink cycle for pin %d\n&#34;, i, thePin);
-    gpio_set_level(thePin, 1);
-    vTaskDelay(500 / portTICK_PERIOD_MS);
-    gpio_set_level(thePin, 0);
-    vTaskDelay(500 / portTICK_PERIOD_MS);
-  }
-  printf(&#34;[task] blink loop ended, deleting task...\n&#34;);
-  vTaskDelete(NULL);
-}
-
-void app_main()
-{
-  printf(&#34;[main] Running the task in 3 seconds...\n&#34;);
-  
-  vTaskDelay(3000 / portTICK_PERIOD_MS);
-  
-  printf(&#34;[main] Running concurrent task now\n&#34;);
-  
-  xTaskCreate(&amp;blink_task, &#34;blinking_led&#34;, 5*configMINIMAL_STACK_SIZE, NULL, 5, NULL);
- 
-  printf(&#34;[main] The chip will restart in 20 seconds...\n&#34;);
- 
-  vTaskDelay(20000 / portTICK_PERIOD_MS);
-
-  printf(&#34;[main] Restarting the chip now.\n&#34;);
-  fflush(stdout);
-  esp_restart();
-}</pre></div>
-<p>Note several changes here,</p>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#include &lt;stdio.h&gt;
+</span></span><span style="display:flex;"><span>#include &#34;freertos/FreeRTOS.h&#34;
+</span></span><span style="display:flex;"><span>#include &#34;freertos/task.h&#34;
+</span></span><span style="display:flex;"><span>#include &#34;esp_system.h&#34;
+</span></span><span style="display:flex;"><span>#include &#34;driver/gpio.h&#34;
+</span></span><span style="display:flex;"><span>#include &#34;sdkconfig.h&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>void blink_task(void* pvParameters) {
+</span></span><span style="display:flex;"><span>  printf(&#34;[task] ******************************************\n&#34;);
+</span></span><span style="display:flex;"><span>  printf(&#34;[task] * Hello Daniel, let&#39;s blink concurrently *\n&#34;);
+</span></span><span style="display:flex;"><span>  printf(&#34;[task] ******************************************\n&#34;);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  uint32_t thePin = 0x2;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  printf(&#34;[task] Selecting the pin %d\n&#34;, thePin);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  /*gpio_pad_select_gpio(thePin);*/
+</span></span><span style="display:flex;"><span>  gpio_set_direction(thePin, GPIO_MODE_OUTPUT);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  for (int i = 0; i &lt; 10; i++) {
+</span></span><span style="display:flex;"><span>    printf(&#34;[task] %d blink cycle for pin %d\n&#34;, i, thePin);
+</span></span><span style="display:flex;"><span>    gpio_set_level(thePin, 1);
+</span></span><span style="display:flex;"><span>    vTaskDelay(500 / portTICK_PERIOD_MS);
+</span></span><span style="display:flex;"><span>    gpio_set_level(thePin, 0);
+</span></span><span style="display:flex;"><span>    vTaskDelay(500 / portTICK_PERIOD_MS);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  printf(&#34;[task] blink loop ended, deleting task...\n&#34;);
+</span></span><span style="display:flex;"><span>  vTaskDelete(NULL);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>void app_main()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  printf(&#34;[main] Running the task in 3 seconds...\n&#34;);
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  vTaskDelay(3000 / portTICK_PERIOD_MS);
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  printf(&#34;[main] Running concurrent task now\n&#34;);
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  xTaskCreate(&amp;blink_task, &#34;blinking_led&#34;, 5*configMINIMAL_STACK_SIZE, NULL, 5, NULL);
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  printf(&#34;[main] The chip will restart in 20 seconds...\n&#34;);
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  vTaskDelay(20000 / portTICK_PERIOD_MS);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  printf(&#34;[main] Restarting the chip now.\n&#34;);
+</span></span><span style="display:flex;"><span>  fflush(stdout);
+</span></span><span style="display:flex;"><span>  esp_restart();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Note several changes here,</p>
 <ul>
 <li>We isolated the blinking loop to a separate function called <code>blinking_task</code>
 with signature <code>void blink_task(void* pvParameters)</code></li>
@@ -349,17 +321,12 @@ address of <code>blinking_task</code> to it, besides a string and a stack size</
 <li>We delay both the begining of the task creation and the restar operation of
 the device</li>
 </ul>
-
 <p>Yielding</p>
-
-<p><img src="https://daniel-m.github.io/2018/dic/blinkerTask.gif" alt="Blinking with tasks" /></p>
-
-<hr />
-
+<p><img src="https://daniel-m.github.io/2018/dic/blinkerTask.gif" alt="Blinking with tasks"></p>
+<hr>
 <h2 id="resources">Resources</h2>
-
 <ul>
-<li><a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/">Espressif esp-idf getting started</a><br /></li>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/">Espressif esp-idf getting started</a></li>
 <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/system/freertos.html#_CPPv211xTaskCreate14TaskFunction_tPCKcK8uint32_tPCv11UBaseType_tPC12TaskHandle_t">The <code>xTaskCreate</code> API documentation</a></li>
 <li><a href="http://esp32.net/">The ESP32 Network</a></li>
 </ul>
@@ -372,7 +339,7 @@ the device</li>
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -416,7 +383,7 @@ the device</li>
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
     
-     © 2022
+     © 2023
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -440,7 +407,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 
