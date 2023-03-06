@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Jun 2022 08:46:43 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Mar 2023 15:52:28 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python</title>
+      <link>https://daniel-m.github.io/tags/python/</link>
+      <pubDate>Mon, 06 Mar 2023 15:52:28 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>self-doc</title>
+      <link>https://daniel-m.github.io/tags/self-doc/</link>
+      <pubDate>Mon, 06 Mar 2023 15:52:28 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/self-doc/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aws</title>
       <link>https://daniel-m.github.io/tags/aws/</link>
@@ -103,15 +121,6 @@
       <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/proof-of-concept/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://daniel-m.github.io/tags/python/</link>
-      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/python/</guid>
       <description></description>
     </item>
     
