@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="author" content="Daniel Mejía Raigosa">
-    <meta name="description" content="Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff">
-    <meta name="keywords" content="blog,developer,personal">
+  
+  <meta name="author" content="Daniel Mejía Raigosa">
+  
+  <meta name="description" content="Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff">
+  
+  <meta name="keywords" content="blog,developer,personal">
 
-    <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting started with the ESP32"/>
 <meta name="twitter:description" content="Motivation One of my hobbies during my school days was electronics after learning about B.E.A.M robots during a Popular Mechanics for Kids episode. You can learn more about B.E.A.M. here
 During my University years I had the opportunity to refine my knowledge on basic electronics, and exploit my programming skills programming Arduino and Microchip microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still wanted to be able to send data to remote locations, which could be possible by means of a RaspberryPI, or a GSM module or Bluetooth module &ndash;which were expensive&ndash; or having the Arduino/MCU connected to a regular computer with internet, so the whole point of small devices was not really possible at that time in terms of a good efficiency/cost relation."/>
 
-    <meta property="og:title" content="Getting started with the ESP32" />
+  <meta property="og:title" content="Getting started with the ESP32" />
 <meta property="og:description" content="Motivation One of my hobbies during my school days was electronics after learning about B.E.A.M robots during a Popular Mechanics for Kids episode. You can learn more about B.E.A.M. here
 During my University years I had the opportunity to refine my knowledge on basic electronics, and exploit my programming skills programming Arduino and Microchip microcontrollers (a.k.a MCUs). Those where days filled with fun, but I still wanted to be able to send data to remote locations, which could be possible by means of a RaspberryPI, or a GSM module or Bluetooth module &ndash;which were expensive&ndash; or having the Arduino/MCU connected to a regular computer with internet, so the whole point of small devices was not really possible at that time in terms of a good efficiency/cost relation." />
 <meta property="og:type" content="article" />
@@ -23,51 +26,58 @@ During my University years I had the opportunity to refine my knowledge on basic
 <meta property="article:modified_time" content="2018-10-28T19:42:25-05:00" />
 
 
-    
-      <base href="https://daniel-m.github.io/2018/10/getting-started-with-the-esp32/">
-    
-    <title>
+  
+  <base href="https://daniel-m.github.io/2018/10/getting-started-with-the-esp32/">
+  
+  <title>
   Getting started with the ESP32 · Daniel Mejía Raigosa
 </title>
 
-    
-      <link rel="canonical" href="https://daniel-m.github.io/2018/10/getting-started-with-the-esp32/">
-    
+  
+  <link rel="canonical" href="https://daniel-m.github.io/2018/10/getting-started-with-the-esp32/">
+  
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
-    
-      
-      
-      <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
+  
+  
+  
+  <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw="
+    crossorigin="anonymous" media="screen" />
+  
 
-    
+  
 
-    
-      
-        
-        
-        <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE=" crossorigin="anonymous" media="screen" />
-      
-    
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE="
+    crossorigin="anonymous" media="screen" />
+  
+  
 
-    
+  
 
-    
-    
-    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
+  
 
-    <meta name="generator" content="Hugo 0.111.3">
-  </head>
+  <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png"
+    sizes="32x32">
+  <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png"
+    sizes="16x16">
 
-  <body class=" inverted">
-    <main class="wrapper">
-      <nav class="navigation">
+  <meta name="generator" content="Hugo 0.111.3">
+</head>
+
+<body class=" inverted">
+  <main class="wrapper">
+    <nav class="navigation">
   <section class="container">
     <a class="navigation-title" href="https://daniel-m.github.io">
       Daniel Mejía Raigosa
@@ -96,8 +106,8 @@ During my University years I had the opportunity to refine my knowledge on basic
 </nav>
 
 
-      <div class="content">
-        
+    <div class="content">
+      
   <section class="container post">
     <article>
       <header>
@@ -232,9 +242,9 @@ applications.</p>
   </script>
   </section>
 
-      </div>
+    </div>
 
-      <footer class="footer">
+    <footer class="footer">
   <section class="container">
     
       <p>Physicist and enthusiastic programmer that spends most of its days telling computers how to do stuff, </p>
@@ -248,9 +258,9 @@ applications.</p>
   </section>
 </footer>
 
-    </main>
+  </main>
 
-    
+  
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K120Y53H2L"></script>
 <script>
 var doNotTrack = false;
@@ -263,6 +273,6 @@ if (!doNotTrack) {
 </script>
 
 
-  </body>
+</body>
 
 </html>
