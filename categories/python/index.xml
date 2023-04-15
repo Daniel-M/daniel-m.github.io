@@ -6,17 +6,7 @@
     <description>Recent content in Python on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Mar 2023 15:52:28 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Managing python versions and virtual environments with pyenv</title>
-      <link>https://daniel-m.github.io/2023/03/managing-python-versions-and-virtual-environments-with-pyenv/</link>
-      <pubDate>Mon, 06 Mar 2023 15:52:28 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/2023/03/managing-python-versions-and-virtual-environments-with-pyenv/</guid>
-      <description>What is pyenv? pyenv is a tool that lets you easily switch between multiple versions of Python, and it is really useful to work on python projects that require different python versions. If you are familiar with nvm the node version manager, pyenv follows a similar approach.
-Another big advantage of pyenv is the use of pyenv-vitualenv which completely isolates environments. I know you can use python -m venv but, having completely isolated python installations and requisites makes the programming process more reproducible (say, to get things inside containers, or have proper specs to run the code)</description>
-    </item>
-    
+    <lastBuildDate>Tue, 24 May 2022 14:12:46 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dealing with scammers using Selenium and Python</title>
       <link>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium-and-python/</link>
@@ -24,6 +14,16 @@ Another big advantage of pyenv is the use of pyenv-vitualenv which completely is
       
       <guid>https://daniel-m.github.io/2022/05/dealing-with-scammers-using-selenium-and-python/</guid>
       <description>Introduction Recently got a SMS with a link to a phishing site intended to capture credit card information. The way of doing it was a billing due to a stalled international delivery, and scammers were cautious enough so the phishing site redirected to the true deliverycorporation once the credit card information with the payment were filled. I saw this as an opportunity to learn new things, so decided to write a simple bot to send fake data also known as trash, to the scammers database.</description>
+    </item>
+    
+    <item>
+      <title>Managing python versions and virtual environments with pyenv</title>
+      <link>https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</link>
+      <pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</guid>
+      <description>What is pyenv? pyenv is a tool that lets you easily switch between multiple versions of Python, and it is really useful to work on python projects that require different python versions. If you are familiar with nvm the node version manager, pyenv follows a similar approach.
+Another big advantage of pyenv is the use of pyenv-vitualenv which completely isolates environments. I know you can use python -m venv but, having completely isolated python installations and requisites makes the programming process more reproducible (say, to get things inside containers, or have proper specs to run the code)</description>
     </item>
     
     <item>
