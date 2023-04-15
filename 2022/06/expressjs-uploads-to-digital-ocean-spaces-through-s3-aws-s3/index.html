@@ -122,7 +122,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              One minute read
+              2 minutes read
             </span>
           </div>
           <div class="categories">
@@ -164,8 +164,66 @@
 
       <div>
         <p>This is a short story.
-I was trying to use <a href="https://github.com/anacronw/multer-s3">multer-s3</a> to perform uploads to Digital-Ocean-Spaces (DOS) using the AWS S3 protocol. It ended up failing and implementing a plugin to perform multipart uploads as an expressjs middleware.</p>
-<p><a href="https://github.com/Daniel-M/multer-dos">https://github.com/Daniel-M/multer-dos</a></p>
+I was trying to use <a href="https://github.com/anacronw/multer-s3">multer-s3</a> to perform uploads to Digital-Ocean-Spaces (DOS) using the AWS S3 protocol. It ended up failing to make things work with the things available and ended up implementing my own plugin to perform multipart uploads as an expressjs middleware. You can check the code here,</p>
+<ul>
+<li><a href="https://github.com/Daniel-M/multer-dos">https://github.com/Daniel-M/multer-dos</a></li>
+<li><a href="https://www.npmjs.com/package/multer-dos">https://www.npmjs.com/package/multer-dos</a></li>
+</ul>
+<p>The options are the same as the ones in <a href="https://www.npmjs.com/package/multer">multer documentation</a>. To use the plugin just import the module and create a custom storage
+object to be passed as the <code>storage</code> option of <code>multer</code> like in the snippet below,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="font-weight:bold">const</span> path = require(<span style="font-style:italic">&#39;path&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">const</span> express = require(<span style="font-style:italic">&#39;express&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">const</span> multer  = require(<span style="font-style:italic">&#39;multer&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">const</span> multerDos = require(<span style="font-style:italic">&#39;multer-dos&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">// Customize the options just as with multer-s3
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span><span style="font-weight:bold">const</span> storage = multerDos(({
+</span></span><span style="display:flex;"><span>  acl: process.env.DO_SPACES_BUCKET_ACL_POLICY,
+</span></span><span style="display:flex;"><span>  bucket: process.env.DO_SPACES_BUCKET_NAME,
+</span></span><span style="display:flex;"><span>  endpoint: process.env.DO_SPACES_ENDPOINT,
+</span></span><span style="display:flex;"><span>  region: process.env.DO_SPACES_REGION,
+</span></span><span style="display:flex;"><span>  accessKeyId: process.env.DO_SPACES_KEY,
+</span></span><span style="display:flex;"><span>  secretAccessKey: process.env.DO_SPACES_SECRET,
+</span></span><span style="display:flex;"><span>  key: <span style="font-weight:bold">function</span>(req, file, cb) {
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">let</span> dir = path.join(process.env.DO_SPACES_BASE_PATH, ...req.url.split(<span style="font-style:italic">&#39;/&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">const</span> uniqueSuffix = Date.now() + <span style="font-style:italic">&#39;-&#39;</span> + Math.round(Math.random() * 1e9)
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">const</span> nameParts = file.originalname.split(<span style="font-style:italic">&#39;.&#39;</span>)
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">const</span> ext = nameParts.pop()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">const</span> fileDest = file.originalname + <span style="font-style:italic">&#39;-&#39;</span> + uniqueSuffix + <span style="font-style:italic">&#39;.&#39;</span> + ext
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold">const</span> key = path.join(dir, fileDest)
+</span></span><span style="display:flex;"><span>      cb(<span style="font-weight:bold">null</span>, key)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">// Load the custom storage into multer
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span><span style="font-weight:bold">const</span> upload = multer({ storage })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">const</span> app = express()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app.post(<span style="font-style:italic">&#39;/profile&#39;</span>, upload.single(<span style="font-style:italic">&#39;avatar&#39;</span>), <span style="font-weight:bold">function</span> (req, res, next) {
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic">// req.file is the `avatar` file
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>  <span style="font-style:italic">// req.body will hold the text fields, if there were any
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app.post(<span style="font-style:italic">&#39;/photos/upload&#39;</span>, upload.array(<span style="font-style:italic">&#39;photos&#39;</span>, 12), <span style="font-weight:bold">function</span> (req, res, next) {
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic">// req.files is array of `photos` files
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>  <span style="font-style:italic">// req.body will contain the text fields, if there were any
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">const</span> cpUpload = upload.fields([{ name: <span style="font-style:italic">&#39;avatar&#39;</span>, maxCount: 1 }, { name: <span style="font-style:italic">&#39;gallery&#39;</span>, maxCount: 8 }])
+</span></span><span style="display:flex;"><span>app.post(<span style="font-style:italic">&#39;/cool-profile&#39;</span>, cpUpload, <span style="font-weight:bold">function</span> (req, res, next) {
+</span></span><span style="display:flex;"><span>  <span style="font-style:italic">// req.files is an object (String -&gt; Array) where fieldname is the key, and the value is array of files
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>  <span style="font-style:italic">//
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>  <span style="font-style:italic">// e.g.
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>  <span style="font-style:italic">//  req.files[&#39;avatar&#39;][0] -&gt; File
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>  <span style="font-style:italic">//  req.files[&#39;gallery&#39;] -&gt; Array
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>  <span style="font-style:italic">//
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>  <span style="font-style:italic">// req.body will contain the text fields, if there were any
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>})
+</span></span></code></pre></div><p>and thats about it. I&rsquo;ve deployed this to production and has been running for almost a year without any issues whatsoever.</p>
 
       </div>
 

@@ -13,8 +13,8 @@
       <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/2022/06/expressjs-uploads-to-digital-ocean-spaces-through-s3-aws-s3/</guid>
-      <description>This is a short story. I was trying to use multer-s3 to perform uploads to Digital-Ocean-Spaces (DOS) using the AWS S3 protocol. It ended up failing and implementing a plugin to perform multipart uploads as an expressjs middleware.
-https://github.com/Daniel-M/multer-dos</description>
+      <description>This is a short story. I was trying to use multer-s3 to perform uploads to Digital-Ocean-Spaces (DOS) using the AWS S3 protocol. It ended up failing to make things work with the things available and ended up implementing my own plugin to perform multipart uploads as an expressjs middleware. You can check the code here,
+https://github.com/Daniel-M/multer-dos https://www.npmjs.com/package/multer-dos The options are the same as the ones in multer documentation. To use the plugin just import the module and create a custom storage object to be passed as the storage option of multer like in the snippet below,</description>
     </item>
     
     <item>
