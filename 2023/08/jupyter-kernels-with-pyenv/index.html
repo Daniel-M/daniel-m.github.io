@@ -126,14 +126,20 @@
             </span>
           </div>
           
-          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://daniel-m.github.io/tags/python/">python</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/pyenv/">pyenv</a>
+      <span class="separator">•</span>
+    <a href="https://daniel-m.github.io/tags/jupyter/">jupyter</a></div>
+
         </div>
       </header>
 
       <div>
-        <p>Recently I wanted to run jupyter from within a pyenv environment, and using the environment
-itself to have the python modules installed.</p>
-<p>Created a virtual environment using pyenv</p>
+        <p>Recently I wanted to run jupyter from within a <a href="https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/">pyenv environment</a>, and using the environment itself to have isolation of versions of the python modules installed. I was not satisfied with the blogs I found online so I tried my own approach.</p>
+<p>First, I created a virtual environment using pyenv,</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pyenv install 3.11.4
 </span></span><span style="display:flex;"><span>pyenv virtualenv 3.11.4 chatbots-3.11.4
 </span></span><span style="display:flex;"><span>pyenv activate
@@ -142,9 +148,10 @@ itself to have the python modules installed.</p>
 Then I ran</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>python -m ipykernel install --name &#34;chatbots-3.11.4&#34; --user
 </span></span></code></pre></div><p>Which allowed the virtual environment to be shown at the list of available
-kernels when running</p>
+kernels of jupyter when running</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>jupyter-lab
 </span></span></code></pre></div><p><img src="https://daniel-m.github.io/2023/jupyter-kernel.png" alt="The kernel chatbots-3.11.4 is available"></p>
+<p>It worked as expected and with less instructions than I thought.</p>
 
       </div>
 

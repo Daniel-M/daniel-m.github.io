@@ -13,10 +13,9 @@
       <pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/2023/08/jupyter-kernels-with-pyenv/</guid>
-      <description>Recently I wanted to run jupyter from within a pyenv environment, and using the environment itself to have the python modules installed.
-Created a virtual environment using pyenv
-pyenv install 3.11.4 pyenv virtualenv 3.11.4 chatbots-3.11.4 pyenv activate pip install jupyterlab ipykernel Which installed jupyter within the virtual environment chatbots-3.11.4. Then I ran
-python -m ipykernel install --name &amp;#34;chatbots-3.11.4&amp;#34; --user Which allowed the virtual environment to be shown at the list of available kernels when running</description>
+      <description>Recently I wanted to run jupyter from within a pyenv environment, and using the environment itself to have isolation of versions of the python modules installed. I was not satisfied with the blogs I found online so I tried my own approach.
+First, I created a virtual environment using pyenv,
+pyenv install 3.11.4 pyenv virtualenv 3.11.4 chatbots-3.11.4 pyenv activate pip install jupyterlab ipykernel Which installed jupyter within the virtual environment chatbots-3.</description>
     </item>
     
     <item>

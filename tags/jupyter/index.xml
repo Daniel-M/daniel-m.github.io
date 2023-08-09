@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jupyter on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/tags/jupyter/</link>
+    <description>Recent content in jupyter on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 08 Aug 2023 18:59:14 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jupyter Kernels with Pyenv</title>
+      <link>https://daniel-m.github.io/2023/08/jupyter-kernels-with-pyenv/</link>
+      <pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2023/08/jupyter-kernels-with-pyenv/</guid>
+      <description>Recently I wanted to run jupyter from within a pyenv environment, and using the environment itself to have isolation of versions of the python modules installed. I was not satisfied with the blogs I found online so I tried my own approach.
+First, I created a virtual environment using pyenv,
+pyenv install 3.11.4 pyenv virtualenv 3.11.4 chatbots-3.11.4 pyenv activate pip install jupyterlab ipykernel Which installed jupyter within the virtual environment chatbots-3.</description>
+    </item>
+    
+  </channel>
+</rss>
