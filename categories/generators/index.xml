@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>generators on Daniel Mejía Raigosa</title>
+    <link>https://daniel-m.github.io/categories/generators/</link>
+    <description>Recent content in generators on Daniel Mejía Raigosa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Nov 2023 11:05:45 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/categories/generators/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Generators Iterator</title>
+      <link>https://daniel-m.github.io/2023/11/python-generators-iterator/</link>
+      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/2023/11/python-generators-iterator/</guid>
+      <description>Generators in Python Sometimes when working with bulk data whose nature is somewhat unpredictable, such as a stream of events, or data chunks, or anything that can be batched, like in ETL pipilines where data passes across several transformation stages. My premise is that the process must work well within a constrained environment, either with limited RAM, processing capabilities, or storage, such as Google Cloud Functions or AWS Lambdas (PaaS), Kubernetes pods, or Cloud Compute / EC2 instances, where I have to be able to process portions of information without overloading the runtime.</description>
+    </item>
+    
+  </channel>
+</rss>

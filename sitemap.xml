@@ -2,25 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://daniel-m.github.io/categories/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
     <loc>https://daniel-m.github.io/</loc>
-    <lastmod>2023-08-08T18:59:14-05:00</lastmod>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/tags/etl/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/categories/etl/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/tags/generators/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/categories/generators/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/tags/iterators/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/posts/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/tags/pyenv/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/series/python/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/tags/python/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/categories/python/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/2023/11/python-generators-iterator/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/series/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
+  </url><url>
+    <loc>https://daniel-m.github.io/tags/</loc>
+    <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
     <loc>https://daniel-m.github.io/tags/jupyter/</loc>
     <lastmod>2023-08-08T18:59:14-05:00</lastmod>
   </url><url>
     <loc>https://daniel-m.github.io/2023/08/jupyter-kernels-with-pyenv/</loc>
-    <lastmod>2023-08-08T18:59:14-05:00</lastmod>
-  </url><url>
-    <loc>https://daniel-m.github.io/posts/</loc>
-    <lastmod>2023-08-08T18:59:14-05:00</lastmod>
-  </url><url>
-    <loc>https://daniel-m.github.io/tags/pyenv/</loc>
-    <lastmod>2023-08-08T18:59:14-05:00</lastmod>
-  </url><url>
-    <loc>https://daniel-m.github.io/tags/python/</loc>
-    <lastmod>2023-08-08T18:59:14-05:00</lastmod>
-  </url><url>
-    <loc>https://daniel-m.github.io/tags/</loc>
     <lastmod>2023-08-08T18:59:14-05:00</lastmod>
   </url><url>
     <loc>https://daniel-m.github.io/categories/autodoc/</loc>
@@ -30,9 +60,6 @@
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
     <loc>https://daniel-m.github.io/categories/backend/</loc>
-    <lastmod>2022-06-07T08:46:43-05:00</lastmod>
-  </url><url>
-    <loc>https://daniel-m.github.io/categories/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
     <loc>https://daniel-m.github.io/tags/digital-ocean/</loc>
@@ -87,9 +114,6 @@
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
     <loc>https://daniel-m.github.io/categories/proof-of-concept/</loc>
-    <lastmod>2022-05-24T14:12:46-05:00</lastmod>
-  </url><url>
-    <loc>https://daniel-m.github.io/categories/python/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
     <loc>https://daniel-m.github.io/tags/selenium/</loc>
@@ -388,7 +412,5 @@
   </url><url>
     <loc>https://daniel-m.github.io/now/</loc>
     <lastmod>2016-04-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://daniel-m.github.io/series/</loc>
   </url>
 </urlset>

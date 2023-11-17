@@ -6,20 +6,38 @@
     <description>Recent content in Tags on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Aug 2023 18:59:14 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Nov 2023 11:05:45 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>jupyter</title>
-      <link>https://daniel-m.github.io/tags/jupyter/</link>
-      <pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
+      <title>etl</title>
+      <link>https://daniel-m.github.io/tags/etl/</link>
+      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
       
-      <guid>https://daniel-m.github.io/tags/jupyter/</guid>
+      <guid>https://daniel-m.github.io/tags/etl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>generators</title>
+      <link>https://daniel-m.github.io/tags/generators/</link>
+      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/generators/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iterators</title>
+      <link>https://daniel-m.github.io/tags/iterators/</link>
+      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/iterators/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pyenv</title>
       <link>https://daniel-m.github.io/tags/pyenv/</link>
-      <pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
+      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/pyenv/</guid>
       <description></description>
@@ -28,9 +46,18 @@
     <item>
       <title>Python</title>
       <link>https://daniel-m.github.io/tags/python/</link>
-      <pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
+      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
       
       <guid>https://daniel-m.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jupyter</title>
+      <link>https://daniel-m.github.io/tags/jupyter/</link>
+      <pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/tags/jupyter/</guid>
       <description></description>
     </item>
     

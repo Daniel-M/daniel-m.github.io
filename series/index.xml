@@ -5,6 +5,16 @@
     <link>https://daniel-m.github.io/series/</link>
     <description>Recent content in Series on Daniel Mejía Raigosa</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://daniel-m.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Nov 2023 11:05:45 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python</title>
+      <link>https://daniel-m.github.io/series/python/</link>
+      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+      
+      <guid>https://daniel-m.github.io/series/python/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
