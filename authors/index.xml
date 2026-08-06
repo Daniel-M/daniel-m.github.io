@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Authors on Daniel Mejía Raigosa</title>
-		<link>http://localhost:56471/authors/</link>
-		<description>Recent content in Authors on Daniel Mejía Raigosa</description>
+		<title>Authors on Daniel Mejía R.</title>
+		<link>https://daniel-m.github.io/authors/</link>
+		<description>Recent content in Authors on Daniel Mejía R.</description>
 		<generator>Hugo</generator>
 		<language>en</language>
 		
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Wed, 05 Aug 2026 18:37:09 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:56471/authors/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://daniel-m.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Daniel M</title>
-				<link>http://localhost:56471/authors/daniel-m/</link>
+				<title>Daniel-M</title>
+				<link>https://daniel-m.github.io/authors/daniel-m/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>http://localhost:56471/authors/daniel-m/</guid>
+				<guid>https://daniel-m.github.io/authors/daniel-m/</guid>
 				<description></description>
 			</item>
 	</channel>

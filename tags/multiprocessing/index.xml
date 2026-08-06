@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Multiprocessing on Daniel Mejía Raigosa</title>
-		<link>http://localhost:56471/tags/multiprocessing/</link>
-		<description>Recent content in Multiprocessing on Daniel Mejía Raigosa</description>
+		<title>Multiprocessing on Daniel Mejía R.</title>
+		<link>https://daniel-m.github.io/tags/multiprocessing/</link>
+		<description>Recent content in Multiprocessing on Daniel Mejía R.</description>
 		<generator>Hugo</generator>
 		<language>en</language>
 		
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Thu, 22 Mar 2018 21:53:32 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:56471/tags/multiprocessing/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://daniel-m.github.io/tags/multiprocessing/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Notes on Python multiprocessing</title>
-				<link>http://localhost:56471/2018/03/notes-on-python-multiprocessing/</link>
+				<link>https://daniel-m.github.io/2018/03/notes-on-python-multiprocessing/</link>
 				<pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
-				<guid>http://localhost:56471/2018/03/notes-on-python-multiprocessing/</guid>
+				<guid>https://daniel-m.github.io/2018/03/notes-on-python-multiprocessing/</guid>
 				<description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;multiprocessing&lt;/code&gt; is a package that supports spawning processes using an API similar to the &lt;code&gt;threading&lt;/code&gt; module.[1]&lt;/li&gt;&#xA;&lt;li&gt;The &lt;code&gt;Pool&lt;/code&gt; object which offers a convenient means of parallelizing the execution of a function across multiple input values, distributing the input data across processes (data parallelism).[1]&lt;/li&gt;&#xA;&lt;li&gt;One should protect the “entry point” of the program by using &lt;code&gt;if __name__ == &#39;__main__&#39;&lt;/code&gt; this line is mandatory.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;One of the simplest ways of show the use of multi processing is,&lt;/p&gt;</description>
 			</item>
 	</channel>

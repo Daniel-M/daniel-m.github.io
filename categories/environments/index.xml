@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Environments on Daniel Mejía Raigosa</title>
-		<link>http://localhost:56471/categories/environments/</link>
-		<description>Recent content in Environments on Daniel Mejía Raigosa</description>
+		<title>Environments on Daniel Mejía R.</title>
+		<link>https://daniel-m.github.io/categories/environments/</link>
+		<description>Recent content in Environments on Daniel Mejía R.</description>
 		<generator>Hugo</generator>
 		<language>en</language>
 		
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Wed, 03 Nov 2021 15:52:28 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:56471/categories/environments/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://daniel-m.github.io/categories/environments/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Managing python versions and virtual environments with pyenv</title>
-				<link>http://localhost:56471/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</link>
+				<link>https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</link>
 				<pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
-				<guid>http://localhost:56471/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</guid>
+				<guid>https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</guid>
 				<description>&lt;h2 id=&#34;what-is-pyenv&#34;&gt;&#xA;  What is pyenv?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-pyenv&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;pyenv&lt;/code&gt; is a tool that lets you easily switch between multiple versions of Python, and it is really useful to work on python projects that require different python versions. If you are familiar with &lt;code&gt;nvm&lt;/code&gt; the node version manager, &lt;code&gt;pyenv&lt;/code&gt; follows a similar approach.&lt;br&gt;&#xA;Another big advantage of pyenv is the use of &lt;code&gt;pyenv-vitualenv&lt;/code&gt; which completely isolates environments. I know you can use &lt;code&gt;python -m venv&lt;/code&gt; but, having completely isolated python installations and requisites makes the programming process more reproducible (say, to get things inside containers, or have proper specs to run the code)&lt;/p&gt;</description>
 			</item>
 	</channel>

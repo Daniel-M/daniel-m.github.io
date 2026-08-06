@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Utf-8 on Daniel Mejía Raigosa</title>
-		<link>http://localhost:56471/tags/utf-8/</link>
-		<description>Recent content in Utf-8 on Daniel Mejía Raigosa</description>
+		<title>Utf-8 on Daniel Mejía R.</title>
+		<link>https://daniel-m.github.io/tags/utf-8/</link>
+		<description>Recent content in Utf-8 on Daniel Mejía R.</description>
 		<generator>Hugo</generator>
 		<language>en</language>
 		
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Fri, 07 Feb 2020 00:08:20 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:56471/tags/utf-8/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://daniel-m.github.io/tags/utf-8/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Character encodings and a bit of Python</title>
-				<link>http://localhost:56471/2020/02/character-encodings-and-a-bit-of-python/</link>
+				<link>https://daniel-m.github.io/2020/02/character-encodings-and-a-bit-of-python/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>http://localhost:56471/2020/02/character-encodings-and-a-bit-of-python/</guid>
+				<guid>https://daniel-m.github.io/2020/02/character-encodings-and-a-bit-of-python/</guid>
 				<description>&lt;p&gt;I&amp;rsquo;ve been wanting to write about character sets and encodings for a while, since I had problems in the past understanding &lt;em&gt;what is it all about?&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;words-and-information&#34;&gt;&#xA;  Words and information&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#words-and-information&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;When reading this, all you are seeing is an arrangement of characters disposed in a certain way that they are meaningful to you. &amp;ndash; for instance &amp;ldquo;blank&amp;rdquo; separations between words are an indication of different words &amp;ndash; so this give us an idea that, the way in which symbols are disposed &lt;em&gt;mean&lt;/em&gt; something. And they mean something thanks to a set of gramatical rules that lead to a consensus on how to write words that &lt;em&gt;represent&lt;/em&gt; information. In everyday communication we don&amp;rsquo;t have to deal with more than the grammatical words, but for computers it is a bit more complex. Remember that computers are all about binary digits &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;1&lt;/code&gt; and everything in a computer has to be that way, so how do we tell computers to represent the alphabet?, well, we need a &lt;em&gt;code&lt;/em&gt; for that.&lt;/p&gt;</description>
 			</item>
 	</channel>
