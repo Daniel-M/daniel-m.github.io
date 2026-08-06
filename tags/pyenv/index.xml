@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Pyenv on Daniel Mejía Raigosa</title>
-		<link>https://daniel-m.github.io/tags/pyenv/</link>
+		<link>http://localhost:1313/tags/pyenv/</link>
 		<description>Recent content in Pyenv on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,19 +12,19 @@
 		
 			<lastBuildDate>Thu, 16 Nov 2023 11:05:45 -0500</lastBuildDate>
 		
-			<atom:link href="https://daniel-m.github.io/tags/pyenv/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/pyenv/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Python Generators Iterator</title>
-				<link>https://daniel-m.github.io/2023/11/python-generators-iterator/</link>
+				<link>http://localhost:1313/2023/11/python-generators-iterator/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>https://daniel-m.github.io/2023/11/python-generators-iterator/</guid>
+				<guid>http://localhost:1313/2023/11/python-generators-iterator/</guid>
 				<description>&lt;h1 id=&#34;generators-in-python&#34;&gt;&#xA;  Generators in Python&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#generators-in-python&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Sometimes when working with bulk data whose nature is somewhat unpredictable, such as a stream of events, or data chunks, or anything that can be batched, like in ETL pipilines where data passes across several transformation stages. My premise is that the process must work well within a constrained environment, either with limited RAM, processing capabilities, or storage, such as Google Cloud Functions or AWS Lambdas (PaaS), Kubernetes pods, or Cloud Compute / EC2 instances, where I have to be able to process portions of information without overloading the runtime. Generators are a really cool construct that helps solving those tasks in python (In Javascript we have generators too, and in go we have channels, so the principles here somewhat apply to those languages too). To understand generators, let us understand what are generator iterators first&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Jupyter Kernels with Pyenv</title>
-				<link>https://daniel-m.github.io/2023/08/jupyter-kernels-with-pyenv/</link>
+				<link>http://localhost:1313/2023/08/jupyter-kernels-with-pyenv/</link>
 				<pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
-				<guid>https://daniel-m.github.io/2023/08/jupyter-kernels-with-pyenv/</guid>
+				<guid>http://localhost:1313/2023/08/jupyter-kernels-with-pyenv/</guid>
 				<description>&lt;p&gt;Recently I wanted to run jupyter from within a &lt;a href=&#34;https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pyenv environment&lt;/a&gt;, and using the environment itself to have isolation of versions of the python modules installed. I was not satisfied with the blogs I found online so I tried my own approach.&lt;/p&gt;&#xA;&lt;p&gt;First, I created a virtual environment using pyenv,&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyenv install 3.11.4&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyenv virtualenv 3.11.4 chatbots-3.11.4&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyenv activate&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install jupyterlab ipykernel&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Which installed jupyter within the virtual environment &lt;code&gt;chatbots-3.11.4&lt;/code&gt;.&#xA;Then I ran&lt;/p&gt;</description>
 			</item>
 	</channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Google on Daniel Mejía Raigosa</title>
-		<link>https://daniel-m.github.io/tags/google/</link>
+		<link>http://localhost:1313/tags/google/</link>
 		<description>Recent content in Google on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Fri, 15 Feb 2019 22:33:04 -0500</lastBuildDate>
 		
-			<atom:link href="https://daniel-m.github.io/tags/google/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/google/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Google&#39;s BigQuery and Go</title>
-				<link>https://daniel-m.github.io/2019/02/googles-bigquery-and-go/</link>
+				<link>http://localhost:1313/2019/02/googles-bigquery-and-go/</link>
 				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-				<guid>https://daniel-m.github.io/2019/02/googles-bigquery-and-go/</guid>
+				<guid>http://localhost:1313/2019/02/googles-bigquery-and-go/</guid>
 				<description>&lt;h2 id=&#34;notes&#34;&gt;&#xA;  Notes&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#notes&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;BigQuery(BQ) is Google&amp;rsquo;s serverless, highly scalable, enterprise data warehouse&lt;/li&gt;&#xA;&lt;li&gt;SQL-like query language&lt;/li&gt;&#xA;&lt;li&gt;Real time data analysis by &amp;ldquo;streaming ingestion&amp;rdquo; capability&lt;/li&gt;&#xA;&lt;li&gt;Deals with gigabytes to petabytes of data volume&lt;/li&gt;&#xA;&lt;li&gt;Offers data encryption and data access permissions via Cloud Identity and Access Management&lt;/li&gt;&#xA;&lt;li&gt;Machine Learning and Bussiness Intel can be easily integrated with BQ&lt;/li&gt;&#xA;&lt;li&gt;Support for Geospatial data&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;interacting-with-bq&#34;&gt;&#xA;  Interacting with BQ&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#interacting-with-bq&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;To interact with the BQ we can use:&lt;/p&gt;</description>
 			</item>
 	</channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Categories on Daniel Mejía Raigosa</title>
-		<link>https://daniel-m.github.io/categories/</link>
+		<link>http://localhost:1313/categories/</link>
 		<description>Recent content in Categories on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,306 +12,306 @@
 		
 			<lastBuildDate>Wed, 05 Aug 2026 18:37:09 -0500</lastBuildDate>
 		
-			<atom:link href="https://daniel-m.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Algorithms</title>
-				<link>https://daniel-m.github.io/categories/algorithms/</link>
+				<link>http://localhost:1313/categories/algorithms/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/algorithms/</guid>
+				<guid>http://localhost:1313/categories/algorithms/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Problem-Solving</title>
-				<link>https://daniel-m.github.io/categories/problem-solving/</link>
+				<link>http://localhost:1313/categories/problem-solving/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/problem-solving/</guid>
+				<guid>http://localhost:1313/categories/problem-solving/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Project-Euler</title>
-				<link>https://daniel-m.github.io/categories/project-euler/</link>
+				<link>http://localhost:1313/categories/project-euler/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/project-euler/</guid>
+				<guid>http://localhost:1313/categories/project-euler/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Ai</title>
-				<link>https://daniel-m.github.io/categories/ai/</link>
+				<link>http://localhost:1313/categories/ai/</link>
 				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/ai/</guid>
+				<guid>http://localhost:1313/categories/ai/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Blogging</title>
-				<link>https://daniel-m.github.io/categories/blogging/</link>
+				<link>http://localhost:1313/categories/blogging/</link>
 				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/blogging/</guid>
+				<guid>http://localhost:1313/categories/blogging/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Thoughts</title>
-				<link>https://daniel-m.github.io/categories/thoughts/</link>
+				<link>http://localhost:1313/categories/thoughts/</link>
 				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/thoughts/</guid>
+				<guid>http://localhost:1313/categories/thoughts/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Etl</title>
-				<link>https://daniel-m.github.io/categories/etl/</link>
+				<link>http://localhost:1313/categories/etl/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/etl/</guid>
+				<guid>http://localhost:1313/categories/etl/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Generators</title>
-				<link>https://daniel-m.github.io/categories/generators/</link>
+				<link>http://localhost:1313/categories/generators/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/generators/</guid>
+				<guid>http://localhost:1313/categories/generators/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Python</title>
-				<link>https://daniel-m.github.io/categories/python/</link>
+				<link>http://localhost:1313/categories/python/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/python/</guid>
+				<guid>http://localhost:1313/categories/python/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Autodoc</title>
-				<link>https://daniel-m.github.io/categories/autodoc/</link>
+				<link>http://localhost:1313/categories/autodoc/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/autodoc/</guid>
+				<guid>http://localhost:1313/categories/autodoc/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Backend</title>
-				<link>https://daniel-m.github.io/categories/backend/</link>
+				<link>http://localhost:1313/categories/backend/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/backend/</guid>
+				<guid>http://localhost:1313/categories/backend/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Doc</title>
-				<link>https://daniel-m.github.io/categories/doc/</link>
+				<link>http://localhost:1313/categories/doc/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/doc/</guid>
+				<guid>http://localhost:1313/categories/doc/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Expressjs</title>
-				<link>https://daniel-m.github.io/categories/expressjs/</link>
+				<link>http://localhost:1313/categories/expressjs/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/expressjs/</guid>
+				<guid>http://localhost:1313/categories/expressjs/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Integrations</title>
-				<link>https://daniel-m.github.io/categories/integrations/</link>
+				<link>http://localhost:1313/categories/integrations/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/integrations/</guid>
+				<guid>http://localhost:1313/categories/integrations/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Nodejs</title>
-				<link>https://daniel-m.github.io/categories/nodejs/</link>
+				<link>http://localhost:1313/categories/nodejs/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/nodejs/</guid>
+				<guid>http://localhost:1313/categories/nodejs/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Poc</title>
-				<link>https://daniel-m.github.io/categories/poc/</link>
+				<link>http://localhost:1313/categories/poc/</link>
 				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/poc/</guid>
+				<guid>http://localhost:1313/categories/poc/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Proof of Concept</title>
-				<link>https://daniel-m.github.io/categories/proof-of-concept/</link>
+				<link>http://localhost:1313/categories/proof-of-concept/</link>
 				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/proof-of-concept/</guid>
+				<guid>http://localhost:1313/categories/proof-of-concept/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Selenium</title>
-				<link>https://daniel-m.github.io/categories/selenium/</link>
+				<link>http://localhost:1313/categories/selenium/</link>
 				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/selenium/</guid>
+				<guid>http://localhost:1313/categories/selenium/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Webscraping</title>
-				<link>https://daniel-m.github.io/categories/webscraping/</link>
+				<link>http://localhost:1313/categories/webscraping/</link>
 				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/webscraping/</guid>
+				<guid>http://localhost:1313/categories/webscraping/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Environments</title>
-				<link>https://daniel-m.github.io/categories/environments/</link>
+				<link>http://localhost:1313/categories/environments/</link>
 				<pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/environments/</guid>
+				<guid>http://localhost:1313/categories/environments/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Pyenv</title>
-				<link>https://daniel-m.github.io/categories/pyenv/</link>
+				<link>http://localhost:1313/categories/pyenv/</link>
 				<pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/pyenv/</guid>
+				<guid>http://localhost:1313/categories/pyenv/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Virtualenv</title>
-				<link>https://daniel-m.github.io/categories/virtualenv/</link>
+				<link>http://localhost:1313/categories/virtualenv/</link>
 				<pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/virtualenv/</guid>
+				<guid>http://localhost:1313/categories/virtualenv/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Databases</title>
-				<link>https://daniel-m.github.io/categories/databases/</link>
+				<link>http://localhost:1313/categories/databases/</link>
 				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/databases/</guid>
+				<guid>http://localhost:1313/categories/databases/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>InfluxDB</title>
-				<link>https://daniel-m.github.io/categories/influxdb/</link>
+				<link>http://localhost:1313/categories/influxdb/</link>
 				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/influxdb/</guid>
+				<guid>http://localhost:1313/categories/influxdb/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>MongoDB</title>
-				<link>https://daniel-m.github.io/categories/mongodb/</link>
+				<link>http://localhost:1313/categories/mongodb/</link>
 				<pubDate>Wed, 28 Oct 2020 16:17:42 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/mongodb/</guid>
+				<guid>http://localhost:1313/categories/mongodb/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Fast-Notes</title>
-				<link>https://daniel-m.github.io/categories/fast-notes/</link>
+				<link>http://localhost:1313/categories/fast-notes/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/fast-notes/</guid>
+				<guid>http://localhost:1313/categories/fast-notes/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Programming</title>
-				<link>https://daniel-m.github.io/categories/programming/</link>
+				<link>http://localhost:1313/categories/programming/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/programming/</guid>
+				<guid>http://localhost:1313/categories/programming/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Debian</title>
-				<link>https://daniel-m.github.io/categories/debian/</link>
+				<link>http://localhost:1313/categories/debian/</link>
 				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/debian/</guid>
+				<guid>http://localhost:1313/categories/debian/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Gpu</title>
-				<link>https://daniel-m.github.io/categories/gpu/</link>
+				<link>http://localhost:1313/categories/gpu/</link>
 				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/gpu/</guid>
+				<guid>http://localhost:1313/categories/gpu/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Nvidia</title>
-				<link>https://daniel-m.github.io/categories/nvidia/</link>
+				<link>http://localhost:1313/categories/nvidia/</link>
 				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/nvidia/</guid>
+				<guid>http://localhost:1313/categories/nvidia/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Go</title>
-				<link>https://daniel-m.github.io/categories/go/</link>
+				<link>http://localhost:1313/categories/go/</link>
 				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/go/</guid>
+				<guid>http://localhost:1313/categories/go/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Notes</title>
-				<link>https://daniel-m.github.io/categories/notes/</link>
+				<link>http://localhost:1313/categories/notes/</link>
 				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/notes/</guid>
+				<guid>http://localhost:1313/categories/notes/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>EmbededDevices</title>
-				<link>https://daniel-m.github.io/categories/embededdevices/</link>
+				<link>http://localhost:1313/categories/embededdevices/</link>
 				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/embededdevices/</guid>
+				<guid>http://localhost:1313/categories/embededdevices/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>IoT</title>
-				<link>https://daniel-m.github.io/categories/iot/</link>
+				<link>http://localhost:1313/categories/iot/</link>
 				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/iot/</guid>
+				<guid>http://localhost:1313/categories/iot/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Projects</title>
-				<link>https://daniel-m.github.io/categories/projects/</link>
+				<link>http://localhost:1313/categories/projects/</link>
 				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/projects/</guid>
+				<guid>http://localhost:1313/categories/projects/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>ESP32</title>
-				<link>https://daniel-m.github.io/categories/esp32/</link>
+				<link>http://localhost:1313/categories/esp32/</link>
 				<pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/esp32/</guid>
+				<guid>http://localhost:1313/categories/esp32/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Table of Contents</title>
-				<link>https://daniel-m.github.io/categories/table-of-contents/</link>
+				<link>http://localhost:1313/categories/table-of-contents/</link>
 				<pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/table-of-contents/</guid>
+				<guid>http://localhost:1313/categories/table-of-contents/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Blog</title>
-				<link>https://daniel-m.github.io/categories/blog/</link>
+				<link>http://localhost:1313/categories/blog/</link>
 				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/blog/</guid>
+				<guid>http://localhost:1313/categories/blog/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>DevOps</title>
-				<link>https://daniel-m.github.io/categories/devops/</link>
+				<link>http://localhost:1313/categories/devops/</link>
 				<pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/devops/</guid>
+				<guid>http://localhost:1313/categories/devops/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>WebDevelopment</title>
-				<link>https://daniel-m.github.io/categories/webdevelopment/</link>
+				<link>http://localhost:1313/categories/webdevelopment/</link>
 				<pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/webdevelopment/</guid>
+				<guid>http://localhost:1313/categories/webdevelopment/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>WebFrameworks</title>
-				<link>https://daniel-m.github.io/categories/webframeworks/</link>
+				<link>http://localhost:1313/categories/webframeworks/</link>
 				<pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/webframeworks/</guid>
+				<guid>http://localhost:1313/categories/webframeworks/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>DeepLearning</title>
-				<link>https://daniel-m.github.io/categories/deeplearning/</link>
+				<link>http://localhost:1313/categories/deeplearning/</link>
 				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/deeplearning/</guid>
+				<guid>http://localhost:1313/categories/deeplearning/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>GIS</title>
-				<link>https://daniel-m.github.io/categories/gis/</link>
+				<link>http://localhost:1313/categories/gis/</link>
 				<pubDate>Thu, 15 Feb 2018 21:30:14 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/gis/</guid>
+				<guid>http://localhost:1313/categories/gis/</guid>
 				<description></description>
 			</item>
 	</channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Open Source on Daniel Mejía Raigosa</title>
-		<link>https://daniel-m.github.io/tags/open-source/</link>
+		<link>http://localhost:1313/tags/open-source/</link>
 		<description>Recent content in Open Source on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,19 +12,19 @@
 		
 			<lastBuildDate>Wed, 17 Oct 2018 12:23:57 -0500</lastBuildDate>
 		
-			<atom:link href="https://daniel-m.github.io/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Alternative blog at http://blog.parallelo.ai</title>
-				<link>https://daniel-m.github.io/2018/10/alternative-blog-at-http/blog.parallelo.ai/</link>
+				<link>http://localhost:1313/2018/10/alternative-blog-at-http/blog.parallelo.ai/</link>
 				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-				<guid>https://daniel-m.github.io/2018/10/alternative-blog-at-http/blog.parallelo.ai/</guid>
+				<guid>http://localhost:1313/2018/10/alternative-blog-at-http/blog.parallelo.ai/</guid>
 				<description>&lt;p&gt;I&amp;rsquo;m not of an active blogger in this site, but you can take a look at&#xA;&lt;strong&gt;&lt;a href=&#34;http://blog.parallelo.ai&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://blog.parallelo.ai&lt;/a&gt;&lt;/strong&gt; and get in touch with&#xA;some of my work-related blog posts.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Old Blog</title>
-				<link>https://daniel-m.github.io/2018/01/old-blog/</link>
+				<link>http://localhost:1313/2018/01/old-blog/</link>
 				<pubDate>Mon, 01 Jan 2018 06:32:12 -0500</pubDate>
-				<guid>https://daniel-m.github.io/2018/01/old-blog/</guid>
+				<guid>http://localhost:1313/2018/01/old-blog/</guid>
 				<description>&lt;h1 id=&#34;daniels-log-book&#34;&gt;&#xA;  Daniel&amp;rsquo;s log book&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#daniels-log-book&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;The site &lt;a href=&#34;https://dalogbook.blogspot.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://dalogbook.blogspot.com/&lt;/a&gt; is my old blog, which I haven&amp;rsquo;t updated&#xA;since forever. Nevertheless I have lots of drafts soon to be published so stay tuned for updates.&lt;/p&gt;</description>
 			</item>
 	</channel>

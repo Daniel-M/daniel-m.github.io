@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>GeoJSON on Daniel Mejía Raigosa</title>
-		<link>https://daniel-m.github.io/tags/geojson/</link>
+		<link>http://localhost:1313/tags/geojson/</link>
 		<description>Recent content in GeoJSON on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Thu, 15 Feb 2018 21:30:14 -0500</lastBuildDate>
 		
-			<atom:link href="https://daniel-m.github.io/tags/geojson/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/geojson/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>The GeoJSON Format</title>
-				<link>https://daniel-m.github.io/2018/02/the-geojson-format/</link>
+				<link>http://localhost:1313/2018/02/the-geojson-format/</link>
 				<pubDate>Thu, 15 Feb 2018 21:30:14 -0500</pubDate>
-				<guid>https://daniel-m.github.io/2018/02/the-geojson-format/</guid>
+				<guid>http://localhost:1313/2018/02/the-geojson-format/</guid>
 				<description>&lt;h2 id=&#34;general-notes-and-remarks&#34;&gt;&#xA;  General notes and remarks&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#general-notes-and-remarks&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Abreviations of interest,&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;WKB - Well Known Binary.&lt;/li&gt;&#xA;&lt;li&gt;WKT - Well Known Text.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;&#xA;  Introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;GeoJSON is a geospatial data interchange format based on JavaScript Object Notation (JSON).  It defines several types of JSON objects and the manner in which they are combined to represent data about geographic features, their properties, and their spatial extents. GeoJSON uses a geographic coordinate reference system, World Geodetic System 1984, and units of decimal degrees.&lt;/p&gt;</description>
 			</item>
 	</channel>
