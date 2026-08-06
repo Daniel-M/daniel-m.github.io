@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Series on Daniel Mejía Raigosa</title>
-		<link>http://localhost:1313/series/</link>
+		<link>http://localhost:56471/series/</link>
 		<description>Recent content in Series on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,26 +12,26 @@
 		
 			<lastBuildDate>Wed, 05 Aug 2026 18:37:09 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:56471/series/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Project-Euler</title>
-				<link>http://localhost:1313/series/project-euler/</link>
+				<link>http://localhost:56471/series/project-euler/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>http://localhost:1313/series/project-euler/</guid>
+				<guid>http://localhost:56471/series/project-euler/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Thoughts</title>
-				<link>http://localhost:1313/series/thoughts/</link>
+				<link>http://localhost:56471/series/thoughts/</link>
 				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
-				<guid>http://localhost:1313/series/thoughts/</guid>
+				<guid>http://localhost:56471/series/thoughts/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Python</title>
-				<link>http://localhost:1313/series/python/</link>
+				<link>http://localhost:56471/series/python/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>http://localhost:1313/series/python/</guid>
+				<guid>http://localhost:56471/series/python/</guid>
 				<description></description>
 			</item>
 	</channel>

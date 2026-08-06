@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Pyramid on Daniel Mejía Raigosa</title>
-		<link>http://localhost:1313/tags/pyramid/</link>
+		<link>http://localhost:56471/tags/pyramid/</link>
 		<description>Recent content in Pyramid on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Thu, 25 Jan 2018 21:21:21 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/pyramid/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:56471/tags/pyramid/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Python Web Frameworks: An Overview of Django vs Flask vs Tornado vs Pyramid</title>
-				<link>http://localhost:1313/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</link>
+				<link>http://localhost:56471/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</link>
 				<pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-				<guid>http://localhost:1313/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</guid>
+				<guid>http://localhost:56471/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</guid>
 				<description>&lt;h2 id=&#34;reading-guide&#34;&gt;&#xA;  Reading guide&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#reading-guide&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The text is accompanied with questions and observations at the end, such that notes of the form &lt;code&gt;(Q#)&lt;/code&gt; correspond to the question number &lt;code&gt;#&lt;/code&gt; on the list. In the same fashion &lt;code&gt;(O#)&lt;/code&gt; indicates the observation number &lt;code&gt;#&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;notes-on-flask&#34;&gt;&#xA;  Notes on Flask&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#notes-on-flask&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://flask.pocoo.org/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://flask.pocoo.org/&lt;/a&gt;&#xA;&lt;a href=&#34;https://github.com/pallets/flask&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/pallets/flask&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&amp;ldquo;&lt;em&gt;Flask is a (Q1)microframework for Python based on Werkzeug(Q2), Jinja 2(Q3) and good intentions.&lt;/em&gt;&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;BSD Licensed.&lt;/li&gt;&#xA;&lt;li&gt;Latest release 0.12.2 (github tag).&lt;/li&gt;&#xA;&lt;li&gt;Flask is minimalistic, so it doesn&amp;rsquo;t decide for you what to use, it lets you to use extensions provided the task you need. Jinja2 (R2) template engine can be changed if desired.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Python3 is not fully supported&lt;/strong&gt;   [Res 5]&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Needs extensions for form validation, databases, uploads, user authentication, and other features&lt;/strong&gt;   [Res 5]&lt;/li&gt;&#xA;&lt;li&gt;The docs are more accesible than Django.&lt;/li&gt;&#xA;&lt;li&gt;Manages simple apps (one page apps) but it could be extended to larger.&lt;/li&gt;&#xA;&lt;li&gt;Simple syntax to get an app up and running.&lt;/li&gt;&#xA;&lt;li&gt;Aims to solve security issues [Res 5].&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;notes-on-django&#34;&gt;&#xA;  Notes on Django&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#notes-on-django&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.djangoproject.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.djangoproject.com/&lt;/a&gt;&#xA;&lt;a href=&#34;https://github.com/django/django&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/django/django&lt;/a&gt;&lt;/p&gt;</description>
 			</item>
 	</channel>

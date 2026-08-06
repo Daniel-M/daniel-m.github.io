@@ -2,475 +2,496 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/ai/</loc>
+    <loc>http://localhost:56471/tags/ai/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ai-coding/</loc>
+    <loc>http://localhost:56471/tags/ai-coding/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/algorithms/</loc>
+    <loc>http://localhost:56471/categories/algorithms/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/algorithms/</loc>
+    <loc>http://localhost:56471/tags/algorithms/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/authors/</loc>
+    <loc>http://localhost:56471/authors/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:56471/categories/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:56471/authors/daniel-m/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/authors/daniel-m/</loc>
+    <loc>http://localhost:56471/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/llms/</loc>
+    <loc>http://localhost:56471/tags/llms/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://localhost:56471/posts/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/problem-solving/</loc>
+    <loc>http://localhost:56471/categories/problem-solving/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/problem-solving/</loc>
+    <loc>http://localhost:56471/tags/problem-solving/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2026/08/project-euler-problem-1-multiples-of-3-and-5/</loc>
+    <loc>http://localhost:56471/2026/08/project-euler-problem-1-multiples-of-3-and-5/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/project-euler/</loc>
+    <loc>http://localhost:56471/categories/project-euler/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/project-euler/</loc>
+    <loc>http://localhost:56471/series/project-euler/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/project-euler/</loc>
+    <loc>http://localhost:56471/tags/project-euler/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/</loc>
+    <loc>http://localhost:56471/series/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:56471/tags/</loc>
     <lastmod>2026-08-05T18:37:09-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/ai/</loc>
+    <loc>http://localhost:56471/categories/ai/</loc>
     <lastmod>2026-08-05T13:20:49-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/blogging/</loc>
+    <loc>http://localhost:56471/categories/blogging/</loc>
     <lastmod>2026-08-05T13:20:49-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/blogging/</loc>
+    <loc>http://localhost:56471/tags/blogging/</loc>
     <lastmod>2026-08-05T13:20:49-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2026/08/reflections-on-blogging-in-ai-era-2026/</loc>
+    <loc>http://localhost:56471/2026/08/reflections-on-blogging-in-ai-era-2026/</loc>
     <lastmod>2026-08-05T13:20:49-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/thoughts/</loc>
+    <loc>http://localhost:56471/categories/thoughts/</loc>
     <lastmod>2026-08-05T13:20:49-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/thoughts/</loc>
+    <loc>http://localhost:56471/series/thoughts/</loc>
     <lastmod>2026-08-05T13:20:49-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/thoughts/</loc>
+    <loc>http://localhost:56471/tags/thoughts/</loc>
     <lastmod>2026-08-05T13:20:49-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/etl/</loc>
+    <loc>http://localhost:56471/categories/etl/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/etl/</loc>
+    <loc>http://localhost:56471/tags/etl/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/generators/</loc>
+    <loc>http://localhost:56471/categories/generators/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/generators/</loc>
+    <loc>http://localhost:56471/tags/generators/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/iterators/</loc>
+    <loc>http://localhost:56471/tags/iterators/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/pyenv/</loc>
+    <loc>http://localhost:56471/tags/pyenv/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/python/</loc>
+    <loc>http://localhost:56471/categories/python/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/python/</loc>
+    <loc>http://localhost:56471/series/python/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
+    <loc>http://localhost:56471/tags/python/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2023/11/python-generators-iterator/</loc>
+    <loc>http://localhost:56471/2023/11/python-generators-iterator/</loc>
     <lastmod>2023-11-16T11:05:45-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/jupyter/</loc>
+    <loc>http://localhost:56471/tags/jupyter/</loc>
     <lastmod>2023-08-08T18:59:14-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2023/08/jupyter-kernels-with-pyenv/</loc>
+    <loc>http://localhost:56471/2023/08/jupyter-kernels-with-pyenv/</loc>
     <lastmod>2023-08-08T18:59:14-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/autodoc/</loc>
+    <loc>http://localhost:56471/categories/autodoc/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/aws/</loc>
+    <loc>http://localhost:56471/tags/aws/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/backend/</loc>
+    <loc>http://localhost:56471/categories/backend/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/digital-ocean/</loc>
+    <loc>http://localhost:56471/tags/digital-ocean/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/digital-ocean-spaces/</loc>
+    <loc>http://localhost:56471/tags/digital-ocean-spaces/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/do/</loc>
+    <loc>http://localhost:56471/tags/do/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/doc/</loc>
+    <loc>http://localhost:56471/categories/doc/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/expressjs/</loc>
+    <loc>http://localhost:56471/categories/expressjs/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/expressjs/</loc>
+    <loc>http://localhost:56471/tags/expressjs/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2022/06/expressjs-uploads-to-digital-ocean-spaces-through-s3-aws-s3/</loc>
+    <loc>http://localhost:56471/2022/06/expressjs-uploads-to-digital-ocean-spaces-through-s3-aws-s3/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/integrations/</loc>
+    <loc>http://localhost:56471/categories/integrations/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/nodejs/</loc>
+    <loc>http://localhost:56471/categories/nodejs/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/nodejs/</loc>
+    <loc>http://localhost:56471/tags/nodejs/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/s3/</loc>
+    <loc>http://localhost:56471/tags/s3/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/short/</loc>
+    <loc>http://localhost:56471/tags/short/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/spaces/</loc>
+    <loc>http://localhost:56471/tags/spaces/</loc>
     <lastmod>2022-06-07T08:46:43-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2022/05/dealing-with-scammers-using-selenium-and-python/</loc>
+    <loc>http://localhost:56471/2022/05/dealing-with-scammers-using-selenium-and-python/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/poc/</loc>
+    <loc>http://localhost:56471/categories/poc/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/poc/</loc>
+    <loc>http://localhost:56471/tags/poc/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/proof-of-concept/</loc>
+    <loc>http://localhost:56471/categories/proof-of-concept/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/proof-of-concept/</loc>
+    <loc>http://localhost:56471/tags/proof-of-concept/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/selenium/</loc>
+    <loc>http://localhost:56471/categories/selenium/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/selenium/</loc>
+    <loc>http://localhost:56471/tags/selenium/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/webscraping/</loc>
+    <loc>http://localhost:56471/categories/webscraping/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/webscraping/</loc>
+    <loc>http://localhost:56471/tags/webscraping/</loc>
     <lastmod>2022-05-24T14:12:46-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/environments/</loc>
+    <loc>http://localhost:56471/categories/environments/</loc>
     <lastmod>2021-11-03T15:52:28-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</loc>
+    <loc>http://localhost:56471/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/</loc>
     <lastmod>2021-11-03T15:52:28-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/pyenv/</loc>
+    <loc>http://localhost:56471/categories/pyenv/</loc>
     <lastmod>2021-11-03T15:52:28-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/self-doc/</loc>
+    <loc>http://localhost:56471/tags/self-doc/</loc>
     <lastmod>2021-11-03T15:52:28-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/virtualenv/</loc>
+    <loc>http://localhost:56471/categories/virtualenv/</loc>
     <lastmod>2021-11-03T15:52:28-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/databases/</loc>
+    <loc>http://localhost:56471/categories/databases/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/databases/</loc>
+    <loc>http://localhost:56471/tags/databases/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/high-availability/</loc>
+    <loc>http://localhost:56471/tags/high-availability/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/influxdb/</loc>
+    <loc>http://localhost:56471/tags/influxdb/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/influxdb/</loc>
+    <loc>http://localhost:56471/categories/influxdb/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2020/10/installing-influxdb-with-high-availability/</loc>
+    <loc>http://localhost:56471/2020/10/installing-influxdb-with-high-availability/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/time-series/</loc>
+    <loc>http://localhost:56471/tags/time-series/</loc>
     <lastmod>2020-10-29T14:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/</loc>
+    <loc>http://localhost:56471/2020/10/configuring-a-minimal-mongodb-replica-set-with-authentication/</loc>
     <lastmod>2020-10-28T16:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/mongodb/</loc>
+    <loc>http://localhost:56471/tags/mongodb/</loc>
     <lastmod>2020-10-28T16:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/mongodb/</loc>
+    <loc>http://localhost:56471/categories/mongodb/</loc>
     <lastmod>2020-10-28T16:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/character-encodings/</loc>
+    <loc>http://localhost:56471/tags/character-encodings/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2020/02/character-encodings-and-a-bit-of-python/</loc>
+    <loc>http://localhost:56471/2020/02/character-encodings-and-a-bit-of-python/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/character-sets/</loc>
+    <loc>http://localhost:56471/tags/character-sets/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/encodings/</loc>
+    <loc>http://localhost:56471/tags/encodings/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/fast-notes/</loc>
+    <loc>http://localhost:56471/categories/fast-notes/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/programming/</loc>
+    <loc>http://localhost:56471/categories/programming/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/unicode/</loc>
+    <loc>http://localhost:56471/tags/unicode/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/utf-16/</loc>
+    <loc>http://localhost:56471/tags/utf-16/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/utf-32/</loc>
+    <loc>http://localhost:56471/tags/utf-32/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/utf-8/</loc>
+    <loc>http://localhost:56471/tags/utf-8/</loc>
     <lastmod>2020-02-07T00:08:20-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2020/02/a-mystery-using-python-hashlib-to-calculate-checksums/</loc>
+    <loc>http://localhost:56471/2020/02/a-mystery-using-python-hashlib-to-calculate-checksums/</loc>
     <lastmod>2020-02-04T16:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/checksum/</loc>
+    <loc>http://localhost:56471/tags/checksum/</loc>
     <lastmod>2020-02-04T16:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/hash/</loc>
+    <loc>http://localhost:56471/tags/hash/</loc>
     <lastmod>2020-02-04T16:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/hashlib/</loc>
+    <loc>http://localhost:56471/tags/hashlib/</loc>
     <lastmod>2020-02-04T16:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/md5/</loc>
+    <loc>http://localhost:56471/tags/md5/</loc>
     <lastmod>2020-02-04T16:17:42-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/debian/</loc>
+    <loc>http://localhost:56471/categories/debian/</loc>
     <lastmod>2019-11-12T17:51:16-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/debian/</loc>
+    <loc>http://localhost:56471/tags/debian/</loc>
     <lastmod>2019-11-12T17:51:16-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/gpu/</loc>
+    <loc>http://localhost:56471/categories/gpu/</loc>
     <lastmod>2019-11-12T17:51:16-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/gpu/</loc>
+    <loc>http://localhost:56471/tags/gpu/</loc>
     <lastmod>2019-11-12T17:51:16-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/nvidia/</loc>
+    <loc>http://localhost:56471/categories/nvidia/</loc>
     <lastmod>2019-11-12T17:51:16-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/nvidia/</loc>
+    <loc>http://localhost:56471/tags/nvidia/</loc>
     <lastmod>2019-11-12T17:51:16-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2019/11/nvidia-optimus-a-tale-of-two-graphic-cards/</loc>
+    <loc>http://localhost:56471/2019/11/nvidia-optimus-a-tale-of-two-graphic-cards/</loc>
     <lastmod>2019-11-12T17:51:16-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bigquery/</loc>
+    <loc>http://localhost:56471/categories/esp8266/</loc>
+    <lastmod>2019-03-31T00:05:45-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/tags/esp8266/</loc>
+    <lastmod>2019-03-31T00:05:45-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/tags/freertos/</loc>
+    <lastmod>2019-03-31T00:05:45-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/2019/03/getting-started-with-the-esp8266/</loc>
+    <lastmod>2019-03-31T00:05:45-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/tags/iot/</loc>
+    <lastmod>2019-03-31T00:05:45-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/tags/projects/</loc>
+    <lastmod>2019-03-31T00:05:45-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/tags/bigquery/</loc>
     <lastmod>2019-02-15T22:33:04-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/datapersistence/</loc>
+    <loc>http://localhost:56471/tags/datapersistence/</loc>
     <lastmod>2019-02-15T22:33:04-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/go/</loc>
+    <loc>http://localhost:56471/categories/go/</loc>
     <lastmod>2019-02-15T22:33:04-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/go/</loc>
+    <loc>http://localhost:56471/tags/go/</loc>
     <lastmod>2019-02-15T22:33:04-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/google/</loc>
+    <loc>http://localhost:56471/tags/google/</loc>
     <lastmod>2019-02-15T22:33:04-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2019/02/googles-bigquery-and-go/</loc>
+    <loc>http://localhost:56471/2019/02/googles-bigquery-and-go/</loc>
     <lastmod>2019-02-15T22:33:04-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/notes/</loc>
+    <loc>http://localhost:56471/categories/notes/</loc>
     <lastmod>2019-02-15T22:33:04-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/serverless/</loc>
+    <loc>http://localhost:56471/tags/serverless/</loc>
     <lastmod>2019-02-15T22:33:04-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/concurrency/</loc>
+    <loc>http://localhost:56471/tags/concurrency/</loc>
     <lastmod>2019-01-01T22:30:51-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2019/01/notes-on-go-concurrency/</loc>
+    <loc>http://localhost:56471/2019/01/notes-on-go-concurrency/</loc>
     <lastmod>2019-01-01T22:30:51-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/embededdevices/</loc>
+    <loc>http://localhost:56471/categories/esp32/</loc>
+    <lastmod>2018-12-10T12:12:53-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/tags/esp32/</loc>
+    <lastmod>2018-12-10T12:12:53-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/2018/12/esp32-working-with-wifi-part-i/</loc>
+    <lastmod>2018-12-10T12:12:53-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/categories/embededdevices/</loc>
+    <lastmod>2018-12-03T21:40:25-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/2018/12/esp32-blinking-led-with-freertos-tasks/</loc>
+    <lastmod>2018-12-03T21:40:25-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/categories/iot/</loc>
+    <lastmod>2018-12-03T21:40:25-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/categories/projects/</loc>
+    <lastmod>2018-12-03T21:40:25-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:56471/2018/12/esp32-blinking-a-led/</loc>
     <lastmod>2018-12-03T20:40:25-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/esp32/</loc>
-    <lastmod>2018-12-03T20:40:25-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2018/12/esp32-blinking-a-led/</loc>
-    <lastmod>2018-12-03T20:40:25-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/freertos/</loc>
-    <lastmod>2018-12-03T20:40:25-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/iot/</loc>
-    <lastmod>2018-12-03T20:40:25-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/projects/</loc>
-    <lastmod>2018-12-03T20:40:25-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</loc>
+    <loc>http://localhost:56471/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</loc>
     <lastmod>2018-11-10T00:40:25-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2018/10/esp32-setting-up-a-development-environment/</loc>
+    <loc>http://localhost:56471/2018/10/esp32-setting-up-a-development-environment/</loc>
     <lastmod>2018-10-28T20:40:25-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/esp32/</loc>
+    <loc>http://localhost:56471/2018/10/getting-started-with-the-esp32/</loc>
     <lastmod>2018-10-28T19:42:25-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2018/10/getting-started-with-the-esp32/</loc>
+    <loc>http://localhost:56471/categories/table-of-contents/</loc>
     <lastmod>2018-10-28T19:42:25-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/table-of-contents/</loc>
-    <lastmod>2018-10-28T19:42:25-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2018/10/alternative-blog-at-http/blog.parallelo.ai/</loc>
+    <loc>http://localhost:56471/2018/10/alternative-blog-at-http/blog.parallelo.ai/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/blog/</loc>
+    <loc>http://localhost:56471/categories/blog/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/blog/</loc>
+    <loc>http://localhost:56471/tags/blog/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/open-source/</loc>
+    <loc>http://localhost:56471/tags/open-source/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/opinion/</loc>
+    <loc>http://localhost:56471/tags/opinion/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/personal/</loc>
+    <loc>http://localhost:56471/tags/personal/</loc>
     <lastmod>2018-10-17T12:23:57-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/</loc>
+    <loc>http://localhost:56471/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/</loc>
     <lastmod>2018-08-11T21:57:55-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/continuousdelivery/</loc>
+    <loc>http://localhost:56471/tags/continuousdelivery/</loc>
     <lastmod>2018-08-11T21:57:55-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/continuousintegration/</loc>
+    <loc>http://localhost:56471/tags/continuousintegration/</loc>
     <lastmod>2018-08-11T21:57:55-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/devops/</loc>
+    <loc>http://localhost:56471/categories/devops/</loc>
     <lastmod>2018-08-11T21:57:55-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2018/06/an-overview-of-go-web-frameworks/</loc>
+    <loc>http://localhost:56471/2018/06/an-overview-of-go-web-frameworks/</loc>
     <lastmod>2018-06-26T21:37:38-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/golang/</loc>
+    <loc>http://localhost:56471/tags/golang/</loc>
     <lastmod>2018-06-26T21:37:38-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/webdevelopment/</loc>
+    <loc>http://localhost:56471/categories/webdevelopment/</loc>
     <lastmod>2018-06-26T21:37:38-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/webframeworks/</loc>
+    <loc>http://localhost:56471/categories/webframeworks/</loc>
     <lastmod>2018-06-26T21:37:38-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cnns/</loc>
+    <loc>http://localhost:56471/tags/cnns/</loc>
     <lastmod>2018-06-01T21:47:48-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/deeplearning/</loc>
+    <loc>http://localhost:56471/categories/deeplearning/</loc>
     <lastmod>2018-06-01T21:47:48-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/deeplearning/</loc>
+    <loc>http://localhost:56471/tags/deeplearning/</loc>
     <lastmod>2018-06-01T21:47:48-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/imagenet/</loc>
+    <loc>http://localhost:56471/tags/imagenet/</loc>
     <lastmod>2018-06-01T21:47:48-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2018/06/imagenet-vggnet-resnet-inception-and-xception-with-keras/</loc>
+    <loc>http://localhost:56471/2018/06/imagenet-vggnet-resnet-inception-and-xception-with-keras/</loc>
     <lastmod>2018-06-01T21:47:48-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/inception/</loc>
+    <loc>http://localhost:56471/tags/inception/</loc>
     <lastmod>2018-06-01T21:47:48-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/keras/</loc>
+    <loc>http://localhost:56471/tags/keras/</loc>
     <lastmod>2018-06-01T21:47:48-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/vgg/</loc>
+    <loc>http://localhost:56471/tags/vgg/</loc>
     <lastmod>2018-06-01T21:47:48-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/xception/</loc>
+    <loc>http://localhost:56471/tags/xception/</loc>
     <lastmod>2018-06-01T21:47:48-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/multiprocessing/</loc>
+    <loc>http://localhost:56471/tags/multiprocessing/</loc>
     <lastmod>2018-03-22T21:53:32-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2018/03/notes-on-python-multiprocessing/</loc>
+    <loc>http://localhost:56471/2018/03/notes-on-python-multiprocessing/</loc>
     <lastmod>2018-03-22T21:53:32-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/parallelprogramming/</loc>
+    <loc>http://localhost:56471/tags/parallelprogramming/</loc>
     <lastmod>2018-03-22T21:53:32-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/geojson/</loc>
+    <loc>http://localhost:56471/tags/geojson/</loc>
     <lastmod>2018-02-15T21:30:14-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/gis/</loc>
+    <loc>http://localhost:56471/categories/gis/</loc>
     <lastmod>2018-02-15T21:30:14-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2018/02/the-geojson-format/</loc>
+    <loc>http://localhost:56471/2018/02/the-geojson-format/</loc>
     <lastmod>2018-02-15T21:30:14-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/django/</loc>
+    <loc>http://localhost:56471/tags/django/</loc>
     <lastmod>2018-01-25T21:21:21-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/flask/</loc>
+    <loc>http://localhost:56471/tags/flask/</loc>
     <lastmod>2018-01-25T21:21:21-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/pyramid/</loc>
+    <loc>http://localhost:56471/tags/pyramid/</loc>
     <lastmod>2018-01-25T21:21:21-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</loc>
+    <loc>http://localhost:56471/2018/01/python-web-frameworks-an-overview-of-django-vs-flask-vs-tornado-vs-pyramid/</loc>
     <lastmod>2018-01-25T21:21:21-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tornado/</loc>
+    <loc>http://localhost:56471/tags/tornado/</loc>
     <lastmod>2018-01-25T21:21:21-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2018/01/old-blog/</loc>
+    <loc>http://localhost:56471/2018/01/old-blog/</loc>
     <lastmod>2018-01-01T06:32:12-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://localhost:56471/about/</loc>
     <lastmod>2016-04-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/now/</loc>
+    <loc>http://localhost:56471/now/</loc>
     <lastmod>2016-04-20T00:00:00+00:00</lastmod>
   </url>
 </urlset>

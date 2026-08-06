@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>ContinuousDelivery on Daniel Mejía Raigosa</title>
-		<link>http://localhost:1313/tags/continuousdelivery/</link>
+		<link>http://localhost:56471/tags/continuousdelivery/</link>
 		<description>Recent content in ContinuousDelivery on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sat, 11 Aug 2018 21:57:55 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/continuousdelivery/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:56471/tags/continuousdelivery/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Continuous Integration and Continuous Delivery Systems On The Cloud</title>
-				<link>http://localhost:1313/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/</link>
+				<link>http://localhost:56471/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/</link>
 				<pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
-				<guid>http://localhost:1313/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/</guid>
+				<guid>http://localhost:56471/2018/08/continuous-integration-and-continuous-delivery-systems-on-the-cloud/</guid>
 				<description>&lt;h2 id=&#34;what-are-continuous-integrationci-and-continuous-deliverycd-systems&#34;&gt;&#xA;  What are continuous integration(CI) and continuous delivery(CD) systems?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-are-continuous-integrationci-and-continuous-deliverycd-systems&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;According to &lt;a href=&#34;https://martinfowler.com/articles/continuousIntegration.html&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Martin Fowler&lt;/a&gt; , one of the members of the Agile manifesto, Continuous Integration (CI),&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible. Many teams find that this approach leads to significantly reduced integration problems and allows a team to develop cohesive software more rapidly.&lt;/p&gt;</description>
 			</item>
 	</channel>

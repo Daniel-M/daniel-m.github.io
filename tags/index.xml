@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Tags on Daniel Mejía Raigosa</title>
-		<link>http://localhost:1313/tags/</link>
+		<link>http://localhost:56471/tags/</link>
 		<description>Recent content in Tags on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,537 +12,558 @@
 		
 			<lastBuildDate>Wed, 05 Aug 2026 18:37:09 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:56471/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>AI</title>
-				<link>http://localhost:1313/tags/ai/</link>
+				<title>Ai</title>
+				<link>http://localhost:56471/tags/ai/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>http://localhost:1313/tags/ai/</guid>
+				<guid>http://localhost:56471/tags/ai/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>AI-Coding</title>
-				<link>http://localhost:1313/tags/ai-coding/</link>
+				<link>http://localhost:56471/tags/ai-coding/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>http://localhost:1313/tags/ai-coding/</guid>
+				<guid>http://localhost:56471/tags/ai-coding/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Algorithms</title>
-				<link>http://localhost:1313/tags/algorithms/</link>
+				<link>http://localhost:56471/tags/algorithms/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>http://localhost:1313/tags/algorithms/</guid>
+				<guid>http://localhost:56471/tags/algorithms/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>LLMs</title>
-				<link>http://localhost:1313/tags/llms/</link>
+				<link>http://localhost:56471/tags/llms/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>http://localhost:1313/tags/llms/</guid>
+				<guid>http://localhost:56471/tags/llms/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Problem-Solving</title>
-				<link>http://localhost:1313/tags/problem-solving/</link>
+				<link>http://localhost:56471/tags/problem-solving/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>http://localhost:1313/tags/problem-solving/</guid>
+				<guid>http://localhost:56471/tags/problem-solving/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Project-Euler</title>
-				<link>http://localhost:1313/tags/project-euler/</link>
+				<link>http://localhost:56471/tags/project-euler/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
-				<guid>http://localhost:1313/tags/project-euler/</guid>
+				<guid>http://localhost:56471/tags/project-euler/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Blogging</title>
-				<link>http://localhost:1313/tags/blogging/</link>
+				<link>http://localhost:56471/tags/blogging/</link>
 				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
-				<guid>http://localhost:1313/tags/blogging/</guid>
+				<guid>http://localhost:56471/tags/blogging/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Thoughts</title>
-				<link>http://localhost:1313/tags/thoughts/</link>
+				<link>http://localhost:56471/tags/thoughts/</link>
 				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
-				<guid>http://localhost:1313/tags/thoughts/</guid>
+				<guid>http://localhost:56471/tags/thoughts/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Etl</title>
-				<link>http://localhost:1313/tags/etl/</link>
+				<link>http://localhost:56471/tags/etl/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>http://localhost:1313/tags/etl/</guid>
+				<guid>http://localhost:56471/tags/etl/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Generators</title>
-				<link>http://localhost:1313/tags/generators/</link>
+				<link>http://localhost:56471/tags/generators/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>http://localhost:1313/tags/generators/</guid>
+				<guid>http://localhost:56471/tags/generators/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Iterators</title>
-				<link>http://localhost:1313/tags/iterators/</link>
+				<link>http://localhost:56471/tags/iterators/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>http://localhost:1313/tags/iterators/</guid>
+				<guid>http://localhost:56471/tags/iterators/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Pyenv</title>
-				<link>http://localhost:1313/tags/pyenv/</link>
+				<link>http://localhost:56471/tags/pyenv/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>http://localhost:1313/tags/pyenv/</guid>
+				<guid>http://localhost:56471/tags/pyenv/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Python</title>
-				<link>http://localhost:1313/tags/python/</link>
+				<link>http://localhost:56471/tags/python/</link>
 				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>http://localhost:1313/tags/python/</guid>
+				<guid>http://localhost:56471/tags/python/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Jupyter</title>
-				<link>http://localhost:1313/tags/jupyter/</link>
+				<link>http://localhost:56471/tags/jupyter/</link>
 				<pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
-				<guid>http://localhost:1313/tags/jupyter/</guid>
+				<guid>http://localhost:56471/tags/jupyter/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Aws</title>
-				<link>http://localhost:1313/tags/aws/</link>
+				<link>http://localhost:56471/tags/aws/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>http://localhost:1313/tags/aws/</guid>
+				<guid>http://localhost:56471/tags/aws/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Digital Ocean</title>
-				<link>http://localhost:1313/tags/digital-ocean/</link>
+				<link>http://localhost:56471/tags/digital-ocean/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>http://localhost:1313/tags/digital-ocean/</guid>
+				<guid>http://localhost:56471/tags/digital-ocean/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Digital Ocean Spaces</title>
-				<link>http://localhost:1313/tags/digital-ocean-spaces/</link>
+				<link>http://localhost:56471/tags/digital-ocean-spaces/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>http://localhost:1313/tags/digital-ocean-spaces/</guid>
+				<guid>http://localhost:56471/tags/digital-ocean-spaces/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Do</title>
-				<link>http://localhost:1313/tags/do/</link>
+				<link>http://localhost:56471/tags/do/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>http://localhost:1313/tags/do/</guid>
+				<guid>http://localhost:56471/tags/do/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Expressjs</title>
-				<link>http://localhost:1313/tags/expressjs/</link>
+				<link>http://localhost:56471/tags/expressjs/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>http://localhost:1313/tags/expressjs/</guid>
+				<guid>http://localhost:56471/tags/expressjs/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Nodejs</title>
-				<link>http://localhost:1313/tags/nodejs/</link>
+				<link>http://localhost:56471/tags/nodejs/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>http://localhost:1313/tags/nodejs/</guid>
+				<guid>http://localhost:56471/tags/nodejs/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>S3</title>
-				<link>http://localhost:1313/tags/s3/</link>
+				<link>http://localhost:56471/tags/s3/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>http://localhost:1313/tags/s3/</guid>
+				<guid>http://localhost:56471/tags/s3/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Short</title>
-				<link>http://localhost:1313/tags/short/</link>
+				<link>http://localhost:56471/tags/short/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>http://localhost:1313/tags/short/</guid>
+				<guid>http://localhost:56471/tags/short/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Spaces</title>
-				<link>http://localhost:1313/tags/spaces/</link>
+				<link>http://localhost:56471/tags/spaces/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>http://localhost:1313/tags/spaces/</guid>
+				<guid>http://localhost:56471/tags/spaces/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Poc</title>
-				<link>http://localhost:1313/tags/poc/</link>
+				<link>http://localhost:56471/tags/poc/</link>
 				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>http://localhost:1313/tags/poc/</guid>
+				<guid>http://localhost:56471/tags/poc/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Proof of Concept</title>
-				<link>http://localhost:1313/tags/proof-of-concept/</link>
+				<link>http://localhost:56471/tags/proof-of-concept/</link>
 				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>http://localhost:1313/tags/proof-of-concept/</guid>
+				<guid>http://localhost:56471/tags/proof-of-concept/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Selenium</title>
-				<link>http://localhost:1313/tags/selenium/</link>
+				<link>http://localhost:56471/tags/selenium/</link>
 				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>http://localhost:1313/tags/selenium/</guid>
+				<guid>http://localhost:56471/tags/selenium/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Webscraping</title>
-				<link>http://localhost:1313/tags/webscraping/</link>
+				<link>http://localhost:56471/tags/webscraping/</link>
 				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>http://localhost:1313/tags/webscraping/</guid>
+				<guid>http://localhost:56471/tags/webscraping/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Self-Doc</title>
-				<link>http://localhost:1313/tags/self-doc/</link>
+				<link>http://localhost:56471/tags/self-doc/</link>
 				<pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
-				<guid>http://localhost:1313/tags/self-doc/</guid>
+				<guid>http://localhost:56471/tags/self-doc/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>DataBases</title>
-				<link>http://localhost:1313/tags/databases/</link>
+				<link>http://localhost:56471/tags/databases/</link>
 				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-				<guid>http://localhost:1313/tags/databases/</guid>
+				<guid>http://localhost:56471/tags/databases/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>High Availability</title>
-				<link>http://localhost:1313/tags/high-availability/</link>
+				<link>http://localhost:56471/tags/high-availability/</link>
 				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-				<guid>http://localhost:1313/tags/high-availability/</guid>
+				<guid>http://localhost:56471/tags/high-availability/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Influxdb</title>
-				<link>http://localhost:1313/tags/influxdb/</link>
+				<link>http://localhost:56471/tags/influxdb/</link>
 				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-				<guid>http://localhost:1313/tags/influxdb/</guid>
+				<guid>http://localhost:56471/tags/influxdb/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Time Series</title>
-				<link>http://localhost:1313/tags/time-series/</link>
+				<link>http://localhost:56471/tags/time-series/</link>
 				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-				<guid>http://localhost:1313/tags/time-series/</guid>
+				<guid>http://localhost:56471/tags/time-series/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Mongodb</title>
-				<link>http://localhost:1313/tags/mongodb/</link>
+				<link>http://localhost:56471/tags/mongodb/</link>
 				<pubDate>Wed, 28 Oct 2020 16:17:42 -0500</pubDate>
-				<guid>http://localhost:1313/tags/mongodb/</guid>
+				<guid>http://localhost:56471/tags/mongodb/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Character Encodings</title>
-				<link>http://localhost:1313/tags/character-encodings/</link>
+				<link>http://localhost:56471/tags/character-encodings/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>http://localhost:1313/tags/character-encodings/</guid>
+				<guid>http://localhost:56471/tags/character-encodings/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Character Sets</title>
-				<link>http://localhost:1313/tags/character-sets/</link>
+				<link>http://localhost:56471/tags/character-sets/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>http://localhost:1313/tags/character-sets/</guid>
+				<guid>http://localhost:56471/tags/character-sets/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Encodings</title>
-				<link>http://localhost:1313/tags/encodings/</link>
+				<link>http://localhost:56471/tags/encodings/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>http://localhost:1313/tags/encodings/</guid>
+				<guid>http://localhost:56471/tags/encodings/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Unicode</title>
-				<link>http://localhost:1313/tags/unicode/</link>
+				<link>http://localhost:56471/tags/unicode/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>http://localhost:1313/tags/unicode/</guid>
+				<guid>http://localhost:56471/tags/unicode/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Utf-16</title>
-				<link>http://localhost:1313/tags/utf-16/</link>
+				<link>http://localhost:56471/tags/utf-16/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>http://localhost:1313/tags/utf-16/</guid>
+				<guid>http://localhost:56471/tags/utf-16/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Utf-32</title>
-				<link>http://localhost:1313/tags/utf-32/</link>
+				<link>http://localhost:56471/tags/utf-32/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>http://localhost:1313/tags/utf-32/</guid>
+				<guid>http://localhost:56471/tags/utf-32/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Utf-8</title>
-				<link>http://localhost:1313/tags/utf-8/</link>
+				<link>http://localhost:56471/tags/utf-8/</link>
 				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>http://localhost:1313/tags/utf-8/</guid>
+				<guid>http://localhost:56471/tags/utf-8/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Checksum</title>
-				<link>http://localhost:1313/tags/checksum/</link>
+				<link>http://localhost:56471/tags/checksum/</link>
 				<pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
-				<guid>http://localhost:1313/tags/checksum/</guid>
+				<guid>http://localhost:56471/tags/checksum/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Hash</title>
-				<link>http://localhost:1313/tags/hash/</link>
+				<link>http://localhost:56471/tags/hash/</link>
 				<pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
-				<guid>http://localhost:1313/tags/hash/</guid>
+				<guid>http://localhost:56471/tags/hash/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Hashlib</title>
-				<link>http://localhost:1313/tags/hashlib/</link>
+				<link>http://localhost:56471/tags/hashlib/</link>
 				<pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
-				<guid>http://localhost:1313/tags/hashlib/</guid>
+				<guid>http://localhost:56471/tags/hashlib/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Md5</title>
-				<link>http://localhost:1313/tags/md5/</link>
+				<link>http://localhost:56471/tags/md5/</link>
 				<pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
-				<guid>http://localhost:1313/tags/md5/</guid>
+				<guid>http://localhost:56471/tags/md5/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Debian</title>
-				<link>http://localhost:1313/tags/debian/</link>
+				<link>http://localhost:56471/tags/debian/</link>
 				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-				<guid>http://localhost:1313/tags/debian/</guid>
+				<guid>http://localhost:56471/tags/debian/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Gpu</title>
-				<link>http://localhost:1313/tags/gpu/</link>
+				<link>http://localhost:56471/tags/gpu/</link>
 				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-				<guid>http://localhost:1313/tags/gpu/</guid>
+				<guid>http://localhost:56471/tags/gpu/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Nvidia</title>
-				<link>http://localhost:1313/tags/nvidia/</link>
+				<link>http://localhost:56471/tags/nvidia/</link>
 				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-				<guid>http://localhost:1313/tags/nvidia/</guid>
+				<guid>http://localhost:56471/tags/nvidia/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>BigQuery</title>
-				<link>http://localhost:1313/tags/bigquery/</link>
-				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-				<guid>http://localhost:1313/tags/bigquery/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>DataPersistence</title>
-				<link>http://localhost:1313/tags/datapersistence/</link>
-				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-				<guid>http://localhost:1313/tags/datapersistence/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Go</title>
-				<link>http://localhost:1313/tags/go/</link>
-				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-				<guid>http://localhost:1313/tags/go/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Google</title>
-				<link>http://localhost:1313/tags/google/</link>
-				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-				<guid>http://localhost:1313/tags/google/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Serverless</title>
-				<link>http://localhost:1313/tags/serverless/</link>
-				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-				<guid>http://localhost:1313/tags/serverless/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Concurrency</title>
-				<link>http://localhost:1313/tags/concurrency/</link>
-				<pubDate>Tue, 01 Jan 2019 22:30:51 -0500</pubDate>
-				<guid>http://localhost:1313/tags/concurrency/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>ESP32</title>
-				<link>http://localhost:1313/tags/esp32/</link>
-				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-				<guid>http://localhost:1313/tags/esp32/</guid>
+				<title>ESP8266</title>
+				<link>http://localhost:56471/tags/esp8266/</link>
+				<pubDate>Sun, 31 Mar 2019 00:05:45 -0500</pubDate>
+				<guid>http://localhost:56471/tags/esp8266/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>FreeRTOS</title>
-				<link>http://localhost:1313/tags/freertos/</link>
-				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-				<guid>http://localhost:1313/tags/freertos/</guid>
+				<link>http://localhost:56471/tags/freertos/</link>
+				<pubDate>Sun, 31 Mar 2019 00:05:45 -0500</pubDate>
+				<guid>http://localhost:56471/tags/freertos/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>IoT</title>
+				<link>http://localhost:56471/tags/iot/</link>
+				<pubDate>Sun, 31 Mar 2019 00:05:45 -0500</pubDate>
+				<guid>http://localhost:56471/tags/iot/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Projects</title>
+				<link>http://localhost:56471/tags/projects/</link>
+				<pubDate>Sun, 31 Mar 2019 00:05:45 -0500</pubDate>
+				<guid>http://localhost:56471/tags/projects/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>BigQuery</title>
+				<link>http://localhost:56471/tags/bigquery/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>http://localhost:56471/tags/bigquery/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>DataPersistence</title>
+				<link>http://localhost:56471/tags/datapersistence/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>http://localhost:56471/tags/datapersistence/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Go</title>
+				<link>http://localhost:56471/tags/go/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>http://localhost:56471/tags/go/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Google</title>
+				<link>http://localhost:56471/tags/google/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>http://localhost:56471/tags/google/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Serverless</title>
+				<link>http://localhost:56471/tags/serverless/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>http://localhost:56471/tags/serverless/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Concurrency</title>
+				<link>http://localhost:56471/tags/concurrency/</link>
+				<pubDate>Tue, 01 Jan 2019 22:30:51 -0500</pubDate>
+				<guid>http://localhost:56471/tags/concurrency/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>ESP32</title>
+				<link>http://localhost:56471/tags/esp32/</link>
+				<pubDate>Mon, 10 Dec 2018 12:12:53 -0500</pubDate>
+				<guid>http://localhost:56471/tags/esp32/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Blog</title>
-				<link>http://localhost:1313/tags/blog/</link>
+				<link>http://localhost:56471/tags/blog/</link>
 				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-				<guid>http://localhost:1313/tags/blog/</guid>
+				<guid>http://localhost:56471/tags/blog/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Open Source</title>
-				<link>http://localhost:1313/tags/open-source/</link>
+				<link>http://localhost:56471/tags/open-source/</link>
 				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-				<guid>http://localhost:1313/tags/open-source/</guid>
+				<guid>http://localhost:56471/tags/open-source/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Opinion</title>
-				<link>http://localhost:1313/tags/opinion/</link>
+				<link>http://localhost:56471/tags/opinion/</link>
 				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-				<guid>http://localhost:1313/tags/opinion/</guid>
+				<guid>http://localhost:56471/tags/opinion/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Personal</title>
-				<link>http://localhost:1313/tags/personal/</link>
+				<link>http://localhost:56471/tags/personal/</link>
 				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-				<guid>http://localhost:1313/tags/personal/</guid>
+				<guid>http://localhost:56471/tags/personal/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>ContinuousDelivery</title>
-				<link>http://localhost:1313/tags/continuousdelivery/</link>
+				<link>http://localhost:56471/tags/continuousdelivery/</link>
 				<pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
-				<guid>http://localhost:1313/tags/continuousdelivery/</guid>
+				<guid>http://localhost:56471/tags/continuousdelivery/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>ContinuousIntegration</title>
-				<link>http://localhost:1313/tags/continuousintegration/</link>
+				<link>http://localhost:56471/tags/continuousintegration/</link>
 				<pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
-				<guid>http://localhost:1313/tags/continuousintegration/</guid>
+				<guid>http://localhost:56471/tags/continuousintegration/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Golang</title>
-				<link>http://localhost:1313/tags/golang/</link>
+				<link>http://localhost:56471/tags/golang/</link>
 				<pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
-				<guid>http://localhost:1313/tags/golang/</guid>
+				<guid>http://localhost:56471/tags/golang/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>CNNs</title>
-				<link>http://localhost:1313/tags/cnns/</link>
+				<link>http://localhost:56471/tags/cnns/</link>
 				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-				<guid>http://localhost:1313/tags/cnns/</guid>
+				<guid>http://localhost:56471/tags/cnns/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>DeepLearning</title>
-				<link>http://localhost:1313/tags/deeplearning/</link>
+				<link>http://localhost:56471/tags/deeplearning/</link>
 				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-				<guid>http://localhost:1313/tags/deeplearning/</guid>
+				<guid>http://localhost:56471/tags/deeplearning/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>ImageNet</title>
-				<link>http://localhost:1313/tags/imagenet/</link>
+				<link>http://localhost:56471/tags/imagenet/</link>
 				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-				<guid>http://localhost:1313/tags/imagenet/</guid>
+				<guid>http://localhost:56471/tags/imagenet/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Inception</title>
-				<link>http://localhost:1313/tags/inception/</link>
+				<link>http://localhost:56471/tags/inception/</link>
 				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-				<guid>http://localhost:1313/tags/inception/</guid>
+				<guid>http://localhost:56471/tags/inception/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Keras</title>
-				<link>http://localhost:1313/tags/keras/</link>
+				<link>http://localhost:56471/tags/keras/</link>
 				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-				<guid>http://localhost:1313/tags/keras/</guid>
+				<guid>http://localhost:56471/tags/keras/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>VGG</title>
-				<link>http://localhost:1313/tags/vgg/</link>
+				<link>http://localhost:56471/tags/vgg/</link>
 				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-				<guid>http://localhost:1313/tags/vgg/</guid>
+				<guid>http://localhost:56471/tags/vgg/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Xception</title>
-				<link>http://localhost:1313/tags/xception/</link>
+				<link>http://localhost:56471/tags/xception/</link>
 				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-				<guid>http://localhost:1313/tags/xception/</guid>
+				<guid>http://localhost:56471/tags/xception/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Multiprocessing</title>
-				<link>http://localhost:1313/tags/multiprocessing/</link>
+				<link>http://localhost:56471/tags/multiprocessing/</link>
 				<pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
-				<guid>http://localhost:1313/tags/multiprocessing/</guid>
+				<guid>http://localhost:56471/tags/multiprocessing/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>ParallelProgramming</title>
-				<link>http://localhost:1313/tags/parallelprogramming/</link>
+				<link>http://localhost:56471/tags/parallelprogramming/</link>
 				<pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
-				<guid>http://localhost:1313/tags/parallelprogramming/</guid>
+				<guid>http://localhost:56471/tags/parallelprogramming/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>GeoJSON</title>
-				<link>http://localhost:1313/tags/geojson/</link>
+				<link>http://localhost:56471/tags/geojson/</link>
 				<pubDate>Thu, 15 Feb 2018 21:30:14 -0500</pubDate>
-				<guid>http://localhost:1313/tags/geojson/</guid>
+				<guid>http://localhost:56471/tags/geojson/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Django</title>
-				<link>http://localhost:1313/tags/django/</link>
+				<link>http://localhost:56471/tags/django/</link>
 				<pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-				<guid>http://localhost:1313/tags/django/</guid>
+				<guid>http://localhost:56471/tags/django/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Flask</title>
-				<link>http://localhost:1313/tags/flask/</link>
+				<link>http://localhost:56471/tags/flask/</link>
 				<pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-				<guid>http://localhost:1313/tags/flask/</guid>
+				<guid>http://localhost:56471/tags/flask/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Pyramid</title>
-				<link>http://localhost:1313/tags/pyramid/</link>
+				<link>http://localhost:56471/tags/pyramid/</link>
 				<pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-				<guid>http://localhost:1313/tags/pyramid/</guid>
+				<guid>http://localhost:56471/tags/pyramid/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Tornado</title>
-				<link>http://localhost:1313/tags/tornado/</link>
+				<link>http://localhost:56471/tags/tornado/</link>
 				<pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-				<guid>http://localhost:1313/tags/tornado/</guid>
+				<guid>http://localhost:56471/tags/tornado/</guid>
 				<description></description>
 			</item>
 	</channel>

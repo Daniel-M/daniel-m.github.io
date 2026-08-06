@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Jupyter on Daniel Mejía Raigosa</title>
-		<link>http://localhost:1313/tags/jupyter/</link>
+		<link>http://localhost:56471/tags/jupyter/</link>
 		<description>Recent content in Jupyter on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Tue, 08 Aug 2023 18:59:14 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:56471/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Jupyter Kernels with Pyenv</title>
-				<link>http://localhost:1313/2023/08/jupyter-kernels-with-pyenv/</link>
+				<link>http://localhost:56471/2023/08/jupyter-kernels-with-pyenv/</link>
 				<pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
-				<guid>http://localhost:1313/2023/08/jupyter-kernels-with-pyenv/</guid>
+				<guid>http://localhost:56471/2023/08/jupyter-kernels-with-pyenv/</guid>
 				<description>&lt;p&gt;Recently I wanted to run jupyter from within a &lt;a href=&#34;https://daniel-m.github.io/2021/11/managing-python-versions-and-virtual-environments-with-pyenv/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pyenv environment&lt;/a&gt;, and using the environment itself to have isolation of versions of the python modules installed. I was not satisfied with the blogs I found online so I tried my own approach.&lt;/p&gt;&#xA;&lt;p&gt;First, I created a virtual environment using pyenv,&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyenv install 3.11.4&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyenv virtualenv 3.11.4 chatbots-3.11.4&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pyenv activate&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install jupyterlab ipykernel&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Which installed jupyter within the virtual environment &lt;code&gt;chatbots-3.11.4&lt;/code&gt;.&#xA;Then I ran&lt;/p&gt;</description>
 			</item>
 	</channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>IoT on Daniel Mejía Raigosa</title>
-		<link>http://localhost:1313/categories/iot/</link>
+		<link>http://localhost:56471/categories/iot/</link>
 		<description>Recent content in IoT on Daniel Mejía Raigosa</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -10,28 +10,35 @@
 		
 		
 		
-			<lastBuildDate>Mon, 03 Dec 2018 20:40:25 -0500</lastBuildDate>
+			<lastBuildDate>Mon, 03 Dec 2018 21:40:25 -0500</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/categories/iot/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:56471/categories/iot/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>ESP32: Blinking LED with freeRTOS tasks</title>
+				<link>http://localhost:56471/2018/12/esp32-blinking-led-with-freertos-tasks/</link>
+				<pubDate>Mon, 03 Dec 2018 21:40:25 -0500</pubDate>
+				<guid>http://localhost:56471/2018/12/esp32-blinking-led-with-freertos-tasks/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;http://daniel-m.github.io/categories/esp32&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;This post is part of a series of ESP32 blog posts. Look the index here&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;motivation&#34;&gt;&#xA;  Motivation&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#motivation&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://daniel-m.github.io/categories/esp32&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;In &lt;em&gt;the last blog of the&#xA;series&lt;/em&gt;&lt;/a&gt;&#xA;I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to&#xA;provide a predictable execution pattern&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;resources&#34;&gt;&#xA;  Resources&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#resources&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/stable/get-started/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Espressif esp-idf getting started&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/system/freertos.html#_CPPv211xTaskCreate14TaskFunction_tPCKcK8uint32_tPCv11UBaseType_tPC12TaskHandle_t&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The &lt;code&gt;xTaskCreate&lt;/code&gt; API documentation&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
 			<item>
 				<title>ESP32: Blinking a LED</title>
-				<link>http://localhost:1313/2018/12/esp32-blinking-a-led/</link>
+				<link>http://localhost:56471/2018/12/esp32-blinking-a-led/</link>
 				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-				<guid>http://localhost:1313/2018/12/esp32-blinking-a-led/</guid>
+				<guid>http://localhost:56471/2018/12/esp32-blinking-a-led/</guid>
 				<description>&lt;p&gt;&lt;a href=&#34;http://daniel-m.github.io/categories/esp32/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;This post is part of a series of ESP32 blog posts. Look the index here&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;motivation&#34;&gt;&#xA;  Motivation&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#motivation&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://daniel-m.github.io/categories/esp32/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;In &lt;em&gt;the last blog of the&#xA;series&lt;/em&gt;&lt;/a&gt;&#xA;I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to&#xA;provide a predictable execution pattern. The Tasks allow to design better&#xA;workflows for our applications, allowing to control memory allocation, and&#xA;modularizing each task as separate entities which can run concurrently.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>ESP32: esp-idf Development Framework and the FreeRTOS kernel</title>
-				<link>http://localhost:1313/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</link>
+				<link>http://localhost:56471/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</link>
 				<pubDate>Sat, 10 Nov 2018 00:40:25 -0500</pubDate>
-				<guid>http://localhost:1313/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</guid>
+				<guid>http://localhost:56471/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/</guid>
 				<description>&lt;p&gt;&lt;a href=&#34;http://daniel-m.github.io/categories/esp32/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;This post is part of a series of ESP32 blog posts. Look the index here&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;motivation&#34;&gt;&#xA;  Motivation&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#motivation&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://daniel-m.github.io/categories/esp32/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the last blog post&lt;/a&gt; of this series,&#xA;we saw how to set up the basic development environment, then built and loaded&#xA;a &lt;code&gt;hello-world&lt;/code&gt; program included in the examples folder of the esp-idf (Espressif IoT&#xA;Development Framework). Today I&amp;rsquo;ll try to give some details about what is actually&#xA;happening in the process, about what is the operating system running within the&#xA;ESP32, and how it works.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>ESP32: Setting up a development environment</title>
-				<link>http://localhost:1313/2018/10/esp32-setting-up-a-development-environment/</link>
+				<link>http://localhost:56471/2018/10/esp32-setting-up-a-development-environment/</link>
 				<pubDate>Sun, 28 Oct 2018 20:40:25 -0500</pubDate>
-				<guid>http://localhost:1313/2018/10/esp32-setting-up-a-development-environment/</guid>
+				<guid>http://localhost:56471/2018/10/esp32-setting-up-a-development-environment/</guid>
 				<description>&lt;p&gt;&lt;a href=&#34;http://daniel-m.github.io/post/2018/oct/esp32/esp32-1_getting_started/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;This post is part of a series of ESP32 blog posts. Look the index here&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction-sort-of&#34;&gt;&#xA;  Introduction (sort of)&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction-sort-of&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://www.espressif.com/en/products/hardware/esp32&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ESP32&lt;/a&gt; was originally conceived by&#xA;&lt;a href=&#34;https://www.espressif.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;espressif&lt;/a&gt; a multinational company with&#xA;headquarters in Shangai, focused on developing cutting-edge WiFi-and-Bluetooth,&#xA;low-power, IoT solutions. Among our popular products are the ESP8266 and ESP32&#xA;series of chips, modules and development boards.&lt;/p&gt;&#xA;&lt;p&gt;The ESP32 can be programmed in several ways, among the languages and platforms&#xA;supported the most popular are,&lt;/p&gt;</description>
 			</item>
 	</channel>
