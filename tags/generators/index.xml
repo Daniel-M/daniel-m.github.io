@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>generators on Daniel Mejía Raigosa</title>
-    <link>https://daniel-m.github.io/tags/generators/</link>
-    <description>Recent content in generators on Daniel Mejía Raigosa</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 16 Nov 2023 11:05:45 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/generators/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Python Generators Iterator</title>
-      <link>https://daniel-m.github.io/2023/11/python-generators-iterator/</link>
-      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/2023/11/python-generators-iterator/</guid>
-      <description>Generators in Python Sometimes when working with bulk data whose nature is somewhat unpredictable, such as a stream of events, or data chunks, or anything that can be batched, like in ETL pipilines where data passes across several transformation stages. My premise is that the process must work well within a constrained environment, either with limited RAM, processing capabilities, or storage, such as Google Cloud Functions or AWS Lambdas (PaaS), Kubernetes pods, or Cloud Compute / EC2 instances, where I have to be able to process portions of information without overloading the runtime.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Generators on Daniel Mejía Raigosa</title>
+		<link>https://daniel-m.github.io/tags/generators/</link>
+		<description>Recent content in Generators on Daniel Mejía Raigosa</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 16 Nov 2023 11:05:45 -0500</lastBuildDate>
+		
+			<atom:link href="https://daniel-m.github.io/tags/generators/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Python Generators Iterator</title>
+				<link>https://daniel-m.github.io/2023/11/python-generators-iterator/</link>
+				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+				<guid>https://daniel-m.github.io/2023/11/python-generators-iterator/</guid>
+				<description>&lt;h1 id=&#34;generators-in-python&#34;&gt;&#xA;  Generators in Python&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#generators-in-python&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Sometimes when working with bulk data whose nature is somewhat unpredictable, such as a stream of events, or data chunks, or anything that can be batched, like in ETL pipilines where data passes across several transformation stages. My premise is that the process must work well within a constrained environment, either with limited RAM, processing capabilities, or storage, such as Google Cloud Functions or AWS Lambdas (PaaS), Kubernetes pods, or Cloud Compute / EC2 instances, where I have to be able to process portions of information without overloading the runtime. Generators are a really cool construct that helps solving those tasks in python (In Javascript we have generators too, and in go we have channels, so the principles here somewhat apply to those languages too). To understand generators, let us understand what are generator iterators first&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

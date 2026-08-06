@@ -2,106 +2,153 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  
-  <meta name="description" content="Generalist Developer, an enthusiastic physicist that spends most of its days telling computers how to do stuff">
-  
-  <meta name="keywords" content="blog,developer,personal">
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ESP32: esp-idf Development Framework and the FreeRTOS kernel"/>
-<meta name="twitter:description" content="This post is part of a series of ESP32 blog posts. Look the index here
-Motivation In the last blog post of this series, we saw how to set up the basic development environment, then built and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I&rsquo;ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works."/>
-
-  <meta property="og:title" content="ESP32: esp-idf Development Framework and the FreeRTOS kernel" />
-<meta property="og:description" content="This post is part of a series of ESP32 blog posts. Look the index here
-Motivation In the last blog post of this series, we saw how to set up the basic development environment, then built and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I&rsquo;ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-11-10T00:40:25-05:00" />
-<meta property="article:modified_time" content="2018-11-10T00:40:25-05:00" />
-
-
-
-  
-  <base href="https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/">
-  
   <title>
   ESP32: esp-idf Development Framework and the FreeRTOS kernel · Daniel Mejía Raigosa
 </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
-  
-  <link rel="canonical" href="https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/">
-  
 
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
+
+<meta name="author" content="Daniel Mejía R.">
+<meta name="description" content="This post is part of a series of ESP32 blog posts. Look the index here
+
+  Motivation
   
-  
-  
-  <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw="
-    crossorigin="anonymous" media="screen" />
+    
+    Link to heading
   
 
-  
+In the last blog post of this series,
+we saw how to set up the basic development environment, then built and loaded
+a hello-world program included in the examples folder of the esp-idf (Espressif IoT
+Development Framework). Today I&rsquo;ll try to give some details about what is actually
+happening in the process, about what is the operating system running within the
+ESP32, and how it works.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="ESP32: esp-idf Development Framework and the FreeRTOS kernel">
+	<meta name="twitter:description" content="This post is part of a series of ESP32 blog posts. Look the index here
+Motivation Link to heading In the last blog post of this series, we saw how to set up the basic development environment, then built and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I’ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works.">
+
+<meta property="og:url" content="https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/">
+	<meta property="og:site_name" content="Daniel Mejía Raigosa">
+	<meta property="og:title" content="ESP32: esp-idf Development Framework and the FreeRTOS kernel">
+	<meta property="og:description" content="This post is part of a series of ESP32 blog posts. Look the index here
+Motivation Link to heading In the last blog post of this series, we saw how to set up the basic development environment, then built and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I’ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2018-11-10T00:40:25-05:00">
+		<meta property="article:modified_time" content="2018-11-10T00:40:25-05:00">
+		<meta property="article:tag" content="ESP32">
+		<meta property="article:tag" content="FreeRTOS">
+
+
+
+
+<link rel="canonical" href="https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/">
+
+
+<link rel="preload" href="https://daniel-m.github.io/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://daniel-m.github.io/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://daniel-m.github.io/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
 
   
   
-  
-  
-  <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE="
-    crossorigin="anonymous" media="screen" />
-  
-  
+  <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css" integrity="sha256-9rGzWnsCUhslM49s9Yl1&#43;ZgKbBKEd2P&#43;NaSDB3WM0ec=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
 
   
-
+    
+    
+    <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css" integrity="sha256-rUj0didZdIhb3APVJR482&#43;FnjFSmP/dyN2sO0q3EaN0=" crossorigin="anonymous" media="screen" />
   
 
-  <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png"
-    sizes="32x32">
-  <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png"
-    sizes="16x16">
 
-  <meta name="generator" content="Hugo 0.111.3">
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="https://daniel-m.github.io/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="https://daniel-m.github.io/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://daniel-m.github.io/images/apple-touch-icon.png">
+
+<link rel="manifest" href="https://daniel-m.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://daniel-m.github.io/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
 </head>
 
-<body class=" inverted">
+
+
+
+
+
+<body class="preload-transitions colorscheme-dark">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
   <main class="wrapper">
     <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://daniel-m.github.io">
+    
+    <a class="navigation-title" href="https://daniel-m.github.io/">
       Daniel Mejía Raigosa
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://daniel-m.github.io/about/">About Me</a>
-          </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://daniel-m.github.io/about/">About Me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://daniel-m.github.io/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://daniel-m.github.io/now/">Now</a>
+            </li>
+          
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://daniel-m.github.io/posts/">Blog</a>
-          </li>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://daniel-m.github.io/now/">Now</a>
-          </li>
-        
-      
-      
-    </ul>
+      </ul>
+    
   </section>
 </nav>
 
@@ -112,23 +159,28 @@ Motivation In the last blog post of this series, we saw how to set up the basic 
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">ESP32: esp-idf Development Framework and the FreeRTOS kernel</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/">
+              ESP32: esp-idf Development Framework and the FreeRTOS kernel
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2018-11-10T00:40:25-05:00'>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2018-11-10T00:40:25-05:00">
                 November 10, 2018
               </time>
             </span>
             <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              7 minutes read
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
             </span>
           </div>
+          
           <div class="categories">
-  <i class="fas fa-folder"></i>
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
     <a href="https://daniel-m.github.io/categories/embededdevices/">EmbededDevices</a>
       <span class="separator">•</span>
     <a href="https://daniel-m.github.io/categories/iot/">IoT</a>
@@ -138,24 +190,44 @@ Motivation In the last blog post of this series, we saw how to set up the basic 
     <a href="https://daniel-m.github.io/categories/notes/">Notes</a></div>
 
           <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://daniel-m.github.io/tags/esp32/">ESP32</a>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="https://daniel-m.github.io/tags/esp32/">ESP32</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://daniel-m.github.io/tags/freertos/">FreeRTOS</a></div>
+    <span class="tag">
+      <a href="https://daniel-m.github.io/tags/freertos/">FreeRTOS</a>
+    </span></div>
 
         </div>
       </header>
 
-      <div>
-        <p><a href="http://daniel-m.github.io/categories/esp32/"><em>This post is part of a series of ESP32 blog posts. Look the index here</em></a></p>
-<h2 id="motivation">Motivation</h2>
-<p>In <a href="https://daniel-m.github.io/categories/esp32/">the last blog post</a> of this series,
+      
+
+
+      <div class="post-content">
+        
+        <p><a href="http://daniel-m.github.io/categories/esp32/"  class="external-link" target="_blank" rel="noopener"><em>This post is part of a series of ESP32 blog posts. Look the index here</em></a></p>
+<h2 id="motivation">
+  Motivation
+  <a class="heading-link" href="#motivation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>In <a href="https://daniel-m.github.io/categories/esp32/"  class="external-link" target="_blank" rel="noopener">the last blog post</a> of this series,
 we saw how to set up the basic development environment, then built and loaded
 a <code>hello-world</code> program included in the examples folder of the esp-idf (Espressif IoT
 Development Framework). Today I&rsquo;ll try to give some details about what is actually
 happening in the process, about what is the operating system running within the
 ESP32, and how it works.</p>
-<h2 id="the-application-development">The application development</h2>
+<h2 id="the-application-development">
+  The application development
+  <a class="heading-link" href="#the-application-development">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>The application development may be summarized in four steps:</p>
 <ol>
 <li>Configuration of a Project and writing the code</li>
@@ -165,13 +237,19 @@ ESP32, and how it works.</p>
 </ol>
 <p>The following diagram shows the ESP32 application development cycle,</p>
 <p><img src="https://docs.espressif.com/projects/esp-idf/en/latest/_images/what-you-need.png" alt="Depiction of the development of ESP32 applications"></p>
-<h2 id="configuration-of-the-project">Configuration of the project</h2>
-<p>The esp-idf provides <a href="https://github.com/espressif/esp-idf-template"><em>a project template</em></a>
+<h2 id="configuration-of-the-project">
+  Configuration of the project
+  <a class="heading-link" href="#configuration-of-the-project">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The esp-idf provides <a href="https://github.com/espressif/esp-idf-template"  class="external-link" target="_blank" rel="noopener"><em>a project template</em></a>
 which can be used to bootstrap a new project. The source tree has,</p>
 <ul>
 <li>A Makefile which defines the name for the project (<code>app-template</code> in the
 template), that also imports a Makefile from the esp-idf location, which is
-expected to be set at <code>IDF_PATH</code> <a href="https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/">as we did in the last blog</a></li>
+expected to be set at <code>IDF_PATH</code> <a href="https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/"  class="external-link" target="_blank" rel="noopener">as we did in the last blog</a></li>
 <li>A <code>src</code> path which contains,
 <ul>
 <li><code>main.c</code> - The actual source code for our application</li>
@@ -181,14 +259,14 @@ now</li>
 </li>
 </ul>
 <p>The programming language of choice is C, though C++ and even assembly also can be used.
-As mentioned <a href="https://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/">another post</a> there are other bootloaders available that could allow us to
+As mentioned <a href="https://daniel-m.github.io/post/2018/nov/esp32/esp32-2-setting_up_development_environment/"  class="external-link" target="_blank" rel="noopener">another post</a> there are other bootloaders available that could allow us to
 program ESP&rsquo;s with Python or Lua among others.</p>
 <p>To write an application using the espressif template &ndash;which I do recommend&ndash; you&rsquo;ll
 need to edit the file <code>src/main.c</code> and add more files as needed.
 Another approach is to make a copy of the <code>hello-world</code>
 located at <code>$IDF_PATH/examples/get-started/hello_world</code> and build upon it.</p>
 <p>Once you have some code, yo can compile it and upload it to the ESP32.
-<a href="https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/">As we saw in the last blog post</a>
+<a href="https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/"  class="external-link" target="_blank" rel="noopener">As we saw in the last blog post</a>
 with the esp-idf we can use the Makefile, and perform the compilation with
 <code>make</code>. This won&rsquo;t upload the code, but it will <em>cross compile</em> it &ndash;more about
 his below&ndash; to run on ESP32
@@ -205,11 +283,23 @@ instance, <code>xtensa-esp32-elf-gcc</code> is the C compiler to build Xtensa bi
 that run on ESP32 CPUs.</p>
 <p>In summary, the esp-idf with the toolchain allows to build an upload the application to the
 ESP32.</p>
-<h3 id="compilation-flashing-and-monitoring-of-the-project">Compilation, flashing, and monitoring of the project</h3>
-<p><a href="https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/">We have already seen</a> how to compile the project, flash it to the ESP32, and
+<h3 id="compilation-flashing-and-monitoring-of-the-project">
+  Compilation, flashing, and monitoring of the project
+  <a class="heading-link" href="#compilation-flashing-and-monitoring-of-the-project">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><a href="https://daniel-m.github.io/post/2018/oct/esp32/esp32-2-setting_up_development_environment/"  class="external-link" target="_blank" rel="noopener">We have already seen</a> how to compile the project, flash it to the ESP32, and
 how to look to the serial monitor, all with the esp-idf. If you wish to get a
-deeper understanding, I suggest reading more at the amazing <a href="https://leanpub.com/kolban-ESP32"><em>Kolban&rsquo;s book on ESP32</em> by Neil Kolban</a>.</p>
-<h2 id="freertos">FreeRTOS</h2>
+deeper understanding, I suggest reading more at the amazing <a href="https://leanpub.com/kolban-ESP32"  class="external-link" target="_blank" rel="noopener"><em>Kolban&rsquo;s book on ESP32</em> by Neil Kolban</a>.</p>
+<h2 id="freertos">
+  FreeRTOS
+  <a class="heading-link" href="#freertos">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>The purpose of an operating system kernel
 is to provide an interface between the software applications and the underlying
 hardware infrastructure. When we are running ESP32 programs, we are doing so
@@ -226,26 +316,38 @@ in the next subsection.</p>
 <p>The FreeRTOS kernel was originally developed by Richard Barry around 2003, after years of development and success, Amazon Web Services (AWS) took over the stewardship of the project in 2017. It is natural to ask, why did AWS asume this role?, well AWS offers services to millions of customers, and in all industry sectors.
 A growing number of AWS services are designed for Internet of Things (IoT) applications, that is, the connection and management of internet connected devices.</p>
 <p>Device manufacturers connect their MCU based devices to the cloud, however, it takes time to build the security and connectivity components necessary for those devices run work properly at production scale. A significant proportion of connected MCU devices already run the FreeRTOS kernel, so Amazon chose to provide the FreeRTOS project with the resources necessary to extend their offering into fully integrated security and connectivity libraries, and ensure those libraries can be developed and supported long into the future.</p>
-<h3 id="memory-management">Memory management</h3>
+<h3 id="memory-management">
+  Memory management
+  <a class="heading-link" href="#memory-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>Since we are working with C, the use of <code>malloc()</code> and <code>free()</code> are valid ways
 to allocate/release memory resources, like in the example below,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="">#include</span><span style="">&lt;stdio.h&gt;</span><span style="">
-</span></span></span><span style="display:flex;"><span><span style="">#include</span><span style="">&lt;stdlib.h&gt;</span><span style="">
-</span></span></span><span style="display:flex;"><span><span style=""></span>
-</span></span><span style="display:flex;"><span><span style="">int</span> main() {
-</span></span><span style="display:flex;"><span>    <span style="font-style:italic">// Allocate memory for an Int
-</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>    <span style="">int</span> *counter = malloc(<span style="font-weight:bold">sizeof</span>(<span style="">int</span>));
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;stdio.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;stdlib.h&gt;</span><span style="color:#ff79c6">
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Allocate memory for an Int
+</span></span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> <span style="color:#ff79c6">*</span>counter <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">malloc</span>(<span style="color:#ff79c6">sizeof</span>(<span style="color:#8be9fd">int</span>));
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="font-style:italic">// Store data in the variable
-</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>    *counter = 123;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Store data in the variable
+</span></span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">*</span>counter <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">123</span>;
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="font-style:italic">// Print what we have
-</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>    printf(<span style="font-style:italic">&#34;Variable contents: %i</span><span style="font-weight:bold;font-style:italic">\n</span><span style="font-style:italic">&#34;</span>, *counter);
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Print what we have
+</span></span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">printf</span>(<span style="color:#f1fa8c">&#34;Variable contents: %i</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, <span style="color:#ff79c6">*</span>counter);
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="font-style:italic">// Release the memory
-</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>    free(counter);
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Release the memory
+</span></span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">free</span>(counter);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="task-management">Task management</h3>
+</span></span></code></pre></div><h3 id="task-management">
+  Task management
+  <a class="heading-link" href="#task-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>A part of the operating system called the scheduler is responsible for deciding
 which program to run when, and provides the illusion of simultaneous execution
 by rapidly switching between each program.</p>
@@ -272,50 +374,75 @@ seem to run at the same time, but as the portion at the bottom show, only a task
 at the time is executed by the CPU.</p>
 <p>In FreeRTOS a <code>task</code> is implemented by a code block responsible of performing
 whatever the task we&rsquo;d like to perform, but with a function signature as,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="">void</span> theTaskName(<span style="">void</span> *theParameters)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">theTaskName</span>(<span style="color:#8be9fd">void</span> <span style="color:#ff79c6">*</span>theParameters)
 </span></span></code></pre></div><p>But this is not enough, the task must be created with <code>xTaskCreate()</code> &ndash;we well
 discuss this API in detail in a future blog post&ndash;.</p>
 <p>FreeRTOS expects a task to run forever, but, if we need it to end, we need to
 call <code>vTaskDelete()</code> at the end of the scope of the task code block, like this,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="">void</span> theTaskName(<span style="">void</span> *theParameters) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">theTaskName</span>(<span style="color:#8be9fd">void</span> <span style="color:#ff79c6">*</span>theParameters) {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="font-style:italic">// Perform activities
-</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>
-</span></span><span style="display:flex;"><span>  vTaskDelete(NULL);
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Perform activities
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">vTaskDelete</span>(<span style="color:#8be9fd;font-style:italic">NULL</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>I&rsquo;ll go into details about creating task in an incoming blog post.</p>
-<h3 id="api-synchronization">API Synchronization</h3>
+<h3 id="api-synchronization">
+  API Synchronization
+  <a class="heading-link" href="#api-synchronization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>This is a more advanced topic of ESP32 programming with FreeRTOS, I&rsquo;m still
 pending of diving into it and writing about it here.</p>
-<h2 id="application-entry-point">Application entry point</h2>
+<h2 id="application-entry-point">
+  Application entry point
+  <a class="heading-link" href="#application-entry-point">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>If you look at the code of the <code>hello-world</code> example, you&rsquo;ll notice that, unlike
 a regular C program, we have no <code>main()</code> function. The application entry for the
 esp-idf + FreeRTOS is the <code>app_main()</code> function. This doesn&rsquo;t mean we can&rsquo;t
 define more functions, as I wrote above, we can create FreeRTOS task and such.
 Programming the ESP32 with esp-idf is really regular C programming. Before
 running the entry point function, several steps happen, I recommend reading
-<a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/">Espressif esp-idf getting started</a></p>
-<h2 id="summary">Summary</h2>
+<a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/"  class="external-link" target="_blank" rel="noopener">Espressif esp-idf getting started</a></p>
+<h2 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>In this blog I&rsquo;ve discussed the logic behind using the esp-idf to program ESP32 CPUs,
 what is the operating system running within our ESP32 device (FreeRTOS), besides a very basic
 notion of what is a task, a concept we will be using a lot in the following blog
 posts of the series.</p>
-<h2 id="resources">Resources</h2>
+<h2 id="resources">
+  Resources
+  <a class="heading-link" href="#resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <ul>
-<li><a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/">Espressif esp-idf getting started</a></li>
-<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/general-notes.html">General Notes About ESP-IDF Programming</a></li>
-<li><a href="https://www.freertos.org/about-RTOS.html">https://www.freertos.org/about-RTOS.html</a></li>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/stable/get-started/"  class="external-link" target="_blank" rel="noopener">Espressif esp-idf getting started</a></li>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/general-notes.html"  class="external-link" target="_blank" rel="noopener">General Notes About ESP-IDF Programming</a></li>
+<li><a href="https://www.freertos.org/about-RTOS.html"  class="external-link" target="_blank" rel="noopener">https://www.freertos.org/about-RTOS.html</a></li>
 </ul>
 
       </div>
+
 
       <footer>
         
 
 
         <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
+<script>
+  window.disqus_config = function () {
     
     
     
@@ -330,40 +457,69 @@ posts of the series.</p>
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        <div id="commento"></div>
-<script src="https://daniel-m.github.io/js/commento.js"></script>
+        
+        
+        
+        
+        <div class="comments">
+    <script>
+
+      let s = document.createElement('script');
+      s.src = 'https://comments.app/js/widget.js?3';
+      s.setAttribute('data-comments-app-website', 'O_0UM3BI');
+      s.setAttribute('data-limit', '5');
+      s.setAttribute('data-height', '200px');
+      s.setAttribute('data-color', 'dark');
+      s.setAttribute('data-dislikes', 'false');
+      s.setAttribute('data-outlined', 'false');
+      s.setAttribute('data-colorful', 'false');
+      s.setAttribute('data-dark', '');
+      document.querySelector('div.comments').innerHTML = '';
+      document.querySelector('div.comments').appendChild(s);
+
+    </script>
+    </div>
+        
       </footer>
     </article>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
     onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
           {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );">
-  </script>
+    );"></script>
   </section>
 
     </div>
 
     <footer class="footer">
   <section class="container">
+    ©
     
-      <p>Daniel generalist developer, an enthusiastic physicist that spends most of its days telling computers how to do stuff</p>
+    2026
+     Daniel Mejía R. 
+    ·
     
-     © 2023
-    
-       · 
-      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
     
   </section>
 </footer>
@@ -371,18 +527,65 @@ posts of the series.</p>
   </main>
 
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K120Y53H2L"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-K120Y53H2L', { 'anonymize_ip': false });
-}
-</script>
 
+  
+  
+  <script src="https://daniel-m.github.io/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
 
+  
+
+  
+
+  
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-K120Y53H2L"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-K120Y53H2L');
+        }
+      </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </body>
 
 </html>

@@ -1,623 +1,549 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on Daniel Mejía Raigosa</title>
-    <link>https://daniel-m.github.io/tags/</link>
-    <description>Recent content in Tags on Daniel Mejía Raigosa</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 16 Nov 2023 11:05:45 -0500</lastBuildDate><atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>etl</title>
-      <link>https://daniel-m.github.io/tags/etl/</link>
-      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/etl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>generators</title>
-      <link>https://daniel-m.github.io/tags/generators/</link>
-      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/generators/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iterators</title>
-      <link>https://daniel-m.github.io/tags/iterators/</link>
-      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/iterators/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pyenv</title>
-      <link>https://daniel-m.github.io/tags/pyenv/</link>
-      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/pyenv/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://daniel-m.github.io/tags/python/</link>
-      <pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jupyter</title>
-      <link>https://daniel-m.github.io/tags/jupyter/</link>
-      <pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/jupyter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://daniel-m.github.io/tags/aws/</link>
-      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>digital ocean</title>
-      <link>https://daniel-m.github.io/tags/digital-ocean/</link>
-      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/digital-ocean/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>digital ocean spaces</title>
-      <link>https://daniel-m.github.io/tags/digital-ocean-spaces/</link>
-      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/digital-ocean-spaces/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>do</title>
-      <link>https://daniel-m.github.io/tags/do/</link>
-      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/do/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>expressjs</title>
-      <link>https://daniel-m.github.io/tags/expressjs/</link>
-      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/expressjs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nodejs</title>
-      <link>https://daniel-m.github.io/tags/nodejs/</link>
-      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/nodejs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>s3</title>
-      <link>https://daniel-m.github.io/tags/s3/</link>
-      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/s3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>short</title>
-      <link>https://daniel-m.github.io/tags/short/</link>
-      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/short/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spaces</title>
-      <link>https://daniel-m.github.io/tags/spaces/</link>
-      <pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/spaces/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>poc</title>
-      <link>https://daniel-m.github.io/tags/poc/</link>
-      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/poc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>proof of concept</title>
-      <link>https://daniel-m.github.io/tags/proof-of-concept/</link>
-      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/proof-of-concept/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>selenium</title>
-      <link>https://daniel-m.github.io/tags/selenium/</link>
-      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/selenium/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>webscraping</title>
-      <link>https://daniel-m.github.io/tags/webscraping/</link>
-      <pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/webscraping/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>self-doc</title>
-      <link>https://daniel-m.github.io/tags/self-doc/</link>
-      <pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/self-doc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DataBases</title>
-      <link>https://daniel-m.github.io/tags/databases/</link>
-      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/databases/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>high availability</title>
-      <link>https://daniel-m.github.io/tags/high-availability/</link>
-      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/high-availability/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>influxdb</title>
-      <link>https://daniel-m.github.io/tags/influxdb/</link>
-      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/influxdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>time series</title>
-      <link>https://daniel-m.github.io/tags/time-series/</link>
-      <pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/time-series/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mongodb</title>
-      <link>https://daniel-m.github.io/tags/mongodb/</link>
-      <pubDate>Wed, 28 Oct 2020 16:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/mongodb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>character encodings</title>
-      <link>https://daniel-m.github.io/tags/character-encodings/</link>
-      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/character-encodings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>character sets</title>
-      <link>https://daniel-m.github.io/tags/character-sets/</link>
-      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/character-sets/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>encodings</title>
-      <link>https://daniel-m.github.io/tags/encodings/</link>
-      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/encodings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>unicode</title>
-      <link>https://daniel-m.github.io/tags/unicode/</link>
-      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/unicode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utf-16</title>
-      <link>https://daniel-m.github.io/tags/utf-16/</link>
-      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/utf-16/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utf-32</title>
-      <link>https://daniel-m.github.io/tags/utf-32/</link>
-      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/utf-32/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utf-8</title>
-      <link>https://daniel-m.github.io/tags/utf-8/</link>
-      <pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/utf-8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>checksum</title>
-      <link>https://daniel-m.github.io/tags/checksum/</link>
-      <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/checksum/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hash</title>
-      <link>https://daniel-m.github.io/tags/hash/</link>
-      <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/hash/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hashlib</title>
-      <link>https://daniel-m.github.io/tags/hashlib/</link>
-      <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/hashlib/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>md5</title>
-      <link>https://daniel-m.github.io/tags/md5/</link>
-      <pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/md5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>debian</title>
-      <link>https://daniel-m.github.io/tags/debian/</link>
-      <pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/debian/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gpu</title>
-      <link>https://daniel-m.github.io/tags/gpu/</link>
-      <pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/gpu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nvidia</title>
-      <link>https://daniel-m.github.io/tags/nvidia/</link>
-      <pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/nvidia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>BigQuery</title>
-      <link>https://daniel-m.github.io/tags/bigquery/</link>
-      <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/bigquery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DataPersistence</title>
-      <link>https://daniel-m.github.io/tags/datapersistence/</link>
-      <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/datapersistence/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://daniel-m.github.io/tags/go/</link>
-      <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google</title>
-      <link>https://daniel-m.github.io/tags/google/</link>
-      <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/google/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Serverless</title>
-      <link>https://daniel-m.github.io/tags/serverless/</link>
-      <pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/serverless/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>concurrency</title>
-      <link>https://daniel-m.github.io/tags/concurrency/</link>
-      <pubDate>Tue, 01 Jan 2019 22:30:51 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/concurrency/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ESP32</title>
-      <link>https://daniel-m.github.io/tags/esp32/</link>
-      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/esp32/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>FreeRTOS</title>
-      <link>https://daniel-m.github.io/tags/freertos/</link>
-      <pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/freertos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blog</title>
-      <link>https://daniel-m.github.io/tags/blog/</link>
-      <pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>open source</title>
-      <link>https://daniel-m.github.io/tags/open-source/</link>
-      <pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/open-source/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>opinion</title>
-      <link>https://daniel-m.github.io/tags/opinion/</link>
-      <pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/opinion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>personal</title>
-      <link>https://daniel-m.github.io/tags/personal/</link>
-      <pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/personal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ContinuousDelivery</title>
-      <link>https://daniel-m.github.io/tags/continuousdelivery/</link>
-      <pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/continuousdelivery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ContinuousIntegration</title>
-      <link>https://daniel-m.github.io/tags/continuousintegration/</link>
-      <pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/continuousintegration/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://daniel-m.github.io/tags/golang/</link>
-      <pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CNNs</title>
-      <link>https://daniel-m.github.io/tags/cnns/</link>
-      <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/cnns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DeepLearning</title>
-      <link>https://daniel-m.github.io/tags/deeplearning/</link>
-      <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/deeplearning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ImageNet</title>
-      <link>https://daniel-m.github.io/tags/imagenet/</link>
-      <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/imagenet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Inception</title>
-      <link>https://daniel-m.github.io/tags/inception/</link>
-      <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/inception/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Keras</title>
-      <link>https://daniel-m.github.io/tags/keras/</link>
-      <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/keras/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>VGG</title>
-      <link>https://daniel-m.github.io/tags/vgg/</link>
-      <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/vgg/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Xception</title>
-      <link>https://daniel-m.github.io/tags/xception/</link>
-      <pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/xception/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>multiprocessing</title>
-      <link>https://daniel-m.github.io/tags/multiprocessing/</link>
-      <pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/multiprocessing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ParallelProgramming</title>
-      <link>https://daniel-m.github.io/tags/parallelprogramming/</link>
-      <pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/parallelprogramming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GeoJSON</title>
-      <link>https://daniel-m.github.io/tags/geojson/</link>
-      <pubDate>Thu, 15 Feb 2018 21:30:14 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/geojson/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Django</title>
-      <link>https://daniel-m.github.io/tags/django/</link>
-      <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/django/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Flask</title>
-      <link>https://daniel-m.github.io/tags/flask/</link>
-      <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/flask/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pyramid</title>
-      <link>https://daniel-m.github.io/tags/pyramid/</link>
-      <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/pyramid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tornado</title>
-      <link>https://daniel-m.github.io/tags/tornado/</link>
-      <pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
-      
-      <guid>https://daniel-m.github.io/tags/tornado/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Tags on Daniel Mejía Raigosa</title>
+		<link>https://daniel-m.github.io/tags/</link>
+		<description>Recent content in Tags on Daniel Mejía Raigosa</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 05 Aug 2026 18:37:09 -0500</lastBuildDate>
+		
+			<atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>AI</title>
+				<link>https://daniel-m.github.io/tags/ai/</link>
+				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/ai/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>AI-Coding</title>
+				<link>https://daniel-m.github.io/tags/ai-coding/</link>
+				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/ai-coding/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Algorithms</title>
+				<link>https://daniel-m.github.io/tags/algorithms/</link>
+				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/algorithms/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>LLMs</title>
+				<link>https://daniel-m.github.io/tags/llms/</link>
+				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/llms/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Problem-Solving</title>
+				<link>https://daniel-m.github.io/tags/problem-solving/</link>
+				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/problem-solving/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Project-Euler</title>
+				<link>https://daniel-m.github.io/tags/project-euler/</link>
+				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/project-euler/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Blogging</title>
+				<link>https://daniel-m.github.io/tags/blogging/</link>
+				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/blogging/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Thoughts</title>
+				<link>https://daniel-m.github.io/tags/thoughts/</link>
+				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/thoughts/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Etl</title>
+				<link>https://daniel-m.github.io/tags/etl/</link>
+				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/etl/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Generators</title>
+				<link>https://daniel-m.github.io/tags/generators/</link>
+				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/generators/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Iterators</title>
+				<link>https://daniel-m.github.io/tags/iterators/</link>
+				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/iterators/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Pyenv</title>
+				<link>https://daniel-m.github.io/tags/pyenv/</link>
+				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/pyenv/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Python</title>
+				<link>https://daniel-m.github.io/tags/python/</link>
+				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/python/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Jupyter</title>
+				<link>https://daniel-m.github.io/tags/jupyter/</link>
+				<pubDate>Tue, 08 Aug 2023 18:59:14 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/jupyter/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Aws</title>
+				<link>https://daniel-m.github.io/tags/aws/</link>
+				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/aws/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Digital Ocean</title>
+				<link>https://daniel-m.github.io/tags/digital-ocean/</link>
+				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/digital-ocean/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Digital Ocean Spaces</title>
+				<link>https://daniel-m.github.io/tags/digital-ocean-spaces/</link>
+				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/digital-ocean-spaces/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Do</title>
+				<link>https://daniel-m.github.io/tags/do/</link>
+				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/do/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Expressjs</title>
+				<link>https://daniel-m.github.io/tags/expressjs/</link>
+				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/expressjs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Nodejs</title>
+				<link>https://daniel-m.github.io/tags/nodejs/</link>
+				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/nodejs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>S3</title>
+				<link>https://daniel-m.github.io/tags/s3/</link>
+				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/s3/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Short</title>
+				<link>https://daniel-m.github.io/tags/short/</link>
+				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/short/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Spaces</title>
+				<link>https://daniel-m.github.io/tags/spaces/</link>
+				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/spaces/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Poc</title>
+				<link>https://daniel-m.github.io/tags/poc/</link>
+				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/poc/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Proof of Concept</title>
+				<link>https://daniel-m.github.io/tags/proof-of-concept/</link>
+				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/proof-of-concept/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Selenium</title>
+				<link>https://daniel-m.github.io/tags/selenium/</link>
+				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/selenium/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Webscraping</title>
+				<link>https://daniel-m.github.io/tags/webscraping/</link>
+				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/webscraping/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Self-Doc</title>
+				<link>https://daniel-m.github.io/tags/self-doc/</link>
+				<pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/self-doc/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Databases</title>
+				<link>https://daniel-m.github.io/tags/databases/</link>
+				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/databases/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>High Availability</title>
+				<link>https://daniel-m.github.io/tags/high-availability/</link>
+				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/high-availability/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Influxdb</title>
+				<link>https://daniel-m.github.io/tags/influxdb/</link>
+				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/influxdb/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Time Series</title>
+				<link>https://daniel-m.github.io/tags/time-series/</link>
+				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/time-series/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Mongodb</title>
+				<link>https://daniel-m.github.io/tags/mongodb/</link>
+				<pubDate>Wed, 28 Oct 2020 16:17:42 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/mongodb/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Character Encodings</title>
+				<link>https://daniel-m.github.io/tags/character-encodings/</link>
+				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/character-encodings/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Character Sets</title>
+				<link>https://daniel-m.github.io/tags/character-sets/</link>
+				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/character-sets/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Encodings</title>
+				<link>https://daniel-m.github.io/tags/encodings/</link>
+				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/encodings/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Unicode</title>
+				<link>https://daniel-m.github.io/tags/unicode/</link>
+				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/unicode/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Utf-16</title>
+				<link>https://daniel-m.github.io/tags/utf-16/</link>
+				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/utf-16/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Utf-32</title>
+				<link>https://daniel-m.github.io/tags/utf-32/</link>
+				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/utf-32/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Utf-8</title>
+				<link>https://daniel-m.github.io/tags/utf-8/</link>
+				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/utf-8/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Checksum</title>
+				<link>https://daniel-m.github.io/tags/checksum/</link>
+				<pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/checksum/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Hash</title>
+				<link>https://daniel-m.github.io/tags/hash/</link>
+				<pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/hash/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Hashlib</title>
+				<link>https://daniel-m.github.io/tags/hashlib/</link>
+				<pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/hashlib/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Md5</title>
+				<link>https://daniel-m.github.io/tags/md5/</link>
+				<pubDate>Tue, 04 Feb 2020 16:17:42 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/md5/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Debian</title>
+				<link>https://daniel-m.github.io/tags/debian/</link>
+				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/debian/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Gpu</title>
+				<link>https://daniel-m.github.io/tags/gpu/</link>
+				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/gpu/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Nvidia</title>
+				<link>https://daniel-m.github.io/tags/nvidia/</link>
+				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/nvidia/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>BigQuery</title>
+				<link>https://daniel-m.github.io/tags/bigquery/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/bigquery/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>DataPersistence</title>
+				<link>https://daniel-m.github.io/tags/datapersistence/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/datapersistence/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Go</title>
+				<link>https://daniel-m.github.io/tags/go/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/go/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Google</title>
+				<link>https://daniel-m.github.io/tags/google/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/google/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Serverless</title>
+				<link>https://daniel-m.github.io/tags/serverless/</link>
+				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/serverless/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Concurrency</title>
+				<link>https://daniel-m.github.io/tags/concurrency/</link>
+				<pubDate>Tue, 01 Jan 2019 22:30:51 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/concurrency/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>ESP32</title>
+				<link>https://daniel-m.github.io/tags/esp32/</link>
+				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/esp32/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>FreeRTOS</title>
+				<link>https://daniel-m.github.io/tags/freertos/</link>
+				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/freertos/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Blog</title>
+				<link>https://daniel-m.github.io/tags/blog/</link>
+				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/blog/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Open Source</title>
+				<link>https://daniel-m.github.io/tags/open-source/</link>
+				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/open-source/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Opinion</title>
+				<link>https://daniel-m.github.io/tags/opinion/</link>
+				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/opinion/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Personal</title>
+				<link>https://daniel-m.github.io/tags/personal/</link>
+				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/personal/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>ContinuousDelivery</title>
+				<link>https://daniel-m.github.io/tags/continuousdelivery/</link>
+				<pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/continuousdelivery/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>ContinuousIntegration</title>
+				<link>https://daniel-m.github.io/tags/continuousintegration/</link>
+				<pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/continuousintegration/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Golang</title>
+				<link>https://daniel-m.github.io/tags/golang/</link>
+				<pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/golang/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>CNNs</title>
+				<link>https://daniel-m.github.io/tags/cnns/</link>
+				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/cnns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>DeepLearning</title>
+				<link>https://daniel-m.github.io/tags/deeplearning/</link>
+				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/deeplearning/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>ImageNet</title>
+				<link>https://daniel-m.github.io/tags/imagenet/</link>
+				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/imagenet/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Inception</title>
+				<link>https://daniel-m.github.io/tags/inception/</link>
+				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/inception/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Keras</title>
+				<link>https://daniel-m.github.io/tags/keras/</link>
+				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/keras/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>VGG</title>
+				<link>https://daniel-m.github.io/tags/vgg/</link>
+				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/vgg/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Xception</title>
+				<link>https://daniel-m.github.io/tags/xception/</link>
+				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/xception/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Multiprocessing</title>
+				<link>https://daniel-m.github.io/tags/multiprocessing/</link>
+				<pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/multiprocessing/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>ParallelProgramming</title>
+				<link>https://daniel-m.github.io/tags/parallelprogramming/</link>
+				<pubDate>Thu, 22 Mar 2018 21:53:32 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/parallelprogramming/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>GeoJSON</title>
+				<link>https://daniel-m.github.io/tags/geojson/</link>
+				<pubDate>Thu, 15 Feb 2018 21:30:14 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/geojson/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Django</title>
+				<link>https://daniel-m.github.io/tags/django/</link>
+				<pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/django/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Flask</title>
+				<link>https://daniel-m.github.io/tags/flask/</link>
+				<pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/flask/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Pyramid</title>
+				<link>https://daniel-m.github.io/tags/pyramid/</link>
+				<pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/pyramid/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tornado</title>
+				<link>https://daniel-m.github.io/tags/tornado/</link>
+				<pubDate>Thu, 25 Jan 2018 21:21:21 -0500</pubDate>
+				<guid>https://daniel-m.github.io/tags/tornado/</guid>
+				<description></description>
+			</item>
+	</channel>
 </rss>

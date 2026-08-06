@@ -2,104 +2,138 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  
-  <meta name="description" content="Generalist Developer, an enthusiastic physicist that spends most of its days telling computers how to do stuff">
-  
-  <meta name="keywords" content="blog,developer,personal">
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Notes on Go concurrency"/>
-<meta name="twitter:description" content="Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &ldquo;thread of control&rdquo; for each computation (&ldquo;process&rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete"/>
-
-  <meta property="og:title" content="Notes on Go concurrency" />
-<meta property="og:description" content="Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &ldquo;thread of control&rdquo; for each computation (&ldquo;process&rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://daniel-m.github.io/2019/01/notes-on-go-concurrency/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-01-01T22:30:51-05:00" />
-<meta property="article:modified_time" content="2019-01-01T22:30:51-05:00" />
-
-
-
-  
-  <base href="https://daniel-m.github.io/2019/01/notes-on-go-concurrency/">
-  
   <title>
   Notes on Go concurrency · Daniel Mejía Raigosa
 </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Daniel Mejía R.">
+<meta name="description" content="Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &ldquo;thread of control&rdquo; for each computation (&ldquo;process&rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Notes on Go concurrency">
+	<meta name="twitter:description" content="Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or “thread of control” for each computation (“process”). A concurrent system is one where a computation can advance without waiting for all other computations to complete">
+
+<meta property="og:url" content="https://daniel-m.github.io/2019/01/notes-on-go-concurrency/">
+	<meta property="og:site_name" content="Daniel Mejía Raigosa">
+	<meta property="og:title" content="Notes on Go concurrency">
+	<meta property="og:description" content="Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or “thread of control” for each computation (“process”). A concurrent system is one where a computation can advance without waiting for all other computations to complete">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2019-01-01T22:30:51-05:00">
+		<meta property="article:modified_time" content="2019-01-01T22:30:51-05:00">
+		<meta property="article:tag" content="Concurrency">
+		<meta property="article:tag" content="Go">
+
+
+
+
+<link rel="canonical" href="https://daniel-m.github.io/2019/01/notes-on-go-concurrency/">
+
+
+<link rel="preload" href="https://daniel-m.github.io/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://daniel-m.github.io/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://daniel-m.github.io/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
 
   
-  <link rel="canonical" href="https://daniel-m.github.io/2019/01/notes-on-go-concurrency/">
   
+  <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css" integrity="sha256-9rGzWnsCUhslM49s9Yl1&#43;ZgKbBKEd2P&#43;NaSDB3WM0ec=" crossorigin="anonymous" media="screen" />
 
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+
+
+
 
   
-  
-  
-  <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw="
-    crossorigin="anonymous" media="screen" />
-  
-
+    
+    
+    <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css" integrity="sha256-rUj0didZdIhb3APVJR482&#43;FnjFSmP/dyN2sO0q3EaN0=" crossorigin="anonymous" media="screen" />
   
 
-  
-  
-  
-  
-  <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-inverted.min.82fc4dc150848971832d67b7dfef6e844d0299608e3de0d49849f5bed10044b1.css" integrity="sha256-gvxNwVCEiXGDLWe33&#43;9uhE0CmWCOPeDUmEn1vtEARLE="
-    crossorigin="anonymous" media="screen" />
-  
-  
 
-  
 
-  
+ 
 
-  <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png"
-    sizes="32x32">
-  <link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png"
-    sizes="16x16">
 
-  <meta name="generator" content="Hugo 0.111.3">
+
+
+<link rel="icon" type="image/svg+xml" href="https://daniel-m.github.io/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="https://daniel-m.github.io/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://daniel-m.github.io/images/apple-touch-icon.png">
+
+<link rel="manifest" href="https://daniel-m.github.io/site.webmanifest">
+<link rel="mask-icon" href="https://daniel-m.github.io/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
 </head>
 
-<body class=" inverted">
+
+
+
+
+
+<body class="preload-transitions colorscheme-dark">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
   <main class="wrapper">
     <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://daniel-m.github.io">
+    
+    <a class="navigation-title" href="https://daniel-m.github.io/">
       Daniel Mejía Raigosa
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://daniel-m.github.io/about/">About Me</a>
-          </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://daniel-m.github.io/about/">About Me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://daniel-m.github.io/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://daniel-m.github.io/now/">Now</a>
+            </li>
+          
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://daniel-m.github.io/posts/">Blog</a>
-          </li>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://daniel-m.github.io/now/">Now</a>
-          </li>
-        
-      
-      
-    </ul>
+      </ul>
+    
   </section>
 </nav>
 
@@ -110,44 +144,63 @@
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Notes on Go concurrency</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://daniel-m.github.io/2019/01/notes-on-go-concurrency/">
+              Notes on Go concurrency
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2019-01-01T22:30:51-05:00'>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2019-01-01T22:30:51-05:00">
                 January 1, 2019
               </time>
             </span>
             <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              4 minutes read
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
             </span>
           </div>
+          
           <div class="categories">
-  <i class="fas fa-folder"></i>
-    <a href="https://daniel-m.github.io/categories/go/">go</a>
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="https://daniel-m.github.io/categories/go/">Go</a>
       <span class="separator">•</span>
     <a href="https://daniel-m.github.io/categories/notes/">Notes</a></div>
 
           <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://daniel-m.github.io/tags/concurrency/">concurrency</a>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="https://daniel-m.github.io/tags/concurrency/">Concurrency</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://daniel-m.github.io/tags/go/">go</a></div>
+    <span class="tag">
+      <a href="https://daniel-m.github.io/tags/go/">Go</a>
+    </span></div>
 
         </div>
       </header>
 
-      <div>
+      
+
+
+      <div class="post-content">
+        
         <p>Concurrent computing is a form of computing in which several computations are executed during overlapping time periods—concurrently—instead of sequentially (one completing before the next starts). This is a property of a system—this may be an individual program, a computer, or a network—and there is a separate execution point or &ldquo;thread of control&rdquo; for each computation (&ldquo;process&rdquo;). A concurrent system is one where a computation can advance without waiting for all other computations to complete</p>
 <p>Two common ways of concurrency are,</p>
 <ul>
 <li>Share memory</li>
 <li>Message passing</li>
 </ul>
-<h5 id="share-memory">Share memory</h5>
+<h5 id="share-memory">
+  Share memory
+  <a class="heading-link" href="#share-memory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
 <p>Here the concurrent components communicate by altering the contents of shared memory locations. This form of concurrency requires some form of locking to coordinate between threads,</p>
 <ul>
 <li>mutexes</li>
@@ -155,7 +208,13 @@
 <li>monitors</li>
 </ul>
 <p>Programs implementing those (correctly) are known as thread-safe</p>
-<h5 id="message-passing">Message passing</h5>
+<h5 id="message-passing">
+  Message passing
+  <a class="heading-link" href="#message-passing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
 <p>Here the concurrent components communicate by exchanging messages.</p>
 <hr>
 <p>Concurrency can happen at  programming level or operating system level. At programming level we encounter</p>
@@ -170,7 +229,13 @@
 <li>Process</li>
 <li>Thread</li>
 </ul>
-<h3 id="on-threads">On threads</h3>
+<h3 id="on-threads">
+  On threads
+  <a class="heading-link" href="#on-threads">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>A thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system. The scheduler is
 responsible for assigning resources to a given work (a set of instructions to be executed), in this case, the thread</p>
 <p>All OS support multiple threads of execution. The problems that can arise when dealing with,</p>
@@ -178,7 +243,13 @@ responsible for assigning resources to a given work (a set of instructions to be
 <li>Shared Data</li>
 <li>Signaling between threads</li>
 </ul>
-<h3 id="concurrency-primitives">Concurrency primitives</h3>
+<h3 id="concurrency-primitives">
+  Concurrency primitives
+  <a class="heading-link" href="#concurrency-primitives">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>A set of concurrent primitives usually exposed by the OS in some way to programming languages are,</p>
 <ul>
 <li>Locks (a.k.a. Mutex -&gt; MUTually EXclusive): Only one thread executes in selected regions of code</li>
@@ -190,115 +261,134 @@ responsible for assigning resources to a given work (a set of instructions to be
 <li>Non-blocking data structures: nonblocking queue, atomic counters. Allow access from many threads without using locks or minimal amount of locks</li>
 </ul>
 <p>Locks and semaphores can do every concurrency use case you can imagine.</p>
-<h2 id="go-routines">Go routines</h2>
+<h2 id="go-routines">
+  Go routines
+  <a class="heading-link" href="#go-routines">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>Go has its own way of dealing with concurrency. The go routine is a fundamental concept that represents
 the execution of a concurrent routine. A goroutine is a lightweight thread managed by the Go runtime, and
 run in the same address space of the &ldquo;parent&rdquo; process, so access to shared memory must be synchronized.</p>
 <p>To spawn go routines, Go uses the reserved word <code>go</code>. For instance,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fmt.Printf(&#34;hello &#34;)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>fmt.Printf(&#34;hello &#34;)
 </span></span><span style="display:flex;"><span>go LauchThisConcurrently()
 </span></span><span style="display:flex;"><span>fmt.Printf(&#34;world&#34;)
 </span></span></code></pre></div><p>Would print <code>&quot;hello world&quot;</code> with no delay between words since the <code>LauchThisConcurrently</code> function call
 will be execute concurrently. But, how do we synchronize jobs performed by go routines? we can use WaitGroups</p>
-<h3 id="exploring-syncwaitgroup">Exploring sync.WaitGroup</h3>
+<h3 id="exploring-syncwaitgroup">
+  Exploring sync.WaitGroup
+  <a class="heading-link" href="#exploring-syncwaitgroup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>Consider the following go-routine call,</p>
 <ol>
-<li><a href="https://play.golang.org/p/EdyHKFb0qzf">https://play.golang.org/p/EdyHKFb0qzf</a></li>
+<li><a href="https://play.golang.org/p/EdyHKFb0qzf"  class="external-link" target="_blank" rel="noopener">https://play.golang.org/p/EdyHKFb0qzf</a></li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">package</span> main
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> Concurrent() {
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">for</span> i := 0; i &lt; 5; i++ {
-</span></span><span style="display:flex;"><span>		fmt.Println(<span style="font-style:italic">&#34;Concurrent count&#34;</span>, i)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">Concurrent</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; <span style="color:#bd93f9">5</span>; i<span style="color:#ff79c6">++</span> {
+</span></span><span style="display:flex;"><span>		fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Concurrent count&#34;</span>, i)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> main() {
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">go</span> Concurrent()
-</span></span><span style="display:flex;"><span>	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">go</span> <span style="color:#50fa7b">Concurrent</span>()
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Hello, playground&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>As you see, the playground exits without showing anything on the execution of the go routine.
 If we want to actually wait for the execution, we would need to instance a wait group <code>sync.WaitGroup</code>. Consider the following modification to our code,</p>
 <ol start="2">
-<li><a href="https://play.golang.org/p/QrFtBfhI6hL">https://play.golang.org/p/QrFtBfhI6hL</a></li>
+<li><a href="https://play.golang.org/p/QrFtBfhI6hL"  class="external-link" target="_blank" rel="noopener">https://play.golang.org/p/QrFtBfhI6hL</a></li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">package</span> main
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>package main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span>import (
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;sync&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> Concurrent(wg *sync.WaitGroup) {
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">for</span> i := 0; i &lt; 5; i++ {
-</span></span><span style="display:flex;"><span>		fmt.Println(<span style="font-style:italic">&#34;Concurrent count&#34;</span>, i)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">func</span> Concurrent(wg <span style="color:#ff79c6">*</span>sync<span style="color:#ff79c6">.</span>WaitGroup) {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i :<span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">5</span>; i<span style="color:#ff79c6">++</span> {
+</span></span><span style="display:flex;"><span>		fmt<span style="color:#ff79c6">.</span>Println(<span style="color:#f1fa8c">&#34;Concurrent count&#34;</span>, i)
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	wg.Done()
+</span></span><span style="display:flex;"><span>	wg<span style="color:#ff79c6">.</span>Done()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> main() {
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">var</span> wg sync.WaitGroup
-</span></span><span style="display:flex;"><span>	wg.Add(1)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">func</span> main() {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">var</span> wg sync<span style="color:#ff79c6">.</span>WaitGroup
+</span></span><span style="display:flex;"><span>	wg<span style="color:#ff79c6">.</span>Add(<span style="color:#bd93f9">1</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">go</span> Concurrent(&amp;wg)
+</span></span><span style="display:flex;"><span>	go Concurrent(<span style="color:#ff79c6">&amp;</span>wg)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
-</span></span><span style="display:flex;"><span>	wg.Wait()
+</span></span><span style="display:flex;"><span>	fmt<span style="color:#ff79c6">.</span>Println(<span style="color:#f1fa8c">&#34;Hello, playground&#34;</span>)
+</span></span><span style="display:flex;"><span>	wg<span style="color:#ff79c6">.</span>Wait()
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Now, we have a <code>sync.WaitGroup</code> which upon calling <code>wg.Add(1)</code> we are telling it that he should wait for the end of the execution of a go-routine, &ndash;one, sice we did <code>wg.Add(1)</code>&ndash;, all the execution will lock at <code>wg.Wait()</code> and continue once all go-routines end.</p>
 <p>Thus, we can do something more advanced like,</p>
 <ol start="3">
-<li><a href="https://play.golang.org/p/fASebuJ_07N">https://play.golang.org/p/fASebuJ_07N</a></li>
+<li><a href="https://play.golang.org/p/fASebuJ_07N"  class="external-link" target="_blank" rel="noopener">https://play.golang.org/p/fASebuJ_07N</a></li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold">package</span> main
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>package main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="font-style:italic">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span>import (
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;sync&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> Concurrent(wg *sync.WaitGroup, id <span style="">int</span>) {
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">for</span> i := 0; i &lt; 5; i++ {
-</span></span><span style="display:flex;"><span>		fmt.Printf(<span style="font-style:italic">&#34;%d worker, counting %d\n&#34;</span>, id, i)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">func</span> Concurrent(wg <span style="color:#ff79c6">*</span>sync<span style="color:#ff79c6">.</span>WaitGroup, id int) {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i :<span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">5</span>; i<span style="color:#ff79c6">++</span> {
+</span></span><span style="display:flex;"><span>		fmt<span style="color:#ff79c6">.</span>Printf(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">%d</span><span style="color:#f1fa8c"> worker, counting </span><span style="color:#f1fa8c">%d</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, id, i)
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	wg.Done()
+</span></span><span style="display:flex;"><span>	wg<span style="color:#ff79c6">.</span>Done()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">func</span> main() {
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">var</span> workers = 3
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">var</span> wg sync.WaitGroup
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">func</span> main() {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">var</span> workers <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">var</span> wg sync<span style="color:#ff79c6">.</span>WaitGroup
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	wg.Add(workers)
+</span></span><span style="display:flex;"><span>	wg<span style="color:#ff79c6">.</span>Add(workers)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold">for</span> i := 0; i &lt; workers; i++ {
-</span></span><span style="display:flex;"><span>		<span style="font-weight:bold">go</span> Concurrent(&amp;wg, i)
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i :<span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> workers; i<span style="color:#ff79c6">++</span> {
+</span></span><span style="display:flex;"><span>		go Concurrent(<span style="color:#ff79c6">&amp;</span>wg, i)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	fmt.Println(<span style="font-style:italic">&#34;Hello, playground&#34;</span>)
-</span></span><span style="display:flex;"><span>	wg.Wait()
+</span></span><span style="display:flex;"><span>	fmt<span style="color:#ff79c6">.</span>Println(<span style="color:#f1fa8c">&#34;Hello, playground&#34;</span>)
+</span></span><span style="display:flex;"><span>	wg<span style="color:#ff79c6">.</span>Wait()
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><hr>
-<h2 id="resources">Resources</h2>
+<h2 id="resources">
+  Resources
+  <a class="heading-link" href="#resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <ol>
-<li><a href="https://medium.freecodecamp.org/concurrency-ideologies-of-programming-languages-java-c-c-c-go-and-rust-bd4671d943f">https://medium.freecodecamp.org/concurrency-ideologies-of-programming-languages-java-c-c-c-go-and-rust-bd4671d943f</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Concurrent_computing">https://en.wikipedia.org/wiki/Concurrent_computing</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Concurrency_control">https://en.wikipedia.org/wiki/Concurrency_control</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Thread_(computing)">https://en.wikipedia.org/wiki/Thread_(computing)</a></li>
+<li><a href="https://medium.freecodecamp.org/concurrency-ideologies-of-programming-languages-java-c-c-c-go-and-rust-bd4671d943f"  class="external-link" target="_blank" rel="noopener">https://medium.freecodecamp.org/concurrency-ideologies-of-programming-languages-java-c-c-c-go-and-rust-bd4671d943f</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Concurrent_computing"  class="external-link" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Concurrent_computing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Concurrency_control"  class="external-link" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Concurrency_control</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Thread_%28computing%29"  class="external-link" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Thread_(computing)</a></li>
 </ol>
 
       </div>
+
 
       <footer>
         
 
 
         <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
+<script>
+  window.disqus_config = function () {
     
     
     
@@ -313,40 +403,69 @@ If we want to actually wait for the execution, we would need to instance a wait 
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        <div id="commento"></div>
-<script src="https://daniel-m.github.io/js/commento.js"></script>
+        
+        
+        
+        
+        <div class="comments">
+    <script>
+
+      let s = document.createElement('script');
+      s.src = 'https://comments.app/js/widget.js?3';
+      s.setAttribute('data-comments-app-website', 'O_0UM3BI');
+      s.setAttribute('data-limit', '5');
+      s.setAttribute('data-height', '200px');
+      s.setAttribute('data-color', 'dark');
+      s.setAttribute('data-dislikes', 'false');
+      s.setAttribute('data-outlined', 'false');
+      s.setAttribute('data-colorful', 'false');
+      s.setAttribute('data-dark', '');
+      document.querySelector('div.comments').innerHTML = '';
+      document.querySelector('div.comments').appendChild(s);
+
+    </script>
+    </div>
+        
       </footer>
     </article>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
     onload="renderMathInElement(document.body,
       {
         delimiters: [
           {left: '$$', right: '$$', display:true},
           {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
         ]
       }
-    );">
-  </script>
+    );"></script>
   </section>
 
     </div>
 
     <footer class="footer">
   <section class="container">
+    ©
     
-      <p>Daniel generalist developer, an enthusiastic physicist that spends most of its days telling computers how to do stuff</p>
+    2026
+     Daniel Mejía R. 
+    ·
     
-     © 2023
-    
-       · 
-      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
     
   </section>
 </footer>
@@ -354,18 +473,65 @@ If we want to actually wait for the execution, we would need to instance a wait 
   </main>
 
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K120Y53H2L"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-K120Y53H2L', { 'anonymize_ip': false });
-}
-</script>
 
+  
+  
+  <script src="https://daniel-m.github.io/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
 
+  
+
+  
+
+  
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-K120Y53H2L"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-K120Y53H2L');
+        }
+      </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </body>
 
 </html>
