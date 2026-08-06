@@ -14,7 +14,7 @@
 		
 			<atom:link href="https://daniel-m.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>AI</title>
+				<title>Ai</title>
 				<link>https://daniel-m.github.io/tags/ai/</link>
 				<pubDate>Wed, 05 Aug 2026 18:37:09 -0500</pubDate>
 				<guid>https://daniel-m.github.io/tags/ai/</guid>
@@ -210,7 +210,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Databases</title>
+				<title>DataBases</title>
 				<link>https://daniel-m.github.io/tags/databases/</link>
 				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
 				<guid>https://daniel-m.github.io/tags/databases/</guid>
