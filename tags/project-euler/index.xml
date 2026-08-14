@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Wed, 05 Aug 2026 18:37:09 -0500</lastBuildDate>
+			<lastBuildDate>Thu, 13 Aug 2026 18:44:39 -0500</lastBuildDate>
 		
 			<atom:link href="https://daniel-m.github.io/tags/project-euler/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Project Euler - Problem 2 - Even Fibonacci Numbers</title>
+				<link>https://daniel-m.github.io/2026/08/project-euler-problem-2-even-fibonacci-numbers/</link>
+				<pubDate>Thu, 13 Aug 2026 18:44:29 -0500</pubDate>
+				<guid>https://daniel-m.github.io/2026/08/project-euler-problem-2-even-fibonacci-numbers/</guid>
+				<description>&lt;h1 id=&#34;problem-2---even-fibonacci-numbers&#34;&gt;&#xA;  Problem 2 - Even Fibonacci Numbers&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#problem-2---even-fibonacci-numbers&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://projecteuler.net/problem=2&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;problem statement&lt;/a&gt; asks to find the sum of the even Fibonacci numbers whose value is less than one million.&lt;/p&gt;&#xA;&lt;h2 id=&#34;fibonacci-series-for-even-numbers&#34;&gt;&#xA;  Fibonacci Series for even numbers&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#fibonacci-series-for-even-numbers&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;ll go short with this one. This is really popular and consist of the series&lt;/p&gt;&#xA;$$&#xA;0, 1, 1, 2, 3, 5, 8, 13, 21, \cdots&#xA;$$&lt;p&gt;They are generated using a recurrence relation&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Project Euler - Problem 1 - Multiples of 3 and 5</title>
 				<link>https://daniel-m.github.io/2026/08/project-euler-problem-1-multiples-of-3-and-5/</link>

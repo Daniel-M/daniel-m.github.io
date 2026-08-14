@@ -45,7 +45,7 @@ Motivation Link to heading In the last blog of the series I wrote about freeRTOS
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="posts">
 		<meta property="article:published_time" content="2018-12-03T20:40:25-05:00">
-		<meta property="article:modified_time" content="2018-12-03T20:40:25-05:00">
+		<meta property="article:modified_time" content="2026-08-05T16:17:37-05:00">
 		<meta property="article:tag" content="ESP32">
 		<meta property="article:tag" content="FreeRTOS">
 
@@ -55,14 +55,14 @@ Motivation Link to heading In the last blog of the series I wrote about freeRTOS
 <link rel="canonical" href="https://daniel-m.github.io/2018/12/esp32-blinking-a-led/">
 
 
-<link rel="preload" href="https://daniel-m.github.io/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://daniel-m.github.io/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://daniel-m.github.io/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
 
   
   
-  <link rel="stylesheet" href="https://daniel-m.github.io/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css" integrity="sha256-9rGzWnsCUhslM49s9Yl1&#43;ZgKbBKEd2P&#43;NaSDB3WM0ec=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css" integrity="sha256-9rGzWnsCUhslM49s9Yl1&#43;ZgKbBKEd2P&#43;NaSDB3WM0ec=" crossorigin="anonymous" media="screen" />
 
 
 
@@ -72,32 +72,37 @@ Motivation Link to heading In the last blog of the series I wrote about freeRTOS
   
     
     
-    <link rel="stylesheet" href="https://daniel-m.github.io/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css" integrity="sha256-rUj0didZdIhb3APVJR482&#43;FnjFSmP/dyN2sO0q3EaN0=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css" integrity="sha256-rUj0didZdIhb3APVJR482&#43;FnjFSmP/dyN2sO0q3EaN0=" crossorigin="anonymous" media="screen" />
   
 
 
 
  
-
-
-
-
-<link rel="icon" type="image/svg+xml" href="https://daniel-m.github.io/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="https://daniel-m.github.io/img/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="https://daniel-m.github.io/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://daniel-m.github.io/images/apple-touch-icon.png">
-
-<link rel="manifest" href="https://daniel-m.github.io/site.webmanifest">
-<link rel="mask-icon" href="https://daniel-m.github.io/images/safari-pinned-tab.svg" color="#5bbad5">
+  
+    
+    <link rel="stylesheet" href="/css/custom.min.23bbfa1b56d315e5e6da61f2b5b6609409b588635f6d72849e665ef1a94511a2.css" integrity="sha256-I7v6G1bTFeXm2mHytbZglAm1iGNfbXKEnmZe8alFEaI=" crossorigin="anonymous" media="screen" />
+  
 
 
 
 
 
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
 
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
 
 
@@ -134,15 +139,15 @@ Motivation Link to heading In the last blog of the series I wrote about freeRTOS
         
           
             <li class="navigation-item">
-              <a class="navigation-link " href="https://daniel-m.github.io/about/">About Me</a>
+              <a class="navigation-link " href="/about/">About Me</a>
             </li>
           
             <li class="navigation-item">
-              <a class="navigation-link " href="https://daniel-m.github.io/posts/">Blog</a>
+              <a class="navigation-link " href="/posts/">Blog</a>
             </li>
           
             <li class="navigation-item">
-              <a class="navigation-link " href="https://daniel-m.github.io/now/">Now</a>
+              <a class="navigation-link " href="/now/">Now</a>
             </li>
           
         
@@ -181,23 +186,25 @@ Motivation Link to heading In the last blog of the series I wrote about freeRTOS
           
           <div class="categories">
   <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="https://daniel-m.github.io/categories/embededdevices/">EmbededDevices</a>
+    <a href="/categories/embededdevices/">EmbededDevices</a>
       <span class="separator">•</span>
-    <a href="https://daniel-m.github.io/categories/iot/">IoT</a>
+    <a href="/categories/iot/">IoT</a>
       <span class="separator">•</span>
-    <a href="https://daniel-m.github.io/categories/projects/">Projects</a>
+    <a href="/categories/projects/">Projects</a>
       <span class="separator">•</span>
-    <a href="https://daniel-m.github.io/categories/notes/">Notes</a></div>
+    <a href="/categories/notes/">Notes</a><a href="/categories/" class="taxonomy-all-link" title="See all categories"> (all)</a>
+</div>
 
           <div class="tags">
   <i class="fa-solid fa-tag" aria-hidden="true"></i>
     <span class="tag">
-      <a href="https://daniel-m.github.io/tags/esp32/">ESP32</a>
+      <a href="/tags/esp32/">ESP32</a>
     </span>
       <span class="separator">•</span>
     <span class="tag">
-      <a href="https://daniel-m.github.io/tags/freertos/">FreeRTOS</a>
-    </span></div>
+      <a href="/tags/freertos/">FreeRTOS</a>
+    </span><a href="/tags/" class="taxonomy-all-link" title="See all tags"> (all)</a>
+</div>
 
         </div>
       </header>
@@ -331,12 +338,10 @@ number of processor ticks. The actual time that the task remains blocked depends
 on the tick rate. The constant <code>portTICK_PERIOD_MS</code> can be used to calculate
 real time from the tick rate - with the resolution of one tick period, hence
 if</p>
-<p>$$
-\text{Number Of Delayed Ticks} \times \text{One Tick Period in ms} = 500 , ms
-$$</p>
-<p>We have that</p>
-<p>$$ \text{Number Of Delayed Ticks} = \frac{500 , ms}{\text{One Tick Period in ms}} $$</p>
-<p>So the proper signature is <code>vTaskDelay(500 / portTICK_PERIOD_MS)</code> since the
+$$ 
+\text{Number Of Delayed Ticks} \times \text{One Tick Period in ms} = 500 \, ms 
+$$<p>We have that</p>
+$$ \text{Number Of Delayed Ticks} = \frac{500 \, ms}{\text{One Tick Period in ms}} $$<p>So the proper signature is <code>vTaskDelay(500 / portTICK_PERIOD_MS)</code> since the
 constant <code>portTICK_PERIOD_MS</code> stores the milliseconds taken for one tick</p>
 <p>Once we run <code>make</code> followed by <code>make flash</code>, we can <code>make monitor</code> and obtain</p>
 <p><img src="blinker.gif" alt="Blinking"></p>
@@ -491,7 +496,7 @@ the device</li>
 
   
   
-  <script src="https://daniel-m.github.io/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
   
 
   
