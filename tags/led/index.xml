@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Led on Daniel Mejía R.</title>
+		<link>https://daniel-m.github.io/tags/led/</link>
+		<description>Recent content in Led on Daniel Mejía R.</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 18 Nov 2026 17:44:29 -0500</lastBuildDate>
+		
+			<atom:link href="https://daniel-m.github.io/tags/led/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>ESP32: Blinking a LED</title>
+				<link>https://daniel-m.github.io/2018/12/esp32-blinking-a-led/</link>
+				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
+				<guid>https://daniel-m.github.io/2018/12/esp32-blinking-a-led/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;http://daniel-m.github.io/categories/esp32/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;This post is part of a series of ESP32 blog posts. Look the index here&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;motivation&#34;&gt;&#xA;  Motivation&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#motivation&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://daniel-m.github.io/categories/esp32/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;In &lt;em&gt;the last blog of the&#xA;series&lt;/em&gt;&lt;/a&gt;&#xA;I wrote about freeRTOS tasks, and that the scheduler in FreeRTOS is designed to&#xA;provide a predictable execution pattern. The Tasks allow to design better&#xA;workflows for our applications, allowing to control memory allocation, and&#xA;modularizing each task as separate entities which can run concurrently.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

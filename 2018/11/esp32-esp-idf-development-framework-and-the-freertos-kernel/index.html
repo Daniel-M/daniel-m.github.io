@@ -13,41 +13,27 @@
 
 
 <meta name="author" content="Daniel Mejía R.">
-<meta name="description" content="This post is part of a series of ESP32 blog posts. Look the index here
-
-  Motivation
-  
-    
-    Link to heading
-  
-
-In the last blog post of this series,
-we saw how to set up the basic development environment, then built and loaded
-a hello-world program included in the examples folder of the esp-idf (Espressif IoT
-Development Framework). Today I&rsquo;ll try to give some details about what is actually
-happening in the process, about what is the operating system running within the
-ESP32, and how it works.">
+<meta name="description" content="Overview of the esp-idf build-flash-monitor workflow and the FreeRTOS kernel: memory, tasks and app_main()">
 <meta name="keywords" content="blog,developer,personal">
 
 
 
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="ESP32: esp-idf Development Framework and the FreeRTOS kernel">
-	<meta name="twitter:description" content="This post is part of a series of ESP32 blog posts. Look the index here
-Motivation Link to heading In the last blog post of this series, we saw how to set up the basic development environment, then built and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I’ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works.">
+	<meta name="twitter:description" content="Overview of the esp-idf build-flash-monitor workflow and the FreeRTOS kernel: memory, tasks and app_main()">
 
 <meta property="og:url" content="https://daniel-m.github.io/2018/11/esp32-esp-idf-development-framework-and-the-freertos-kernel/">
 	<meta property="og:site_name" content="Daniel Mejía R.">
 	<meta property="og:title" content="ESP32: esp-idf Development Framework and the FreeRTOS kernel">
-	<meta property="og:description" content="This post is part of a series of ESP32 blog posts. Look the index here
-Motivation Link to heading In the last blog post of this series, we saw how to set up the basic development environment, then built and loaded a hello-world program included in the examples folder of the esp-idf (Espressif IoT Development Framework). Today I’ll try to give some details about what is actually happening in the process, about what is the operating system running within the ESP32, and how it works.">
+	<meta property="og:description" content="Overview of the esp-idf build-flash-monitor workflow and the FreeRTOS kernel: memory, tasks and app_main()">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="posts">
 		<meta property="article:published_time" content="2018-11-10T00:40:25-05:00">
-		<meta property="article:modified_time" content="2019-07-01T22:55:26-05:00">
-		<meta property="article:tag" content="ESP32">
-		<meta property="article:tag" content="FreeRTOS">
+		<meta property="article:modified_time" content="2026-11-18T17:44:29-05:00">
+		<meta property="article:tag" content="Esp32">
+		<meta property="article:tag" content="Freertos">
+		<meta property="article:tag" content="Esp-Idf">
 
 
 
@@ -62,7 +48,7 @@ Motivation Link to heading In the last blog post of this series, we saw how to s
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css" integrity="sha256-9rGzWnsCUhslM49s9Yl1&#43;ZgKbBKEd2P&#43;NaSDB3WM0ec=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.min.7f597f578c1ae14d22ce814d1e78db8eae4148c70da3227ec05bff9633f9a519.css" integrity="sha256-f1l/V4wa4U0izoFNHnjbjq5BSMcNoyJ&#43;wFv/ljP5pRk=" crossorigin="anonymous" media="screen" />
 
 
 
@@ -80,7 +66,7 @@ Motivation Link to heading In the last blog post of this series, we saw how to s
  
   
     
-    <link rel="stylesheet" href="/css/custom.min.23bbfa1b56d315e5e6da61f2b5b6609409b588635f6d72849e665ef1a94511a2.css" integrity="sha256-I7v6G1bTFeXm2mHytbZglAm1iGNfbXKEnmZe8alFEaI=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/custom.min.4c8c959ff967388347fa0b83ed43a2379e2fa0e30f27abc4e84fc742e7bbc47e.css" integrity="sha256-TIyVn/lnOINH&#43;guD7UOiN54voOMPJ6vE6E/HQue7xH4=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -186,11 +172,7 @@ Motivation Link to heading In the last blog post of this series, we saw how to s
           
           <div class="categories">
   <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="/categories/embededdevices/">EmbededDevices</a>
-      <span class="separator">•</span>
-    <a href="/categories/iot/">IoT</a>
-      <span class="separator">•</span>
-    <a href="/categories/projects/">Projects</a>
+    <a href="/categories/embedded--iot/">Embedded &amp; IoT</a>
       <span class="separator">•</span>
     <a href="/categories/notes/">Notes</a><a href="/categories/" class="taxonomy-all-link" title="See all categories"> (all)</a>
 </div>
@@ -198,16 +180,37 @@ Motivation Link to heading In the last blog post of this series, we saw how to s
           <div class="tags">
   <i class="fa-solid fa-tag" aria-hidden="true"></i>
     <span class="tag">
-      <a href="/tags/esp32/">ESP32</a>
+      <a href="/tags/esp32/">Esp32</a>
     </span>
       <span class="separator">•</span>
     <span class="tag">
-      <a href="/tags/freertos/">FreeRTOS</a>
+      <a href="/tags/freertos/">Freertos</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/esp-idf/">Esp-Idf</a>
     </span><a href="/tags/" class="taxonomy-all-link" title="See all tags"> (all)</a>
 </div>
 
         </div>
       </header>
+
+      
+        <aside class="tldr-card" aria-label="TL;DR">
+          <div class="tldr-heading">
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i> TL;DR
+          </div>
+          <ul class="tldr-list">
+            
+              <li>The esp-idf workflow is configure, build, flash and monitor.</li>
+            
+              <li>FreeRTOS handles memory management and task scheduling; synchronization comes later.</li>
+            
+              <li>On the ESP32 the entry point is <code>app_main()</code>, not <code>main()</code>.</li>
+            
+          </ul>
+        </aside>
+      
 
       
 

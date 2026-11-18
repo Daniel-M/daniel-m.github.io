@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Some fun computing the short distance between two curves · Daniel Mejía R.
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Daniel Mejía R.">
+<meta name="description" content="Here I explore some math relationships while finding the short distance between two curves">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Some fun computing the short distance between two curves">
+	<meta name="twitter:description" content="Here I explore some math relationships while finding the short distance between two curves">
+
+<meta property="og:url" content="https://daniel-m.github.io/2026/11/some-fun-computing-the-short-distance-between-two-curves/">
+	<meta property="og:site_name" content="Daniel Mejía R.">
+	<meta property="og:title" content="Some fun computing the short distance between two curves">
+	<meta property="og:description" content="Here I explore some math relationships while finding the short distance between two curves">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-11-17T17:30:40-05:00">
+		<meta property="article:modified_time" content="2026-11-18T17:50:33-05:00">
+		<meta property="article:tag" content="Mathematics">
+		<meta property="article:tag" content="Curves">
+		<meta property="article:tag" content="Geometry">
+		<meta property="article:tag" content="Optimization">
+
+
+
+
+<link rel="canonical" href="https://daniel-m.github.io/2026/11/some-fun-computing-the-short-distance-between-two-curves/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.7f597f578c1ae14d22ce814d1e78db8eae4148c70da3227ec05bff9633f9a519.css" integrity="sha256-f1l/V4wa4U0izoFNHnjbjq5BSMcNoyJ&#43;wFv/ljP5pRk=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css" integrity="sha256-rUj0didZdIhb3APVJR482&#43;FnjFSmP/dyN2sO0q3EaN0=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.min.4c8c959ff967388347fa0b83ed43a2379e2fa0e30f27abc4e84fc742e7bbc47e.css" integrity="sha256-TIyVn/lnOINH&#43;guD7UOiN54voOMPJ6vE6E/HQue7xH4=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-dark">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://daniel-m.github.io/">
+      Daniel Mejía R.
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/now/">Now</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://daniel-m.github.io/2026/11/some-fun-computing-the-short-distance-between-two-curves/">
+              Some fun computing the short distance between two curves
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-11-17T17:30:40-05:00">
+                November 17, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/daniel-m/">Daniel-M</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/algorithms--math/">Algorithms &amp; Math</a>
+      <span class="separator">•</span>
+    <a href="/categories/notes/">Notes</a><a href="/categories/" class="taxonomy-all-link" title="See all categories"> (all)</a>
+</div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/mathematics/">Mathematics</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/curves/">Curves</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/geometry/">Geometry</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/optimization/">Optimization</a>
+    </span><a href="/tags/" class="taxonomy-all-link" title="See all tags"> (all)</a>
+</div>
+
+        </div>
+      </header>
+
+      
+        <aside class="tldr-card" aria-label="TL;DR">
+          <div class="tldr-heading">
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i> TL;DR
+          </div>
+          <ul class="tldr-list">
+            
+              <li>The shortest connecting line is perpendicular to both curves at its endpoints.</li>
+            
+              <li>Provide examples on a parabola and a line (distance √8), and on eˣ and ln x (distance √2).</li>
+            
+          </ul>
+        </aside>
+      
+
+      
+
+
+      <div class="post-content">
+        
+        <h1 id="shortest-distance-between-two-functions">
+  Shortest distance between two functions
+  <a class="heading-link" href="#shortest-distance-between-two-functions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>I am interested in knowing what is the shortest straight-line distance between two functions $f(x)$ and $g(x)$.</p>
+<p>To compute this, let $A$ and $B$ be two points such that</p>
+<ul>
+<li>$A$ and $B$ determine the line
+
+$$y = mx + b.$$</li>
+<li>$A(x,y)$ such that $y = f(x)$ i.e. A belongs to $f(x)$</li>
+<li>$B(x,y)$ such that $y = g(x)$ i.e. A belongs to $g(x)$</li>
+</ul>
+<p>This means that simultaenously,</p>
+$$y_A = f(x_A) = mx_A + b.$$<p>
+</p>
+$$y_B = g(x_B) = mx_B + b.$$<h2 id="distance-minimization">
+  Distance minimization
+  <a class="heading-link" href="#distance-minimization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Using the Euclidean distance bewteen $A(x_A, y_A)$ and $B(x_B, y_B)$,</p>
+$$|d(A,B)|^2 = (x_B - x_A)^2 + (g(x_B) - f(x_A))^2$$<p>To be the shortest distance, it must be a minimum.</p>
+$$d = |d(A,B)|^2 = d(x_A, x_B)^2 \quad \text{must be minimal.}$$<p>
+the total differential
+</p>
+$$d(d(x_A, x_B)^2) = \vec{\nabla}(d(x_A, x_B)^2) \cdot d\vec{r} = 0$$<p>let&rsquo;s calculate
+</p>
+$$\frac{\partial}{\partial x_A} d^2(x_A, x_B) = 2(x_A - x_B)\frac{dx_A}{dx_A} + 2(g(x_B) - f(x_A))\left(\frac{df(x_A)}{dx_A}\right)$$<p><em>(note that: $(x_B - x_A)(-\frac{dx_A}{dx_A})$)</em></p>
+$$\frac{\partial}{\partial x_B} d^2(x_A, x_B) = 2(x_B - x_A)\frac{dx_B}{dx_B} + 2(g(x_B) - f(x_A))\frac{dg(x_B)}{dx_B}$$$$d\,d^2 = 0 \Rightarrow \frac{\partial}{\partial x_A} d^2(x_A, x_B)\,dx_A + \frac{\partial}{\partial x_B} d^2(x_A, x_B)\,dx_B = 0$$<p>However!, to compute the extreme value, it is enough to compute $\vec{\nabla} d^2(x_A, x_B) = \vec{0}$.</p>
+<p>Recapping
+</p>
+$$d^2 = (x_B - x_A)^2 + (g(x_B) - f(x_A))^2$$<p>
+</p>
+$$\frac{\partial}{\partial x_A} d^2 = 2(x_B - x_A)(-1) + 2(g(x_B) - f(x_A))\frac{df(x_A)}{dx_A}$$<p>
+</p>
+$$\frac{\partial}{\partial x_B} d^2 = 2(x_B - x_A)(1) + 2(g(x_B) - f(x_A))\frac{dg(x_B)}{dx_B}$$<p>which yields the system
+</p>
+$$\begin{cases}
+-&amp;(x_B - x_A) - (g(x_B) - f(x_A))\dfrac{df(x_A)}{dx_A} = 0 \\
+&amp;(x_B - x_A) + (g(x_B) - f(x_A))\dfrac{dg(x_B)}{dx_B} = 0.
+\end{cases}$$<p>from this system I see that it is possible to find</p>
+$$(g(x_B) - f(x_A))\left[\frac{dg(x_B)}{dx_B} - \frac{df(x_A)}{dx_A} \right] = 0$$<p>Which it is interesting, as it suggests that ヅ</p>
+$$\frac{df(x_A)}{dx} = \frac{dg(x_B)}{dx}.$$<p>or $g(x_B) = f(x_A)$, it might happen too.</p>
+<h2 id="local-slopes-at-the-line-joining-the-curves-are-parallel">
+  Local slopes at the line joining the curves are parallel
+  <a class="heading-link" href="#local-slopes-at-the-line-joining-the-curves-are-parallel">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>A condition that appears necessary is that the orthogonality between the line connecting with the shortest distance and the
+local slopes that it crosses must be perpendicular. This implies that</p>
+$$\frac{df(x_A)}{dx} = \frac{dg(x_B)}{dx}.$$<p>Which is just the result I got. This means that both slopes must be the same at their corresponding points connected by the minimum distance line.</p>
+<p>I wonder how it could be proven that the line joining the shortest distance between curves is $\perp$ perpendicular to the tangent slopes?.</p>
+<h2 id="shortest-distance-is-perpendicular-to-local-slopes">
+  Shortest distance is perpendicular to local slopes
+  <a class="heading-link" href="#shortest-distance-is-perpendicular-to-local-slopes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>As an interesting consequence from minimizing $d^2(A,B)$, is that I arrived at
+</p>
+$$(x_B - x_A) + (g(x_B) - f(x_A))\frac{df}{dx}(x_A) = 0$$<p>
+now, by rearranging terms
+</p>
+$$-(x_B - x_A) = (g(x_B) - f(x_A))\frac{df}{dx}(x_A)$$<p>
+</p>
+$$-1 = \left[\frac{g(x_B) - f(x_A)}{x_B - x_A}\right]\frac{df}{dx}(x_A)$$<p>which implies that indeed the shortest distance is perpendicular! as the slopes follow the relation
+</p>
+$$m \cdot m^\perp = -1$$<hr>
+<h1 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>In summary, the most relevant relations we have are:
+</p>
+$$\begin{cases}
+(x_B - x_A) + (g(x_B) - f(x_A))\dfrac{df}{dx}(x_A) = 0 \\
+(x_B - x_A) + (g(x_B) - f(x_A))\dfrac{dg}{dx}(x_B) = 0.
+\end{cases}$$<p>
+</p>
+$$\frac{df}{dx}(x_A) = \frac{dg}{dx}(x_B)$$<p>
+</p>
+$$f(x_A) = \frac{df}{dx}(x_A)\,x_A + b$$$$g(x_B) = \frac{dg}{dx}(x_B)\,x_B + b.$$<p>and finally the consequences
+</p>
+$$m^\perp = \frac{f(x_A) - g(x_B)}{x_A - x_B} \quad \text{and} \quad m \cdot m^\perp = -1$$<p>
+therefore $m = \left.\dfrac{df}{dx}(x_A) = \dfrac{dg}{dx}(x)\right|_{x=x_B}$</p>
+<p>so</p>
+$$
+\left[\dfrac{f(x_A) - g(x_B)}{x_A - x_B}\right] \dfrac{df}{dx}(x_A) = -1 \\
+$$<p>and</p>
+$$
+\left[\dfrac{f(x_A) - g(x_B)}{x_A - x_B}\right] \dfrac{dg}{dx}(x_B) = -1
+$$<h2 id="caveat">
+  Caveat
+  <a class="heading-link" href="#caveat">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>It is easy to see that if $f(x) = g(x)$ for some $x$, the equations above won&rsquo;t work. Take $x_A = x_B$ and
+$f(x_A) = g(x_B)$, then the equations become $0 = 0$ which is not useful.
+In this case, the shortest distance is zero, which is intuitive.</p>
+<hr>
+<h1 id="application">
+  Application
+  <a class="heading-link" href="#application">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="easy-application">
+  Easy application
+  <a class="heading-link" href="#easy-application">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The simplest way to verify the relationships using a problem, a parabola and a line come to mind:</p>
+$$f(x) = x^2 + x + 2 \quad \text{and} \quad g(x) = x - 2$$<p>Of course their derivatives are,</p>
+$$\frac{df}{dx} = 2x + 1 \qquad \frac{dg}{dx} = 1.$$<p>Computing the relationships we have,</p>
+$$g(x_B) = x_B - 2 \qquad f(x_A) = x_A^2 + x_A + 2$$<p>
+</p>
+$$g(x_B) - f(x_A) = x_B - 2 - x_A^2 - x_A - 2$$<p>
+</p>
+$$= x_B - x_A^2 - x_A - 4$$$$\frac{df(x_A)}{dx_A} = 2x_A + 1 \qquad \frac{dg(x_B)}{dx_B} = 1$$<p>Therefore we have the relationship
+</p>
+$$(g(x_B) - f(x_A))\left(\frac{dg(x_B)}{dx_B} - \frac{df(x_A)}{dx_A} \right) = 0$$<p>
+</p>
+$$(x_B - x_A^2 - x_A - 4)(1 - 2x_A - 1 ) = 0.$$<p>
+</p>
+$$\underbrace{(2x_A)}_{\text{Ⓐ}} \underbrace{(x_B - x_A^2 - x_A - 4)}_{\text{Ⓑ}} = 0$$<p>Ⓐ $= 0 \Rightarrow x_A = 0$</p>
+<p>Ⓑ $= 0 \Rightarrow x_B = x_A^2 + x_A + 4$.</p>
+<p>the simple path, take $x_A = 0$. Knowing that
+</p>
+$$(x_B - x_A) + (g(x_B) - f(x_A))(g'(x_B)) = 0$$<p>
+</p>
+$$(x_B - 0) + (g(x_B) - f(0))(1) = 0$$<p>
+</p>
+$$x_B + (x_B - 2 - ( 0 + 0 + 2))(1) = 0$$<p>
+</p>
+$$2 x_B - 4 = 0$$<p>
+</p>
+$$x_B = 2$$<p>Hence</p>
+$$
+g(x_B) = m x_B + b
+$$<p>
+and
+</p>
+$$
+f(x_A) = m x_A + b
+$$$$
+m = \frac{g(x_B) - f(x_A)}{x_B - x_A} = \frac{0-2}{2-0} = -1
+$$<p>and $b = 2$ which is easily computed from $0 = -1*2 + b$.</p>
+<p>The perpendicular line that joins both graphs is
+</p>
+$$
+y = -x + 2
+$$<p>and the distance is</p>
+$$|d(A,B)|^2 = (2-0)^2 + (0 - 2)^2 = 4 + 4 = 8$$<p>
+</p>
+$$|d(A,B)| = \sqrt{8}$$<p><img src="linear_short_distance.png" alt="exponential"></p>
+<h2 id="stepping-up-difficulty">
+  Stepping up difficulty
+  <a class="heading-link" href="#stepping-up-difficulty">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>I want to challenge myself and test it with
+</p>
+$$y = e^x = f(x) \qquad y = \operatorname{Ln} x = g(x).$$<p>
+</p>
+$$\frac{dy}{dx} = \frac{df(x)}{dx} = e^x \qquad \frac{dg(x)}{dx} = \frac{1}{x}$$<p>the system of equations to solve
+</p>
+$$\begin{cases}
+\dfrac{df}{dx}(x_A) = \dfrac{dg}{dx}(x_B) \\
+(x_B - x_A) + [g(x_B) - f(x_A)]\dfrac{dg}{dx}(x_B) = 0. \quad \text{or } \dfrac{df}{dx}(x_A)
+\end{cases}$$$$\begin{cases}
+e^{x_A} = \dfrac{1}{x_B} &amp; \text{①} \\
+(x_B - x_A) + [\operatorname{Ln} x_B - e^{x_A}] e^{x_A} = 0. &amp; \text{②}
+\end{cases}$$<p>from ① $\quad x_B = e^{-x_A} \quad$ into ②
+</p>
+$$(e^{-x_A} - x_A) + [\operatorname{Ln} x_B - e^{x_A}] e^{x_A} = 0.$$<p>
+</p>
+$$e^{-x_A} - x_A + [\underbrace{\operatorname{Ln} e^{-x_A}}_{= -x_A} - e^{x_A}] e^{x_A} = 0$$<p>
+</p>
+$$e^{-x_A} - x_A - x_A e^{x_A} - e^{2x_A} = 0$$<p>
+</p>
+$$x_A(e^{x_A} - 1) - e^{2x_A} + e^{-x_A} = 0.$$<p>$\begin{pmatrix} \text{let} &amp; \alpha = e^{x_A} &amp; \alpha^2 = e^{2x_A} \\ &amp; \alpha^{-1} = e^{-x_A} &amp; \operatorname{Ln}\alpha = \operatorname{Ln} e^{x_A} = x_A \end{pmatrix}$</p>
+$$x_A(\alpha - 1) - \alpha^2 + \alpha^{-1} = 0.$$<p>
+</p>
+$$x_A \alpha (\alpha - 1) - \alpha^3 + 1 = 0. \qquad \times \alpha$$<p>
+</p>
+$$\operatorname{Ln}\alpha (\alpha (\alpha - 1)) - \alpha^3 + 1 = 0, \qquad \alpha \neq 0.$$<p>An ansatz $\alpha = 1$
+</p>
+$$\underbrace{\operatorname{Ln}(1)}_{=0} (1(1-1)) - 1^3 + 1 = 0$$$$\alpha = 1 = e^{x_A} \Rightarrow x_A = 0$$<p>
+</p>
+$$x_B = e^{-x_A} = 1$$$$f(x=0) = e^0 = 1 = y_1 \qquad g(x=1) = \ln 1 = 0 \quad y_2 = 0.$$$$\begin{matrix}
+x_A = 0 &amp; y_1 = 1 \\
+x_B = 1 &amp; y_2 = 0.
+\end{matrix}
+\qquad m = \frac{0 - 1}{1 - 0} = -1$$<p>The line is $y = mx + b$. therefore
+</p>
+$$1 = m \cdot 0 + b \Rightarrow b = 1$$<p>
+</p>
+$$0 = -1 \times 1 + b \Rightarrow b = 1.$$<p>minimum distance is obtained through the line
+</p>
+$$
+y = -x + 1
+$$<p>The distance computes as
+</p>
+$$|d(A,B)|^2 = (1-0)^2 + (0 - 1)^2 = 2 $$<p>
+</p>
+$$|d(A,B)| = \sqrt{2}$$<p>
+<img src="exp_short_distance.png" alt="exponential"></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        <div class="comments">
+    <script>
+
+      let s = document.createElement('script');
+      s.src = 'https://comments.app/js/widget.js?3';
+      s.setAttribute('data-comments-app-website', 'O_0UM3BI');
+      s.setAttribute('data-limit', '5');
+      s.setAttribute('data-height', '200px');
+      s.setAttribute('data-color', 'dark');
+      s.setAttribute('data-dislikes', 'false');
+      s.setAttribute('data-outlined', 'false');
+      s.setAttribute('data-colorful', 'false');
+      s.setAttribute('data-dark', 'true');
+      document.querySelector('div.comments').innerHTML = '';
+      document.querySelector('div.comments').appendChild(s);
+
+    </script>
+    </div>
+        
+      </footer>
+    </article>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"></script>
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Daniel Mejía R. 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+  
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-K120Y53H2L"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-K120Y53H2L');
+        }
+      </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

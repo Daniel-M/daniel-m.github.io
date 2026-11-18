@@ -13,47 +13,30 @@
 
 
 <meta name="author" content="Daniel Mejía R.">
-<meta name="description" content="
-  Problem 1 - Multiples of 3 and 5
-  
-    
-    Link to heading
-  
-
-The problem statement asks to find the sum of all multiples of 3 and 5 not greater than 1000.
-
-  Bruteforcing solution
-  
-    
-    Link to heading
-  
-
-To bruteforce the solution it is enough to generate a list of multiples, prevent double counting and then perform the sum. In order to test Object Oriente Design I&rsquo;ll be overengineering the solution.">
+<meta name="description" content="Project Euler problem 1 by brute force and Gauss sums, plus AI-generated code whose passing tests hide a wrong answer">
 <meta name="keywords" content="blog,developer,personal">
 
 
 
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Project Euler - Problem 1 - Multiples of 3 and 5">
-	<meta name="twitter:description" content="Problem 1 - Multiples of 3 and 5 Link to heading The problem statement asks to find the sum of all multiples of 3 and 5 not greater than 1000.
-Bruteforcing solution Link to heading To bruteforce the solution it is enough to generate a list of multiples, prevent double counting and then perform the sum. In order to test Object Oriente Design I’ll be overengineering the solution.">
+	<meta name="twitter:description" content="Project Euler problem 1 by brute force and Gauss sums, plus AI-generated code whose passing tests hide a wrong answer">
 
 <meta property="og:url" content="https://daniel-m.github.io/2026/08/project-euler-problem-1-multiples-of-3-and-5/">
 	<meta property="og:site_name" content="Daniel Mejía R.">
 	<meta property="og:title" content="Project Euler - Problem 1 - Multiples of 3 and 5">
-	<meta property="og:description" content="Problem 1 - Multiples of 3 and 5 Link to heading The problem statement asks to find the sum of all multiples of 3 and 5 not greater than 1000.
-Bruteforcing solution Link to heading To bruteforce the solution it is enough to generate a list of multiples, prevent double counting and then perform the sum. In order to test Object Oriente Design I’ll be overengineering the solution.">
+	<meta property="og:description" content="Project Euler problem 1 by brute force and Gauss sums, plus AI-generated code whose passing tests hide a wrong answer">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="posts">
 		<meta property="article:published_time" content="2026-08-05T18:37:09-05:00">
-		<meta property="article:modified_time" content="2026-08-11T19:20:09-05:00">
+		<meta property="article:modified_time" content="2026-11-18T17:44:29-05:00">
 		<meta property="article:tag" content="Project-Euler">
 		<meta property="article:tag" content="Algorithms">
 		<meta property="article:tag" content="Problem-Solving">
 		<meta property="article:tag" content="Ai">
-		<meta property="article:tag" content="LLMs">
-		<meta property="article:tag" content="AI-Coding">
+		<meta property="article:tag" content="Llms">
+		<meta property="article:tag" content="Ai-Coding">
 			<meta property="og:see_also" content="https://daniel-m.github.io/2026/08/project-euler-problem-2-even-fibonacci-numbers/">
 
 
@@ -69,7 +52,7 @@ Bruteforcing solution Link to heading To bruteforce the solution it is enough to
 
   
   
-  <link rel="stylesheet" href="/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css" integrity="sha256-9rGzWnsCUhslM49s9Yl1&#43;ZgKbBKEd2P&#43;NaSDB3WM0ec=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="/css/coder.min.7f597f578c1ae14d22ce814d1e78db8eae4148c70da3227ec05bff9633f9a519.css" integrity="sha256-f1l/V4wa4U0izoFNHnjbjq5BSMcNoyJ&#43;wFv/ljP5pRk=" crossorigin="anonymous" media="screen" />
 
 
 
@@ -87,7 +70,7 @@ Bruteforcing solution Link to heading To bruteforce the solution it is enough to
  
   
     
-    <link rel="stylesheet" href="/css/custom.min.23bbfa1b56d315e5e6da61f2b5b6609409b588635f6d72849e665ef1a94511a2.css" integrity="sha256-I7v6G1bTFeXm2mHytbZglAm1iGNfbXKEnmZe8alFEaI=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="/css/custom.min.4c8c959ff967388347fa0b83ed43a2379e2fa0e30f27abc4e84fc742e7bbc47e.css" integrity="sha256-TIyVn/lnOINH&#43;guD7UOiN54voOMPJ6vE6E/HQue7xH4=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -192,15 +175,13 @@ Bruteforcing solution Link to heading To bruteforce the solution it is enough to
           </div>
           <div class="authors">
   <i class="fa-solid fa-user" aria-hidden="true"></i>
-    <a href="/authors/daniel-m/">Daniel M</a></div>
+    <a href="/authors/daniel-m/">Daniel-M</a></div>
 
           <div class="categories">
   <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="/categories/project-euler/">Project-Euler</a>
+    <a href="/categories/algorithms--math/">Algorithms &amp; Math</a>
       <span class="separator">•</span>
-    <a href="/categories/algorithms/">Algorithms</a>
-      <span class="separator">•</span>
-    <a href="/categories/problem-solving/">Problem-Solving</a><a href="/categories/" class="taxonomy-all-link" title="See all categories"> (all)</a>
+    <a href="/categories/projects/">Projects</a><a href="/categories/" class="taxonomy-all-link" title="See all categories"> (all)</a>
 </div>
 
           <div class="tags">
@@ -222,16 +203,33 @@ Bruteforcing solution Link to heading To bruteforce the solution it is enough to
     </span>
       <span class="separator">•</span>
     <span class="tag">
-      <a href="/tags/llms/">LLMs</a>
+      <a href="/tags/llms/">Llms</a>
     </span>
       <span class="separator">•</span>
     <span class="tag">
-      <a href="/tags/ai-coding/">AI-Coding</a>
+      <a href="/tags/ai-coding/">Ai-Coding</a>
     </span><a href="/tags/" class="taxonomy-all-link" title="See all tags"> (all)</a>
 </div>
 
         </div>
       </header>
+
+      
+        <aside class="tldr-card" aria-label="TL;DR">
+          <div class="tldr-heading">
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i> TL;DR
+          </div>
+          <ul class="tldr-list">
+            
+              <li>Brute force works, but a Gauss-sum formula takes under 1% of the time.</li>
+            
+              <li>AI-generated code and its unit tests passed, yet the answer was wrong.</li>
+            
+              <li>The correct answer below 1000 is 233168.</li>
+            
+          </ul>
+        </aside>
+      
 
       
 
@@ -394,7 +392,7 @@ Bruteforcing solution Link to heading To bruteforce the solution it is enough to
 <p>As a scientist and math admirer, I consider other approaches to this problem. So, what about using math to solve it?
 We know that multiples of $N$ are of the form</p>
 $$
-p(i) = N\,i \qquad \forall i > 0
+p(i) = N\,i \qquad \forall i &gt; 0
 $$<p>So the multiples of 3 are of the form</p>
 $$
 m_{3}(i) = 3i

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Curves on Daniel Mejía R.</title>
+		<link>https://daniel-m.github.io/tags/curves/</link>
+		<description>Recent content in Curves on Daniel Mejía R.</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 18 Nov 2026 17:50:33 -0500</lastBuildDate>
+		
+			<atom:link href="https://daniel-m.github.io/tags/curves/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Some fun computing the short distance between two curves</title>
+				<link>https://daniel-m.github.io/2026/11/some-fun-computing-the-short-distance-between-two-curves/</link>
+				<pubDate>Tue, 17 Nov 2026 17:30:40 -0500</pubDate>
+				<guid>https://daniel-m.github.io/2026/11/some-fun-computing-the-short-distance-between-two-curves/</guid>
+				<description>&lt;h1 id=&#34;shortest-distance-between-two-functions&#34;&gt;&#xA;  Shortest distance between two functions&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#shortest-distance-between-two-functions&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;I am interested in knowing what is the shortest straight-line distance between two functions $f(x)$ and $g(x)$.&lt;/p&gt;&#xA;&lt;p&gt;To compute this, let $A$ and $B$ be two points such that&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$A$ and $B$ determine the line&#xA;&#xA;$$y = mx + b.$$&lt;/li&gt;&#xA;&lt;li&gt;$A(x,y)$ such that $y = f(x)$ i.e. A belongs to $f(x)$&lt;/li&gt;&#xA;&lt;li&gt;$B(x,y)$ such that $y = g(x)$ i.e. A belongs to $g(x)$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This means that simultaenously,&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

@@ -10,63 +10,35 @@
 		
 		
 		
-			<lastBuildDate>Thu, 13 Aug 2026 18:44:39 -0500</lastBuildDate>
+			<lastBuildDate>Wed, 18 Nov 2026 17:50:33 -0500</lastBuildDate>
 		
 			<atom:link href="https://daniel-m.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Algorithms</title>
-				<link>https://daniel-m.github.io/categories/algorithms/</link>
+				<title>Algorithms &amp; Math</title>
+				<link>https://daniel-m.github.io/categories/algorithms--math/</link>
+				<pubDate>Tue, 17 Nov 2026 17:30:40 -0500</pubDate>
+				<guid>https://daniel-m.github.io/categories/algorithms--math/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Notes</title>
+				<link>https://daniel-m.github.io/categories/notes/</link>
+				<pubDate>Tue, 17 Nov 2026 17:30:40 -0500</pubDate>
+				<guid>https://daniel-m.github.io/categories/notes/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Projects</title>
+				<link>https://daniel-m.github.io/categories/projects/</link>
 				<pubDate>Thu, 13 Aug 2026 18:44:29 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/algorithms/</guid>
+				<guid>https://daniel-m.github.io/categories/projects/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>Problem-Solving</title>
-				<link>https://daniel-m.github.io/categories/problem-solving/</link>
-				<pubDate>Thu, 13 Aug 2026 18:44:29 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/problem-solving/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Project-Euler</title>
-				<link>https://daniel-m.github.io/categories/project-euler/</link>
-				<pubDate>Thu, 13 Aug 2026 18:44:29 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/project-euler/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Ai</title>
-				<link>https://daniel-m.github.io/categories/ai/</link>
+				<title>Blog &amp; Personal</title>
+				<link>https://daniel-m.github.io/categories/blog--personal/</link>
 				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/ai/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Blogging</title>
-				<link>https://daniel-m.github.io/categories/blogging/</link>
-				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/blogging/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Thoughts</title>
-				<link>https://daniel-m.github.io/categories/thoughts/</link>
-				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/thoughts/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Etl</title>
-				<link>https://daniel-m.github.io/categories/etl/</link>
-				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/etl/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Generators</title>
-				<link>https://daniel-m.github.io/categories/generators/</link>
-				<pubDate>Thu, 16 Nov 2023 11:05:45 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/generators/</guid>
+				<guid>https://daniel-m.github.io/categories/blog--personal/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -77,94 +49,17 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Autodoc</title>
-				<link>https://daniel-m.github.io/categories/autodoc/</link>
+				<title>DevOps &amp; Cloud</title>
+				<link>https://daniel-m.github.io/categories/devops--cloud/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/autodoc/</guid>
+				<guid>https://daniel-m.github.io/categories/devops--cloud/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>Backend</title>
-				<link>https://daniel-m.github.io/categories/backend/</link>
+				<title>Web Development</title>
+				<link>https://daniel-m.github.io/categories/web-development/</link>
 				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/backend/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Doc</title>
-				<link>https://daniel-m.github.io/categories/doc/</link>
-				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/doc/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Expressjs</title>
-				<link>https://daniel-m.github.io/categories/expressjs/</link>
-				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/expressjs/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Integrations</title>
-				<link>https://daniel-m.github.io/categories/integrations/</link>
-				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/integrations/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Nodejs</title>
-				<link>https://daniel-m.github.io/categories/nodejs/</link>
-				<pubDate>Tue, 07 Jun 2022 08:46:43 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/nodejs/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Poc</title>
-				<link>https://daniel-m.github.io/categories/poc/</link>
-				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/poc/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Proof of Concept</title>
-				<link>https://daniel-m.github.io/categories/proof-of-concept/</link>
-				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/proof-of-concept/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Selenium</title>
-				<link>https://daniel-m.github.io/categories/selenium/</link>
-				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/selenium/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Webscraping</title>
-				<link>https://daniel-m.github.io/categories/webscraping/</link>
-				<pubDate>Tue, 24 May 2022 14:12:46 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/webscraping/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Environments</title>
-				<link>https://daniel-m.github.io/categories/environments/</link>
-				<pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/environments/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Pyenv</title>
-				<link>https://daniel-m.github.io/categories/pyenv/</link>
-				<pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/pyenv/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Virtualenv</title>
-				<link>https://daniel-m.github.io/categories/virtualenv/</link>
-				<pubDate>Wed, 03 Nov 2021 15:52:28 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/virtualenv/</guid>
+				<guid>https://daniel-m.github.io/categories/web-development/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -175,52 +70,10 @@
 				<description></description>
 			</item>
 			<item>
-				<title>InfluxDB</title>
-				<link>https://daniel-m.github.io/categories/influxdb/</link>
-				<pubDate>Thu, 29 Oct 2020 14:17:42 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/influxdb/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>MongoDB</title>
-				<link>https://daniel-m.github.io/categories/mongodb/</link>
-				<pubDate>Wed, 28 Oct 2020 16:17:42 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/mongodb/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Fast-Notes</title>
-				<link>https://daniel-m.github.io/categories/fast-notes/</link>
-				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/fast-notes/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Programming</title>
-				<link>https://daniel-m.github.io/categories/programming/</link>
-				<pubDate>Fri, 07 Feb 2020 00:08:20 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/programming/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Debian</title>
-				<link>https://daniel-m.github.io/categories/debian/</link>
+				<title>Linux &amp; Systems</title>
+				<link>https://daniel-m.github.io/categories/linux--systems/</link>
 				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/debian/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Gpu</title>
-				<link>https://daniel-m.github.io/categories/gpu/</link>
-				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/gpu/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Nvidia</title>
-				<link>https://daniel-m.github.io/categories/nvidia/</link>
-				<pubDate>Tue, 12 Nov 2019 17:51:16 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/nvidia/</guid>
+				<guid>https://daniel-m.github.io/categories/linux--systems/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -231,80 +84,17 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Notes</title>
-				<link>https://daniel-m.github.io/categories/notes/</link>
-				<pubDate>Fri, 15 Feb 2019 22:33:04 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/notes/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>EmbededDevices</title>
-				<link>https://daniel-m.github.io/categories/embededdevices/</link>
+				<title>Embedded &amp; IoT</title>
+				<link>https://daniel-m.github.io/categories/embedded--iot/</link>
 				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/embededdevices/</guid>
+				<guid>https://daniel-m.github.io/categories/embedded--iot/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>IoT</title>
-				<link>https://daniel-m.github.io/categories/iot/</link>
-				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/iot/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Projects</title>
-				<link>https://daniel-m.github.io/categories/projects/</link>
-				<pubDate>Mon, 03 Dec 2018 20:40:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/projects/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>ESP32</title>
-				<link>https://daniel-m.github.io/categories/esp32/</link>
-				<pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/esp32/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Table of Contents</title>
-				<link>https://daniel-m.github.io/categories/table-of-contents/</link>
-				<pubDate>Sun, 28 Oct 2018 19:42:25 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/table-of-contents/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Blog</title>
-				<link>https://daniel-m.github.io/categories/blog/</link>
-				<pubDate>Wed, 17 Oct 2018 12:23:57 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/blog/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>DevOps</title>
-				<link>https://daniel-m.github.io/categories/devops/</link>
-				<pubDate>Sat, 11 Aug 2018 21:57:55 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/devops/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>WebDevelopment</title>
-				<link>https://daniel-m.github.io/categories/webdevelopment/</link>
-				<pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/webdevelopment/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>WebFrameworks</title>
-				<link>https://daniel-m.github.io/categories/webframeworks/</link>
-				<pubDate>Tue, 26 Jun 2018 21:37:38 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/webframeworks/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>DeepLearning</title>
-				<link>https://daniel-m.github.io/categories/deeplearning/</link>
+				<title>Data &amp; ML</title>
+				<link>https://daniel-m.github.io/categories/data--ml/</link>
 				<pubDate>Fri, 01 Jun 2018 21:47:48 -0500</pubDate>
-				<guid>https://daniel-m.github.io/categories/deeplearning/</guid>
+				<guid>https://daniel-m.github.io/categories/data--ml/</guid>
 				<description></description>
 			</item>
 			<item>
