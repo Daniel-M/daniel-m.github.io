@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Wed, 18 Nov 2026 17:44:29 -0500</lastBuildDate>
+			<lastBuildDate>Thu, 19 Nov 2026 19:28:36 -0500</lastBuildDate>
 		
 			<atom:link href="https://daniel-m.github.io/tags/personal/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Reflections on blogging in AI era - 2026</title>
+				<link>https://daniel-m.github.io/2026/08/reflections-on-blogging-in-ai-era-2026/</link>
+				<pubDate>Wed, 05 Aug 2026 13:20:49 -0500</pubDate>
+				<guid>https://daniel-m.github.io/2026/08/reflections-on-blogging-in-ai-era-2026/</guid>
+				<description>&lt;p&gt;I’ve been thinking on writing this for months since I came across an article called &lt;a href=&#34;https://www.norberthires.blog/blogging-in-2025/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;blogging in 2025&lt;/a&gt;. Worked for three years in an AI-first startup, I switched from hand-made code solutions with AI assistance, to be the assistant reviewing AI generated code. I felt something was stripped out of me. Now that I see that AI generated content has flooded the internet, merchandise, and It is used to basically produce a lot of digital goods like books (math books being sold at amazon allegedly written by AI), music, podcast scripts, damn, it is overwhelming.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Alternative blog at http://blog.parallelo.ai</title>
 				<link>https://daniel-m.github.io/2018/10/alternative-blog-at-http--blog.parallelo.ai/</link>

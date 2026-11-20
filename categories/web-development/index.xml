@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Wed, 18 Nov 2026 17:44:29 -0500</lastBuildDate>
+			<lastBuildDate>Fri, 20 Nov 2026 00:12:37 -0500</lastBuildDate>
 		
 			<atom:link href="https://daniel-m.github.io/categories/web-development/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>A second look to Multer DOS</title>
+				<link>https://daniel-m.github.io/2026/11/a-second-look-to-multer-dos/</link>
+				<pubDate>Thu, 19 Nov 2026 18:51:39 -0500</pubDate>
+				<guid>https://daniel-m.github.io/2026/11/a-second-look-to-multer-dos/</guid>
+				<description>&lt;p&gt;For context check &lt;a href=&#34;https://daniel-m.github.io/2022/06/expressjs-uploads-to-digital-ocean-spaces-through-s3-aws-s3/&#34; &gt;an old post&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;To keep things short, I&amp;rsquo;ve been doing some software archeology on my pasts projects. I noticed that my opensourced project &lt;a href=&#34;https://github.com/Daniel-M/multer-dos&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Daniel-M/multer-dos&lt;/a&gt; was getting about 10 downloads a week on the npm registry &lt;a href=&#34;https://www.npmjs.com/package/multer-dos&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.npmjs.com/package/multer-dos&lt;/a&gt; so i decided to add support for typescript and dependency updates. The project is so easy to maintain, I guess part of the 10 downloads per week means this is still used in production by some people, so thanks for believing in me&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>ExpressJS uploads to Digital Ocean Spaces through S3 AWS-S3</title>
 				<link>https://daniel-m.github.io/2022/06/expressjs-uploads-to-digital-ocean-spaces-through-s3-aws-s3/</link>
